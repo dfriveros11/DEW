@@ -153,9 +153,9 @@ public class BoletaPersistenceTest {
     /**
      * Test of remove method, of class BoletaPersistence.
      */
-    public void testRemove() {
+    public void testDelete() {
         BoletaEntity entity = data.get(0);
-        persistence.remove(entity);
+        persistence.delete(entity);
         BoletaEntity deleted = em.find(BoletaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }

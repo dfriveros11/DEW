@@ -25,7 +25,10 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -34,4 +37,46 @@ import javax.persistence.Entity;
 @Entity
 public class BoletaEntity extends BaseEntity implements Serializable {
    
+    private double precio;
+    private boolean venida;
+    
+    @OneToOne(mappedBy = "reembolso")
+    private Reembolso reembolso;
+    
+    @OneToOne(mappedBy = "envio")
+    private Envio envio;
+    
+    @ManyToOne()
+    private Usuario usuario;
+    
+    @ManyToOne()
+    private Comentario comentario;
+    
+    @ManyToOne()
+    private Funcion funcion;
+    
+    @ManyToOne()
+    private Silla silla;
+            
+    
+    
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public boolean isVenida() {
+        return venida;
+    }
+
+    public void setVenida(boolean venida) {
+        this.venida = venida;
+    }
+
+    
+    
 }
