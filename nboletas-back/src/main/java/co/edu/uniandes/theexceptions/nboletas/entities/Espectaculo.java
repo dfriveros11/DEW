@@ -5,10 +5,15 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author df.riveros11
  */
 class Espectaculo {
+    
+    @OneToMany(mappedBy = "espectaculos")
+    private OrganizadorEntity organizador;
     
 }

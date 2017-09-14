@@ -5,10 +5,17 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author df.riveros11
  */
 class Reembolso {
+    
+     @OneToOne(mappedBy = "reembolso")
+    private BoletaEntity reembolso;
+    
+    
     
 }

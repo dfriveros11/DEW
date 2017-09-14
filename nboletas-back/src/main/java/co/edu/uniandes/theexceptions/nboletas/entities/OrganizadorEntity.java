@@ -11,7 +11,7 @@ public class OrganizadorEntity extends BaseEntity implements Serializable
     
     private String nombreEmpresa;
             
-    @OneToMany()
+    @OneToMany(mappedBy = "organizador")
     private List<Espectaculo> espectaculos;
 
     public String getNombreEmpresa() {

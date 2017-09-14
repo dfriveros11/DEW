@@ -5,10 +5,16 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.util.List;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author df.riveros11
  */
 class Usuario {
+    
+    @OneToMany()
+    private List<BoletaEntity> boletas;
     
 }
