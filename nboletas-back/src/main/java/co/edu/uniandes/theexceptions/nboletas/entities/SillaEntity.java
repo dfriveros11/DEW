@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -14,7 +16,8 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author df.riveros11
  */
-class SillaEntity {
+@Entity
+public class SillaEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "silla")

@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -13,7 +15,8 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author df.riveros11
  */
-class EspectaculoEntity {
+@Entity
+public class EspectaculoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
