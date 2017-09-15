@@ -5,17 +5,19 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
-import javax.persistence.OneToOne;
+import java.util.List;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author df.riveros11
  */
-class Reembolso {
+class ComentarioEntity {
     
-     @OneToOne(mappedBy = "reembolso")
-    private BoletaEntity reembolso;
-    
-    
+    @PodamExclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comentario")
+    private List<BoletaEntity> boletas;
     
 }

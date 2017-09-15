@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +15,7 @@ import java.util.List;
  * @param <T>
  */
 public abstract class AbstractLogic<T> {
+    
     /**Crear un objeto tipo T
      * @param entity    
      * @return     

@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 
 @Entity
@@ -10,9 +11,10 @@ public class OrganizadorEntity extends BaseEntity implements Serializable
 {
     
     private String nombreEmpresa;
-            
+    
+    @PodamExclude
     @OneToMany(mappedBy = "organizador")
-    private List<Espectaculo> espectaculos;
+    private List<EspectaculoEntity> espectaculos;
 
     public String getNombreEmpresa() {
         return nombreEmpresa;

@@ -5,10 +5,19 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.util.List;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author df.riveros11
  */
-class Funcion {
+class FuncionEntity {
+    
+   @PodamExclude
+   @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcion")
+   private List<BoletaEntity> boletas;
     
 }

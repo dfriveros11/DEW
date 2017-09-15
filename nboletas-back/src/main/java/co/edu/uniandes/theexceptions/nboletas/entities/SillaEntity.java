@@ -5,15 +5,21 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.util.List;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author df.riveros11
  */
-class Espectaculo {
+class SillaEntity {
     
-    @OneToMany(mappedBy = "espectaculos")
-    private OrganizadorEntity organizador;
+    @PodamExclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "silla")
+    private List<BoletaEntity> boletas;
+    
+    
     
 }
