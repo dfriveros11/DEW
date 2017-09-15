@@ -5,16 +5,17 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
-import java.util.List;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
  * @author df.riveros11
  */
-class Usuario {
+class EnvioEntity {
     
-    @OneToMany()
-    private List<BoletaEntity> boletas;
+    @PodamExclude
+    @OneToOne(mappedBy = "envio")
+    private BoletaEntity boleta;
     
 }

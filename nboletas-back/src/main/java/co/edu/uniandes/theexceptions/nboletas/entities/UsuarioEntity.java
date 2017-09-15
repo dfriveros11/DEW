@@ -5,10 +5,18 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.util.List;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author df.riveros11
  */
-class Comentario {
+class UsuarioEntity {
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "usuario")
+    private List<BoletaEntity> boletas;
     
 }

@@ -5,10 +5,18 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author df.riveros11
  */
-class Silla {
+class EspectaculoEntity {
+    
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private OrganizadorEntity organizador;
     
 }

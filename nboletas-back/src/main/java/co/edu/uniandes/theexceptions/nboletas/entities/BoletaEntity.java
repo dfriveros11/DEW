@@ -27,8 +27,10 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -40,23 +42,29 @@ public class BoletaEntity extends BaseEntity implements Serializable {
     private double precio;
     private boolean venida;
     
-    @OneToOne(mappedBy = "reembolso")
-    private Reembolso reembolso;
+    @PodamExclude
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
+    private ReembolsoEntity reembolso;
     
-    @OneToOne(mappedBy = "envio")
-    private Envio envio;
+    @PodamExclude
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
+    private EnvioEntity envio;
     
-    @ManyToOne()
-    private Usuario usuario;
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UsuarioEntity usuario;
     
-    @ManyToOne()
-    private Comentario comentario;
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ComentarioEntity comentario;
     
-    @ManyToOne()
-    private Funcion funcion;
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private FuncionEntity funcion;
     
-    @ManyToOne()
-    private Silla silla;
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private SillaEntity silla;
             
     
     
