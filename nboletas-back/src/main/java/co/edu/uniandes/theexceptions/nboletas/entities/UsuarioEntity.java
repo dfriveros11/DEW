@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -13,7 +15,8 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author df.riveros11
  */
-class UsuarioEntity {
+@Entity
+public class UsuarioEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy = "usuario")
