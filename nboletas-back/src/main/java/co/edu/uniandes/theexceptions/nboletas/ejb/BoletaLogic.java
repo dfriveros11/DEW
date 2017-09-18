@@ -92,4 +92,8 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         return boletas;
     }
 
+    public List<BoletaEntity> getBoletas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
