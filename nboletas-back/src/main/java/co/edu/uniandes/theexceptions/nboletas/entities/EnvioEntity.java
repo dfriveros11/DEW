@@ -12,7 +12,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
- * @author df.riveros11
+ * @author angeloMarcetty
  */
 @Entity
 public class EnvioEntity extends BaseEntity implements Serializable {

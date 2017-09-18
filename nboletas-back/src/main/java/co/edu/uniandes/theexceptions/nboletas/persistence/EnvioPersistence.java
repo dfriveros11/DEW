@@ -9,7 +9,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
 
 /**
  *
- * @author am.valero10
+ * @author angeloMarcetty
  */
 public class EnvioPersistence extends AbstractPersistence<EnvioEntity>  {
     

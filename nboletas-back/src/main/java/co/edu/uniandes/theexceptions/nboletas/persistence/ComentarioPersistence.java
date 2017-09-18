@@ -9,7 +9,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 
 /**
  *
- * @author am.valero10
+ * @author angeloMarcetty
  */
 public class ComentarioPersistence extends AbstractPersistence<ComentarioEntity> {
     

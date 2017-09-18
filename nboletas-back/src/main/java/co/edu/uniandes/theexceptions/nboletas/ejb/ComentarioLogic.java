@@ -5,39 +5,66 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.persistence.ComentarioPersistence;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
- * @author df.riveros11
+ * @author angeloMarcetty
  */
 @Stateless
-public class ComentarioLogic extends AbstractLogic<ComentarioLogic> {
+public class ComentarioLogic extends AbstractLogic<ComentarioEntity> {
+
+    
+    private static final Logger LOGGER = Logger.getLogger(ComentarioLogic.class.getName());
+
+    
+     @Inject
+   private ComentarioPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     @Override
-    public ComentarioLogic create(ComentarioLogic entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ComentarioEntity create(ComentarioEntity entity) {
+        LOGGER.info("Inicia proceso de creación de comentario");
+        persistence.create(entity);
+        LOGGER.info("Termina proceso de creación de comentario");
+        return entity;
     }
 
     @Override
-    public ComentarioLogic uptade(ComentarioLogic entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ComentarioEntity uptade(ComentarioEntity entity) {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar comentario con id={0}", entity.getId());
+        ComentarioEntity newEntity = persistence.uptade(entity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar comentario con id={0}", entity.getId());
+        return newEntity;
     }
 
     @Override
-    public void delete(ComentarioLogic entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(ComentarioEntity entity) {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar comentario con id={0}", entity.getId());
+        persistence.delete(entity);
+         LOGGER.log(Level.INFO, "Termina proceso de borrar comentario con id={0}", entity.getId());
     }
 
     @Override
-    public ComentarioLogic find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ComentarioEntity find(Object id) {
+        ComentarioEntity coment = persistence.find(id);
+        return coment;
     }
 
     @Override
-    public List<ComentarioLogic> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<ComentarioEntity> findAll() {
+        LOGGER.info("Inicia proceso de consultar todos los comentarios");
+        List<ComentarioEntity> comentarios = persistence.findAll();
+        LOGGER.info("Termina proceso de consultar todos los comentario");
+        return comentarios;
     }
+
+    
+    
     
 }
