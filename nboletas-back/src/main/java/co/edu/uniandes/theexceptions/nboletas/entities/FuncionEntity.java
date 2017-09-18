@@ -6,10 +6,15 @@
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -18,9 +23,18 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class FuncionEntity extends BaseEntity implements Serializable {
-    
+   @Temporal(TemporalType.DATE)
+   private Date fecha;
+   
    @PodamExclude
    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcion")
    private List<BoletaEntity> boletas;
-    
+   
+   @PodamExclude
+   @ManyToOne(fetch = FetchType.LAZY)
+   private List<FuncionEntity> funciones;
+   
+   @PodamExclude
+   @OneToOne(fetch = FetchType.LAZY)
+   private EspectaculoEntity espectaculo;
 }

@@ -81,7 +81,7 @@ public class BoletaResource {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         BoletaEntity BoletaEntity = Boleta.toEntity();
         // Invoca la lógica para crear la Boleta nueva
-        BoletaEntity nuevoBoleta = boletaLogic.createBoleta(BoletaEntity);
+        BoletaEntity nuevoBoleta = boletaLogic.create(BoletaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new BoletaDetailDTO(nuevoBoleta);
     }
