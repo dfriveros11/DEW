@@ -10,7 +10,9 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -21,12 +23,14 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class ComentarioEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comentario")
-    private List<BoletaEntity> boletas;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "comentario")
+    private BoletaEntity boleta;
+   
     
-    //relacion boleta cambair.
-    //falta relacion con Espectaculo
-    
+    @PodamExclude
+    @ManyToOne
+    private EspectaculoEntity espectaculo;
+        
     
     private String comentario;
     private Date fecha;
