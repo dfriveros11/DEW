@@ -95,7 +95,7 @@ public class BoletaResource {
      */
     @GET
     public List<BoletaDetailDTO> getBoletas() throws BusinessLogicException {
-        return listEntity2DetailDTO(boletaLogic.getBoletas());
+        return listEntity2DetailDTO(boletaLogic.findAll());
     }
 
    

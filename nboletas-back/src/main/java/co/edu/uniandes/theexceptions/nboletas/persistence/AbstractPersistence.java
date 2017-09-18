@@ -40,7 +40,7 @@ public abstract class AbstractPersistence <T> {
      * @param entity    
      * @return     
     */
-    public T uptade(T entity){
+    public T update(T entity){
         em.merge(entity);
         return entity;
     }

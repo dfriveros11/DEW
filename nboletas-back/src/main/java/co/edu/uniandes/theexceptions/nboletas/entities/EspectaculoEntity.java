@@ -8,19 +8,50 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
- * @author df.riveros11
+ * @author jf.ramos
  */
 @Entity
 public class EspectaculoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private OrganizadorEntity organizador;
-  
     
+    @PodamExclude
+    @ManyToMany(fetch = FetchType.LAZY)
+    private ArtistaEntity artista;
+    
+    @PodamExclude
+    @OneToMany(fetch = FetchType.LAZY)
+    private FuncionEntity funcion;
+    
+    @PodamExclude
+    @OneToMany(fetch = FetchType.LAZY)
+    private ComentarioEntity comentario;
+    
+    private String nombre;
+    
+    private String descripcion;
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }

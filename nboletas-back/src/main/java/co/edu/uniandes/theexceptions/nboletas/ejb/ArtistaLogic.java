@@ -32,12 +32,12 @@ public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
     }
 
     @Override
-    public ArtistaEntity find(Object id) {
+    public List<ArtistaEntity> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<ArtistaEntity> findAll() {
+    public ArtistaEntity find(Object id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
