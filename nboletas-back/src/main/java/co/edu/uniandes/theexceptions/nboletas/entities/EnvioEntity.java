@@ -21,4 +21,23 @@ public class EnvioEntity extends BaseEntity implements Serializable {
     @OneToOne(mappedBy = "envio")
     private BoletaEntity boleta;
     
+    
+    private String direccion;
+
+    /**
+     * @return the direccion
+     */
+    public String getDireccion() {
+        return direccion;
+    }
+
+    /**
+     * @param direccion the direccion to set
+     */
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
+    
+    
 }
