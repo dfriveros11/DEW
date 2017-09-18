@@ -22,7 +22,7 @@ public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
     }
 
     @Override
-    public ArtistaEntity uptade(ArtistaEntity entity) {
+    public ArtistaEntity update(ArtistaEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

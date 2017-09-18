@@ -21,7 +21,7 @@ public class SillaLogic extends AbstractLogic<SillaLogic>{
     }
 
     @Override
-    public SillaLogic uptade(SillaLogic entity) {
+    public SillaLogic update(SillaLogic entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

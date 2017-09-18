@@ -22,7 +22,7 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
     }
 
     @Override
-    public EspectaculoEntity uptade(EspectaculoEntity entity) {
+    public EspectaculoEntity update(EspectaculoEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

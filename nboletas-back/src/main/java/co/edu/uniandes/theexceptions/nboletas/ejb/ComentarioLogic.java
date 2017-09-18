@@ -21,7 +21,7 @@ public class ComentarioLogic extends AbstractLogic<ComentarioLogic> {
     }
 
     @Override
-    public ComentarioLogic uptade(ComentarioLogic entity) {
+    public ComentarioLogic update(ComentarioLogic entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -69,7 +69,7 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
     }
 
     @Override
-    public BoletaEntity uptade(BoletaEntity entity) {
+    public BoletaEntity update(BoletaEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -143,7 +143,7 @@ public class BoletaPersistenceTest {
 
         newEntity.setId(entity.getId());
 
-        persistence.uptade(newEntity);
+        persistence.update(newEntity);
 
         BoletaEntity resp = em.find(BoletaEntity.class, entity.getId());
 
