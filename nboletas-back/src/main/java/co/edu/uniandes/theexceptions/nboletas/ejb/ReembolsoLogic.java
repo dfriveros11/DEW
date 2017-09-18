@@ -22,7 +22,7 @@ class ReembolsoLogic extends AbstractLogic<ReembolsoEntity> {
     }
 
     @Override
-    public ReembolsoEntity uptade(ReembolsoEntity entity) {
+    public ReembolsoEntity update(ReembolsoEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

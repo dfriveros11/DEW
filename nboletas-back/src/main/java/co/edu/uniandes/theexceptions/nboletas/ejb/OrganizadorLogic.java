@@ -22,7 +22,7 @@ public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity>{
     }
 
     @Override
-    public OrganizadorEntity uptade(OrganizadorEntity entity) {
+    public OrganizadorEntity update(OrganizadorEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

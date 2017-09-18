@@ -26,7 +26,7 @@ public abstract class AbstractLogic<T> {
      * @param entity    
      * @return     
     */
-    public abstract T uptade(T entity);
+    public abstract T update(T entity);
     
     /**Elimina un objeto T
      * @param entity    

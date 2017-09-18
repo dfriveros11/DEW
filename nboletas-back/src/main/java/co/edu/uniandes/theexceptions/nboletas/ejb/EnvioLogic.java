@@ -22,7 +22,7 @@ public class EnvioLogic extends AbstractLogic<EnvioEntity>{
     }
 
     @Override
-    public EnvioEntity uptade(EnvioEntity entity) {
+    public EnvioEntity update(EnvioEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

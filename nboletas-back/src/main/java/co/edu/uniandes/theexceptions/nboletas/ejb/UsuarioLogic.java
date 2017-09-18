@@ -22,7 +22,7 @@ public class UsuarioLogic extends AbstractLogic<UsuarioEntity>{
     }
 
     @Override
-    public UsuarioEntity uptade(UsuarioEntity entity) {
+    public UsuarioEntity update(UsuarioEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
