@@ -5,14 +5,15 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+
 /**
  *
  * @author angeloMarcetty
  */
 public class EnvioDetailDTO extends EnvioDTO {
     
-    
-    
+   
       /**
      * Constructor por defecto
      */
@@ -38,6 +39,7 @@ public class EnvioDetailDTO extends EnvioDTO {
      */
     public EnvioEntity toEntity(){
         EnvioEntity envEnt = super.toEntity();
+//        EnvioEntity envEnt = super.toEntity();
         return envEnt;
     }
     

@@ -7,6 +7,7 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.EnvioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
+import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

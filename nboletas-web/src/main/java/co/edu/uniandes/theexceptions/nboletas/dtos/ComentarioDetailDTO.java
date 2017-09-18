@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+
 /**
  *
  * @author angeloMarcetty
