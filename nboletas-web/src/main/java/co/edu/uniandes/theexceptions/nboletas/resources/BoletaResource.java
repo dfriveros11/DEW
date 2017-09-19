@@ -31,6 +31,9 @@ import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.SillaLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
 import java.util.ArrayList;
@@ -135,8 +138,13 @@ public class BoletaResource {
     @PUT
     @Path("{id: \\d+}")
     public BoletaDetailDTO updateBoleta(@PathParam("id") Long id, BoletaDetailDTO boleta) throws BusinessLogicException, UnsupportedOperationException {
-          throw new UnsupportedOperationException("Este servicio  no está implementado");
-      
+        BoletaEntity boletaActualizar = boleta.toEntity();
+        if(null == boletaLogic.find(id)){
+            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+        }
+        boletaActualizar.setId(id);
+        BoletaEntity boletaActualizada = boletaLogic.update(boletaActualizar);
+        return (new BoletaDetailDTO(boletaActualizada));
     }
 
     /**
@@ -152,7 +160,23 @@ public class BoletaResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteBoleta(@PathParam("id") Long id) throws BusinessLogicException {
-         throw new UnsupportedOperationException("Este servicio no está implementado");
+         BoletaEntity boleta = boletaLogic.find(id);
+         if(null == boleta){
+             throw new BusinessLogicException("No existe la boleta con el id: " + id);
+         }
+         EnvioEntity envio = boleta.getEnvio();
+         if(null != envio){
+             /*borrar el envio*/
+         }
+         ComentarioEntity comentario = boleta.getComentario();
+         if(null != comentario){
+             /*borrar el comentario*/
+         }
+         ReembolsoEntity reembolso = boleta.getReembolso();
+         if(null != reembolso){
+             /*borrar el reembolso*/
+         }
+         boletaLogic.delete(boleta);
     }
 
     /**
