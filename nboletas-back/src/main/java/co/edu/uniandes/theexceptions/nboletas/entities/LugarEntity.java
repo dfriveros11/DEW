@@ -11,6 +11,6 @@ import java.io.Serializable;
  *
  * @author fc.alvarez10
  */
-class LugarEntity extends BaseEntity implements Serializable{
+public class LugarEntity extends BaseEntity implements Serializable{
     
 }

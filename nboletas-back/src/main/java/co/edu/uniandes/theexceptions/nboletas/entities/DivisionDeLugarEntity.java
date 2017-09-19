@@ -38,5 +38,22 @@ public class DivisionDeLugarEntity extends BaseEntity implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public List<SillaEntity> getSillas() {
+        return sillas;
+    }
+
+    public void setSillas(List<SillaEntity> sillas) {
+        this.sillas = sillas;
+    }
+
+    public LugarEntity getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(LugarEntity lugar) {
+        this.lugar = lugar;
+    }
+    
     
 }

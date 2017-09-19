@@ -30,6 +30,8 @@ import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
  */
 public class BoletaDetailDTO extends BoletaDTO {
 
+    
+    
     /**
      * Constructor por defecto
      */
