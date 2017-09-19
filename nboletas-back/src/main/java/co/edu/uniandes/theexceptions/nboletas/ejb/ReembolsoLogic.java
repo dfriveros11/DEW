@@ -5,8 +5,6 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
-import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
-import java.util.List;
 import javax.ejb.Stateless;
 
 /**
@@ -14,31 +12,5 @@ import javax.ejb.Stateless;
  * @author df.riveros11
  */
 @Stateless
-class ReembolsoLogic extends AbstractLogic<ReembolsoEntity> {
-
-    @Override
-    public ReembolsoEntity create(ReembolsoEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ReembolsoEntity update(ReembolsoEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(ReembolsoEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ReembolsoEntity find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<ReembolsoEntity> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+public class ReembolsoLogic {
 }

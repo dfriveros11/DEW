@@ -6,7 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.OrganizadorEntity;
-import java.util.List;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import javax.ejb.Stateless;
 
 /**
@@ -17,28 +17,9 @@ import javax.ejb.Stateless;
 public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity>{
 
     @Override
-    public OrganizadorEntity create(OrganizadorEntity entity) {
+    protected AbstractPersistence<OrganizadorEntity> getPersistence() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public OrganizadorEntity update(OrganizadorEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(OrganizadorEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public OrganizadorEntity find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<OrganizadorEntity> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+ 
 }

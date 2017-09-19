@@ -25,6 +25,11 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
 import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.ejb.ComentarioLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.SillaLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
@@ -64,6 +69,21 @@ public class BoletaResource {
     @Inject
     BoletaLogic boletaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
+    @Inject
+    private ReembolsoLogic reembolsoLogic;
+
+    @Inject
+    private EnvioLogic envioLogic;
+
+    @Inject
+    private SillaLogic sillaLogic;
+
+    @Inject
+    private ComentarioLogic comentarioLogic;
+
+    @Inject
+    private UsuarioLogic usuarioLogic;
+    
     private static final Logger LOGGER = Logger.getLogger(BoletaResource.class.getName());
 
     /**
@@ -95,7 +115,7 @@ public class BoletaResource {
      */
     @GET
     public List<BoletaDetailDTO> getBoletas() throws BusinessLogicException {
-        return listEntity2DetailDTO(boletaLogic.getBoletas());
+        return listEntity2DetailDTO(boletaLogic.findAll());
     }
 
    

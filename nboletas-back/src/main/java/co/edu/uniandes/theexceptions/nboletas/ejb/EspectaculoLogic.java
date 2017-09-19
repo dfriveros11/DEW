@@ -6,7 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
-import java.util.List;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import javax.ejb.Stateless;
 
 /**
@@ -17,28 +17,8 @@ import javax.ejb.Stateless;
 public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
 
     @Override
-    public EspectaculoEntity create(EspectaculoEntity entity) {
+    protected AbstractPersistence<EspectaculoEntity> getPersistence() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public EspectaculoEntity update(EspectaculoEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(EspectaculoEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public EspectaculoEntity find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<EspectaculoEntity> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
