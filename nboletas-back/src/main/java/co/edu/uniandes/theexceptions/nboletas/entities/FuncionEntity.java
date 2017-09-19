@@ -32,7 +32,7 @@ public class FuncionEntity extends BaseEntity implements Serializable {
    
    @PodamExclude
    @ManyToOne(fetch = FetchType.LAZY)
-   private List<FuncionEntity> funciones;
+   private List<LugarEntity> funciones;
    
    @PodamExclude
    @OneToOne(fetch = FetchType.LAZY)
