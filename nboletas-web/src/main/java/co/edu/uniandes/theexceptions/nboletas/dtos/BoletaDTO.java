@@ -35,6 +35,8 @@ import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 public class BoletaDTO {
 
     private Long id;
+    private double precio;
+    private boolean vendida;
 
     /**
      * Constructor por defecto
@@ -66,6 +68,22 @@ public class BoletaDTO {
         this.id = id;
     }
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public boolean isVendida() {
+        return vendida;
+    }
+
+    public void setVendida(boolean vendida) {
+        this.vendida = vendida;
+    }
+  
     /**
      * Convertir DTO a Entity
      *
@@ -74,6 +92,8 @@ public class BoletaDTO {
     public BoletaEntity toEntity() {
         BoletaEntity entity = new BoletaEntity();
         entity.setId(this.id);
+        entity.setPrecio(this.precio);
+        entity.setVenida(this.vendida);
         return entity;
     }
     

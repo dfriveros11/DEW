@@ -39,7 +39,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class BoletaEntity extends BaseEntity implements Serializable {
    
     private double precio;
-    private boolean venida;
+    private boolean vendida;
     
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
@@ -77,11 +77,11 @@ public class BoletaEntity extends BaseEntity implements Serializable {
     }
 
     public boolean isVenida() {
-        return venida;
+        return vendida;
     }
 
     public void setVenida(boolean venida) {
-        this.venida = venida;
+        this.vendida = venida;
     }
 
     
