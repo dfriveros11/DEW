@@ -18,7 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class EnvioEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
-    @OneToOne(mappedBy = "envio")
+    @OneToOne
     private BoletaEntity boleta;
     
 }

@@ -19,7 +19,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class ReembolsoEntity extends BaseEntity implements Serializable  {
     
     @PodamExclude
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "reembolso")
+    @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
     
     

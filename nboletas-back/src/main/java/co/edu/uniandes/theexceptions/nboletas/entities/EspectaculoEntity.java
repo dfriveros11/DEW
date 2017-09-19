@@ -6,6 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -21,19 +22,19 @@ public class EspectaculoEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @ManyToMany(fetch = FetchType.LAZY)
-    private OrganizadorEntity organizador;
+    private List<OrganizadorEntity> organizador;
     
     @PodamExclude
     @ManyToMany(fetch = FetchType.LAZY)
-    private ArtistaEntity artista;
+    private List<ArtistaEntity> artista;
     
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY)
-    private FuncionEntity funcion;
+    private List<FuncionEntity> funcion;
     
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY)
-    private ComentarioEntity comentario;
+    private List<ComentarioEntity> comentario;
     
     private String nombre;
     

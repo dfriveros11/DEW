@@ -6,6 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -22,8 +23,8 @@ public class ArtistaEntity extends BaseEntity implements Serializable{
     private String nombre;
     
     @PodamExclude
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "boleta")
-    private ArtistaEntity artista;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "artista")
+    private List<EspectaculoEntity> espectaculos;
     
     public String getNombre() {
         return nombre;
