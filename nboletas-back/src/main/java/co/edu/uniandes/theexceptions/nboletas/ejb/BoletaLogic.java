@@ -43,6 +43,4 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
     protected AbstractPersistence<BoletaEntity> getPersistence() {
         return persistence;
     }
-  
- 
   }

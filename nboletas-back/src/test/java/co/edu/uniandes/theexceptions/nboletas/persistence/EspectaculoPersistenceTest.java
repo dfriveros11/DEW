@@ -126,7 +126,7 @@ public class EspectaculoPersistenceTest {
     }
 
     /**
-     * Test of update method, of class BoletaPersistence.
+     * Test of uptade method, of class BoletaPersistence.
      */
     public void testUpdate() {
         EspectaculoEntity entity = data.get(0);

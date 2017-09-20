@@ -23,18 +23,74 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class FuncionEntity extends BaseEntity implements Serializable {
-   @Temporal(TemporalType.DATE)
-   private Date fecha;
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
+    
+    @PodamExclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcion")
+    private List<BoletaEntity> boletas;
    
-   @PodamExclude
-   @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcion")
-   private List<BoletaEntity> boletas;
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private EspectaculoEntity espectaculo;
    
-   @PodamExclude
-   @ManyToOne(fetch = FetchType.LAZY)
-   private List<LugarEntity> funciones;
-   
-   @PodamExclude
-   @OneToOne(fetch = FetchType.LAZY)
-   private EspectaculoEntity espectaculo;
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private LugarEntity lugar;
+
+    /**
+     * @return the fecha
+     */
+    public Date getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @return the boletas
+     */
+    public List<BoletaEntity> getBoletas() {
+        return boletas;
+    }
+
+    /**
+     * @param boletas the boletas to set
+     */
+    public void setBoletas(List<BoletaEntity> boletas) {
+        this.boletas = boletas;
+    }
+
+    /**
+     * @return the espectaculo
+     */
+    public EspectaculoEntity getEspectaculo() {
+        return espectaculo;
+    }
+
+    /**
+     * @param espectaculo the espectaculo to set
+     */
+    public void setEspectaculo(EspectaculoEntity espectaculo) {
+        this.espectaculo = espectaculo;
+    }
+
+    /**
+     * @return the lugar
+     */
+    public LugarEntity getLugar() {
+        return lugar;
+    }
+
+    /**
+     * @param lugar the lugar to set
+     */
+    public void setLugar(LugarEntity lugar) {
+        this.lugar = lugar;
+    }
 }

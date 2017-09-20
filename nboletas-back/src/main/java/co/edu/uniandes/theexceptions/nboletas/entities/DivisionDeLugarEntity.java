@@ -5,20 +5,13 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
- * @author df.riveros11
+ * @author ja.gomez1
  */
 @Entity
-public class EnvioEntity extends BaseEntity implements Serializable {
-    
-    @PodamExclude
-    @OneToOne
-    private BoletaEntity boleta;
+public class DivisionDeLugarEntity extends BaseEntity {
     
 }
