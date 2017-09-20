@@ -25,7 +25,15 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
 import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.ejb.ComentarioLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.SillaLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
 import java.util.ArrayList;
@@ -64,6 +72,21 @@ public class BoletaResource {
     @Inject
     BoletaLogic boletaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
+    @Inject
+    private ReembolsoLogic reembolsoLogic;
+
+    @Inject
+    private EnvioLogic envioLogic;
+
+    @Inject
+    private SillaLogic sillaLogic;
+
+    @Inject
+    private ComentarioLogic comentarioLogic;
+
+    @Inject
+    private UsuarioLogic usuarioLogic;
+    
     private static final Logger LOGGER = Logger.getLogger(BoletaResource.class.getName());
 
     /**
@@ -115,8 +138,13 @@ public class BoletaResource {
     @PUT
     @Path("{id: \\d+}")
     public BoletaDetailDTO updateBoleta(@PathParam("id") Long id, BoletaDetailDTO boleta) throws BusinessLogicException, UnsupportedOperationException {
-          throw new UnsupportedOperationException("Este servicio  no está implementado");
-      
+        BoletaEntity boletaActualizar = boleta.toEntity();
+        if(null == boletaLogic.find(id)){
+            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+        }
+        boletaActualizar.setId(id);
+        BoletaEntity boletaActualizada = boletaLogic.update(boletaActualizar);
+        return (new BoletaDetailDTO(boletaActualizada));
     }
 
     /**
@@ -132,7 +160,23 @@ public class BoletaResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteBoleta(@PathParam("id") Long id) throws BusinessLogicException {
-         throw new UnsupportedOperationException("Este servicio no está implementado");
+         BoletaEntity boleta = boletaLogic.find(id);
+         if(null == boleta){
+             throw new BusinessLogicException("No existe la boleta con el id: " + id);
+         }
+         EnvioEntity envio = boleta.getEnvio();
+         if(null != envio){
+             /*borrar el envio*/
+         }
+         ComentarioEntity comentario = boleta.getComentario();
+         if(null != comentario){
+             /*borrar el comentario*/
+         }
+         ReembolsoEntity reembolso = boleta.getReembolso();
+         if(null != reembolso){
+             /*borrar el reembolso*/
+         }
+         boletaLogic.delete(boleta);
     }
 
     /**

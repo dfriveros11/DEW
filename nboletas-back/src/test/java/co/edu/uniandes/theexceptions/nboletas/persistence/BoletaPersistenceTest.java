@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
@@ -82,6 +77,7 @@ public class BoletaPersistenceTest {
 
     @Before
     public void setUp() {
+
         try {
             utx.begin();
             em.joinTransaction();
@@ -106,7 +102,6 @@ public class BoletaPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
             BoletaEntity entity = factory.manufacturePojo(BoletaEntity.class);
-
             em.persist(entity);
             data.add(entity);
         }
@@ -116,16 +111,17 @@ public class BoletaPersistenceTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of create method, of class BoletaPersistence.
-     */
     @Test
     public void testCreate() {
-
+        BoletaPersistence connection = new BoletaPersistence();
+        BoletaEntity boleta = new BoletaEntity();
+        boleta.setId(new Long(1));
+        boleta.setPrecio(123.22);
+        boleta.setVenida(true);
+        connection.create(boleta);
         PodamFactory factory = new PodamFactoryImpl();
         BoletaEntity newEntity = factory.manufacturePojo(BoletaEntity.class);
         BoletaEntity result = persistence.create(newEntity);
-
         Assert.assertNotNull(result);
         BoletaEntity entity = em.find(BoletaEntity.class, result.getId());
         Assert.assertNotNull(entity);
@@ -141,13 +137,9 @@ public class BoletaPersistenceTest {
         BoletaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         BoletaEntity newEntity = factory.manufacturePojo(BoletaEntity.class);
-
         newEntity.setId(entity.getId());
-
         persistence.update(newEntity);
-
         BoletaEntity resp = em.find(BoletaEntity.class, entity.getId());
-
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
 
@@ -167,6 +159,17 @@ public class BoletaPersistenceTest {
      */
     @Test
     public void testFind() {
+        BoletaPersistence connection = new BoletaPersistence();
+        BoletaEntity boleta = new BoletaEntity();
+        boleta.setId(new Long(1));
+        boleta.setPrecio(123.22);
+        boleta.setVenida(true);
+        connection.create(boleta);
+        BoletaEntity boletaEncontrada = connection.find(1);
+        assertNotNull(boletaEncontrada);
+        assertEquals(boleta.getId(), boletaEncontrada.getId());
+        assertEquals(boleta.getPrecio(), boletaEncontrada.getPrecio());
+        assertEquals(boleta.isVenida(), boletaEncontrada.isVenida());
         BoletaEntity entity = data.get(0);
         BoletaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
@@ -190,5 +193,4 @@ public class BoletaPersistenceTest {
             Assert.assertTrue(found);
         }
     }
-
 }

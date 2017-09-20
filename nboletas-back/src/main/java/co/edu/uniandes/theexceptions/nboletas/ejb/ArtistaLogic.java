@@ -6,7 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
-import java.util.List;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import javax.ejb.Stateless;
 
 /**
@@ -17,10 +17,10 @@ import javax.ejb.Stateless;
 public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
 
     @Override
-    public ArtistaEntity create(ArtistaEntity entity) {
+    protected AbstractPersistence<ArtistaEntity> getPersistence() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+  
     @Override
     public ArtistaEntity uptade(ArtistaEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -40,5 +40,4 @@ public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
     public ArtistaEntity find(Object id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

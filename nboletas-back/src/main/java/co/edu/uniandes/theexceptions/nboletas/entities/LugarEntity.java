@@ -5,18 +5,18 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
-
 /**
  *
  * @author ja.gomez1
  */
 @Entity
-public class LugarEntity extends BaseEntity {
+public class LugarEntity extends BaseEntity implements Serializable {
     private String direccion;
     private String tipo;
     private String ubicacion;
@@ -98,6 +98,4 @@ public class LugarEntity extends BaseEntity {
     public void setDivisiones(List<DivisionDeLugarEntity> divisiones) {
         this.divisiones = divisiones;
     }
-    
-    
 }

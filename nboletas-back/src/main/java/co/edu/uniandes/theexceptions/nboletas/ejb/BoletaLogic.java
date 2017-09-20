@@ -24,11 +24,8 @@ SOFTWARE.
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
-import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -39,57 +36,11 @@ import javax.inject.Inject;
 @Stateless
 public class BoletaLogic extends AbstractLogic<BoletaEntity> {
 
-    private static final Logger LOGGER = Logger.getLogger(BoletaLogic.class.getName());
-
     @Inject
-    private BoletaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
-
-    @Inject
-    private ReembolsoLogic reembolsoLogic;
-
-    @Inject
-    private EnvioLogic envioLogic;
-
-    @Inject
-    private SillaLogic sillaLogic;
-
-    @Inject
-    private ComentarioLogic comentarioLogic;
-
-    @Inject
-    private UsuarioLogic usuarioLogic;
+    private BoletaPersistence persistence;
 
     @Override
-    public BoletaEntity create(BoletaEntity entity) {
-        LOGGER.info("Inicia proceso de creación de Boleta");
-        // Invoca la persistencia para crear la Boleta
-        persistence.create(entity);
-        LOGGER.info("Termina proceso de creación de Boleta");
-        return entity;
+    protected AbstractPersistence<BoletaEntity> getPersistence() {
+        return persistence;
     }
-
-    @Override
-    public BoletaEntity uptade(BoletaEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(BoletaEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public BoletaEntity find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<BoletaEntity> findAll() {
-        LOGGER.info("Inicia proceso de consultar todas las Boletaes");
-        // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<BoletaEntity> boletas = persistence.findAll();
-        LOGGER.info("Termina proceso de consultar todas las Boletaes");
-        return boletas;
-    }
-
-}
+  }

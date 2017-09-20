@@ -128,7 +128,7 @@ public class EspectaculoPersistenceTest {
     /**
      * Test of uptade method, of class BoletaPersistence.
      */
-    public void testUptade() {
+    public void testUpdate() {
         EspectaculoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
