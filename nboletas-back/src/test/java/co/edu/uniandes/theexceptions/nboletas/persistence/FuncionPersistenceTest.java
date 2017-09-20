@@ -1,6 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
-import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -8,7 +13,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
@@ -17,63 +21,47 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author df.riveros11
+ * @author ja.gomez1
  */
-@RunWith(Arquillian.class)
-public class EspectaculoPersistenceTest {
-
+public class FuncionPersistenceTest {
+    
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(EspectaculoEntity.class.getPackage())
-                .addPackage(EspectaculoPersistence.class.getPackage())
+                .addPackage(FuncionEntity.class.getPackage())
+                .addPackage(FuncionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-
-    /**
-     * Inyección de la dependencia a la clase XYZPersistence cuyos métodos se
-     * van a probar.
-     */
+    
     @Inject
-    private EspectaculoPersistence persistence;
-
-    /**
-     * Contexto de Persistencia que se va a utilizar para acceder a la Base de
-     * datos por fuera de los métodos que se están probando.
-     */
+    private FuncionPersistence persistence;
+    
     @PersistenceContext
     private EntityManager em;
-
-    /**
-     * Variable para martcar las transacciones del em anterior cuando se
-     * crean/borran datos para las pruebas.
-     */
+    
     @Inject
-    UserTransaction utx;
-
-    /**
-     *
-     */
-    private List<EspectaculoEntity> data = new ArrayList<EspectaculoEntity>();
-
-    public EspectaculoPersistenceTest() {
+    private UserTransaction utx;
+    
+    private List<FuncionEntity> data = new ArrayList<FuncionEntity>();
+    
+    public FuncionPersistenceTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
         try {
@@ -91,90 +79,81 @@ public class EspectaculoPersistenceTest {
             }
         }
     }
-
+    
     private void clearData() {
-        em.createQuery("delete from EspectaculoEntity").executeUpdate();
+        em.createQuery("delete from FuncionEntity").executeUpdate();
     }
-
+    
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            EspectaculoEntity entity = factory.manufacturePojo(EspectaculoEntity.class);
+            FuncionEntity entity = factory.manufacturePojo(FuncionEntity.class);
             em.persist(entity);
             data.add(entity);
         }
     }
-
+    
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of create method, of class BoletaPersistence.
-     */
+    
     @Test
     public void testCreate() {
-
         PodamFactory factory = new PodamFactoryImpl();
-        EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
-        EspectaculoEntity result = persistence.create(newEntity);
+        FuncionEntity newEntity = factory.manufacturePojo(FuncionEntity.class);
+        FuncionEntity result = persistence.create(newEntity);
         Assert.assertNotNull(result);
-        EspectaculoEntity entity = em.find(EspectaculoEntity.class, result.getId());
+        FuncionEntity entity = em.find(FuncionEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getId(), entity.getId());
-        // Assert.assertEquals(newEntity.getPrecio(), entity.getPrecio(), 0.00);
     }
 
     /**
-     * Test of uptade method, of class BoletaPersistence.
+     * Test of update method, of class FuncionPersistence.
      */
     @Test
     public void testUpdate() {
-        EspectaculoEntity entity = data.get(0);
+        FuncionEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
-
+        FuncionEntity newEntity = factory.manufacturePojo(FuncionEntity.class);
         newEntity.setId(entity.getId());
-
         persistence.update(newEntity);
-
-        EspectaculoEntity resp = em.find(EspectaculoEntity.class, entity.getId());
-
+        FuncionEntity resp = em.find(FuncionEntity.class, entity.getId());
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
 
     /**
-     * Test of remove method, of class BoletaPersistence.
+     * Test of remove method, of class FuncionPersistence.
      */
     @Test
     public void testDelete() {
-        EspectaculoEntity entity = data.get(0);
+        FuncionEntity entity = data.get(0);
         persistence.delete(entity);
-        EspectaculoEntity deleted = em.find(EspectaculoEntity.class, entity.getId());
+        FuncionEntity deleted = em.find(FuncionEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
     /**
-     * Test of find method, of class BoletaPersistence.
+     * Test of find method, of class FuncionPersistence.
      */
     @Test
     public void testFind() {
-        EspectaculoEntity entity = data.get(0);
-        EspectaculoEntity newEntity = persistence.find(entity.getId());
+        FuncionEntity entity = data.get(0);
+        FuncionEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
 
     /**
-     * Test of findAll method, of class BoletaPersistence.
+     * Test of findAll method, of class FuncionPersistence.
      */
     @Test
     public void testFindAll() {
-        List<EspectaculoEntity> list = persistence.findAll();
+        List<FuncionEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (EspectaculoEntity ent : list) {
+        for (FuncionEntity ent : list) {
             boolean found = false;
-            for (EspectaculoEntity entity : data) {
+            for (FuncionEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -182,5 +161,4 @@ public class EspectaculoPersistenceTest {
             Assert.assertTrue(found);
         }
     }
-
 }

@@ -6,10 +6,12 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
+import javax.ejb.Stateless;
 /**
  *
  * @author ja.gomez1
  */
+@Stateless
 public class FuncionPersistence extends AbstractPersistence<FuncionEntity>{
     public FuncionPersistence() {
         super(FuncionEntity.class);
