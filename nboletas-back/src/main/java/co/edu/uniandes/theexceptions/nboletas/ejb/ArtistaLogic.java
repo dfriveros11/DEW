@@ -7,6 +7,7 @@ package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import java.util.List;
 import javax.ejb.Stateless;
 
 /**
@@ -22,7 +23,7 @@ public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
     }
   
     @Override
-    public ArtistaEntity uptade(ArtistaEntity entity) {
+    public ArtistaEntity update(ArtistaEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
