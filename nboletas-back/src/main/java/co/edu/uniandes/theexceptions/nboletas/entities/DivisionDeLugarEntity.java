@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 
 /**
@@ -12,6 +13,6 @@ import javax.persistence.Entity;
  * @author ja.gomez1
  */
 @Entity
-public class DivisionDeLugarEntity extends BaseEntity {
+public class DivisionDeLugarEntity extends BaseEntity implements Serializable {
     
 }

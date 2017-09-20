@@ -113,15 +113,10 @@ public class BoletaPersistenceTest {
 
     @Test
     public void testCreate() {
-        BoletaPersistence connection = new BoletaPersistence();
-        BoletaEntity boleta = new BoletaEntity();
-        boleta.setId(new Long(1));
-        boleta.setPrecio(123.22);
-        boleta.setVenida(true);
-        connection.create(boleta);
         PodamFactory factory = new PodamFactoryImpl();
         BoletaEntity newEntity = factory.manufacturePojo(BoletaEntity.class);
         BoletaEntity result = persistence.create(newEntity);
+
         Assert.assertNotNull(result);
         BoletaEntity entity = em.find(BoletaEntity.class, result.getId());
         Assert.assertNotNull(entity);
@@ -159,17 +154,6 @@ public class BoletaPersistenceTest {
      */
     @Test
     public void testFind() {
-        BoletaPersistence connection = new BoletaPersistence();
-        BoletaEntity boleta = new BoletaEntity();
-        boleta.setId(new Long(1));
-        boleta.setPrecio(123.22);
-        boleta.setVenida(true);
-        connection.create(boleta);
-        BoletaEntity boletaEncontrada = connection.find(1);
-        assertNotNull(boletaEncontrada);
-        assertEquals(boleta.getId(), boletaEncontrada.getId());
-        assertEquals(boleta.getPrecio(), boletaEncontrada.getPrecio());
-        assertEquals(boleta.isVenida(), boletaEncontrada.isVenida());
         BoletaEntity entity = data.get(0);
         BoletaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
