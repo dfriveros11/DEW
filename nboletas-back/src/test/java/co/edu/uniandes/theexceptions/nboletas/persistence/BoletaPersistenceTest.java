@@ -134,9 +134,10 @@ public class BoletaPersistenceTest {
     }
 
     /**
-     * Test of uptade method, of class BoletaPersistence.
+     * Test of update method, of class BoletaPersistence.
      */
-    public void testUptade() {
+    @Test
+    public void testUpdate() {
         BoletaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         BoletaEntity newEntity = factory.manufacturePojo(BoletaEntity.class);
@@ -153,6 +154,7 @@ public class BoletaPersistenceTest {
     /**
      * Test of remove method, of class BoletaPersistence.
      */
+    @Test
     public void testDelete() {
         BoletaEntity entity = data.get(0);
         persistence.delete(entity);
@@ -163,6 +165,7 @@ public class BoletaPersistenceTest {
     /**
      * Test of find method, of class BoletaPersistence.
      */
+    @Test
     public void testFind() {
         BoletaEntity entity = data.get(0);
         BoletaEntity newEntity = persistence.find(entity.getId());
