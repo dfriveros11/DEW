@@ -1,3 +1,5 @@
+package co.edu.uniandes.theexceptions.nboletas.dtos;
+
 
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
 
@@ -26,9 +28,11 @@ public class EnvioDTO {
           
     
     //Conviertir Entity a DTO
-    public EnvioDTO(EnvioEntity env){
-        this.id = env.getId();
-        this.direccion = env.getDireccion();
+    public EnvioDTO(EnvioEntity env) {
+        if (env != null) {
+            this.id = env.getId();
+            this.direccion = env.getDireccion();
+        }
     }
 
     /**

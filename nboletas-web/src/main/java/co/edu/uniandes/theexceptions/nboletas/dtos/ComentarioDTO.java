@@ -27,10 +27,12 @@ public class ComentarioDTO {
            
     
     //Conviertir Entity a DTO
-    public ComentarioDTO(ComentarioEntity coment){
-        this.id = coment.getId();
-        this.comentario = coment.getComentario();
-        this.fecha = coment.getFecha();
+    public ComentarioDTO(ComentarioEntity coment) {
+        if (coment != null) {
+            this.id = coment.getId();
+            this.comentario = coment.getComentario();
+            this.fecha = coment.getFecha();
+        }
     }
 
     /**

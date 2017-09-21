@@ -8,14 +8,20 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 import co.edu.uniandes.theexceptions.nboletas.dtos.EnvioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -36,7 +42,7 @@ public class EnvioResource {
     @POST
     public EnvioDetailDTO createEnvio(EnvioDetailDTO envio) {
         EnvioEntity EnvioEntity = envio.toEntity();
-        EnvioEntity nuevoEnvio = envioLogic.createEnvio(EnvioEntity);
+        EnvioEntity nuevoEnvio = envioLogic.create(EnvioEntity);
         return new EnvioDetailDTO(nuevoEnvio);
     }
     
@@ -45,7 +51,7 @@ public class EnvioResource {
     @GET
     @Path("{id: \\d+}")
     public EnvioDetailDTO getEnvio(@PathParam("id") Long id) {
-        EnvioEntity entity = envioLogic.getEnvio(id);
+        EnvioEntity entity = envioLogic.find(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso envio: " + id + " no existe.", 404);
         }
@@ -55,7 +61,7 @@ public class EnvioResource {
     
     @GET
     public List<EnvioDetailDTO> getEnvios()  {
-        return listEntity2DetailDTO(envioLogic.getEnvios());
+        return listEntity2DetailDTO(envioLogic.findAll());
     }
     
     
@@ -67,11 +73,11 @@ public class EnvioResource {
     public EnvioDetailDTO updateEnvio(@PathParam("id") Long id, EnvioDetailDTO envio) {
 
         envio.setId(id);
-        EnvioEntity entity = envioLogic.getEnvio(id);
+        EnvioEntity entity = envioLogic.find(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso envio: " + id + " no existe.", 404);
         }
-        return new EnvioDetailDTO(envioLogic.updateEnvio(id, envio.toEntity()));    
+        return new EnvioDetailDTO(envioLogic.uptade(envio.toEntity()));    
     }
     
     
@@ -80,12 +86,12 @@ public class EnvioResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteEnvio(@PathParam("id") Long id) {
-        EnvioEntity entity = envioLogic.getEnvio(id);
+        EnvioEntity entity = envioLogic.find(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso envio: " + id + " no existe.", 404);
         }
         //revisar!!
-        envioLogic.deleteEnvio(id); 
+        envioLogic.delete(entity); 
     }
     
     

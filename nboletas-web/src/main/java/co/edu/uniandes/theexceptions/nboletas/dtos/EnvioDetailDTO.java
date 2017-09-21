@@ -13,11 +13,17 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
  */
 public class EnvioDetailDTO extends EnvioDTO {
     
+    /**
+     * relacion con boleta 
+     */
+    private BoletaDTO boleta;
+    
    
       /**
      * Constructor por defecto
      */
     public EnvioDetailDTO(){
+        super();
     }
     
     
@@ -28,21 +34,55 @@ public class EnvioDetailDTO extends EnvioDTO {
      */
     public EnvioDetailDTO(EnvioEntity entity){
         super(entity);
+        
+        if(entity.getBoleta() !=null)
+        {
+            this.boleta = new BoletaDTO(entity.getBoleta());
+        }
+        else
+        {
+            entity.setBoleta(null);
+        }
+        
     }
     
    
     
-     /**
+   
+  
+    /**
+     * @return the boleta
+     */
+    public BoletaDTO getBoleta() {
+        return boleta;
+    }
+
+    /**
+     * @param boleta the boleta to set
+     */
+    public void setBoleta(BoletaDTO boleta) {
+        this.boleta = boleta;
+    }
+    
+    
+    
+    
+      /**
      * Transformar un DTO a un Entity
      *
      * @return 
      */
-    public EnvioEntity toEntity(){
+    public EnvioEntity toEntity() {
         EnvioEntity envEnt = super.toEntity();
-//        EnvioEntity envEnt = super.toEntity();
-        return envEnt;
+
+        if (this.getBoleta() != null)
+        {
+            envEnt.setBoleta(this.getBoleta().toEntity());
+        }
+
+       return envEnt;
     }
-    
+
     
     
     

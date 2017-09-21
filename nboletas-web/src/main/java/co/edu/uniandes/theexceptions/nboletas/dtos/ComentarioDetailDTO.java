@@ -6,6 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 
 /**
  *
@@ -13,10 +14,26 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
  */
 public class ComentarioDetailDTO extends ComentarioDTO {
     
+    
+    /**
+     * relacion con boleta 
+     */
+    private BoletaDTO boleta;
+    
+    /**
+     * relacion con Espectaculo
+     */
+    private EspectaculoDTO espectaculo;
+    
+    
+    
+    
+    
     /**
      * Constructor por defecto
      */
     public ComentarioDetailDTO(){
+        super();
     }
     
     /**
@@ -26,6 +43,28 @@ public class ComentarioDetailDTO extends ComentarioDTO {
      */
     public ComentarioDetailDTO(ComentarioEntity entity){
         super(entity);
+        
+        if(entity != null)
+        {
+           if(entity.getBoleta() !=null)
+           {
+               this.boleta = new BoletaDTO(entity.getBoleta());              
+           }
+           else
+           {
+               entity.setBoleta(null);
+           }
+           
+           if(entity.getEspectaculo() !=null)
+           {
+               this.espectaculo = new EspectaculoDTO(entity.getEspectaculo());
+           }
+           else
+           {
+               entity.setEspectaculo(null);
+           }
+
+        }
     }
     
     /**
@@ -35,7 +74,45 @@ public class ComentarioDetailDTO extends ComentarioDTO {
      */
     public ComentarioEntity toEntity(){
         ComentarioEntity comentEnt = super.toEntity();
+        
+        if(this.getBoleta() != null)
+        {
+            comentEnt.setBoleta(this.getBoleta().toEntity());
+        }
+        if(this.getComentario() !=null)
+        {
+//            comentEnt.setComentario(this.getComentario().toEntity());
+        }
+        
         return comentEnt;
+    }
+
+    /**
+     * @return the boleta
+     */
+    public BoletaDTO getBoleta() {
+        return boleta;
+    }
+
+    /**
+     * @param boleta the boleta to set
+     */
+    public void setBoleta(BoletaDTO boleta) {
+        this.boleta = boleta;
+    }
+
+    /**
+     * @return the espectaculo
+     */
+    public EspectaculoDTO getEspectaculo() {
+        return espectaculo;
+    }
+
+    /**
+     * @param espectaculo the espectaculo to set
+     */
+    public void setEspectaculo(EspectaculoDTO espectaculo) {
+        this.espectaculo = espectaculo;
     }
     
     

@@ -13,6 +13,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -22,17 +24,19 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ComentarioEntity extends BaseEntity implements Serializable {
     
-    @PodamExclude
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "comentario")
+    @PodamExclude   
+    @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
    
     
     @PodamExclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private EspectaculoEntity espectaculo;
         
     
     private String comentario;
+    
+//    @Temporal(TemporalType.Date)
     private Date fecha;
 
     /**
@@ -61,6 +65,34 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @return the boleta
+     */
+    public BoletaEntity getBoleta() {
+        return boleta;
+    }
+
+    /**
+     * @param boleta the boleta to set
+     */
+    public void setBoleta(BoletaEntity boleta) {
+        this.boleta = boleta;
+    }
+
+    /**
+     * @return the espectaculo
+     */
+    public EspectaculoEntity getEspectaculo() {
+        return espectaculo;
+    }
+
+    /**
+     * @param espectaculo the espectaculo to set
+     */
+    public void setEspectaculo(EspectaculoEntity espectaculo) {
+        this.espectaculo = espectaculo;
     }
     
     
