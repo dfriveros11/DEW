@@ -20,6 +20,14 @@ public class ReembolsoEntity extends BaseEntity implements Serializable  {
     
     @PodamExclude
     private BoletaEntity boleta;
+
+    public BoletaEntity getBoleta() {
+        return boleta;
+    }
+
+    public void setBoleta(BoletaEntity boleta) {
+        this.boleta = boleta;
+    }
     
     
     

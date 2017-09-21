@@ -33,6 +33,14 @@ public class ArtistaEntity extends BaseEntity implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public List<EspectaculoEntity> getEspectaculos() {
+        return espectaculos;
+    }
+
+    public void setEspectaculos(List<EspectaculoEntity> espectaculos) {
+        this.espectaculos = espectaculos;
+    }
     
     
     

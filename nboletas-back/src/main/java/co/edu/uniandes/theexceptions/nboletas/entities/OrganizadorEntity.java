@@ -3,7 +3,6 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 
@@ -23,6 +22,14 @@ public class OrganizadorEntity extends BaseEntity implements Serializable
 
     public void setNombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
+    }
+
+    public List<EspectaculoEntity> getEspectaculos() {
+        return espectaculos;
+    }
+
+    public void setEspectaculos(List<EspectaculoEntity> espectaculos) {
+        this.espectaculos = espectaculos;
     }
 }
 

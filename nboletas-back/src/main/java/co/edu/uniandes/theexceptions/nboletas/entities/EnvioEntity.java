@@ -18,12 +18,11 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class EnvioEntity extends BaseEntity implements Serializable {
     
+    private String direccion;
+
     @PodamExclude
     private BoletaEntity boleta;
     
-    
-    private String direccion;
-
     /**
      * @return the direccion
      */
