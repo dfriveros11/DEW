@@ -1,3 +1,7 @@
+
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -214,7 +218,6 @@ public class ComentarioPersistenceTest {
     public void testDelete() throws Exception {
         ComentarioEntity entity = data.get(0);
         persistence.delete(entity);
-//        persistence.delete(entity.getId());
         ComentarioEntity deleted = em.find(ComentarioEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }

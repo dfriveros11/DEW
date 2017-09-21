@@ -207,7 +207,6 @@ public class EnvioPersistenceTest {
     public void testDelete() throws Exception {
         EnvioEntity entity = data.get(0);
         persistence.delete(entity);
-//        persistence.delete(entity.getId());
         EnvioEntity deleted = em.find(EnvioEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
