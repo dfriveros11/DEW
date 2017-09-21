@@ -6,11 +6,13 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.DivisionDeLugarEntity;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author fc.alvarez10
  */
+@Stateless
 public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLugarEntity>{
 
     public DivisionDeLugarPersistence(){

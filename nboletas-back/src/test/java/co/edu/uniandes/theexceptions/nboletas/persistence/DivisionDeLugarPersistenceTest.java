@@ -13,9 +13,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.*;
+import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -23,6 +25,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  *
  * @author fc.alvarez10
  */
+@RunWith(Arquillian.class)
 public class DivisionDeLugarPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
@@ -115,7 +118,7 @@ public class DivisionDeLugarPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         DivisionDeLugarEntity newEntity = factory.manufacturePojo(DivisionDeLugarEntity.class);
         DivisionDeLugarEntity result = persistence.create(newEntity);
-
+        
         Assert.assertNotNull(result);
         DivisionDeLugarEntity entity = em.find(DivisionDeLugarEntity.class, result.getId());
         Assert.assertNotNull(entity);
@@ -126,6 +129,7 @@ public class DivisionDeLugarPersistenceTest {
     /**
      * Test of uptade method, of class BoletaPersistence.
      */
+    @Test
     public void testUptade() {
         DivisionDeLugarEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
@@ -143,6 +147,7 @@ public class DivisionDeLugarPersistenceTest {
     /**
      * Test of remove method, of class BoletaPersistence.
      */
+    @Test
     public void testDelete() {
         DivisionDeLugarEntity entity = data.get(0);
         persistence.delete(entity);
@@ -153,6 +158,7 @@ public class DivisionDeLugarPersistenceTest {
     /**
      * Test of find method, of class BoletaPersistence.
      */
+    @Test
     public void testFind() {
         DivisionDeLugarEntity entity = data.get(0);
         DivisionDeLugarEntity newEntity = persistence.find(entity.getId());

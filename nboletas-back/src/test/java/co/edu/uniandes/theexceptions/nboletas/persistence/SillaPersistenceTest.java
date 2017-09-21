@@ -128,6 +128,7 @@ public class SillaPersistenceTest {
     /**
      * Test of uptade method, of class BoletaPersistence.
      */
+    @Test
     public void testUptade() {
         SillaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
@@ -145,6 +146,7 @@ public class SillaPersistenceTest {
     /**
      * Test of remove method, of class BoletaPersistence.
      */
+    @Test
     public void testDelete() {
         SillaEntity entity = data.get(0);
         persistence.delete(entity);
@@ -155,6 +157,7 @@ public class SillaPersistenceTest {
     /**
      * Test of find method, of class BoletaPersistence.
      */
+    @Test
     public void testFind() {
         SillaEntity entity = data.get(0);
         SillaEntity newEntity = persistence.find(entity.getId());

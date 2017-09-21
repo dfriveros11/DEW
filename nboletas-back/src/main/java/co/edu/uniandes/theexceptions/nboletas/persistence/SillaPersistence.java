@@ -6,11 +6,13 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.SillaEntity;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author fc.alvarez10
  */
+@Stateless
 public class SillaPersistence extends AbstractPersistence<SillaEntity> {
     
     public SillaPersistence() {

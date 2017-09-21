@@ -21,7 +21,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class DivisionDeLugarEntity extends BaseEntity implements Serializable{
     
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "divisionDeLugar")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "division")
     private List<SillaEntity> sillas;
     
     
@@ -54,6 +54,4 @@ public class DivisionDeLugarEntity extends BaseEntity implements Serializable{
     public void setLugar(LugarEntity lugar) {
         this.lugar = lugar;
     }
-    
-    
 }
