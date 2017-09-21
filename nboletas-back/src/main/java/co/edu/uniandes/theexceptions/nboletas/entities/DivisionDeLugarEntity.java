@@ -6,13 +6,54 @@
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
- * @author ja.gomez1
+ * @author fc.alvarez10
  */
 @Entity
-public class DivisionDeLugarEntity extends BaseEntity implements Serializable {
+public class DivisionDeLugarEntity extends BaseEntity implements Serializable{
+    
+    @PodamExclude
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "divisionDeLugar")
+    private List<SillaEntity> sillas;
+    
+    
+    @PodamExclude
+    @OneToOne(fetch = FetchType.LAZY)
+    private LugarEntity lugar;
+    
+    private String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<SillaEntity> getSillas() {
+        return sillas;
+    }
+
+    public void setSillas(List<SillaEntity> sillas) {
+        this.sillas = sillas;
+    }
+
+    public LugarEntity getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(LugarEntity lugar) {
+        this.lugar = lugar;
+    }
+    
     
 }
