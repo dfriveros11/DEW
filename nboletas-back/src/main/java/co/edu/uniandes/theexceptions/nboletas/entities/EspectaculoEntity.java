@@ -20,6 +20,10 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class EspectaculoEntity extends BaseEntity implements Serializable {
     
+    private String nombre;
+    
+    private String descripcion;
+    
     @PodamExclude
     @ManyToMany(fetch = FetchType.LAZY)
     private List<OrganizadorEntity> organizador;
@@ -35,10 +39,6 @@ public class EspectaculoEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "espectaculo")
     private List<ComentarioEntity> comentarios;
-    
-    private String nombre;
-    
-    private String descripcion;
     
     public String getNombre() {
         return nombre;

@@ -7,7 +7,9 @@ package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.OrganizadorEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.OrganizadorPersistence;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -16,9 +18,12 @@ import javax.ejb.Stateless;
 @Stateless
 public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity>{
 
+    @Inject
+    private OrganizadorPersistence persistence;
+    
     @Override
     protected AbstractPersistence<OrganizadorEntity> getPersistence() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return persistence;
     }
 
  

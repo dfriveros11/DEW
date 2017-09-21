@@ -21,5 +21,13 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany(mappedBy = "usuario")
     private List<BoletaEntity> boletas;
+
+    public List<BoletaEntity> getBoletas() {
+        return boletas;
+    }
+
+    public void setBoletas(List<BoletaEntity> boletas) {
+        this.boletas = boletas;
+    }
     
 }

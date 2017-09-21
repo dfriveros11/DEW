@@ -25,81 +25,49 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ComentarioEntity extends BaseEntity implements Serializable {
     
-    @PodamExclude   
-    private BoletaEntity boleta;
-   
-    
-    @PodamExclude
-    @ManyToOne(fetch = FetchType.LAZY)
-    private EspectaculoEntity espectaculo;
-        
-    
-    private String comentario;
+     private String comentario;
     
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    
+    @PodamExclude   
+    private BoletaEntity boleta;
+   
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private EspectaculoEntity espectaculo;
 
-    /**
-     * @return the comentario
-     */
     public String getComentario() {
         return comentario;
     }
 
-    /**
-     * @param comentario the comentario to set
-     */
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
 
-    /**
-     * @return the fecha
-     */
     public Date getFecha() {
         return fecha;
     }
 
-    /**
-     * @param fecha the fecha to set
-     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    /**
-     * @return the boleta
-     */
     public BoletaEntity getBoleta() {
         return boleta;
     }
 
-    /**
-     * @param boleta the boleta to set
-     */
     public void setBoleta(BoletaEntity boleta) {
         this.boleta = boleta;
     }
 
-    /**
-     * @return the espectaculo
-     */
     public EspectaculoEntity getEspectaculo() {
         return espectaculo;
     }
 
-    /**
-     * @param espectaculo the espectaculo to set
-     */
     public void setEspectaculo(EspectaculoEntity espectaculo) {
         this.espectaculo = espectaculo;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+        
+   
 }
