@@ -6,11 +6,13 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author angeloMarcetty
  */
+@Stateless
 public class ComentarioPersistence extends AbstractPersistence<ComentarioEntity> {
     
     public ComentarioPersistence(){

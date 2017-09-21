@@ -6,11 +6,13 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author jf.ramos
  */
+@Stateless
 public class ArtistaPersistence extends AbstractPersistence<ArtistaEntity>{
     public ArtistaPersistence() {
         super(ArtistaEntity.class);

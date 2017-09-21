@@ -7,6 +7,7 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +26,6 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class ComentarioEntity extends BaseEntity implements Serializable {
     
     @PodamExclude   
-    @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
    
     
@@ -36,7 +36,7 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     
     private String comentario;
     
-//    @Temporal(TemporalType.Date)
+    @Temporal(TemporalType.DATE)
     private Date fecha;
 
     /**

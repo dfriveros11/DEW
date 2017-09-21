@@ -6,11 +6,13 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author angeloMarcetty
  */
+@Stateless
 public class EnvioPersistence extends AbstractPersistence<EnvioEntity>  {
     
     public EnvioPersistence(){
