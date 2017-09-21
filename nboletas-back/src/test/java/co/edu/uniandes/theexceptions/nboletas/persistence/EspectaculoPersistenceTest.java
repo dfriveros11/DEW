@@ -1,6 +1,6 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
-import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -26,13 +26,13 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author df.riveros11
  */
 @RunWith(Arquillian.class)
-public class BoletaPersistenceTest {
+public class EspectaculoPersistenceTest {
 
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(BoletaEntity.class.getPackage())
-                .addPackage(BoletaPersistence.class.getPackage())
+                .addPackage(EspectaculoEntity.class.getPackage())
+                .addPackage(EspectaculoPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -42,7 +42,7 @@ public class BoletaPersistenceTest {
      * van a probar.
      */
     @Inject
-    private BoletaPersistence persistence;
+    private EspectaculoPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -61,9 +61,9 @@ public class BoletaPersistenceTest {
     /**
      *
      */
-    private List<BoletaEntity> data = new ArrayList<BoletaEntity>();
+    private List<EspectaculoEntity> data = new ArrayList<EspectaculoEntity>();
 
-    public BoletaPersistenceTest() {
+    public EspectaculoPersistenceTest() {
     }
 
     @BeforeClass
@@ -76,7 +76,6 @@ public class BoletaPersistenceTest {
 
     @Before
     public void setUp() {
-
         try {
             utx.begin();
             em.joinTransaction();
@@ -94,13 +93,13 @@ public class BoletaPersistenceTest {
     }
 
     private void clearData() {
-        em.createQuery("delete from BoletaEntity").executeUpdate();
+        em.createQuery("delete from EspectaculoEntity").executeUpdate();
     }
 
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            BoletaEntity entity = factory.manufacturePojo(BoletaEntity.class);
+            EspectaculoEntity entity = factory.manufacturePojo(EspectaculoEntity.class);
             em.persist(entity);
             data.add(entity);
         }
@@ -110,30 +109,37 @@ public class BoletaPersistenceTest {
     public void tearDown() {
     }
 
+    /**
+     * Test of create method, of class BoletaPersistence.
+     */
     @Test
     public void testCreate() {
-        PodamFactory factory = new PodamFactoryImpl();
-        BoletaEntity newEntity = factory.manufacturePojo(BoletaEntity.class);
-        BoletaEntity result = persistence.create(newEntity);
 
+        PodamFactory factory = new PodamFactoryImpl();
+        EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
+        EspectaculoEntity result = persistence.create(newEntity);
         Assert.assertNotNull(result);
-        BoletaEntity entity = em.find(BoletaEntity.class, result.getId());
+        EspectaculoEntity entity = em.find(EspectaculoEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getId(), entity.getId());
-        Assert.assertEquals(newEntity.getPrecio(), entity.getPrecio(), 0.00);
+        // Assert.assertEquals(newEntity.getPrecio(), entity.getPrecio(), 0.00);
     }
 
     /**
-     * Test of update method, of class BoletaPersistence.
+     * Test of uptade method, of class BoletaPersistence.
      */
     @Test
     public void testUpdate() {
-        BoletaEntity entity = data.get(0);
+        EspectaculoEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        BoletaEntity newEntity = factory.manufacturePojo(BoletaEntity.class);
+        EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
+
         newEntity.setId(entity.getId());
+
         persistence.update(newEntity);
-        BoletaEntity resp = em.find(BoletaEntity.class, entity.getId());
+
+        EspectaculoEntity resp = em.find(EspectaculoEntity.class, entity.getId());
+
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
 
@@ -142,9 +148,9 @@ public class BoletaPersistenceTest {
      */
     @Test
     public void testDelete() {
-        BoletaEntity entity = data.get(0);
+        EspectaculoEntity entity = data.get(0);
         persistence.delete(entity);
-        BoletaEntity deleted = em.find(BoletaEntity.class, entity.getId());
+        EspectaculoEntity deleted = em.find(EspectaculoEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
@@ -153,8 +159,8 @@ public class BoletaPersistenceTest {
      */
     @Test
     public void testFind() {
-        BoletaEntity entity = data.get(0);
-        BoletaEntity newEntity = persistence.find(entity.getId());
+        EspectaculoEntity entity = data.get(0);
+        EspectaculoEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
@@ -164,11 +170,11 @@ public class BoletaPersistenceTest {
      */
     @Test
     public void testFindAll() {
-        List<BoletaEntity> list = persistence.findAll();
+        List<EspectaculoEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (BoletaEntity ent : list) {
+        for (EspectaculoEntity ent : list) {
             boolean found = false;
-            for (BoletaEntity entity : data) {
+            for (EspectaculoEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -176,4 +182,5 @@ public class BoletaPersistenceTest {
             Assert.assertTrue(found);
         }
     }
+
 }

@@ -5,43 +5,54 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
-import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  *
  * @author df.riveros11
- * @param <T>
+ * @param <T> Entity 
  */
 public abstract class AbstractLogic<T> {
+    
+    protected abstract AbstractPersistence<T> getPersistence();
     
     /**Crear un objeto tipo T
      * @param entity    
      * @return     
     */
-    public abstract T create(T entity);
+    public T create(T entity){
+        return  getPersistence().create(entity);
+    }
     
     /**Actualiza un obeto de tipo T 
      * @param entity    
      * @return     
     */
-    public abstract T uptade(T entity);
+    public T update(T entity){
+        return getPersistence().update(entity);
+    }
     
     /**Elimina un objeto T
      * @param entity    
     */
-    public abstract void delete(T entity);
+    public void delete(T entity){
+        getPersistence().delete(entity);
+    }
     
     /**Encuentra un tipo T al mandar un identificador
      * @param id    
      * @return     
     */
-    public abstract T find(Object id);
+    public T find(Object id){
+        return getPersistence().find(id);
+    }
     
     /**Devuelve todo los objetos
      * @return list con todos los objetos
     */
-    public abstract List<T> findAll();
+    public  List<T> findAll(){
+        return getPersistence().findAll();
+    }
 
 }

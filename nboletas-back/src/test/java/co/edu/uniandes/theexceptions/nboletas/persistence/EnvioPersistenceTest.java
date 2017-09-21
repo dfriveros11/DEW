@@ -191,7 +191,7 @@ public class EnvioPersistenceTest {
 
         newEntity.setId(entity.getId());
 
-        persistence.uptade(newEntity);
+        persistence.update(newEntity);
         EnvioEntity resp = em.find(EnvioEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getDireccion(), resp.getDireccion());

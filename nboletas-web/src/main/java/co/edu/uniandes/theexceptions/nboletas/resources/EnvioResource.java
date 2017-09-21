@@ -77,7 +77,7 @@ public class EnvioResource {
         if (entity == null) {
             throw new WebApplicationException("El recurso envio: " + id + " no existe.", 404);
         }
-        return new EnvioDetailDTO(envioLogic.uptade(envio.toEntity()));    
+        return new EnvioDetailDTO(envioLogic.update(envio.toEntity()));    
     }
     
     

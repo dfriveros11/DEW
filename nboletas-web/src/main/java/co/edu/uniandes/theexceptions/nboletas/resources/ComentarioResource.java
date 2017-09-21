@@ -86,7 +86,7 @@ public class ComentarioResource {
             throw new WebApplicationException("El recurso comentario: " + id + " no existe.", 404);
         }
         //revisar
-        return new ComentarioDetailDTO(comentarioLogic.uptade(comentario.toEntity()));    
+        return new ComentarioDetailDTO(comentarioLogic.update(comentario.toEntity()));    
     }
     
     

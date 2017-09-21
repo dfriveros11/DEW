@@ -5,25 +5,22 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
-import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.LugarEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
-import co.edu.uniandes.theexceptions.nboletas.persistence.EnvioPersistence;
-import javax.ejb.Stateless;
+import co.edu.uniandes.theexceptions.nboletas.persistence.LugarPersistence;
 import javax.inject.Inject;
 
 /**
  *
- * @author angeloMarcetty
+ * @author ja.gomez1
  */
-@Stateless
-public class EnvioLogic extends AbstractLogic<EnvioEntity>{
+public class LugarLogic extends AbstractLogic<LugarEntity>{
     @Inject
-    private EnvioPersistence persistence;
+    private LugarPersistence persistence;
     
     @Override
-    protected AbstractPersistence<EnvioEntity> getPersistence(){
+    protected AbstractPersistence<LugarEntity> getPersistence() {
         return persistence;
     }
-
-
+    
 }

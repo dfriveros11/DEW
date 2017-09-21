@@ -5,21 +5,20 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
-import co.edu.uniandes.theexceptions.nboletas.entities.OrganizadorEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import javax.ejb.Stateless;
 
 /**
  *
- * @author df.riveros11
+ * @author jf.ramos
  */
 @Stateless
-public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity>{
+public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
 
     @Override
-    protected AbstractPersistence<OrganizadorEntity> getPersistence() {
+    protected AbstractPersistence<EspectaculoEntity> getPersistence() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
- 
 }

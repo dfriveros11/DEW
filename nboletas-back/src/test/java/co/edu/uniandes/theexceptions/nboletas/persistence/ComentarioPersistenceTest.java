@@ -197,7 +197,7 @@ public class ComentarioPersistenceTest {
 
         newEntity.setId(entity.getId());
 
-        persistence.uptade(newEntity);
+        persistence.update(newEntity);
         ComentarioEntity resp = em.find(ComentarioEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getComentario(), resp.getComentario());

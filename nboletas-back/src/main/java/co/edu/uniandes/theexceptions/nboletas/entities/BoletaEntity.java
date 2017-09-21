@@ -39,7 +39,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class BoletaEntity extends BaseEntity implements Serializable {
    
     private double precio;
-    private boolean venida;
+    private boolean vendida;
     
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
@@ -77,11 +77,67 @@ public class BoletaEntity extends BaseEntity implements Serializable {
     }
 
     public boolean isVenida() {
-        return venida;
+        return vendida;
     }
 
     public void setVenida(boolean venida) {
-        this.venida = venida;
+        this.vendida = venida;
+    }
+
+    public boolean isVendida() {
+        return vendida;
+    }
+
+    public void setVendida(boolean vendida) {
+        this.vendida = vendida;
+    }
+
+    public ReembolsoEntity getReembolso() {
+        return reembolso;
+    }
+
+    public void setReembolso(ReembolsoEntity reembolso) {
+        this.reembolso = reembolso;
+    }
+
+    public EnvioEntity getEnvio() {
+        return envio;
+    }
+
+    public void setEnvio(EnvioEntity envio) {
+        this.envio = envio;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
+
+    public ComentarioEntity getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(ComentarioEntity comentario) {
+        this.comentario = comentario;
+    }
+
+    public FuncionEntity getFuncion() {
+        return funcion;
+    }
+
+    public void setFuncion(FuncionEntity funcion) {
+        this.funcion = funcion;
+    }
+
+    public SillaEntity getSilla() {
+        return silla;
+    }
+
+    public void setSilla(SillaEntity silla) {
+        this.silla = silla;
     }
 
     
