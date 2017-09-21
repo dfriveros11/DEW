@@ -54,7 +54,7 @@ public class BoletaEntity extends BaseEntity implements Serializable {
     private UsuarioEntity usuario;
     
     @PodamExclude
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
     private ComentarioEntity comentario;
     
     @PodamExclude

@@ -8,12 +8,14 @@ package co.edu.uniandes.theexceptions.nboletas.ejb;
 import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.FuncionPersistence;
+import javax.ejb.Stateful;
 import javax.inject.Inject;
 
 /**
  *
  * @author ja.gomez1
  */
+@Stateful
 public class FuncionLogic extends AbstractLogic<FuncionEntity>{
     @Inject
     private FuncionPersistence persistence;

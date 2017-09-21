@@ -22,7 +22,7 @@ public class LugarEntity extends BaseEntity implements Serializable {
     private String ubicacion;
     
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "lugar")
     private List<FuncionEntity> funciones;
     
     @PodamExclude
