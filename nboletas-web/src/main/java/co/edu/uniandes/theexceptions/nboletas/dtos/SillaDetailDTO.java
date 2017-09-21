@@ -14,10 +14,6 @@ import java.util.List;
  */
 public class SillaDetailDTO extends SillaDTO{
     
-    private DivisionDeLugarDTO divisionDeLugar;
-    
-    private List<BoletaDTO> boletas;
-    
     public SillaDetailDTO(){
         
     }
@@ -31,22 +27,5 @@ public class SillaDetailDTO extends SillaDTO{
         SillaEntity silla=super.toEntity();
         return silla;
     }
-
-    public DivisionDeLugarDTO getDivisionDeLugar() {
-        return divisionDeLugar;
-    }
-
-    public void setDivisionDeLugar(DivisionDeLugarDTO divisionDeLugar) {
-        this.divisionDeLugar = divisionDeLugar;
-    }
-
-    public List<BoletaDTO> getBoletas() {
-        return boletas;
-    }
-
-    public void setBoletas(List<BoletaDTO> boletas) {
-        this.boletas = boletas;
-    }
-    
     
 }
