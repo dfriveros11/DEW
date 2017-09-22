@@ -58,6 +58,23 @@ public class FuncionResource {
     }
     
     /**
+     * GET para todas las Funciones.
+     * http://localhost:8080/nboletas-web/api/funciones/id
+     *
+     * @return la lista de todas las Funciones en objetos json DTO.
+     * @throws BusinessLogicException
+     * 
+     * En caso de no existir el id de la Funcion a actualizar se retorna un 404 not found.
+     */
+    @GET
+    @Path("{id: \\d+}")
+    public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws BusinessLogicException {
+        FuncionEntity f = funcionLogic.find(id);
+        if(f == null) throw new BusinessLogicException("No existe funcion con id " + id);
+        return new FuncionDetailDTO(f);
+    }
+    
+    /**
      * POST http://localhost:8080/nboletas-web/api/funciones
      *
      * @param Funcion correponde a la representación java del objeto json
