@@ -23,6 +23,12 @@ SOFTWARE.-
 */
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.SillaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 
 /**
  *
@@ -30,10 +36,23 @@ import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
  */
 public class BoletaDetailDTO extends BoletaDTO {
 
+    private ReembolsoDTO reembolso;
+    
+    private EnvioDTO envio;
+    
+    private UsuarioDTO usuario;
+    
+    private ComentarioDTO comentario;
+    
+    private FuncionDTO funcion;
+    
+    private SillaDTO silla;
+    
     /**
      * Constructor por defecto
      */
     public BoletaDetailDTO() {
+        super();
     }
 
     /**
@@ -43,6 +62,41 @@ public class BoletaDetailDTO extends BoletaDTO {
      */
     public BoletaDetailDTO(BoletaEntity entity) {
         super(entity);
+        ReembolsoEntity reembolsoA = entity.getReembolso();
+        if(null != reembolsoA){
+            this.reembolso = new ReembolsoDTO(reembolsoA);
+        }
+        entity.setReembolso(null);
+        
+        EnvioEntity envioA = entity.getEnvio();
+        if(null != envioA){
+            this.envio = new EnvioDTO(envioA);
+        }
+        entity.setEnvio(null);
+        
+        UsuarioEntity usuarioA = entity.getUsuario();
+        if(null != usuarioA){
+            this.usuario = new UsuarioDTO(usuarioA);
+        }
+        entity.setUsuario(usuarioA);
+        
+        ComentarioEntity comentarioA = entity.getComentario();
+        if(null != comentarioA){
+            this.comentario = new ComentarioDTO(comentarioA);
+        }
+        entity.setComentario(comentarioA);
+        
+        FuncionEntity funcionA = entity.getFuncion();
+        if(null != funcionA){
+            this.funcion = new FuncionDTO(funcionA);
+        }
+        entity.setFuncion(funcionA);
+        
+        SillaEntity sillaA = entity.getSilla();
+        if(null != sillaA){
+            this.silla = new SillaDTO(sillaA);
+        }
+        entity.setSilla(sillaA);
     }
 
     /**
@@ -52,8 +106,80 @@ public class BoletaDetailDTO extends BoletaDTO {
      */
     @Override
     public BoletaEntity toEntity() {
-        BoletaEntity BoletaE = super.toEntity();
-        return BoletaE;
+        BoletaEntity boletaE = super.toEntity();
+        if(this.reembolso != null){
+            boletaE.setReembolso(reembolso.toEntity());
+        }
+        
+        if(this.envio != null){
+            boletaE.setEnvio(envio.toEntity());
+        }
+        
+        if(this.usuario != null){
+            boletaE.setUsuario(usuario.toEntity());
+        }
+        
+        if (this.comentario != null) {
+            boletaE.setComentario(comentario.toEntity());
+        }
+        
+        if (this.funcion != null) {
+            boletaE.setFuncion(funcion.toEntity());
+        }
+        
+        if (this.silla != null) {
+            boletaE.setSilla(silla.toEntity());
+        }
+        
+        return boletaE;
+    }
+
+    public ReembolsoDTO getReembolso() {
+        return reembolso;
+    }
+
+    public void setReembolso(ReembolsoDTO reembolso) {
+        this.reembolso = reembolso;
+    }
+
+    public EnvioDTO getEnvio() {
+        return envio;
+    }
+
+    public void setEnvio(EnvioDTO envio) {
+        this.envio = envio;
+    }
+
+    public UsuarioDTO getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
+    }
+
+    public ComentarioDTO getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(ComentarioDTO comentario) {
+        this.comentario = comentario;
+    }
+
+    public FuncionDTO getFuncion() {
+        return funcion;
+    }
+
+    public void setFuncion(FuncionDTO funcion) {
+        this.funcion = funcion;
+    }
+
+    public SillaDTO getSilla() {
+        return silla;
+    }
+
+    public void setSilla(SillaDTO silla) {
+        this.silla = silla;
     }
 
 }
