@@ -13,13 +13,17 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
  */
 public class EnvioDetailDTO extends EnvioDTO {
     
+  public EnvioDetailDTO(){
+  }
+    
   public EnvioDetailDTO(EnvioEntity entity){
       super(entity);
   }
   
   @Override
   public EnvioEntity toEntity(){
-      return super.toEntity();
+      EnvioEntity envio = super.toEntity();
+      return envio;
   }
     
     

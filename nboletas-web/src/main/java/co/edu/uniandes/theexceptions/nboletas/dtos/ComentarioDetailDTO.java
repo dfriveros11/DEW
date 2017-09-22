@@ -14,13 +14,18 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
  */
 public class ComentarioDetailDTO extends ComentarioDTO {
     
+    public ComentarioDetailDTO(){
+        
+    }
+    
     public ComentarioDetailDTO(ComentarioEntity entity){
         super(entity);
     }
     
     @Override
     public ComentarioEntity toEntity(){
-        return super.toEntity();
+        ComentarioEntity coment = super.toEntity();
+        return coment;
     }
     
     

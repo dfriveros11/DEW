@@ -8,6 +8,7 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 import co.edu.uniandes.theexceptions.nboletas.dtos.EnvioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -33,7 +34,7 @@ import javax.ws.rs.WebApplicationException;
 @Stateless
 public class EnvioResource {
     
-     @Inject
+    @Inject
     EnvioLogic envioLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     private static final Logger LOGGER = Logger.getLogger(EnvioResource.class.getName());
@@ -59,8 +60,15 @@ public class EnvioResource {
     }
     
     
+     /**
+     * GET para todas los Envios.
+     * http://localhost:8080/nboletas-web/api/envios
+     *
+     * @return la lista de todos los Envios en objetos json DTO.
+     * @throws BusinessLogicException
+     */
     @GET
-    public List<EnvioDetailDTO> getEnvios()  {
+    public List<EnvioDetailDTO> getEnvios() throws BusinessLogicException  {
         return listEntity2DetailDTO(envioLogic.findAll());
     }
     
