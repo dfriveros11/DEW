@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.BaseEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import java.util.List;
 

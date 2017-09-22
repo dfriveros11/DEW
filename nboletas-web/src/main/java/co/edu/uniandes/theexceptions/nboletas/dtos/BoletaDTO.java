@@ -48,10 +48,14 @@ public class BoletaDTO {
      * Conviertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
      *
-     * @param Boleta: Es la entidad que se va a convertir a DTO
+     * @param boleta: Es la entidad que se va a convertir a DTO
      */
-    public BoletaDTO(BoletaEntity Boleta) {
-        this.id = Boleta.getId();
+    public BoletaDTO(BoletaEntity boleta) {
+        if(boleta != null){
+            this.id = boleta.getId();
+            this.precio = boleta.getPrecio();
+            this.vendida = boleta.isVendida();
+        }
     }
 
     /**
