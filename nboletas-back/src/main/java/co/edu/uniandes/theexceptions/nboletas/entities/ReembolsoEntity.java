@@ -8,18 +8,52 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
- * @author df.riveros11
+ * @author jm.contreras10
  */
 @Entity
 public class ReembolsoEntity extends BaseEntity implements Serializable  {
     
+    /**
+     * Valor del reembolso.
+     */
+    private Double valor;
+    
     @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
+    
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UsuarioEntity usuario;
+
+    public BoletaEntity getBoleta() {
+        return boleta;
+    }
+
+    public void setBoleta(BoletaEntity boleta) {
+        this.boleta = boleta;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
     
     
     
