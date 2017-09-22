@@ -5,14 +5,25 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.UsuarioPersistence;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
- * @author df.riveros11
+ * @author jm.contreras10
  */
 @Stateless
-public class UsuarioLogic{
-
+public class UsuarioLogic extends AbstractLogic<UsuarioEntity>{
+            
+    @Inject
+    private UsuarioPersistence persistence;
  
+    @Override
+    protected AbstractPersistence<UsuarioEntity> getPersistence() {
+        return persistence;
+    }
+    
 }
