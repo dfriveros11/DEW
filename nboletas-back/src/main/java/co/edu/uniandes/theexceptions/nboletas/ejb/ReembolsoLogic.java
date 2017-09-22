@@ -5,12 +5,25 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
+import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.ReembolsoPersistence;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
- * @author df.riveros11
+ * @author jm.contreras10
  */
 @Stateless
-public class ReembolsoLogic {
+public class ReembolsoLogic extends AbstractLogic<ReembolsoEntity>{
+    
+    @Inject
+    private ReembolsoPersistence persistence;
+ 
+    @Override
+    protected AbstractPersistence<ReembolsoEntity> getPersistence() {
+        return persistence;
+    }
+    
 }

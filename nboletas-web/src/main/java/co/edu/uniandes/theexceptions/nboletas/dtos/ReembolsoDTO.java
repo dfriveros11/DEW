@@ -9,16 +9,27 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 
 /**
  *
- * @author df.riveros11
+ * @author jm.contreras10
  */
-class ReembolsoDTO {
-
-    ReembolsoDTO(ReembolsoEntity reembolsoA) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+public class ReembolsoDTO {
+    
+    private Long id;
+    private Double valor;
+    
+    public ReembolsoDTO(){
+        
     }
-
-    ReembolsoEntity toEntity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public ReembolsoDTO(ReembolsoEntity entity){
+        this.id = entity.getId();
+        this.valor = entity.getValor();
+    }
+    
+    public ReembolsoEntity toEntity(){
+        ReembolsoEntity entity = new ReembolsoEntity();
+        entity.setId(this.id);
+        entity.setValor(this.valor);
+        return entity;
     }
     
 }

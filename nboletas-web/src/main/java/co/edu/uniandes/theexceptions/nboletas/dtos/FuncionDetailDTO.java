@@ -13,6 +13,9 @@ import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
  */
 public class FuncionDetailDTO extends FuncionDTO {
 
+    public FuncionDetailDTO() {
+    }
+
     public FuncionDetailDTO(FuncionEntity entity) {
         super(entity);
     }

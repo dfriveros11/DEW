@@ -13,6 +13,9 @@ import co.edu.uniandes.theexceptions.nboletas.entities.LugarEntity;
  */
 public class LugarDetailDTO extends LugarDTO {
 
+    public LugarDetailDTO() {
+    }
+
     public LugarDetailDTO(LugarEntity entity) {
         super(entity);
     }
