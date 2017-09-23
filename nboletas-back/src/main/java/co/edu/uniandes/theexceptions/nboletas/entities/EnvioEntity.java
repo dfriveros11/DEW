@@ -21,6 +21,7 @@ public class EnvioEntity extends BaseEntity implements Serializable {
     private String direccion;
 
     @PodamExclude
+    @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
     
     /**

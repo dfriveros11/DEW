@@ -25,23 +25,11 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
 import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
-import co.edu.uniandes.theexceptions.nboletas.ejb.ComentarioLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.SillaLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
-import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -51,14 +39,13 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso REST correspondiente a "Boletas".
  *
  * Note que la aplicación (definida en RestConfig.java) define la ruta "/api" y
- * este recurso tiene la ruta "Boletas". Al ejecutar la aplicación, el
- * recurso será accesibe a través de la ruta "/api/nboletas"
+ * este recurso tiene la ruta "Boletas". Al ejecutar la aplicación, el recurso
+ * será accesibe a través de la ruta "/api/nboletas"
  *
  * @author ISIS2603
  *
@@ -72,28 +59,11 @@ public class BoletaResource {
     @Inject
     BoletaLogic boletaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
-    @Inject
-    private ReembolsoLogic reembolsoLogic;
-
-    @Inject
-    private EnvioLogic envioLogic;
-
-    @Inject
-    private SillaLogic sillaLogic;
-
-    @Inject
-    private ComentarioLogic comentarioLogic;
-
-    @Inject
-    private UsuarioLogic usuarioLogic;
-    
-    private static final Logger LOGGER = Logger.getLogger(BoletaResource.class.getName());
-
     /**
      * POST http://localhost:8080/nboletas-web/api/boletas
      *
-     * @param Boleta correponde a la representación java del objeto json
-     * enviado en el llamado.
+     * @param Boleta correponde a la representación java del objeto json enviado
+     * en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * "BoletaDetailDTO", "id": 1, atributo1 : "valor" }
@@ -101,12 +71,8 @@ public class BoletaResource {
      */
     @POST
     public BoletaDetailDTO createBoleta(BoletaDetailDTO Boleta) throws BusinessLogicException {
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        BoletaEntity BoletaEntity = Boleta.toEntity();
-        // Invoca la lógica para crear la Boleta nueva
-        BoletaEntity nuevoBoleta = boletaLogic.create(BoletaEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        return new BoletaDetailDTO(nuevoBoleta);
+        BoletaEntity boleta = Boleta.toEntity();
+        return new BoletaDetailDTO(boletaLogic.create(boleta));
     }
 
     /**
@@ -121,29 +87,37 @@ public class BoletaResource {
         return listEntity2DetailDTO(boletaLogic.findAll());
     }
 
-   
+    @GET
+    @Path("{id: \\d+}")
+    public BoletaDetailDTO getBoleta(@PathParam("id") Long id) throws BusinessLogicException {
+        BoletaEntity boleta = boletaLogic.find(id);
+        if (boleta == null) {
+            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+        }
+        return new BoletaDetailDTO(boleta);
+    }
+
     /**
-     * PUT http://localhost:8080/nboletas-web/api/boletas/1 Ejemplo
-     * json { "id": 1, "atirbuto1": "Valor nuevo" }
+     * PUT http://localhost:8080/nboletas-web/api/boletas/1 Ejemplo json { "id":
+     * 1, "atirbuto1": "Valor nuevo" }
      *
      * @param id corresponde a la Boleta a actualizar.
-     * @param boleta corresponde  al objeto con los cambios que se van a
+     * @param boleta corresponde al objeto con los cambios que se van a
      * realizar.
      * @return La Boleta actualizada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      */
     @PUT
     @Path("{id: \\d+}")
     public BoletaDetailDTO updateBoleta(@PathParam("id") Long id, BoletaDetailDTO boleta) throws BusinessLogicException, UnsupportedOperationException {
-        BoletaEntity boletaActualizar = boleta.toEntity();
-        if(null == boletaLogic.find(id)){
+        boleta.setId(id);
+        if (null == boletaLogic.find(id)) {
             throw new BusinessLogicException("No existe la boleta con el id: " + id);
         }
-        boletaActualizar.setId(id);
-        BoletaEntity boletaActualizada = boletaLogic.update(boletaActualizar);
+        BoletaEntity boletaActualizada = boletaLogic.update(boleta.toEntity());
         return (new BoletaDetailDTO(boletaActualizada));
     }
 
@@ -153,30 +127,19 @@ public class BoletaResource {
      * @param id corresponde a la Boleta a borrar.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      *
+     * Seguir corrigiendo
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteBoleta(@PathParam("id") Long id) throws BusinessLogicException {
-         BoletaEntity boleta = boletaLogic.find(id);
-         if(null == boleta){
-             throw new BusinessLogicException("No existe la boleta con el id: " + id);
-         }
-         EnvioEntity envio = boleta.getEnvio();
-         if(null != envio){
-             /*borrar el envio*/
-         }
-         ComentarioEntity comentario = boleta.getComentario();
-         if(null != comentario){
-             /*borrar el comentario*/
-         }
-         ReembolsoEntity reembolso = boleta.getReembolso();
-         if(null != reembolso){
-             /*borrar el reembolso*/
-         }
-         boletaLogic.delete(boleta);
+        BoletaEntity boleta = boletaLogic.find(id);
+        if (null == boleta) {
+            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+        }
+        boletaLogic.delete(boleta);
     }
 
     /**
@@ -186,8 +149,8 @@ public class BoletaResource {
      * Este método convierte una lista de objetos BoletaEntity a una lista de
      * objetos BoletaDetailDTO (json)
      *
-     * @param entityList corresponde a la lista de Boletas de tipo Entity
-     * que vamos a convertir a DTO.
+     * @param entityList corresponde a la lista de Boletas de tipo Entity que
+     * vamos a convertir a DTO.
      * @return la lista de Boletas en forma DTO (json)
      */
     private List<BoletaDetailDTO> listEntity2DetailDTO(List<BoletaEntity> entityList) {
