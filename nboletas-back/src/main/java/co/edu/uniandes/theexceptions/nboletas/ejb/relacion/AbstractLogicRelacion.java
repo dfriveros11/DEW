@@ -5,10 +5,37 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb.relacion;
 
+import co.edu.uniandes.theexceptions.nboletas.persistence.relacion.AbstractPersistenceRelacion;
+import java.util.List;
+
 /**
  *
  * @author df.riveros11
+ * @param <T>
+ * @param <P>
  */
-public class AbstractLogicRelacion {
+public abstract class AbstractLogicRelacion <T, P> {
     
+    protected abstract AbstractPersistenceRelacion<T, P> getPersistenceOne();
+    protected abstract AbstractPersistenceRelacion<T, P> getPersistenceTwo();
+    
+    public P create(Object id, P entity){
+        return getPersistenceTwo().create(id, entity);
+    }
+
+    public void update(Object idT, Object idP){
+        getPersistenceOne().update(idT, idP);
+    }
+    
+    public P delete(Object id, P entity){
+        return getPersistenceTwo().delete(id, entity);
+    }
+    
+    public P find(Object idT, Object idP){
+        return getPersistenceTwo().find(idT, idP);
+    }
+    
+    public List<P> findAll(Object id){
+        return getPersistenceTwo().findAll(id);
+    }  
 }
