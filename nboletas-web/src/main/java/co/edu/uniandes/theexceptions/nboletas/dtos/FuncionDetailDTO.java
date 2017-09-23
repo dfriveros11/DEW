@@ -47,6 +47,61 @@ public class FuncionDetailDTO extends FuncionDTO {
     @Override
     public FuncionEntity toEntity() {
         FuncionEntity f = super.toEntity();
+        
+        if(getBoletas() != null) {
+            ArrayList<BoletaEntity> b = new ArrayList<>();
+            for(BoletaDTO e : getBoletas()) b.add(e.toEntity());
+            f.setBoletas(b);
+        }
+        
+        if(getLugar() != null) f.setLugar(this.lugar.toEntity());
+        
+        if(getEspectaculo() != null) f.setEspectaculo(this.espectaculo.toEntity());
+        
         return f;
     }
+
+    /**
+     * @return the boletas
+     */
+    public List<BoletaDTO> getBoletas() {
+        return boletas;
+    }
+
+    /**
+     * @param boletas the boletas to set
+     */
+    public void setBoletas(List<BoletaDTO> boletas) {
+        this.boletas = boletas;
+    }
+
+    /**
+     * @return the lugar
+     */
+    public LugarDTO getLugar() {
+        return lugar;
+    }
+
+    /**
+     * @param lugar the lugar to set
+     */
+    public void setLugar(LugarDTO lugar) {
+        this.lugar = lugar;
+    }
+
+    /**
+     * @return the espectaculo
+     */
+    public EspectaculoDTO getEspectaculo() {
+        return espectaculo;
+    }
+
+    /**
+     * @param espectaculo the espectaculo to set
+     */
+    public void setEspectaculo(EspectaculoDTO espectaculo) {
+        this.espectaculo = espectaculo;
+    }
+    
+    
 }

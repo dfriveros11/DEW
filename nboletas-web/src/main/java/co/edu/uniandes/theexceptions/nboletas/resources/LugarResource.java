@@ -119,22 +119,6 @@ public class LugarResource {
          if(null == l) {
              throw new BusinessLogicException("No existe funcion con el id: " + id);
          }
-         List<DivisionDeLugarEntity> dList = (l != null? l.getDivisiones() : null);
-         if(dList != null) {
-             for(DivisionDeLugarEntity d : dList) {
-                 if (d != null) {
-                     List<SillaEntity> sList = (d != null ? d.getSillas() : null);
-                     if (sList != null) {
-                         for (SillaEntity s : sList) {
-                             if (s != null) {
-                                 sillaLogic.delete(s);
-                             }
-                         }
-                     }
-                     divisionLogic.delete(d);
-                 }
-             }
-         }
          lugarLogic.delete(l);
     }
     
