@@ -8,6 +8,7 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -49,11 +50,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     private String ciudad;
 
     @PodamExclude
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "usuario")
     private List<BoletaEntity> boletas;
 
     @PodamExclude
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "usuario")
     private List<ReembolsoEntity> reembolsos;
 
     public List<BoletaEntity> getBoletas() {
