@@ -23,17 +23,18 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class FuncionEntity extends BaseEntity implements Serializable {
+
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
+
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcion")
     private List<BoletaEntity> boletas;
-   
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private EspectaculoEntity espectaculo;
-   
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private LugarEntity lugar;

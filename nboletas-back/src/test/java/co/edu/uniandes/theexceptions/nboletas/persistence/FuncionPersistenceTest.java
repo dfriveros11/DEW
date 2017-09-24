@@ -32,7 +32,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class FuncionPersistenceTest {
-    
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -41,29 +41,29 @@ public class FuncionPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     @Inject
     private FuncionPersistence persistence;
-    
+
     @PersistenceContext
     private EntityManager em;
-    
+
     @Inject
     private UserTransaction utx;
-    
+
     private List<FuncionEntity> data = new ArrayList<FuncionEntity>();
-    
+
     public FuncionPersistenceTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         try {
@@ -81,11 +81,11 @@ public class FuncionPersistenceTest {
             }
         }
     }
-    
+
     private void clearData() {
         em.createQuery("delete from FuncionEntity").executeUpdate();
     }
-    
+
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
@@ -94,11 +94,11 @@ public class FuncionPersistenceTest {
             data.add(entity);
         }
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void testCreate() {
         PodamFactory factory = new PodamFactoryImpl();

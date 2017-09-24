@@ -13,8 +13,8 @@ import javax.ejb.Stateless;
  * @author jm.contreras10
  */
 @Stateless
-public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity>{
-    
+public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
+
     public UsuarioPersistence() {
         super(UsuarioEntity.class);
     }

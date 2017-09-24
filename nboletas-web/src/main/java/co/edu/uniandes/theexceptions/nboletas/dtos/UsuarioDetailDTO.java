@@ -15,45 +15,44 @@ import java.util.List;
  *
  * @author jm.contreras10
  */
+public class UsuarioDetailDTO extends UsuarioDTO {
 
-public class UsuarioDetailDTO extends UsuarioDTO{
-    
     private List<BoletaDTO> boletasCompradas;
-    
+
     private List<ReembolsoDTO> reembolsos;
 
     public UsuarioDetailDTO(UsuarioEntity entity) {
         super(entity);
         List<BoletaDTO> bols = new LinkedList<>();
-        for(BoletaEntity b : entity.getBoletas()){
+        for (BoletaEntity b : entity.getBoletas()) {
             bols.add(new BoletaDTO(b));
         }
         List<ReembolsoDTO> reem = new LinkedList<>();
-        for(ReembolsoEntity r : entity.getReembolsos()){
+        for (ReembolsoEntity r : entity.getReembolsos()) {
             reem.add(new ReembolsoDTO(r));
         }
-        
+
         boletasCompradas = bols;
         reembolsos = reem;
-        
+
     }
 
     @Override
     public UsuarioEntity toEntity() {
         UsuarioEntity entity = super.toEntity();
-        
+
         List<BoletaEntity> bols = new LinkedList<>();
-        for(BoletaDTO b : this.boletasCompradas){
+        for (BoletaDTO b : this.boletasCompradas) {
             bols.add(b.toEntity());
         }
-        
+
         List<ReembolsoEntity> reems = new LinkedList<>();
-        for(ReembolsoDTO r : this.reembolsos){
+        for (ReembolsoDTO r : this.reembolsos) {
             reems.add(r.toEntity());
         }
         entity.setBoletas(bols);
         entity.setReembolsos(reems);
-        
+
         return entity;
     }
 

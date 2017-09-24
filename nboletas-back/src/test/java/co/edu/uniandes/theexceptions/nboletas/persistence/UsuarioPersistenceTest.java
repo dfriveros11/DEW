@@ -40,8 +40,8 @@ public class UsuarioPersistenceTest {
     }
 
     /**
-     * Inyección de la dependencia a la clase UsuarioPersistence cuyos métodos se
-     * van a probar.
+     * Inyección de la dependencia a la clase UsuarioPersistence cuyos métodos
+     * se van a probar.
      */
     @Inject
     private UsuarioPersistence persistence;
@@ -128,28 +128,29 @@ public class UsuarioPersistenceTest {
         Assert.assertEquals(newEntity.getEmail(), entity.getEmail());
         Assert.assertEquals(newEntity.getPais(), entity.getPais());
         Assert.assertEquals(newEntity.getCiudad(), entity.getCiudad());
-        
-        for (BoletaEntity boleta :entity.getBoletas()) {
+
+        for (BoletaEntity boleta : entity.getBoletas()) {
             boolean found = false;
             List<BoletaEntity> bol = newEntity.getBoletas();
-            for (int i = 0;i < bol.size() && !found ;i++) {
-                if(bol.get(i).getId() == boleta.getId())
+            for (int i = 0; i < bol.size() && !found; i++) {
+                if (bol.get(i).getId() == boleta.getId()) {
                     found = true;
+                }
             }
             Assert.assertTrue(found);
         }
-        
-                
-        for (ReembolsoEntity reem :entity.getReembolsos()) {
+
+        for (ReembolsoEntity reem : entity.getReembolsos()) {
             boolean found = false;
             List<ReembolsoEntity> r = newEntity.getReembolsos();
-            for (int i = 0;i < r.size() && !found ;i++) {
-                if(r.get(i).getId() == reem.getId())
+            for (int i = 0; i < r.size() && !found; i++) {
+                if (r.get(i).getId() == reem.getId()) {
                     found = true;
+                }
             }
             Assert.assertTrue(found);
         }
-        
+
     }
 
     /**
@@ -164,31 +165,32 @@ public class UsuarioPersistenceTest {
         persistence.update(newEntity);
         UsuarioEntity resp = em.find(UsuarioEntity.class, entity.getId());
         Assert.assertEquals(newEntity.getId(), resp.getId());
-        
+
         Assert.assertEquals(newEntity.getUserName(), resp.getUserName());
         Assert.assertEquals(newEntity.getPassword(), resp.getPassword());
         Assert.assertEquals(newEntity.getNombreUsuario(), resp.getNombreUsuario());
         Assert.assertEquals(newEntity.getEmail(), resp.getEmail());
         Assert.assertEquals(newEntity.getPais(), resp.getPais());
         Assert.assertEquals(newEntity.getCiudad(), resp.getCiudad());
-        
-        for (BoletaEntity boleta :resp.getBoletas()) {
+
+        for (BoletaEntity boleta : resp.getBoletas()) {
             boolean found = false;
             List<BoletaEntity> bol = newEntity.getBoletas();
-            for (int i = 0;i < bol.size() && !found ;i++) {
-                if(bol.get(i).getId() == boleta.getId())
+            for (int i = 0; i < bol.size() && !found; i++) {
+                if (bol.get(i).getId() == boleta.getId()) {
                     found = true;
+                }
             }
             Assert.assertTrue(found);
         }
-        
-                
-        for (ReembolsoEntity reem :resp.getReembolsos()) {
+
+        for (ReembolsoEntity reem : resp.getReembolsos()) {
             boolean found = false;
             List<ReembolsoEntity> r = newEntity.getReembolsos();
-            for (int i = 0;i < r.size() && !found ;i++) {
-                if(r.get(i).getId() == reem.getId())
+            for (int i = 0; i < r.size() && !found; i++) {
+                if (r.get(i).getId() == reem.getId()) {
                     found = true;
+                }
             }
             Assert.assertTrue(found);
         }
@@ -214,7 +216,7 @@ public class UsuarioPersistenceTest {
         UsuarioEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
-        
+
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getUserName(), entity.getUserName());
         Assert.assertEquals(newEntity.getPassword(), entity.getPassword());
@@ -222,24 +224,25 @@ public class UsuarioPersistenceTest {
         Assert.assertEquals(newEntity.getEmail(), entity.getEmail());
         Assert.assertEquals(newEntity.getPais(), entity.getPais());
         Assert.assertEquals(newEntity.getCiudad(), entity.getCiudad());
-        
-        for (BoletaEntity boleta :entity.getBoletas()) {
+
+        for (BoletaEntity boleta : entity.getBoletas()) {
             boolean found = false;
             List<BoletaEntity> bol = newEntity.getBoletas();
-            for (int i = 0;i < bol.size() && !found ;i++) {
-                if(bol.get(i).getId() == boleta.getId())
+            for (int i = 0; i < bol.size() && !found; i++) {
+                if (bol.get(i).getId() == boleta.getId()) {
                     found = true;
+                }
             }
             Assert.assertTrue(found);
         }
-        
-                
-        for (ReembolsoEntity reem :entity.getReembolsos()) {
+
+        for (ReembolsoEntity reem : entity.getReembolsos()) {
             boolean found = false;
             List<ReembolsoEntity> r = newEntity.getReembolsos();
-            for (int i = 0;i < r.size() && !found ;i++) {
-                if(r.get(i).getId() == reem.getId())
+            for (int i = 0; i < r.size() && !found; i++) {
+                if (r.get(i).getId() == reem.getId()) {
                     found = true;
+                }
             }
             Assert.assertTrue(found);
         }

@@ -19,15 +19,15 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class SillaEntity extends BaseEntity implements Serializable {
-    
+
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "silla")
     private List<BoletaEntity> boletas;
-    
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private DivisionDeLugarEntity division;
-    
+
     private double costo;
 
     public DivisionDeLugarEntity getDivision() {
@@ -53,7 +53,5 @@ public class SillaEntity extends BaseEntity implements Serializable {
     public double getCosto() {
         return costo;
     }
-    
-  
-    
+
 }

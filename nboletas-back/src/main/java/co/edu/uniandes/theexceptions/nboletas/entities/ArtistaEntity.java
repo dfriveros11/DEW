@@ -16,16 +16,15 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author jf.ramos
  */
-
 @Entity
-public class ArtistaEntity extends BaseEntity implements Serializable{
-    
+public class ArtistaEntity extends BaseEntity implements Serializable {
+
     private String nombre;
-    
+
     @PodamExclude
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "artista")
     private List<EspectaculoEntity> espectaculos;
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -41,10 +40,5 @@ public class ArtistaEntity extends BaseEntity implements Serializable{
     public void setEspectaculos(List<EspectaculoEntity> espectaculos) {
         this.espectaculos = espectaculos;
     }
-    
-    
-    
-    
-   
-  
+
 }

@@ -18,20 +18,17 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author fc.alvarez10
  */
 @Entity
-public class DivisionDeLugarEntity extends BaseEntity implements Serializable{
-    
-     private String nombre;
-    
+public class DivisionDeLugarEntity extends BaseEntity implements Serializable {
+
+    private String nombre;
+
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "division")
     private List<SillaEntity> sillas;
-    
-    
+
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY)
     private LugarEntity lugar;
-    
-   
 
     public String getNombre() {
         return nombre;

@@ -14,9 +14,9 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class SillaPersistence extends AbstractPersistence<SillaEntity> {
-    
+
     public SillaPersistence() {
         super(SillaEntity.class);
     }
-    
+
 }

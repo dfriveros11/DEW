@@ -1,6 +1,5 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
-
 import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,8 +38,8 @@ public class ReembolsoPersistenceTest {
     }
 
     /**
-     * Inyección de la dependencia a la clase ReembolsoPersistence cuyos métodos se
-     * van a probar.
+     * Inyección de la dependencia a la clase ReembolsoPersistence cuyos métodos
+     * se van a probar.
      */
     @Inject
     private ReembolsoPersistence persistence;
@@ -121,12 +120,12 @@ public class ReembolsoPersistenceTest {
         ReembolsoEntity entity = em.find(ReembolsoEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getId(), entity.getId());
-        Assert.assertEquals(newEntity.getValor(),entity.getValor(),0.0);
+        Assert.assertEquals(newEntity.getValor(), entity.getValor(), 0.0);
         /*
         Assert.assertEquals(newEntity.getUsuario().getId(), entity.getUsuario().getId());
         Assert.assertEquals(newEntity.getBoleta().getId(), entity.getBoleta().getId());
-        */
-        
+         */
+
     }
 
     /**
@@ -141,12 +140,12 @@ public class ReembolsoPersistenceTest {
         persistence.update(newEntity);
         ReembolsoEntity resp = em.find(ReembolsoEntity.class, entity.getId());
         Assert.assertEquals(newEntity.getId(), resp.getId());
-        Assert.assertEquals(newEntity.getValor() , resp.getValor(),0.0);
+        Assert.assertEquals(newEntity.getValor(), resp.getValor(), 0.0);
         /*
         Assert.assertEquals(newEntity.getUsuario().getId(), entity.getUsuario().getId());
         Assert.assertEquals(newEntity.getBoleta().getId(), entity.getBoleta().getId());
-        */
-        
+         */
+
     }
 
     /**
@@ -169,12 +168,12 @@ public class ReembolsoPersistenceTest {
         ReembolsoEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
-        Assert.assertEquals(newEntity.getValor(),entity.getValor(),0.0);
+        Assert.assertEquals(newEntity.getValor(), entity.getValor(), 0.0);
         /*
         Assert.assertEquals(newEntity.getUsuario().getId(), entity.getUsuario().getId());
         Assert.assertEquals(newEntity.getBoleta().getId(), entity.getBoleta().getId());
-        */
-        
+         */
+
     }
 
     /**

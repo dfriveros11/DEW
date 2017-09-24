@@ -1,7 +1,3 @@
-
-
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -37,7 +33,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class ComentarioPersistenceTest {
-    
+
     /**
      *
      * @return Devuelve el jar que Arquillian va a desplegar en el Glassfish
@@ -53,48 +49,44 @@ public class ComentarioPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     /**
-     * Inyección de la dependencia a la clase ComentarioPersistence cuyos métodos
-     * se van a probar.
+     * Inyección de la dependencia a la clase ComentarioPersistence cuyos
+     * métodos se van a probar.
      */
     @Inject
     private ComentarioPersistence persistence;
-    
-     /**
+
+    /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
      * datos por fuera de los métodos que se están probando.
      */
     @PersistenceContext
     private EntityManager em;
-    
-    
-     /**
+
+    /**
      * Variable para martcar las transacciones del em anterior cuando se
      * crean/borran datos para las pruebas.
      */
     @Inject
     UserTransaction utx;
-    
-    
+
     /**
      * este arreglo contendrá el conjunto de datos de prueba
      */
     private List<ComentarioEntity> data = new ArrayList<ComentarioEntity>();
-    
-    
-    
+
     public ComentarioPersistenceTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         try {
@@ -112,12 +104,11 @@ public class ComentarioPersistenceTest {
             }
         }
     }
-    
+
     private void clearData() {
         em.createQuery("delete from EnvioEntity").executeUpdate();
     }
-    
-    
+
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
@@ -127,34 +118,28 @@ public class ComentarioPersistenceTest {
             data.add(entity);
         }
     }
-    
-    
-    
+
     @After
     public void tearDown() {
     }
 
-    
-      /**
+    /**
      * Test of create method, of class ComentarioPersistence.
      */
     @Test
     public void testCreate() throws Exception {
-        
-        
-    PodamFactory factory = new PodamFactoryImpl();
-    ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
-    ComentarioEntity result = persistence.create(newEntity);
 
-    Assert.assertNotNull(result);
-    ComentarioEntity entity = em.find(ComentarioEntity.class, result.getId());
-    Assert.assertNotNull(entity);
-    Assert.assertEquals(newEntity.getComentario(), entity.getComentario());
-    
+        PodamFactory factory = new PodamFactoryImpl();
+        ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
+        ComentarioEntity result = persistence.create(newEntity);
+
+        Assert.assertNotNull(result);
+        ComentarioEntity entity = em.find(ComentarioEntity.class, result.getId());
+        Assert.assertNotNull(entity);
+        Assert.assertEquals(newEntity.getComentario(), entity.getComentario());
+
     }
-    
-    
-    
+
     /**
      * Obtener la lista de entities de la base de datos
      */
@@ -172,10 +157,7 @@ public class ComentarioPersistenceTest {
             Assert.assertTrue(found);
         }
     }
-    
-    
-    
-    
+
     /**
      * Test of find method, of class ComentarioPersistence.
      */
@@ -186,15 +168,13 @@ public class ComentarioPersistenceTest {
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
-    
-    
-    
+
     /**
      * Test of update method, of class ComentarioPersistence.
      */
     @Test
     public void testUpdate() throws Exception {
-        
+
         ComentarioEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
@@ -205,12 +185,9 @@ public class ComentarioPersistenceTest {
         ComentarioEntity resp = em.find(ComentarioEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getComentario(), resp.getComentario());
-    
+
     }
-    
-    
-    
-    
+
     /**
      * Test of delete method, of class ComentarioPersistence.
      */
@@ -221,7 +198,5 @@ public class ComentarioPersistenceTest {
         ComentarioEntity deleted = em.find(ComentarioEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
-    
-    
-    
+
 }
