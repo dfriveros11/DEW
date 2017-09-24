@@ -18,23 +18,23 @@ import java.util.List;
 public class OrganizadorDetailDTO extends OrganizadorDTO{
     
     private List<EspectaculoDTO> espectaculos;
-    
-    public OrganizadorDetailDTO(){
+
+    public OrganizadorDetailDTO() {
         super();
     }
-    
-    public OrganizadorDetailDTO(OrganizadorEntity entity){
+
+    public OrganizadorDetailDTO(OrganizadorEntity entity) {
         super(entity);
-        if(entity.getEspectaculos() != null){
+        if (entity.getEspectaculos() != null) {
             espectaculos = new ArrayList<>();
             for (EspectaculoEntity espectaculo : entity.getEspectaculos()) {
                 espectaculos.add(new EspectaculoDTO(espectaculo));
             }
         }
     }
-    
+
     @Override
-    public OrganizadorEntity toEntity(){
+    public OrganizadorEntity toEntity() {
         OrganizadorEntity entity = super.toEntity();
         if (espectaculos != null) {
             List<EspectaculoEntity> espectaculosEntity = new ArrayList<>();

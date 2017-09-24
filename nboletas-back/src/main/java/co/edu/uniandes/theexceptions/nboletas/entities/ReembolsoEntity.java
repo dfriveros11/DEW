@@ -16,17 +16,17 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author jm.contreras10
  */
 @Entity
-public class ReembolsoEntity extends BaseEntity implements Serializable  {
-    
+public class ReembolsoEntity extends BaseEntity implements Serializable {
+
     /**
      * Valor del reembolso.
      */
     private Double valor;
-    
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
-    
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private UsuarioEntity usuario;
@@ -54,7 +54,5 @@ public class ReembolsoEntity extends BaseEntity implements Serializable  {
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
+
 }

@@ -26,9 +26,9 @@ package co.edu.uniandes.theexceptions.nboletas.dtos;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 
 /**
- * BoletaDTO Objeto de transferencia de datos de Boletaes. Los DTO
- * contienen las represnetaciones de los JSON que se transfieren entre el
- * cliente y el servidor.
+ * BoletaDTO Objeto de transferencia de datos de Boletaes. Los DTO contienen las
+ * represnetaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
  *
  * @author ISIS2603
  */
@@ -51,7 +51,9 @@ public class BoletaDTO {
      * @param boleta: Es la entidad que se va a convertir a DTO
      */
     public BoletaDTO(BoletaEntity boleta) {
+
         if(boleta != null){
+
             this.id = boleta.getId();
             this.precio = boleta.getPrecio();
             this.vendida = boleta.isVendida();
@@ -87,7 +89,7 @@ public class BoletaDTO {
     public void setVendida(boolean vendida) {
         this.vendida = vendida;
     }
-  
+
     /**
      * Convertir DTO a Entity
      *
@@ -100,5 +102,5 @@ public class BoletaDTO {
         entity.setVenida(this.vendida);
         return entity;
     }
-    
+
 }

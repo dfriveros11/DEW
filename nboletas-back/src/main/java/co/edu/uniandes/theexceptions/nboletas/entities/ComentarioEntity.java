@@ -24,15 +24,15 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class ComentarioEntity extends BaseEntity implements Serializable {
-    
-     private String comentario;
-    
+
+    private String comentario;
+
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
-    @PodamExclude   
+
+    @PodamExclude
     private BoletaEntity boleta;
-   
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private EspectaculoEntity espectaculo;
@@ -68,6 +68,5 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     public void setEspectaculo(EspectaculoEntity espectaculo) {
         this.espectaculo = espectaculo;
     }
-        
-   
+
 }

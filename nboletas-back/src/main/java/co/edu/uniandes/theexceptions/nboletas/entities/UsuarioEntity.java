@@ -17,41 +17,41 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable {
-    
+
     /**
      * User-Name del usuario.
      */
     private String userName;
-    
+
     /**
      * Contraseña del usuario.
      */
     private String password;
-    
+
     /**
      * Nombre completo del usuario.
      */
     private String nombreUsuario;
-            
+
     /**
      * E-mail del usuario.
      */
     private String email;
-    
+
     /**
      * Pais del usuario.
      */
     private String pais;
-    
+
     /**
      * ciudad del usuario.
      */
     private String ciudad;
-    
+
     @PodamExclude
     @OneToMany(mappedBy = "usuario")
     private List<BoletaEntity> boletas;
-    
+
     @PodamExclude
     @OneToMany(mappedBy = "usuario")
     private List<ReembolsoEntity> reembolsos;
@@ -119,7 +119,5 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     public void setReembolsos(List<ReembolsoEntity> reembolsos) {
         this.reembolsos = reembolsos;
     }
-    
-    
-    
+
 }

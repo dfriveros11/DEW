@@ -12,19 +12,19 @@ import co.edu.uniandes.theexceptions.nboletas.entities.DivisionDeLugarEntity;
  * @author fc.alvarez10
  */
 public class DivisionDeLugarDTO {
-    
+
     private Long id;
-    
+
     private String name;
-    
-    public DivisionDeLugarDTO(){
+
+    public DivisionDeLugarDTO() {
     }
-    
-    public DivisionDeLugarDTO(DivisionDeLugarEntity division){
-        this.id=division.getId();
-        this.name=division.getNombre();
+
+    public DivisionDeLugarDTO(DivisionDeLugarEntity division) {
+        this.id = division.getId();
+        this.name = division.getNombre();
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -40,9 +40,9 @@ public class DivisionDeLugarDTO {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public DivisionDeLugarEntity toEntity(){
-        DivisionDeLugarEntity division= new DivisionDeLugarEntity();
+
+    public DivisionDeLugarEntity toEntity() {
+        DivisionDeLugarEntity division = new DivisionDeLugarEntity();
         division.setId(this.id);
         division.setNombre(this.name);
         return division;

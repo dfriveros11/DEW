@@ -13,7 +13,8 @@ import javax.ejb.Stateless;
  * @author jf.ramos
  */
 @Stateless
-public class ArtistaPersistence extends AbstractPersistence<ArtistaEntity>{
+public class ArtistaPersistence extends AbstractPersistence<ArtistaEntity> {
+
     public ArtistaPersistence() {
         super(ArtistaEntity.class);
     }

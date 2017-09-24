@@ -12,10 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
  *
  * @author angeloMarcetty
  */
-public class EnvioDetailDTO extends EnvioDTO {
-    
-   
-    /**
+public class EnvioDetailDTO extends EnvioDTO { /**
      * relacion con boleta 
      */
     private BoletaDTO boleta;

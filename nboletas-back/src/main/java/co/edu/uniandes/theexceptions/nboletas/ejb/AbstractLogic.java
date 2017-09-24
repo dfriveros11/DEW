@@ -11,47 +11,57 @@ import java.util.List;
 /**
  *
  * @author df.riveros11
- * @param <T> Entity 
+ * @param <T> Entity
  */
 public abstract class AbstractLogic<T> {
-    
+
     protected abstract AbstractPersistence<T> getPersistence();
-    
-    /**Crear un objeto tipo T
-     * @param entity    
-     * @return     
-    */
-    public T create(T entity){
-        return  getPersistence().create(entity);
+
+    /**
+     * Crear un objeto tipo T
+     *
+     * @param entity
+     * @return
+     */
+    public T create(T entity) {
+        return getPersistence().create(entity);
     }
-    
-    /**Actualiza un obeto de tipo T 
-     * @param entity    
-     * @return     
-    */
-    public T update(T entity){
+
+    /**
+     * Actualiza un obeto de tipo T
+     *
+     * @param entity
+     * @return
+     */
+    public T update(T entity) {
         return getPersistence().update(entity);
     }
-    
-    /**Elimina un objeto T
-     * @param entity    
-    */
-    public void delete(T entity){
+
+    /**
+     * Elimina un objeto T
+     *
+     * @param entity
+     */
+    public void delete(T entity) {
         getPersistence().delete(entity);
     }
-    
-    /**Encuentra un tipo T al mandar un identificador
-     * @param id    
-     * @return     
-    */
-    public T find(Object id){
+
+    /**
+     * Encuentra un tipo T al mandar un identificador
+     *
+     * @param id
+     * @return
+     */
+    public T find(Object id) {
         return getPersistence().find(id);
     }
-    
-    /**Devuelve todo los objetos
+
+    /**
+     * Devuelve todo los objetos
+     *
      * @return list con todos los objetos
-    */
-    public  List<T> findAll(){
+     */
+    public List<T> findAll() {
         return getPersistence().findAll();
     }
 

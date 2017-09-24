@@ -7,26 +7,29 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author ja.gomez1
  */
 @Entity
 public class LugarEntity extends BaseEntity implements Serializable {
+
     private String direccion;
     private String tipo;
     private String ubicacion;
-    
+
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "lugar")
     private List<FuncionEntity> funciones;
-    
+
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DivisionDeLugarEntity> divisiones;
 
     /**

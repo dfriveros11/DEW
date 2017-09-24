@@ -18,9 +18,9 @@ import java.util.List;
 public class FuncionDetailDTO extends FuncionDTO {
     
     private List<BoletaDTO> boletas;
-    
+
     private LugarDTO lugar;
-    
+
     private EspectaculoDTO espectaculo;
 
     public FuncionDetailDTO() {
@@ -28,36 +28,44 @@ public class FuncionDetailDTO extends FuncionDTO {
 
     public FuncionDetailDTO(FuncionEntity entity) {
         super(entity);
-        
-        if(entity.getBoletas()!= null) {
+
+        if (entity.getBoletas() != null) {
             ArrayList<BoletaDTO> b = new ArrayList<>();
-            for(BoletaEntity e : entity.getBoletas()) b.add(new BoletaDTO(e));
+            for (BoletaEntity e : entity.getBoletas()) {
+                b.add(new BoletaDTO(e));
+            }
             this.boletas = b;
         }
-        
-        if(entity.getLugar() != null) {
+
+        if (entity.getLugar() != null) {
             this.lugar = new LugarDTO(entity.getLugar());
         }
-        
-        if(entity.getEspectaculo()!= null) {
+
+        if (entity.getEspectaculo() != null) {
             this.espectaculo = new EspectaculoDTO(entity.getEspectaculo());
         }
     }
-    
+
     @Override
     public FuncionEntity toEntity() {
         FuncionEntity f = super.toEntity();
-        
-        if(getBoletas() != null) {
+
+        if (getBoletas() != null) {
             ArrayList<BoletaEntity> b = new ArrayList<>();
-            for(BoletaDTO e : getBoletas()) b.add(e.toEntity());
+            for (BoletaDTO e : getBoletas()) {
+                b.add(e.toEntity());
+            }
             f.setBoletas(b);
         }
-        
-        if(getLugar() != null) f.setLugar(this.lugar.toEntity());
-        
-        if(getEspectaculo() != null) f.setEspectaculo(this.espectaculo.toEntity());
-        
+
+        if (getLugar() != null) {
+            f.setLugar(this.lugar.toEntity());
+        }
+
+        if (getEspectaculo() != null) {
+            f.setEspectaculo(this.espectaculo.toEntity());
+        }
+
         return f;
     }
 
@@ -102,6 +110,4 @@ public class FuncionDetailDTO extends FuncionDTO {
     public void setEspectaculo(EspectaculoDTO espectaculo) {
         this.espectaculo = espectaculo;
     }
-    
-    
 }

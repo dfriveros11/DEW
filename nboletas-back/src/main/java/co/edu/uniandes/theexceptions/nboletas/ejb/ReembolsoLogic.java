@@ -16,14 +16,14 @@ import javax.inject.Inject;
  * @author jm.contreras10
  */
 @Stateless
-public class ReembolsoLogic extends AbstractLogic<ReembolsoEntity>{
-    
+public class ReembolsoLogic extends AbstractLogic<ReembolsoEntity> {
+
     @Inject
     private ReembolsoPersistence persistence;
- 
+
     @Override
     protected AbstractPersistence<ReembolsoEntity> getPersistence() {
         return persistence;
     }
-    
+
 }

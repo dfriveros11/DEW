@@ -25,18 +25,17 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @Stateless
 public class SillaResource {
-        
+
     @Inject
     SillaLogic sillaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
-    
     private static final Logger LOGGER = Logger.getLogger(SillaResource.class.getName());
 
     /**
      * POST http://localhost:8080/nboletas-web/api/sillas
      *
-     * @param silla correponde a la representación java del objeto json
-     * enviado en el llamado.
+     * @param silla correponde a la representación java del objeto json enviado
+     * en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * "BoletaDetailDTO", "id": 1, atributo1 : "valor" }
@@ -53,8 +52,7 @@ public class SillaResource {
     }
 
     /**
-     * GET para todas las Sillas.
-     * http://localhost:8080/nboletas-web/api/sillas
+     * GET para todas las Sillas. http://localhost:8080/nboletas-web/api/sillas
      *
      * @return la lista de todas las Sillas en objetos json DTO.
      * @throws BusinessLogicException
@@ -64,25 +62,23 @@ public class SillaResource {
         return listEntity2DetailDTO(sillaLogic.findAll());
     }
 
-   
     /**
-     * PUT http://localhost:8080/nboletas-web/api/sillas/1 Ejemplo
-     * json { "id": 1, "atirbuto1": "Valor nuevo" }
+     * PUT http://localhost:8080/nboletas-web/api/sillas/1 Ejemplo json { "id":
+     * 1, "atirbuto1": "Valor nuevo" }
      *
      * @param id corresponde a la Boleta a actualizar.
-     * @param silla corresponde  al objeto con los cambios que se van a
-     * realizar.
+     * @param silla corresponde al objeto con los cambios que se van a realizar.
      * @return La Boleta actualizada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      */
     @PUT
     @Path("{id: \\d+}")
     public SillaDetailDTO updateSilla(@PathParam("id") Long id, SillaDetailDTO silla) throws BusinessLogicException, UnsupportedOperationException {
         SillaEntity sillaActualizar = silla.toEntity();
-        if(null == sillaLogic.find(id)){
+        if (null == sillaLogic.find(id)) {
             throw new BusinessLogicException("No existe la silla con el id: " + id);
         }
         sillaActualizar.setId(id);
@@ -96,22 +92,22 @@ public class SillaResource {
      * @param id corresponde a la Boleta a borrar.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      *
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteSilla(@PathParam("id") Long id) throws BusinessLogicException {
-         SillaEntity silla = sillaLogic.find(id);
-         if(null == silla){
-             throw new BusinessLogicException("No existe la silla con el id: " + id);
-         }
-         
-         if(!silla.getBoletas().isEmpty()){
-             //eliminar boletas
-         }
-         sillaLogic.delete(silla);
+        SillaEntity silla = sillaLogic.find(id);
+        if (null == silla) {
+            throw new BusinessLogicException("No existe la silla con el id: " + id);
+        }
+
+        if (!silla.getBoletas().isEmpty()) {
+            //eliminar boletas
+        }
+        sillaLogic.delete(silla);
     }
 
     /**
@@ -121,8 +117,8 @@ public class SillaResource {
      * Este método convierte una lista de objetos BoletaEntity a una lista de
      * objetos BoletaDetailDTO (json)
      *
-     * @param entityList corresponde a la lista de Boletas de tipo Entity
-     * que vamos a convertir a DTO.
+     * @param entityList corresponde a la lista de Boletas de tipo Entity que
+     * vamos a convertir a DTO.
      * @return la lista de Boletas en forma DTO (json)
      */
     private List<SillaDetailDTO> listEntity2DetailDTO(List<SillaEntity> entityList) {

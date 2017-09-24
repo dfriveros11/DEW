@@ -12,14 +12,16 @@ import co.edu.uniandes.theexceptions.nboletas.entities.OrganizadorEntity;
  * @author df.riveros11
  */
 public class OrganizadorDTO {
+
     private Long id;
     private String nombreEmpresa;
-    
-    public OrganizadorDTO(){
+
+    public OrganizadorDTO() {
     }
-    
-    public OrganizadorDTO(OrganizadorEntity organizador){
-        if(organizador != null){
+
+
+    public OrganizadorDTO(OrganizadorEntity organizador) {
+        if (organizador != null) {
             this.id = organizador.getId();
             this.nombreEmpresa = organizador.getNombreEmpresa();
         }
@@ -40,8 +42,8 @@ public class OrganizadorDTO {
     public void setNombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
     }
-    
-    public OrganizadorEntity toEntity(){
+
+    public OrganizadorEntity toEntity() {
         OrganizadorEntity organizador = new OrganizadorEntity();
         organizador.setId(this.id);
         organizador.setNombreEmpresa(this.nombreEmpresa);

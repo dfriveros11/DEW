@@ -13,19 +13,17 @@ import java.util.Date;
  * @author angeloMarcetty
  */
 public class ComentarioDTO {
-    
+
     private Long id;
     private String comentario;
     private Date fecha;
-    
-    
+
     /**
      * Constructor por defecto
      */
-    public ComentarioDTO(){
+    public ComentarioDTO() {
     }
-           
-    
+
     //Conviertir Entity a DTO
     public ComentarioDTO(ComentarioEntity coment) {
         
@@ -76,20 +74,18 @@ public class ComentarioDTO {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
-    
-    
-    
+
     /**
      * Convertir DTO a Entity
-     * @return Un Entity con los valores del DTO 
+     *
+     * @return Un Entity con los valores del DTO
      */
-    public ComentarioEntity toEntity(){
+    public ComentarioEntity toEntity() {
         ComentarioEntity entity = new ComentarioEntity();
         entity.setId(this.id);
         entity.setComentario(this.comentario);
         entity.setFecha(this.fecha);
         return entity;
     }
-    
+
 }

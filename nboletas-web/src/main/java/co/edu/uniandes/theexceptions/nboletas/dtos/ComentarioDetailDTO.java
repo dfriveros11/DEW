@@ -13,7 +13,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
  * @author angeloMarcetty
  */
 public class ComentarioDetailDTO extends ComentarioDTO {
-    /**
+ /**
      * relacion con boleta 
      */
     private BoletaDTO boleta;
@@ -115,5 +115,5 @@ public class ComentarioDetailDTO extends ComentarioDTO {
     
     
 
-    
+
 }

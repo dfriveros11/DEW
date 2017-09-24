@@ -13,10 +13,10 @@ import javax.ejb.Stateless;
  * @author jm.contreras10
  */
 @Stateless
-public class ReembolsoPersistence extends AbstractPersistence<ReembolsoEntity>{
-    
+public class ReembolsoPersistence extends AbstractPersistence<ReembolsoEntity> {
+
     public ReembolsoPersistence() {
         super(ReembolsoEntity.class);
     }
-    
+
 }

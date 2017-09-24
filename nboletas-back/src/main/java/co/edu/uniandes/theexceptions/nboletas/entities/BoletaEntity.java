@@ -20,9 +20,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 package co.edu.uniandes.theexceptions.nboletas.entities;
-
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -37,34 +36,33 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class BoletaEntity extends BaseEntity implements Serializable {
-   
+
     private double precio;
     private boolean vendida;
-    
+
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
     private ReembolsoEntity reembolso;
-    
+
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
     private EnvioEntity envio;
-    
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private UsuarioEntity usuario;
-    
+
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "boleta")
     private ComentarioEntity comentario;
-    
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private FuncionEntity funcion;
-    
+
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private SillaEntity silla;
-            
 
 
     public double getPrecio() {
@@ -132,6 +130,4 @@ public class BoletaEntity extends BaseEntity implements Serializable {
         this.silla = silla;
     }
 
-    
-    
 }

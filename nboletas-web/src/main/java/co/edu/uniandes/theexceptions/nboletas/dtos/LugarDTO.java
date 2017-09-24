@@ -12,6 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.LugarEntity;
  * @author ja.gomez1
  */
 public class LugarDTO {
+
     private Long id;
     private String ubicacion;
     private String tipo;
@@ -26,7 +27,7 @@ public class LugarDTO {
         this.tipo = entity.getTipo();
         this.direccion = entity.getDireccion();
     }
-    
+
     public LugarEntity toEntity() {
         LugarEntity entity = new LugarEntity();
         entity.setId(this.getId());

@@ -13,16 +13,16 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
  */
 public class ReembolsoDetailDTO extends ReembolsoDTO{
     
-    private BoletaDTO boleta;
-    
+   private BoletaDTO boleta;
+
     private UsuarioDTO usuario;
-            
+
     public ReembolsoDetailDTO(ReembolsoEntity entity) {
         super(entity);
         boleta = new BoletaDTO(entity.getBoleta());
         usuario = new UsuarioDTO(entity.getUsuario());
     }
-    
+
     @Override
     public ReembolsoEntity toEntity() {
         ReembolsoEntity entity = super.toEntity();
@@ -46,7 +46,4 @@ public class ReembolsoDetailDTO extends ReembolsoDTO{
     public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
 }

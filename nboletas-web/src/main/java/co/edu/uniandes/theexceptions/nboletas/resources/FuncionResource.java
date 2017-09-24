@@ -40,11 +40,11 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class FuncionResource {
-    @Inject
+@Inject
     private FuncionLogic funcionLogic;
-    
+
     private static final Logger LOGGER = Logger.getLogger(FuncionResource.class.getName());
-    
+
     /**
      * GET para todas las Funciones.
      * http://localhost:8080/nboletas-web/api/funciones
@@ -56,24 +56,27 @@ public class FuncionResource {
     public List<FuncionDetailDTO> getFunciones() throws BusinessLogicException {
         return listEntity2DetailDTO(funcionLogic.findAll());
     }
-    
+
     /**
      * GET para todas las Funciones.
      * http://localhost:8080/nboletas-web/api/funciones/id
      *
      * @return la lista de todas las Funciones en objetos json DTO.
      * @throws BusinessLogicException
-     * 
-     * En caso de no existir el id de la Funcion a actualizar se retorna un 404 not found.
+     *
+     * En caso de no existir el id de la Funcion a actualizar se retorna un 404
+     * not found.
      */
     @GET
     @Path("{id: \\d+}")
     public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws BusinessLogicException {
         FuncionEntity f = funcionLogic.find(id);
-        if(f == null) throw new BusinessLogicException("No existe funcion con id " + id);
+        if (f == null) {
+            throw new BusinessLogicException("No existe funcion con id " + id);
+        }
         return new FuncionDetailDTO(f);
     }
-    
+
     /**
      * POST http://localhost:8080/nboletas-web/api/funciones
      *
@@ -92,7 +95,7 @@ public class FuncionResource {
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new FuncionDetailDTO(nuevaFuncion);
     }
-    
+
     /**
      * PUT http://localhost:8080/nboletas-web/api/funciones/id
      *
@@ -101,12 +104,13 @@ public class FuncionResource {
      * @return La Funcion actualizada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Funcion a actualizar se retorna un 404 not found.
+     * En caso de no existir el id de la Funcion a actualizar se retorna un 404
+     * not found.
      */
     @PUT
     @Path("{id: \\d+}")
     public FuncionDetailDTO updateFuncion(@PathParam("id") Long id, FuncionDetailDTO funcion) throws BusinessLogicException, UnsupportedOperationException {
-        if(null == funcionLogic.find(id)){
+        if (null == funcionLogic.find(id)) {
             throw new BusinessLogicException("No existe funcion con id: " + id);
         }
         FuncionEntity funcionP = funcion.toEntity();
@@ -114,26 +118,27 @@ public class FuncionResource {
         FuncionEntity funcionUpdated = funcionLogic.update(funcionP);
         return (new FuncionDetailDTO(funcionUpdated));
     }
-    
+
     /**
      * DELETE http://localhost:8080/nboletas-web/api/funciones/id
      *
      * @param id corresponde a la Funcion a borrar.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Funcion a borrar se retorna un 404 not found.
+     * En caso de no existir el id de la Funcion a borrar se retorna un 404 not
+     * found.
      *
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteFuncion(@PathParam("id") Long id) throws BusinessLogicException {
-         FuncionEntity f = funcionLogic.find(id);
-         if(null == f){
-             throw new BusinessLogicException("No existe funcion con el id: " + id);
-         }
-         funcionLogic.delete(f);
+        FuncionEntity f = funcionLogic.find(id);
+        if (null == f) {
+            throw new BusinessLogicException("No existe funcion con el id: " + id);
+        }
+        funcionLogic.delete(f);
     }
-    
+
     private List<FuncionDetailDTO> listEntity2DetailDTO(List<FuncionEntity> entityList) {
         List<FuncionDetailDTO> list = new ArrayList<>();
         for (FuncionEntity entity : entityList) {

@@ -13,11 +13,10 @@ import javax.ejb.Stateless;
  * @author fc.alvarez10
  */
 @Stateless
-public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLugarEntity>{
+public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLugarEntity> {
 
-    public DivisionDeLugarPersistence(){
+    public DivisionDeLugarPersistence() {
         super(DivisionDeLugarEntity.class);
     }
 
-  
 }

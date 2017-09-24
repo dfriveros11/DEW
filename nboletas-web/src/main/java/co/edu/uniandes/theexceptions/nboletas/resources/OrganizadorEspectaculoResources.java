@@ -38,8 +38,7 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class OrganizadorEspectaculoResources {
-    
-    @Inject
+@Inject
     OrganizadorLogic organizadorLogic;
 
     @Inject
@@ -61,7 +60,7 @@ public class OrganizadorEspectaculoResources {
 
     @GET
     public List<EspectaculoDetailDTO> getEspectaculos(@PathParam("idOrganizador") Long idOrganizador) throws BusinessLogicException {
-       List<EspectaculoEntity> list = new ArrayList<>();
+        List<EspectaculoEntity> list = new ArrayList<>();
         OrganizadorEntity organizador = organizadorLogic.find(idOrganizador);
         if (organizador == null) {
             throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);

@@ -18,21 +18,20 @@ import javax.inject.Inject;
  * @author fc.alvarez10
  */
 @Stateless
-public class SillaLogic extends AbstractLogic<SillaEntity>{
+public class SillaLogic extends AbstractLogic<SillaEntity> {
 
     private static final Logger LOGGER = Logger.getLogger(SillaLogic.class.getName());
 
     @Inject
     private SillaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
-    
     @Override
     public SillaEntity create(SillaEntity entity) {
         LOGGER.info("Inicia proceso de creación de Silla");
         // Invoca la persistencia para crear la Boleta
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Silla");
-        return entity;  
+        return entity;
     }
 
     @Override
@@ -41,7 +40,7 @@ public class SillaLogic extends AbstractLogic<SillaEntity>{
         // Invoca la persistencia para crear la Boleta
         persistence.update(entity);
         LOGGER.info("Termina proceso de actualizacion de Silla");
-        return entity;  
+        return entity;
     }
 
     @Override
@@ -56,7 +55,7 @@ public class SillaLogic extends AbstractLogic<SillaEntity>{
     public SillaEntity find(Object id) {
         LOGGER.info("Inicia proceso de busqueda de una Silla");
         // Invoca la persistencia para crear la Boleta
-        SillaEntity x= persistence.find(id);
+        SillaEntity x = persistence.find(id);
         LOGGER.info("Termina proceso de busqueda de una Silla");
         return x;
     }
@@ -65,7 +64,7 @@ public class SillaLogic extends AbstractLogic<SillaEntity>{
     public List<SillaEntity> findAll() {
         LOGGER.info("Inicia proceso de busqueda de todas las Sillas");
         // Invoca la persistencia para crear la Boleta
-        List<SillaEntity> x= persistence.findAll();
+        List<SillaEntity> x = persistence.findAll();
         LOGGER.info("Termina proceso de busqueda de todas las Silla");
         return x;
     }

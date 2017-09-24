@@ -26,17 +26,15 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import javax.ejb.Stateless;
 
-
 /**
  *
  * @author ISIS2603
  */
 @Stateless
-public class BoletaPersistence extends AbstractPersistence<BoletaEntity>{
+public class BoletaPersistence extends AbstractPersistence<BoletaEntity> {
 
     public BoletaPersistence() {
         super(BoletaEntity.class);
     }
 
-  
 }

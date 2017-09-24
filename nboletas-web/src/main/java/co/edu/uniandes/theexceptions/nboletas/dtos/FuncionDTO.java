@@ -13,6 +13,7 @@ import java.util.Date;
  * @author ja.gomez1
  */
 public class FuncionDTO {
+
     private Long id;
     private Date fecha;
 
@@ -23,7 +24,7 @@ public class FuncionDTO {
         this.id = entity.getId();
         this.fecha = entity.getFecha();
     }
-    
+
     public FuncionEntity toEntity() {
         FuncionEntity entity = new FuncionEntity();
         entity.setId(this.getId());

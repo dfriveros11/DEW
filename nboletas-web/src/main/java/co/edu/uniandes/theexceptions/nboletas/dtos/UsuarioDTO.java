@@ -20,11 +20,11 @@ public class UsuarioDTO {
     private String email;
     private String pais;
     private String ciudad;
-    
-    public UsuarioDTO(){
+
+    public UsuarioDTO() {
     }
-    
-    public UsuarioDTO(UsuarioEntity entity){
+
+    public UsuarioDTO(UsuarioEntity entity) {
         this.id = entity.getId();
         this.userName = entity.getUserName();
         this.password = entity.getPassword();
@@ -33,8 +33,8 @@ public class UsuarioDTO {
         this.pais = entity.getPais();
         this.ciudad = entity.getCiudad();
     }
-    
-    public UsuarioEntity toEntity(){
+
+    public UsuarioEntity toEntity() {
         UsuarioEntity entity = new UsuarioEntity();
         entity.setId(id);
         entity.setUserName(userName);
@@ -101,7 +101,4 @@ public class UsuarioDTO {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    
-    
-    
 }

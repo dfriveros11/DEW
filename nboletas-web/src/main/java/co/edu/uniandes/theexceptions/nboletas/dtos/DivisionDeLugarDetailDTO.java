@@ -15,18 +15,18 @@ import java.util.List;
  * @author fc.alvarez10
  */
 public class DivisionDeLugarDetailDTO extends DivisionDeLugarDTO {
-    
+
     private LugarDTO lugar;
-    
+
     private List<SillaDTO> sillas;
-    
-    public DivisionDeLugarDetailDTO(){
+
+    public DivisionDeLugarDetailDTO() {
     }
-    
-    public DivisionDeLugarDetailDTO(DivisionDeLugarEntity division){
+
+    public DivisionDeLugarDetailDTO(DivisionDeLugarEntity division) {
         super(division);
         this.lugar = new LugarDTO(division.getLugar());
-        this.sillas= new ArrayList<>();
+        this.sillas = new ArrayList<>();
         for (SillaEntity s : division.getSillas()) {
             sillas.add(new SillaDTO(s));
         }
@@ -47,12 +47,10 @@ public class DivisionDeLugarDetailDTO extends DivisionDeLugarDTO {
     public void setSillas(List<SillaDTO> sillas) {
         this.sillas = sillas;
     }
-    
-    
-    
+
     @Override
-    public DivisionDeLugarEntity toEntity(){
-        DivisionDeLugarEntity entity=super.toEntity();
+    public DivisionDeLugarEntity toEntity() {
+        DivisionDeLugarEntity entity = super.toEntity();
         return entity;
     }
 }

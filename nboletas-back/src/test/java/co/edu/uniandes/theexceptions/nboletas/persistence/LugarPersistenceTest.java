@@ -32,7 +32,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class LugarPersistenceTest {
-    
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -41,29 +41,29 @@ public class LugarPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     @Inject
     private LugarPersistence persistence;
-    
+
     @PersistenceContext
     private EntityManager em;
-    
+
     @Inject
     private UserTransaction utx;
-    
+
     private List<LugarEntity> data = new ArrayList<LugarEntity>();
-    
+
     public LugarPersistenceTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         try {
@@ -81,11 +81,11 @@ public class LugarPersistenceTest {
             }
         }
     }
-    
+
     private void clearData() {
         em.createQuery("delete from LugarEntity").executeUpdate();
     }
-    
+
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
@@ -94,11 +94,11 @@ public class LugarPersistenceTest {
             data.add(entity);
         }
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void testCreate() {
         PodamFactory factory = new PodamFactoryImpl();

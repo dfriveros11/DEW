@@ -14,16 +14,16 @@ import co.edu.uniandes.theexceptions.nboletas.entities.SillaEntity;
 public class SillaDTO {
 
     private Long id;
-    
-    private double costo;
-    
-    public SillaDTO(){
-        
-    } 
 
-    public SillaDTO(SillaEntity silla){
-        this.id=silla.getId();
-        this.costo=silla.getCosto();
+    private double costo;
+
+    public SillaDTO() {
+
+    }
+
+    public SillaDTO(SillaEntity silla) {
+        this.id = silla.getId();
+        this.costo = silla.getCosto();
     }
 
     public Long getId() {
@@ -41,12 +41,12 @@ public class SillaDTO {
     public void setCosto(double costo) {
         this.costo = costo;
     }
-    
-    public SillaEntity toEntity(){
-        SillaEntity silla=new SillaEntity();
+
+    public SillaEntity toEntity() {
+        SillaEntity silla = new SillaEntity();
         silla.setId(this.id);
         silla.setCosto(this.costo);
         return silla;
     }
-    
+
 }
