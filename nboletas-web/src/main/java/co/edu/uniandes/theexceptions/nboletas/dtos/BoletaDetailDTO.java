@@ -20,8 +20,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.-
-*/
+ */
 package co.edu.uniandes.theexceptions.nboletas.dtos;
+
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
@@ -37,17 +38,17 @@ import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 public class BoletaDetailDTO extends BoletaDTO {
 
     private ReembolsoDTO reembolso;
-    
+
     private EnvioDTO envio;
-    
+
     private UsuarioDTO usuario;
-    
+
     private ComentarioDTO comentario;
-    
+
     private FuncionDTO funcion;
-    
+
     private SillaDTO silla;
-    
+
     /**
      * Constructor por defecto
      */
@@ -63,37 +64,37 @@ public class BoletaDetailDTO extends BoletaDTO {
     public BoletaDetailDTO(BoletaEntity entity) {
         super(entity);
         ReembolsoEntity reembolsoA = entity.getReembolso();
-        if(null != reembolsoA){
+        if (null != reembolsoA) {
             this.reembolso = new ReembolsoDTO(reembolsoA);
         }
         entity.setReembolso(null);
-        
+
         EnvioEntity envioA = entity.getEnvio();
-        if(null != envioA){
+        if (null != envioA) {
             this.envio = new EnvioDTO(envioA);
         }
         entity.setEnvio(null);
-        
+
         UsuarioEntity usuarioA = entity.getUsuario();
-        if(null != usuarioA){
+        if (null != usuarioA) {
             this.usuario = new UsuarioDTO(usuarioA);
         }
         entity.setUsuario(usuarioA);
-        
+
         ComentarioEntity comentarioA = entity.getComentario();
-        if(null != comentarioA){
+        if (null != comentarioA) {
             this.comentario = new ComentarioDTO(comentarioA);
         }
         entity.setComentario(comentarioA);
-        
+
         FuncionEntity funcionA = entity.getFuncion();
-        if(null != funcionA){
+        if (null != funcionA) {
             this.funcion = new FuncionDTO(funcionA);
         }
         entity.setFuncion(funcionA);
-        
+
         SillaEntity sillaA = entity.getSilla();
-        if(null != sillaA){
+        if (null != sillaA) {
             this.silla = new SillaDTO(sillaA);
         }
         entity.setSilla(sillaA);
@@ -102,35 +103,35 @@ public class BoletaDetailDTO extends BoletaDTO {
     /**
      * Transformar un DTO a un Entity
      *
-     * @return 
+     * @return
      */
     @Override
     public BoletaEntity toEntity() {
         BoletaEntity boletaE = super.toEntity();
-        if(this.reembolso != null){
+        if (this.reembolso != null) {
             boletaE.setReembolso(reembolso.toEntity());
         }
-        
-        if(this.envio != null){
+
+        if (this.envio != null) {
             boletaE.setEnvio(envio.toEntity());
         }
-        
-        if(this.usuario != null){
+
+        if (this.usuario != null) {
             boletaE.setUsuario(usuario.toEntity());
         }
-        
+
         if (this.comentario != null) {
             boletaE.setComentario(comentario.toEntity());
         }
-        
+
         if (this.funcion != null) {
             boletaE.setFuncion(funcion.toEntity());
         }
-        
+
         if (this.silla != null) {
             boletaE.setSilla(silla.toEntity());
         }
-        
+
         return boletaE;
     }
 

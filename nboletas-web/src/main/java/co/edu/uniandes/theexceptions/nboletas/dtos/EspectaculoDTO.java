@@ -12,11 +12,10 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
  * @author jf.ramos
  */
 public class EspectaculoDTO {
-    
+
     private Long id;
     private String nombre;
     private String descripcion;
-
 
     /**
      * Constructor por defecto
@@ -32,8 +31,8 @@ public class EspectaculoDTO {
      */
     public EspectaculoDTO(EspectaculoEntity espectaculo) {
         this.id = espectaculo.getId();
-        this.nombre= espectaculo.getNombre();
-        this.descripcion= espectaculo.getDescripcion();
+        this.nombre = espectaculo.getNombre();
+        this.descripcion = espectaculo.getDescripcion();
     }
 
     /**
@@ -49,7 +48,7 @@ public class EspectaculoDTO {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -78,5 +77,5 @@ public class EspectaculoDTO {
         entity.setDescripcion(this.descripcion);
         return entity;
     }
-    
+
 }

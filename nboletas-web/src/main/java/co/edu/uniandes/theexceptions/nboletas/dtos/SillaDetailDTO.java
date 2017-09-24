@@ -12,20 +12,20 @@ import java.util.List;
  *
  * @author fc.alvarez10
  */
-public class SillaDetailDTO extends SillaDTO{
-    
-    public SillaDetailDTO(){
-        
+public class SillaDetailDTO extends SillaDTO {
+
+    public SillaDetailDTO() {
+
     }
-    
-    public SillaDetailDTO(SillaEntity entity){
+
+    public SillaDetailDTO(SillaEntity entity) {
         super(entity);
     }
-    
+
     @Override
-    public SillaEntity toEntity(){
-        SillaEntity silla=super.toEntity();
+    public SillaEntity toEntity() {
+        SillaEntity silla = super.toEntity();
         return silla;
     }
-    
+
 }

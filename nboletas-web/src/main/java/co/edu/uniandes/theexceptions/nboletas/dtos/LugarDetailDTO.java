@@ -19,7 +19,7 @@ public class LugarDetailDTO extends LugarDTO {
     public LugarDetailDTO(LugarEntity entity) {
         super(entity);
     }
-    
+
     @Override
     public LugarEntity toEntity() {
         return super.toEntity();

@@ -23,14 +23,14 @@ SOFTWARE.
  */
 package co.edu.uniandes.theexceptions.nboletas.mappers;
 
-
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Convertidor de Excepciones UnsupportedOperationExceptionMapper a mensajes REST.
+ * Convertidor de Excepciones UnsupportedOperationExceptionMapper a mensajes
+ * REST.
  *
  * @author ISIS2603
  */

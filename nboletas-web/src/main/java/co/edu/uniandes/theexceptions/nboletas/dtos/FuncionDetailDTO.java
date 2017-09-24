@@ -19,7 +19,7 @@ public class FuncionDetailDTO extends FuncionDTO {
     public FuncionDetailDTO(FuncionEntity entity) {
         super(entity);
     }
-    
+
     @Override
     public FuncionEntity toEntity() {
         return super.toEntity();

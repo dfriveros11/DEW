@@ -11,16 +11,15 @@ import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
  *
  * @author jm.contreras10
  */
-public class UsuarioDetailDTO extends UsuarioDTO{
-    
-    
+public class UsuarioDetailDTO extends UsuarioDTO {
+
     public UsuarioDetailDTO(UsuarioEntity entity) {
         super(entity);
     }
-    
+
     @Override
     public UsuarioEntity toEntity() {
         return super.toEntity();
     }
-    
+
 }

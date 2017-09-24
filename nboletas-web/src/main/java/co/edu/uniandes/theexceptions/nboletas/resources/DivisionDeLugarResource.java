@@ -25,17 +25,16 @@ import javax.ws.rs.*;
 @Consumes("application/json")
 @Stateless
 public class DivisionDeLugarResource {
-    
+
     @Inject
     DivisionDeLugarLogic divisionDeLugarLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
-    
     private static final Logger LOGGER = Logger.getLogger(DivisionDeLugarResource.class.getName());
 
     /**
      * POST http://localhost:8080/nboletas-web/api/divisiones
      *
-     * @para  division correponde a la representación java del objeto json
+     * @para division correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
@@ -64,25 +63,24 @@ public class DivisionDeLugarResource {
         return listEntity2DetailDTO(divisionDeLugarLogic.findAll());
     }
 
-   
     /**
-     * PUT http://localhost:8080/nboletas-web/api/divisiones/1 Ejemplo
-     * json { "id": 1, "atirbuto1": "Valor nuevo" }
+     * PUT http://localhost:8080/nboletas-web/api/divisiones/1 Ejemplo json {
+     * "id": 1, "atirbuto1": "Valor nuevo" }
      *
      * @param id corresponde a la Boleta a actualizar.
-     * @param division corresponde  al objeto con los cambios que se van a
+     * @param division corresponde al objeto con los cambios que se van a
      * realizar.
      * @return La division actualizada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      */
     @PUT
     @Path("{id: \\d+}")
     public DivisionDeLugarDetailDTO updateDivisionDeLugar(@PathParam("id") Long id, DivisionDeLugarDetailDTO divisionDeLugar) throws BusinessLogicException, UnsupportedOperationException {
         DivisionDeLugarEntity divisionDeLugarActualizar = divisionDeLugar.toEntity();
-        if(null == divisionDeLugarLogic.find(id)){
+        if (null == divisionDeLugarLogic.find(id)) {
             throw new BusinessLogicException("No existe la boleta con el id: " + id);
         }
         divisionDeLugarActualizar.setId(id);
@@ -96,22 +94,22 @@ public class DivisionDeLugarResource {
      * @param id corresponde a la Division a borrar.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la division a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la division a actualizar se retorna un 404
+     * con el mensaje.
      *
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteDivisionDeLugar(@PathParam("id") Long id) throws BusinessLogicException {
-         DivisionDeLugarEntity division = divisionDeLugarLogic.find(id);
-         if(null == division){
-             throw new BusinessLogicException("No existe la boleta con el id: " + id);
-         }
-         if(!division.getSillas().isEmpty()){
-         //borrar las sillas
-         }
-             
-         divisionDeLugarLogic.delete(division);
+        DivisionDeLugarEntity division = divisionDeLugarLogic.find(id);
+        if (null == division) {
+            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+        }
+        if (!division.getSillas().isEmpty()) {
+            //borrar las sillas
+        }
+
+        divisionDeLugarLogic.delete(division);
     }
 
     /**
@@ -121,8 +119,8 @@ public class DivisionDeLugarResource {
      * Este método convierte una lista de objetos BoletaEntity a una lista de
      * objetos BoletaDetailDTO (json)
      *
-     * @param entityList corresponde a la lista de Boletas de tipo Entity
-     * que vamos a convertir a DTO.
+     * @param entityList corresponde a la lista de Boletas de tipo Entity que
+     * vamos a convertir a DTO.
      * @return la lista de Boletas en forma DTO (json)
      */
     private List<DivisionDeLugarDetailDTO> listEntity2DetailDTO(List<DivisionDeLugarEntity> entityList) {

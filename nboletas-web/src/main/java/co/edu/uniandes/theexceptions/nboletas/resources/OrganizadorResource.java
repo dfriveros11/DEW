@@ -31,15 +31,15 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class OrganizadorResource {
-    
+
     @Inject
     OrganizadorLogic organizadorLogic;
 
     /**
      * POST http://localhost:8080/nboletas-web/api/organizadores
      *
-     * @param organizador correponde a la representación java del objeto json enviado
-     * en el llamado.
+     * @param organizador correponde a la representación java del objeto json
+     * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * "BoletaDetailDTO", "id": 1, atributo1 : "valor" }
@@ -74,8 +74,8 @@ public class OrganizadorResource {
     }
 
     /**
-     * PUT http://localhost:8080/nboletas-web/api/organizadores/1 Ejemplo json { "id":
-     * 1, "atirbuto1": "Valor nuevo" }
+     * PUT http://localhost:8080/nboletas-web/api/organizadores/1 Ejemplo json {
+     * "id": 1, "atirbuto1": "Valor nuevo" }
      *
      * @param id corresponde a la Boleta a actualizar.
      * @param organizador corresponde al objeto con los cambios que se van a

@@ -11,15 +11,15 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
  *
  * @author jm.contreras10
  */
-public class ReembolsoDetailDTO extends ReembolsoDTO{
-            
+public class ReembolsoDetailDTO extends ReembolsoDTO {
+
     public ReembolsoDetailDTO(ReembolsoEntity entity) {
         super(entity);
     }
-    
+
     @Override
     public ReembolsoEntity toEntity() {
         return super.toEntity();
     }
-    
+
 }

@@ -23,8 +23,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 
-
-
 /**
  *
  * @author angeloMarcetty
@@ -34,15 +32,12 @@ import javax.ws.rs.WebApplicationException;
 @Consumes("application/json")
 @Stateless
 public class ComentarioResource {
-        
-        
-        
+
     @Inject
     ComentarioLogic comentarioLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     private static final Logger LOGGER = Logger.getLogger(ComentarioResource.class.getName());
 
-    
     @POST
     public ComentarioDetailDTO createComentario(ComentarioDetailDTO comentario) {
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
@@ -52,9 +47,7 @@ public class ComentarioResource {
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new ComentarioDetailDTO(nuevoComentario);
     }
-    
-    
-    
+
     @GET
     @Path("{id: \\d+}")
     public ComentarioDetailDTO getComentario(@PathParam("id") Long id) {
@@ -64,34 +57,25 @@ public class ComentarioResource {
         }
         return new ComentarioDetailDTO(entity);
     }
-    
-    
+
     @GET
-    public List<ComentarioDetailDTO> getComentarios()  {
+    public List<ComentarioDetailDTO> getComentarios() {
         return listEntity2DetailDTO(comentarioLogic.findAll());
     }
-    
-    
-    
-    
-    
-    
+
     @PUT
     @Path("{id: \\d+}")
     public ComentarioDetailDTO updateComentario(@PathParam("id") Long id, ComentarioDetailDTO comentario) {
 
-         comentario.setId(id);
+        comentario.setId(id);
         ComentarioEntity entity = comentarioLogic.find(id);
         if (entity == null) {
             throw new WebApplicationException("El recurso comentario: " + id + " no existe.", 404);
         }
         //revisar
-        return new ComentarioDetailDTO(comentarioLogic.update(comentario.toEntity()));    
+        return new ComentarioDetailDTO(comentarioLogic.update(comentario.toEntity()));
     }
-    
-    
-    
-    
+
     @DELETE
     @Path("{id: \\d+}")
     public void deleteComentario(@PathParam("id") Long id) {
@@ -100,15 +84,9 @@ public class ComentarioResource {
             throw new WebApplicationException("El recurso comentario: " + id + " no existe.", 404);
         }
         //revisar!!
-        comentarioLogic.delete(entity); 
+        comentarioLogic.delete(entity);
     }
-    
-    
-    
-    
-    
-    
-    
+
     /**
      *
      * lista de entidades a DTO.
