@@ -7,6 +7,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>nboletas</name>
+      <modules>
+        <module>nboletas-back</module>
+        <module>nboletas-web</module>
+    </modules>
+	
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     
     <dependencyManagement>
         <dependencies>
@@ -49,13 +57,40 @@
         </dependency>
     </dependencies>
  
-    <modules>
-        <module>nboletas-back</module>
-        <module>nboletas-web</module>
-    </modules>
-	
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+   <build>
+        <plugins> 
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.6.201602180812</version>        
+                <executions>
+                    <execution>
+                        <goals>  
+                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent-integration</goal>
+                            <goal>report</goal>
+                            <goal>report-integration</goal>    
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                <destFile>${sonar.jacoco.reportPath}</destFile>
+            </configuration>
+            </plugin>  
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.19.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>
