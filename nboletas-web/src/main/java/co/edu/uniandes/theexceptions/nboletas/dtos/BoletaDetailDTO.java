@@ -37,7 +37,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
  */
 public class BoletaDetailDTO extends BoletaDTO {
 
-    private ReembolsoDTO reembolso;
+   private ReembolsoDTO reembolso;
 
     private EnvioDTO envio;
 
@@ -182,5 +182,4 @@ public class BoletaDetailDTO extends BoletaDTO {
     public void setSilla(SillaDTO silla) {
         this.silla = silla;
     }
-
 }

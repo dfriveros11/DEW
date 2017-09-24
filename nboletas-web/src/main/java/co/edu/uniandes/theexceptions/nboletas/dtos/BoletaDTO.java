@@ -51,7 +51,9 @@ public class BoletaDTO {
      * @param boleta: Es la entidad que se va a convertir a DTO
      */
     public BoletaDTO(BoletaEntity boleta) {
-        if (boleta != null) {
+
+        if(boleta != null){
+
             this.id = boleta.getId();
             this.precio = boleta.getPrecio();
             this.vendida = boleta.isVendida();

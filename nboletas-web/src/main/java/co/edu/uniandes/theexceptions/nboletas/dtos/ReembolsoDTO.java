@@ -12,7 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
  * @author jm.contreras10
  */
 public class ReembolsoDTO {
-
+    
     private Long id;
     private Double valor;
 
@@ -31,5 +31,4 @@ public class ReembolsoDTO {
         entity.setValor(this.valor);
         return entity;
     }
-
 }

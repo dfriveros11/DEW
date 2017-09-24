@@ -19,7 +19,7 @@ import java.util.ListIterator;
  * @author ja.gomez1
  */
 public class LugarDetailDTO extends LugarDTO {
-
+    
     private List<DivisionDeLugarDTO> divisiones;
 
     private List<FuncionDTO> funciones;

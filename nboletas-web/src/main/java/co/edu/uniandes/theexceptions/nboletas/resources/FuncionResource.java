@@ -40,8 +40,7 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class FuncionResource {
-
-    @Inject
+@Inject
     private FuncionLogic funcionLogic;
 
     private static final Logger LOGGER = Logger.getLogger(FuncionResource.class.getName());

@@ -8,6 +8,7 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 import co.edu.uniandes.theexceptions.nboletas.dtos.EnvioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -32,14 +33,25 @@ import javax.ws.rs.WebApplicationException;
 @Consumes("application/json")
 @Stateless
 public class EnvioResource {
-
-    @Inject
+@Inject
     EnvioLogic envioLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     private static final Logger LOGGER = Logger.getLogger(EnvioResource.class.getName());
 
+    
+    
+    /**
+     * POST http://localhost:8080/nboletas-web/api/envios
+     *
+     * @para envio correponde a la representación java del objeto json
+     * enviado en el llamado.
+     * @return Devuelve el objeto json de entrada que contiene el id creado por
+     * la base de datos y el tipo del objeto java. Ejemplo: { "type":
+     * "EnvioDetailDTO", "id": 1, atributo1 : "valor" }
+     * @throws BusinessLogicException
+     */
     @POST
-    public EnvioDetailDTO createEnvio(EnvioDetailDTO envio) {
+    public EnvioDetailDTO createEnvio(EnvioDetailDTO envio) throws BusinessLogicException {
         EnvioEntity EnvioEntity = envio.toEntity();
         EnvioEntity nuevoEnvio = envioLogic.create(EnvioEntity);
         return new EnvioDetailDTO(nuevoEnvio);
@@ -54,15 +66,36 @@ public class EnvioResource {
         }
         return new EnvioDetailDTO(entity);
     }
-
+    
+    
+    /**
+     * GET para todas los Envios.
+     * http://localhost:8080/nboletas-web/api/envios
+     *
+     * @return la lista de todas los Envios en objetos json DTO.
+     * @throws BusinessLogicException
+     */
     @GET
-    public List<EnvioDetailDTO> getEnvios() {
+    public List<EnvioDetailDTO> getEnvios() throws BusinessLogicException {
         return listEntity2DetailDTO(envioLogic.findAll());
     }
 
+    /**
+     * PUT http://localhost:8080/nboletas-web/api/envios/1 Ejemplo json {
+     * "id": 1, "atirbuto1": "Valor nuevo" }
+     *
+     * @param id corresponde al Envio a actualizar.
+     * @param envio corresponde al objeto con los cambios que se van a
+     * realizar.
+     * @return El envio actualizado.
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id del envio a actualizar se retorna un 404
+     * con el mensaje.
+     */
     @PUT
     @Path("{id: \\d+}")
-    public EnvioDetailDTO updateEnvio(@PathParam("id") Long id, EnvioDetailDTO envio) {
+    public EnvioDetailDTO updateEnvio(@PathParam("id") Long id, EnvioDetailDTO envio)throws BusinessLogicException {
 
         envio.setId(id);
         EnvioEntity entity = envioLogic.find(id);
@@ -72,6 +105,16 @@ public class EnvioResource {
         return new EnvioDetailDTO(envioLogic.update(envio.toEntity()));
     }
 
+    /**
+     * DELETE http://localhost:8080/nboletas-web/api/envios/{id}
+     *
+     * @param id corresponde al envio a borrar.
+     * @throws BusinessLogicException
+     *
+     * En caso de no existir el id del envio a borrar se retorna un 404
+     * con el mensaje.
+     *
+     */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteEnvio(@PathParam("id") Long id) {

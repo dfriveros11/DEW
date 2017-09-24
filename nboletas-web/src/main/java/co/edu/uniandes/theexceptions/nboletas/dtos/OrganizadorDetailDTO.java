@@ -15,8 +15,8 @@ import java.util.List;
  *
  * @author df.riveros11
  */
-public class OrganizadorDetailDTO extends OrganizadorDTO {
-
+public class OrganizadorDetailDTO extends OrganizadorDTO{
+    
     private List<EspectaculoDTO> espectaculos;
 
     public OrganizadorDetailDTO() {

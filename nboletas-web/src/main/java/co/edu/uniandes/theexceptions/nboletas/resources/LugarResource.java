@@ -39,7 +39,7 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class LugarResource {
-
+    
     @Inject
     private LugarLogic lugarLogic;
 

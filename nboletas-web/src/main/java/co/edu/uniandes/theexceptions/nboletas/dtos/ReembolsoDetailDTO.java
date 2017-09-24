@@ -11,9 +11,9 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
  *
  * @author jm.contreras10
  */
-public class ReembolsoDetailDTO extends ReembolsoDTO {
-
-    private BoletaDTO boleta;
+public class ReembolsoDetailDTO extends ReembolsoDTO{
+    
+   private BoletaDTO boleta;
 
     private UsuarioDTO usuario;
 
@@ -50,5 +50,4 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
     public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
-
 }

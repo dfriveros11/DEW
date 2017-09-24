@@ -12,7 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
  * @author jm.contreras10
  */
 public class UsuarioDTO {
-
+    
     private Long id;
     private String userName;
     private String password;
@@ -101,5 +101,4 @@ public class UsuarioDTO {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
 }

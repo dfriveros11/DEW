@@ -16,7 +16,7 @@ import java.util.List;
  * @author ja.gomez1
  */
 public class FuncionDetailDTO extends FuncionDTO {
-
+    
     private List<BoletaDTO> boletas;
 
     private LugarDTO lugar;
@@ -110,5 +110,4 @@ public class FuncionDetailDTO extends FuncionDTO {
     public void setEspectaculo(EspectaculoDTO espectaculo) {
         this.espectaculo = espectaculo;
     }
-
 }

@@ -64,6 +64,7 @@ public class BoletaEntity extends BaseEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private SillaEntity silla;
 
+
     public double getPrecio() {
         return precio;
     }
@@ -79,6 +80,7 @@ public class BoletaEntity extends BaseEntity implements Serializable {
     public void setVenida(boolean venida) {
         this.vendida = venida;
     }
+
 
     public ReembolsoEntity getReembolso() {
         return reembolso;

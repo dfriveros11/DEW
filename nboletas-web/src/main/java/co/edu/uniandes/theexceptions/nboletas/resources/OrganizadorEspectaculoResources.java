@@ -38,8 +38,7 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class OrganizadorEspectaculoResources {
-
-    @Inject
+@Inject
     OrganizadorLogic organizadorLogic;
 
     @Inject
