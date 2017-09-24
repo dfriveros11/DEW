@@ -17,13 +17,13 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class EnvioEntity extends BaseEntity implements Serializable {
-    
+
     private String direccion;
 
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
-    
+
     /**
      * @return the direccion
      */
@@ -51,10 +51,5 @@ public class EnvioEntity extends BaseEntity implements Serializable {
     public void setBoleta(BoletaEntity boleta) {
         this.boleta = boleta;
     }
-    
-    
-    
-    
-    
-    
+
 }

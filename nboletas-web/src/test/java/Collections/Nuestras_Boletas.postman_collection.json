@@ -1,459 +1,459 @@
 {
-	"variables": [],
-	"info": {
-		"name": "Nuestras_Boletas",
-		"_postman_id": "7f6345af-eaa3-9307-371a-662cafd1a844",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Boletas",
-			"description": "",
-			"item": [
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\"precio\": 123.12, \"vendida\":false }"
-						},
-						"description": "creo una boleta"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\"precio\": 123.12, \"vendida\":false }"
-						},
-						"description": "obtengo una boleta"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"1"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\"precio\": 123.12, \"vendida\":false }"
-						},
-						"description": "obengo una boleta"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/1",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"3"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\"precio\": 100.12, \"vendida\":false }"
-						},
-						"description": "actualizo una boleta"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/1",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"1"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "borro una boleta"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "BoletasEnvio",
-			"description": "",
-			"item": [
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/1",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"2",
-								"envios"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"dirrecion\" : \"aloja\" }"
-						},
-						"description": "obtiene el envio de la boleta 2"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"2",
-								"envios"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"direccion\" : \"aloja!\" }"
-						},
-						"description": "crea el envio de la boleta 2"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"2",
-								"envios",
-								"7"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "borra el envio de la boleta 2"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/2/envios/4",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"2",
-								"envios",
-								"8"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"dirrecion\" : \"tuPAPA\" }"
-						},
-						"description": "obtiene el envio con el id 4 de la boleta 2"
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/nboletas-web/api/boletas/2/envios/4",
-					"request": {
-						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"nboletas-web",
-								"api",
-								"boletas",
-								"2",
-								"envios",
-								"8"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "devices",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \"dirrecion\" : \"tuPAPA\" }"
-						},
-						"description": "actualiza el envio con el id 4 de la boleta 2"
-					},
-					"response": []
-				}
-			]
-		}
-	]
+    "variables": [],
+    "info": {
+        "name": "Nuestras_Boletas",
+        "_postman_id": "7f6345af-eaa3-9307-371a-662cafd1a844",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Boletas",
+            "description": "",
+            "item": [
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": " {\"precio\": 123.12, \"vendida\":false }"
+                        },
+                        "description": "creo una boleta"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": " {\"precio\": 123.12, \"vendida\":false }"
+                        },
+                        "description": "obtengo una boleta"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": " {\"precio\": 123.12, \"vendida\":false }"
+                        },
+                        "description": "obengo una boleta"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/1",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/3",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "3"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": " {\"precio\": 100.12, \"vendida\":false }"
+                        },
+                        "description": "actualizo una boleta"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/1",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "description": "borro una boleta"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "BoletasEnvio",
+            "description": "",
+            "item": [
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/1",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "2",
+                                "envios"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{ \"dirrecion\" : \"aloja\" }"
+                        },
+                        "description": "obtiene el envio de la boleta 2"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "2",
+                                "envios"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{ \"direccion\" : \"aloja!\" }"
+                        },
+                        "description": "crea el envio de la boleta 2"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/2/envios",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/7",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "2",
+                                "envios",
+                                "7"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "description": "borra el envio de la boleta 2"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/2/envios/4",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "2",
+                                "envios",
+                                "8"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{ \"dirrecion\" : \"tuPAPA\" }"
+                        },
+                        "description": "obtiene el envio con el id 4 de la boleta 2"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "http://localhost:8080/nboletas-web/api/boletas/2/envios/4",
+                    "request": {
+                        "url": {
+                            "raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "nboletas-web",
+                                "api",
+                                "boletas",
+                                "2",
+                                "envios",
+                                "8"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "devices",
+                                    "equals": true,
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{ \"dirrecion\" : \"tuPAPA\" }"
+                        },
+                        "description": "actualiza el envio con el id 4 de la boleta 2"
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
 }

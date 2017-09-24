@@ -16,15 +16,14 @@ import javax.inject.Inject;
  * @author df.riveros11
  */
 @Stateless
-public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity>{
+public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity> {
 
     @Inject
     private OrganizadorPersistence persistence;
-    
+
     @Override
     protected AbstractPersistence<OrganizadorEntity> getPersistence() {
         return persistence;
     }
 
- 
 }

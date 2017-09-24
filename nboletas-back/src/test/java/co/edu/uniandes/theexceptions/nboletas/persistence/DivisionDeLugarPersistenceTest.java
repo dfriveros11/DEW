@@ -27,6 +27,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class DivisionDeLugarPersistenceTest {
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -35,7 +36,7 @@ public class DivisionDeLugarPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     /**
      * Inyección de la dependencia a la clase XYZPersistence cuyos métodos se
      * van a probar.
@@ -62,9 +63,9 @@ public class DivisionDeLugarPersistenceTest {
      */
     private List<DivisionDeLugarEntity> data = new ArrayList<DivisionDeLugarEntity>();
 
-    public DivisionDeLugarPersistenceTest(){
+    public DivisionDeLugarPersistenceTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
@@ -108,7 +109,7 @@ public class DivisionDeLugarPersistenceTest {
     @After
     public void tearDown() {
     }
-    
+
     /**
      * Test of create method, of class BoletaPersistence.
      */
@@ -118,7 +119,7 @@ public class DivisionDeLugarPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         DivisionDeLugarEntity newEntity = factory.manufacturePojo(DivisionDeLugarEntity.class);
         DivisionDeLugarEntity result = persistence.create(newEntity);
-        
+
         Assert.assertNotNull(result);
         DivisionDeLugarEntity entity = em.find(DivisionDeLugarEntity.class, result.getId());
         Assert.assertNotNull(entity);

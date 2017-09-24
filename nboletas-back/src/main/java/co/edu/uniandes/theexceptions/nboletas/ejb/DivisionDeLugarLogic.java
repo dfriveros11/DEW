@@ -16,27 +16,26 @@ import javax.inject.Inject;
  *
  * @author fc.alvarez10
  */
-public class DivisionDeLugarLogic extends AbstractLogic<DivisionDeLugarEntity>{
+public class DivisionDeLugarLogic extends AbstractLogic<DivisionDeLugarEntity> {
 
     private static final Logger LOGGER = Logger.getLogger(DivisionDeLugarLogic.class.getName());
-    
+
     @Inject
     private DivisionDeLugarPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     @Inject
     private SillaLogic boletaLogic;
-    
+
     @Inject
     private LugarLogic lugarLogic;
-    
-    
+
     @Override
     public DivisionDeLugarEntity create(DivisionDeLugarEntity entity) {
         LOGGER.info("Inicia proceso de creación de Division de lugar");
         // Invoca la persistencia para crear la Boleta
         persistence.create(entity);
         LOGGER.info("Termina proceso de creación de Division de lugar");
-        return entity;  
+        return entity;
     }
 
     @Override
@@ -58,9 +57,9 @@ public class DivisionDeLugarLogic extends AbstractLogic<DivisionDeLugarEntity>{
 
     @Override
     public DivisionDeLugarEntity find(Object id) {
-       LOGGER.info("Inicia proceso de busqueda de una Silla");
+        LOGGER.info("Inicia proceso de busqueda de una Silla");
         // Invoca la persistencia para crear la Boleta
-        DivisionDeLugarEntity x= persistence.find(id);
+        DivisionDeLugarEntity x = persistence.find(id);
         LOGGER.info("Termina proceso de busqueda de una Silla");
         return x;
     }
@@ -69,7 +68,7 @@ public class DivisionDeLugarLogic extends AbstractLogic<DivisionDeLugarEntity>{
     public List<DivisionDeLugarEntity> findAll() {
         LOGGER.info("Inicia proceso de busqueda de todas las Sillas");
         // Invoca la persistencia para crear la Boleta
-        List<DivisionDeLugarEntity> x= persistence.findAll();
+        List<DivisionDeLugarEntity> x = persistence.findAll();
         LOGGER.info("Termina proceso de busqueda de todas las Silla");
         return x;
     }
@@ -78,5 +77,5 @@ public class DivisionDeLugarLogic extends AbstractLogic<DivisionDeLugarEntity>{
     protected AbstractPersistence<DivisionDeLugarEntity> getPersistence() {
         return persistence;
     }
-    
+
 }

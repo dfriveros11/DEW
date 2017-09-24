@@ -14,8 +14,8 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ComentarioPersistence extends AbstractPersistence<ComentarioEntity> {
-    
-    public ComentarioPersistence(){
-                super(ComentarioEntity.class);
-            }
+
+    public ComentarioPersistence() {
+        super(ComentarioEntity.class);
+    }
 }

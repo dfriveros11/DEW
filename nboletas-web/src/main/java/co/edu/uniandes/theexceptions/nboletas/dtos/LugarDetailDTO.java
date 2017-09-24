@@ -19,9 +19,9 @@ import java.util.ListIterator;
  * @author ja.gomez1
  */
 public class LugarDetailDTO extends LugarDTO {
-    
+
     private List<DivisionDeLugarDTO> divisiones;
-    
+
     private List<FuncionDTO> funciones;
 
     public LugarDetailDTO() {
@@ -29,16 +29,20 @@ public class LugarDetailDTO extends LugarDTO {
 
     public LugarDetailDTO(LugarEntity entity) {
         super(entity);
-        
-        if(entity.getDivisiones() != null) {
+
+        if (entity.getDivisiones() != null) {
             ArrayList<DivisionDeLugarDTO> d = new ArrayList<>();
-            for(DivisionDeLugarEntity e : entity.getDivisiones()) d.add(new DivisionDeLugarDTO(e));
+            for (DivisionDeLugarEntity e : entity.getDivisiones()) {
+                d.add(new DivisionDeLugarDTO(e));
+            }
             this.divisiones = d;
         }
-        
-        if(entity.getFunciones() != null) {
+
+        if (entity.getFunciones() != null) {
             ArrayList<FuncionDTO> f = new ArrayList<>();
-            for(FuncionEntity e : entity.getFunciones()) f.add(new FuncionDTO(e));
+            for (FuncionEntity e : entity.getFunciones()) {
+                f.add(new FuncionDTO(e));
+            }
             this.funciones = f;
         }
     }
@@ -46,16 +50,20 @@ public class LugarDetailDTO extends LugarDTO {
     @Override
     public LugarEntity toEntity() {
         LugarEntity l = super.toEntity();
-        
-        if(getDivisiones() != null) {
+
+        if (getDivisiones() != null) {
             ArrayList<DivisionDeLugarEntity> d = new ArrayList<DivisionDeLugarEntity>();
-            for(DivisionDeLugarDTO p : getDivisiones()) d.add(p.toEntity());
+            for (DivisionDeLugarDTO p : getDivisiones()) {
+                d.add(p.toEntity());
+            }
             l.setDivisiones(d);
         }
-        
-        if(getFunciones() != null) {
+
+        if (getFunciones() != null) {
             ArrayList<FuncionEntity> f = new ArrayList<FuncionEntity>();
-            for(FuncionDTO p : getFunciones()) f.add(p.toEntity());
+            for (FuncionDTO p : getFunciones()) {
+                f.add(p.toEntity());
+            }
             l.setFunciones(f);
         }
         return l;

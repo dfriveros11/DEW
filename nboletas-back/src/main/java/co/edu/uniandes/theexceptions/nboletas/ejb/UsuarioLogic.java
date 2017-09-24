@@ -16,14 +16,14 @@ import javax.inject.Inject;
  * @author jm.contreras10
  */
 @Stateless
-public class UsuarioLogic extends AbstractLogic<UsuarioEntity>{
-            
+public class UsuarioLogic extends AbstractLogic<UsuarioEntity> {
+
     @Inject
     private UsuarioPersistence persistence;
- 
+
     @Override
     protected AbstractPersistence<UsuarioEntity> getPersistence() {
         return persistence;
     }
-    
+
 }

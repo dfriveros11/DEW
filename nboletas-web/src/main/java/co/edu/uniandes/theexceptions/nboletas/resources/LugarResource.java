@@ -118,12 +118,12 @@ public class LugarResource {
     @DELETE
     @Path("{id: \\d+}")
     public void deleteLugar(@PathParam("id") Long id) throws BusinessLogicException {
-      
-         LugarEntity l = lugarLogic.find(id);
-         if(null == l) {
-             throw new BusinessLogicException("No existe funcion con el id: " + id);
-         }
-         lugarLogic.delete(l);
+
+        LugarEntity l = lugarLogic.find(id);
+        if (null == l) {
+            throw new BusinessLogicException("No existe funcion con el id: " + id);
+        }
+        lugarLogic.delete(l);
     }
 
     private List<LugarDetailDTO> listEntity2DetailDTO(List<LugarEntity> entityList) {

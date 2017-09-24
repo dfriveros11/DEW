@@ -16,13 +16,14 @@ import javax.inject.Inject;
  * @author ja.gomez1
  */
 @Stateful
-public class LugarLogic extends AbstractLogic<LugarEntity>{
+public class LugarLogic extends AbstractLogic<LugarEntity> {
+
     @Inject
     private LugarPersistence persistence;
-    
+
     @Override
     protected AbstractPersistence<LugarEntity> getPersistence() {
         return persistence;
     }
-    
+
 }

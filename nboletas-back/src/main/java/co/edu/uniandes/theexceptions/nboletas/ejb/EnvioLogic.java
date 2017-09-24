@@ -16,12 +16,13 @@ import javax.inject.Inject;
  * @author angeloMarcetty
  */
 @Stateless
-public class EnvioLogic extends AbstractLogic<EnvioEntity>{
+public class EnvioLogic extends AbstractLogic<EnvioEntity> {
+
     @Inject
     private EnvioPersistence persistence;
-    
+
     @Override
-    protected AbstractPersistence<EnvioEntity> getPersistence(){
+    protected AbstractPersistence<EnvioEntity> getPersistence() {
         return persistence;
     }
 }

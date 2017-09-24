@@ -7,12 +7,14 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.LugarEntity;
 import javax.ejb.Stateless;
+
 /**
  *
  * @author ja.gomez1
  */
 @Stateless
 public class LugarPersistence extends AbstractPersistence<LugarEntity> {
+
     public LugarPersistence() {
         super(LugarEntity.class);
     }

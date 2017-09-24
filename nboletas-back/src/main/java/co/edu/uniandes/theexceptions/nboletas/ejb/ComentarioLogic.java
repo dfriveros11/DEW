@@ -20,11 +20,10 @@ public class ComentarioLogic extends AbstractLogic<ComentarioEntity> {
 
     @Inject
     private ComentarioPersistence persistence;
-    
-        @Override
-        protected AbstractPersistence<ComentarioEntity> getPersistence(){
-            return persistence;
-        }
-    
+
+    @Override
+    protected AbstractPersistence<ComentarioEntity> getPersistence() {
+        return persistence;
+    }
 
 }

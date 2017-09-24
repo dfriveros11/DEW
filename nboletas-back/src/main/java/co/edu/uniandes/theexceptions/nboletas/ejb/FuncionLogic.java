@@ -16,13 +16,14 @@ import javax.inject.Inject;
  * @author ja.gomez1
  */
 @Stateful
-public class FuncionLogic extends AbstractLogic<FuncionEntity>{
+public class FuncionLogic extends AbstractLogic<FuncionEntity> {
+
     @Inject
     private FuncionPersistence persistence;
-    
+
     @Override
     protected AbstractPersistence<FuncionEntity> getPersistence() {
         return persistence;
     }
-    
+
 }

@@ -8,14 +8,13 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import javax.ejb.Stateless;
 
-
 /**
  *
  * @author jf.ramos
  */
-
 @Stateless
 public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntity> {
+
     public EspectaculoPersistence() {
         super(EspectaculoEntity.class);
     }

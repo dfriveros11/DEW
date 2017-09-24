@@ -13,9 +13,9 @@ import javax.ejb.Stateless;
  * @author angeloMarcetty
  */
 @Stateless
-public class EnvioPersistence extends AbstractPersistence<EnvioEntity>  {
-    
-    public EnvioPersistence(){
+public class EnvioPersistence extends AbstractPersistence<EnvioEntity> {
+
+    public EnvioPersistence() {
         super(EnvioEntity.class);
     }
 }
