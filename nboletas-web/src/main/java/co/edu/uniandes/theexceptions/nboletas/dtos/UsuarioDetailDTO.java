@@ -23,13 +23,20 @@ public class UsuarioDetailDTO extends UsuarioDTO{
 
     public UsuarioDetailDTO(UsuarioEntity entity) {
         super(entity);
+        
         List<BoletaDTO> bols = new LinkedList<>();
-        for (BoletaEntity b : entity.getBoletas()) {
-            bols.add(new BoletaDTO(b));
-        }
         List<ReembolsoDTO> reem = new LinkedList<>();
-        for (ReembolsoEntity r : entity.getReembolsos()) {
-            reem.add(new ReembolsoDTO(r));
+        
+        if (entity.getBoletas() != null) {
+
+            for (BoletaEntity b : entity.getBoletas()) {
+                bols.add(new BoletaDTO(b));
+            }
+        }
+        if (entity.getReembolsos() != null) {
+            for (ReembolsoEntity r : entity.getReembolsos()) {
+                reem.add(new ReembolsoDTO(r));
+            }
         }
 
         boletasCompradas = bols;
@@ -42,14 +49,21 @@ public class UsuarioDetailDTO extends UsuarioDTO{
         UsuarioEntity entity = super.toEntity();
 
         List<BoletaEntity> bols = new LinkedList<>();
-        for (BoletaDTO b : this.boletasCompradas) {
-            bols.add(b.toEntity());
+        List<ReembolsoEntity> reems = new LinkedList<>();
+        
+        if (this.boletasCompradas != null) {
+            for (BoletaDTO b : this.boletasCompradas) {
+                bols.add(b.toEntity());
+            }
         }
 
-        List<ReembolsoEntity> reems = new LinkedList<>();
-        for (ReembolsoDTO r : this.reembolsos) {
-            reems.add(r.toEntity());
+        if (this.reembolsos != null) {
+            for (ReembolsoDTO r : this.reembolsos) {
+                reems.add(r.toEntity());
+            }
         }
+
+        
         entity.setBoletas(bols);
         entity.setReembolsos(reems);
 
