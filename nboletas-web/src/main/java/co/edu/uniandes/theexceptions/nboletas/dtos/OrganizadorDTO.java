@@ -19,7 +19,10 @@ public class OrganizadorDTO {
     }
     
     public OrganizadorDTO(OrganizadorEntity organizador){
-        this.id = organizador.getId();
+        if(organizador != null){
+            this.id = organizador.getId();
+            this.nombreEmpresa = organizador.getNombreEmpresa();
+        }
     }
 
     public Long getId() {

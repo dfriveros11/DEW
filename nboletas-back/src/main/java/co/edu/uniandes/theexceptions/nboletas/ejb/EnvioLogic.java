@@ -24,6 +24,4 @@ public class EnvioLogic extends AbstractLogic<EnvioEntity>{
     protected AbstractPersistence<EnvioEntity> getPersistence(){
         return persistence;
     }
-
-
 }
