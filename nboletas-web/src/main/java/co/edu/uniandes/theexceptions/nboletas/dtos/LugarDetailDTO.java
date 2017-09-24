@@ -42,7 +42,7 @@ public class LugarDetailDTO extends LugarDTO {
             this.funciones = f;
         }
     }
-    
+
     @Override
     public LugarEntity toEntity() {
         LugarEntity l = super.toEntity();

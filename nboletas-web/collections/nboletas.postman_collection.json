@@ -1,178 +1,178 @@
 {
-	"variables": [],
-	"info": {
-		"name": "nboletas",
-		"_postman_id": "159fb264-d5fe-2316-73be-b62f716feb30",
-		"description": "Colección de datos para los recursos",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Crear una boleta primera vez",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/boletas",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"name\":\"Maria\"}"
-				},
-				"description": "POST para boletas"
-			},
-			"response": []
-		},
-		{
-			"name": "Crear una boleta con el mismo nombre",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"No crea con el mismo nombre\"] = responseCode.code === 412;",
-							"",
-							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"Ya existe una boleta con el nombre\");"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/boletas",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"id\":1,\n\t\"name\":\"Maria\"}"
-				},
-				"description": "POST para boletas"
-			},
-			"response": []
-		},
-		{
-			"name": "Editar una boleta",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"console.log(responseBody);",
-							"var data = JSON.parse(responseBody);",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/boletas/100",
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"boleta con nuevo nombre\"\n}"
-				},
-				"description": "PUT de boletass"
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener todas las boletas",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"var data= JSON.parse(responseBody);",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"tests[\"bicycles count\"] = data.length >= 0;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/boletas/",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": "GET boletas"
-			},
-			"response": []
-		},
-		{
-			"name": "Borrar una boleta",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 204;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/boletas/200",
-				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"description": "DELETE boleta\n"
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener una boleta",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"console.log(responseBody);",
-							"var data = JSON.parse(responseBody);",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/boletas/100",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": "Get para un  boletas"
-			},
-			"response": []
-		}
-	]
+    "variables": [],
+    "info": {
+        "name": "nboletas",
+        "_postman_id": "159fb264-d5fe-2316-73be-b62f716feb30",
+        "description": "Colección de datos para los recursos",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Crear una boleta primera vez",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://localhost:8080/nboletas-web/api/boletas",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\":\"Maria\"}"
+                },
+                "description": "POST para boletas"
+            },
+            "response": []
+        },
+        {
+            "name": "Crear una boleta con el mismo nombre",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "tests[\"No crea con el mismo nombre\"] = responseCode.code === 412;",
+                            "",
+                            "tests[\"Mensaje correcto de error\"] = responseBody.has(\"Ya existe una boleta con el nombre\");"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://localhost:8080/nboletas-web/api/boletas",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\":1,\n\t\"name\":\"Maria\"}"
+                },
+                "description": "POST para boletas"
+            },
+            "response": []
+        },
+        {
+            "name": "Editar una boleta",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "console.log(responseBody);",
+                            "var data = JSON.parse(responseBody);",
+                            "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://localhost:8080/nboletas-web/api/boletas/100",
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"boleta con nuevo nombre\"\n}"
+                },
+                "description": "PUT de boletass"
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener todas las boletas",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "var data= JSON.parse(responseBody);",
+                            "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                            "tests[\"bicycles count\"] = data.length >= 0;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://localhost:8080/nboletas-web/api/boletas/",
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "description": "GET boletas"
+            },
+            "response": []
+        },
+        {
+            "name": "Borrar una boleta",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "tests[\"Status code is 200\"] = responseCode.code === 204;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://localhost:8080/nboletas-web/api/boletas/200",
+                "method": "DELETE",
+                "header": [],
+                "body": {},
+                "description": "DELETE boleta\n"
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener una boleta",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "console.log(responseBody);",
+                            "var data = JSON.parse(responseBody);",
+                            "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://localhost:8080/nboletas-web/api/boletas/100",
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "description": "Get para un  boletas"
+            },
+            "response": []
+        }
+    ]
 }

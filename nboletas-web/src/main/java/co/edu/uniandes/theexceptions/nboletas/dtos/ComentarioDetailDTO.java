@@ -13,15 +13,14 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
  * @author angeloMarcetty
  */
 public class ComentarioDetailDTO extends ComentarioDTO {
-    
-    public ComentarioDetailDTO(ComentarioEntity entity){
+
+    public ComentarioDetailDTO(ComentarioEntity entity) {
         super(entity);
     }
-    
+
     @Override
-    public ComentarioEntity toEntity(){
+    public ComentarioEntity toEntity() {
         return super.toEntity();
     }
-    
-    
+
 }

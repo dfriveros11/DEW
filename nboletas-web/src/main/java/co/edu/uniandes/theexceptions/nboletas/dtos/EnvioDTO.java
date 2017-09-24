@@ -1,6 +1,5 @@
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
-
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
 
 /*
@@ -8,25 +7,21 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author angeloMarcetty
  */
 public class EnvioDTO {
-    
-     
+
     private Long id;
     private String direccion;
-    
-    
+
     /**
      * Constructor por defecto
      */
-    public EnvioDTO(){
+    public EnvioDTO() {
     }
-          
-    
+
     //Conviertir Entity a DTO
     public EnvioDTO(EnvioEntity env) {
         if (env != null) {
@@ -62,17 +57,17 @@ public class EnvioDTO {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
-    
+
     /**
      * Convertir DTO a Entity
-     * @return Un Entity con los valores del DTO 
+     *
+     * @return Un Entity con los valores del DTO
      */
-    public EnvioEntity toEntity(){
+    public EnvioEntity toEntity() {
         EnvioEntity entity = new EnvioEntity();
         entity.setId(this.id);
         entity.setDireccion(this.direccion);
-        return entity;   
+        return entity;
     }
-    
+
 }

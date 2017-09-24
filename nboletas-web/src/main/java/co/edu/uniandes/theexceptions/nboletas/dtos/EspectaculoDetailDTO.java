@@ -11,7 +11,8 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
  *
  * @author jf.ramos
  */
-public class EspectaculoDetailDTO extends EspectaculoDTO{
+public class EspectaculoDetailDTO extends EspectaculoDTO {
+
     /**
      * Constructor por defecto
      */
@@ -30,7 +31,7 @@ public class EspectaculoDetailDTO extends EspectaculoDTO{
     /**
      * Transformar un DTO a un Entity
      *
-     * @return 
+     * @return
      */
     @Override
     public EspectaculoEntity toEntity() {

@@ -39,17 +39,18 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class LugarResource {
+
     @Inject
     private LugarLogic lugarLogic;
-    
+
     @Inject
     private DivisionDeLugarLogic divisionLogic;
-    
+
     @Inject
     private SillaLogic sillaLogic;
-    
+
     private static final Logger LOGGER = Logger.getLogger(LugarResource.class.getName());
-    
+
     /**
      * GET para todos los Lugares.
      * http://localhost:8080/nboletas-web/api/lugares
@@ -61,7 +62,7 @@ public class LugarResource {
     public List<LugarDetailDTO> getLugares() throws BusinessLogicException {
         return listEntity2DetailDTO(lugarLogic.findAll());
     }
-    
+
     /**
      * POST http://localhost:8080/nboletas-web/api/lugares
      *
@@ -80,7 +81,7 @@ public class LugarResource {
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         return new LugarDetailDTO(nuevoLugar);
     }
-    
+
     /**
      * PUT http://localhost:8080/nboletas-web/api/lugares/id
      *
@@ -89,12 +90,13 @@ public class LugarResource {
      * @return el Lugar actualizado.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id del Lugar a actualizar se retorna un 404 not found.
+     * En caso de no existir el id del Lugar a actualizar se retorna un 404 not
+     * found.
      */
     @PUT
     @Path("{id: \\d+}")
     public LugarDetailDTO updateFuncion(@PathParam("id") Long id, LugarDetailDTO lugar) throws BusinessLogicException, UnsupportedOperationException {
-        if(null == lugarLogic.find(id)){
+        if (null == lugarLogic.find(id)) {
             throw new BusinessLogicException("No existe lugar con id: " + id);
         }
         LugarEntity lugarP = lugar.toEntity();
@@ -102,26 +104,28 @@ public class LugarResource {
         LugarEntity lugarUpdated = lugarLogic.update(lugarP);
         return (new LugarDetailDTO(lugarUpdated));
     }
-    
+
     /**
      * DELETE http://localhost:8080/nboletas-web/api/lugares/id
      *
      * @param id corresponde al Lugar a borrar.
      * @throws BusinessLogicException
-    
-     * En caso de no existir el id del Lugar a borrar se retorna un 404 not found.
+     *
+     * En caso de no existir el id del Lugar a borrar se retorna un 404 not
+     * found.
      *
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteLugar(@PathParam("id") Long id) throws BusinessLogicException {
+      
          LugarEntity l = lugarLogic.find(id);
          if(null == l) {
              throw new BusinessLogicException("No existe funcion con el id: " + id);
          }
          lugarLogic.delete(l);
     }
-    
+
     private List<LugarDetailDTO> listEntity2DetailDTO(List<LugarEntity> entityList) {
         List<LugarDetailDTO> list = new ArrayList<>();
         for (LugarEntity entity : entityList) {

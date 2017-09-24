@@ -12,24 +12,24 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
  * @author jm.contreras10
  */
 public class ReembolsoDTO {
-    
+
     private Long id;
     private Double valor;
-    
-    public ReembolsoDTO(){
-        
+
+    public ReembolsoDTO() {
+
     }
-    
-    public ReembolsoDTO(ReembolsoEntity entity){
+
+    public ReembolsoDTO(ReembolsoEntity entity) {
         this.id = entity.getId();
         this.valor = entity.getValor();
     }
-    
-    public ReembolsoEntity toEntity(){
+
+    public ReembolsoEntity toEntity() {
         ReembolsoEntity entity = new ReembolsoEntity();
         entity.setId(this.id);
         entity.setValor(this.valor);
         return entity;
     }
-    
+
 }

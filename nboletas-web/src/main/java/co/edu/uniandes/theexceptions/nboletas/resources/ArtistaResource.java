@@ -10,5 +10,5 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
  * @author jf.ramos
  */
 public class ArtistaResource {
-    
+
 }

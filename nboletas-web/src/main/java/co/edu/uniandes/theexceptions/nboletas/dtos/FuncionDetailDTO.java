@@ -43,7 +43,7 @@ public class FuncionDetailDTO extends FuncionDTO {
             this.espectaculo = new EspectaculoDTO(entity.getEspectaculo());
         }
     }
-    
+
     @Override
     public FuncionEntity toEntity() {
         FuncionEntity f = super.toEntity();

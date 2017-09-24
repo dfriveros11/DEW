@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
-
 import co.edu.uniandes.theexceptions.nboletas.dtos.EspectaculoDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EspectaculoLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
@@ -67,25 +66,24 @@ public class EspectaculoResource {
         return listEntity2DetailDTO(espectaculoLogic.findAll());
     }
 
-   
     /**
-     * PUT http://localhost:8080/nboletas-web/api/boletas/1 Ejemplo
-     * json { "id": 1, "atirbuto1": "Valor nuevo" }
+     * PUT http://localhost:8080/nboletas-web/api/boletas/1 Ejemplo json { "id":
+     * 1, "atirbuto1": "Valor nuevo" }
      *
      * @param id corresponde a la Boleta a actualizar.
-     * @param boleta corresponde  al objeto con los cambios que se van a
+     * @param boleta corresponde al objeto con los cambios que se van a
      * realizar.
      * @return La Boleta actualizada.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      */
     @PUT
     @Path("{id: \\d+}")
     public EspectaculoDetailDTO updateBoleta(@PathParam("id") Long id, EspectaculoDetailDTO boleta) throws BusinessLogicException, UnsupportedOperationException {
-          throw new UnsupportedOperationException("Este servicio  no está implementado");
-      
+        throw new UnsupportedOperationException("Este servicio  no está implementado");
+
     }
 
     /**
@@ -94,14 +92,14 @@ public class EspectaculoResource {
      * @param id corresponde a la Boleta a borrar.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Boleta a actualizar se retorna un
-     * 404 con el mensaje.
+     * En caso de no existir el id de la Boleta a actualizar se retorna un 404
+     * con el mensaje.
      *
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteBoleta(@PathParam("id") Long id) throws BusinessLogicException {
-         throw new UnsupportedOperationException("Este servicio no está implementado");
+        throw new UnsupportedOperationException("Este servicio no está implementado");
     }
 
     /**
@@ -111,8 +109,8 @@ public class EspectaculoResource {
      * Este método convierte una lista de objetos BoletaEntity a una lista de
      * objetos BoletaDetailDTO (json)
      *
-     * @param entityList corresponde a la lista de Boletas de tipo Entity
-     * que vamos a convertir a DTO.
+     * @param entityList corresponde a la lista de Boletas de tipo Entity que
+     * vamos a convertir a DTO.
      * @return la lista de Boletas en forma DTO (json)
      */
     private List<EspectaculoDetailDTO> listEntity2DetailDTO(List<EspectaculoEntity> entityList) {
@@ -124,4 +122,3 @@ public class EspectaculoResource {
     }
 
 }
-

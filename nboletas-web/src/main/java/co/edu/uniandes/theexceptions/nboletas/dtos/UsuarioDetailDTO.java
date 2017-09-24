@@ -15,13 +15,13 @@ import java.util.List;
  *
  * @author jm.contreras10
  */
+
 public class UsuarioDetailDTO extends UsuarioDTO{
     
     private List<BoletaDTO> boletasCompradas;
     
     private List<ReembolsoDTO> reembolsos;
-    
-    
+
     public UsuarioDetailDTO(UsuarioEntity entity) {
         super(entity);
         List<BoletaDTO> bols = new LinkedList<>();
@@ -37,7 +37,7 @@ public class UsuarioDetailDTO extends UsuarioDTO{
         reembolsos = reem;
         
     }
-    
+
     @Override
     public UsuarioEntity toEntity() {
         UsuarioEntity entity = super.toEntity();
@@ -72,7 +72,5 @@ public class UsuarioDetailDTO extends UsuarioDTO{
     public void setReembolsos(List<ReembolsoDTO> reembolsos) {
         this.reembolsos = reembolsos;
     }
-    
-    
-    
+
 }

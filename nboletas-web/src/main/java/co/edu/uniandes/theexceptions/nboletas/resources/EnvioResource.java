@@ -32,22 +32,19 @@ import javax.ws.rs.WebApplicationException;
 @Consumes("application/json")
 @Stateless
 public class EnvioResource {
-    
-     @Inject
+
+    @Inject
     EnvioLogic envioLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     private static final Logger LOGGER = Logger.getLogger(EnvioResource.class.getName());
 
-    
     @POST
     public EnvioDetailDTO createEnvio(EnvioDetailDTO envio) {
         EnvioEntity EnvioEntity = envio.toEntity();
         EnvioEntity nuevoEnvio = envioLogic.create(EnvioEntity);
         return new EnvioDetailDTO(nuevoEnvio);
     }
-    
-    
-    
+
     @GET
     @Path("{id: \\d+}")
     public EnvioDetailDTO getEnvio(@PathParam("id") Long id) {
@@ -57,17 +54,12 @@ public class EnvioResource {
         }
         return new EnvioDetailDTO(entity);
     }
-    
-    
+
     @GET
-    public List<EnvioDetailDTO> getEnvios()  {
+    public List<EnvioDetailDTO> getEnvios() {
         return listEntity2DetailDTO(envioLogic.findAll());
     }
-    
-    
-    
-    
-    
+
     @PUT
     @Path("{id: \\d+}")
     public EnvioDetailDTO updateEnvio(@PathParam("id") Long id, EnvioDetailDTO envio) {
@@ -77,12 +69,9 @@ public class EnvioResource {
         if (entity == null) {
             throw new WebApplicationException("El recurso envio: " + id + " no existe.", 404);
         }
-        return new EnvioDetailDTO(envioLogic.update(envio.toEntity()));    
+        return new EnvioDetailDTO(envioLogic.update(envio.toEntity()));
     }
-    
-    
-    
-    
+
     @DELETE
     @Path("{id: \\d+}")
     public void deleteEnvio(@PathParam("id") Long id) {
@@ -91,15 +80,9 @@ public class EnvioResource {
             throw new WebApplicationException("El recurso envio: " + id + " no existe.", 404);
         }
         //revisar!!
-        envioLogic.delete(entity); 
+        envioLogic.delete(entity);
     }
-    
-    
-    
-    
-    
-    
-    
+
     /**
      *
      * lista de entidades a DTO.
@@ -112,6 +95,5 @@ public class EnvioResource {
         }
         return list;
     }
-    
-    
+
 }
