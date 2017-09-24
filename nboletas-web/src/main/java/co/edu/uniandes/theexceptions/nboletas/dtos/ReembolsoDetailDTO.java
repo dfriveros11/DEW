@@ -26,8 +26,12 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
     @Override
     public ReembolsoEntity toEntity() {
         ReembolsoEntity entity = super.toEntity();
-        entity.setUsuario(usuario.toEntity());
-        entity.setBoleta(boleta.toEntity());
+        if (usuario != null) {
+            entity.setUsuario(usuario.toEntity());
+        }
+        if (boleta != null) {
+            entity.setBoleta(boleta.toEntity());
+        }
         return entity;
     }
 
