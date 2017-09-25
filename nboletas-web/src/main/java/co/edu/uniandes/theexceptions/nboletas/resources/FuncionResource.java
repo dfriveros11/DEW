@@ -30,6 +30,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -62,17 +63,17 @@ public class FuncionResource {
      * http://localhost:8080/nboletas-web/api/funciones/id
      *
      * @return la lista de todas las Funciones en objetos json DTO.
-     * @throws BusinessLogicException
+     * @throws WebApplicationException
      *
      * En caso de no existir el id de la Funcion se retorna un 404
      * not found.
      */
     @GET
     @Path("{id: \\d+}")
-    public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws BusinessLogicException {
+    public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws WebApplicationException {
         FuncionEntity f = funcionLogic.find(id);
         if (f == null) {
-            throw new BusinessLogicException("No existe funcion con id " + id);
+            throw new WebApplicationException("No existe funcion con id " + id, 404);
         }
         return new FuncionDetailDTO(f);
     }

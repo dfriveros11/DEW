@@ -25,7 +25,7 @@ insert into EnvioEntity (id, direccion) values (400, 'Carrera 43 # 70A-50 SUR');
 
 insert into ComentarioEntity (id,comentario,fecha) values (100,'Muy buen espectaculo','10/10/2017');
 insert into ComentarioEntity (id,comentario,fecha) values (200,'horror de evento','10/31/2017');
-insert into ComentarioEntity (id,comentario,fecha) values (300,'me gusto mucho asistir','11/01/1989');
+insert int  ComentarioEntity (id,comentario,fecha) values (300,'me gusto mucho asistir','11/01/1989');
 insert into ComentarioEntity (id,comentario,fecha) values (400,'me senti muy bien en el evento','06/20/2017');
 
 insert into DivisionDeLugarEntity (id,nombre) values (10,'Noroccidental alta');
