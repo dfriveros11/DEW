@@ -79,14 +79,14 @@ public class LugarResource {
     public LugarDetailDTO getLugar(@PathParam("id") Long id) throws WebApplicationException {
         LugarEntity l = lugarLogic.find(id);
         if(l == null)
-            throw new WebApplicationException("No existe lugar con el id 0 + id", 404);
+            throw new WebApplicationException("No existe lugar con el id " + id, 404);
         return new LugarDetailDTO(l);
     }
 
     /**
      * POST http://localhost:8080/nboletas-web/api/lugares
      *
-     * @param Funcion correponde a la representación java del objeto json
+     * @param lugar correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java.
