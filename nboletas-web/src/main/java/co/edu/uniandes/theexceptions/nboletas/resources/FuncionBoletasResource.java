@@ -6,12 +6,10 @@
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
-import co.edu.uniandes.theexceptions.nboletas.dtos.LugarDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.FuncionLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.LugarEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +40,10 @@ public class FuncionBoletasResource {
     private BoletaLogic boletaLogic;
     
     /**
-     * GET para las boletas de un lugar especifico.
+     * GET para las boletas de una funcion especifica.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas
      *
-     * @return la las boletas de la funcion en objetos json DTO.
+     * @return las boletas de la funcion en objetos json DTO.
      * @throws BusinessLogicException
      * 
      * En caso de no existir el id de la Funcion se retorna un 404 not
@@ -62,7 +60,7 @@ public class FuncionBoletasResource {
     }
     
     /**
-     * GET para una boleta especifica de un lugar especifico.
+     * GET para una boleta especifica de una funcion especifica.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas/idBoleta
      *
      * @return una boleta especifica de la funcion en objeto json DTO.
@@ -94,12 +92,12 @@ public class FuncionBoletasResource {
     }
     
     /**
-     * POST para crear una relacion lugar boleta.
+     * POST para crear una relacion funcion boleta.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas
      *
      * @param Boleta correponde a la representación java del objeto json
      * enviado en el llamado, para agregar la relacion a la funcion.
-     * @return la boleta que fue creada para la relacion con dla funcion en objeto json DTO.
+     * @return la boleta que fue creada para la relacion con la funcion en objeto json DTO.
      * @throws BusinessLogicException
      * 
      * En caso de no existir el id de la Funcion se retorna un 404 not
@@ -119,10 +117,10 @@ public class FuncionBoletasResource {
     }
     
     /**
-     * PUT para crear una relacion lugar boleta con una ya existente en el sistema.
+     * PUT para crear una relacion funcion boleta con una ya existente en el sistema.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas/idBoleta
      *
-     * @return la boleta que fue creada para la relacion con dla funcion en objeto json DTO.
+     * @return la boleta que fue creada para la relacion con la funcion en objeto json DTO.
      * @throws BusinessLogicException
      * 
      * En caso de no existir el id de la Funcion se retorna un 404 not
@@ -150,7 +148,7 @@ public class FuncionBoletasResource {
     }
     
     /**
-     * DELETe para eliminar una relacion lugar-boleta ya existente en el sistema.
+     * DELETE para eliminar una relacion funcion-boleta ya existente en el sistema.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas/idBoleta
      *
      * @return la boleta que fue creada para la relacion con dla funcion en objeto json DTO.
@@ -160,7 +158,7 @@ public class FuncionBoletasResource {
      * found.
      * 
      * En caso de no existir una boleta con el id por parametro
-     * se returna un 404 not found.
+     * se retorna un 404 not found.
      */
     @DELETE
     @Path("{idBoleta: \\d+}")
