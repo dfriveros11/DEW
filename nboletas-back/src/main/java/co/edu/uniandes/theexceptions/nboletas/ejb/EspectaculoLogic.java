@@ -7,7 +7,9 @@ package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.EspectaculoPersistence;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -15,10 +17,13 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
+    
+    @Inject
+    private EspectaculoPersistence persistence;
 
     @Override
     protected AbstractPersistence<EspectaculoEntity> getPersistence() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         return persistence;
     }
 
 }

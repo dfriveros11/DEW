@@ -7,8 +7,10 @@ package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.ArtistaPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -16,29 +18,13 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
+    
+    @Inject
+    private ArtistaPersistence persistence;
 
     @Override
     protected AbstractPersistence<ArtistaEntity> getPersistence() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return persistence;
     }
 
-    @Override
-    public ArtistaEntity update(ArtistaEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(ArtistaEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<ArtistaEntity> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArtistaEntity find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

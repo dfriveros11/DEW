@@ -1,5 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +32,14 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author jf.ramos
  */
 @RunWith(Arquillian.class)
-public class EspectaculoPersistenceTest {
+public class ArtistaPersistenceTest {
+    
 
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(EspectaculoEntity.class.getPackage())
-                .addPackage(EspectaculoPersistence.class.getPackage())
+                .addPackage(ArtistaEntity.class.getPackage())
+                .addPackage(ArtistaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -42,7 +49,7 @@ public class EspectaculoPersistenceTest {
      * van a probar.
      */
     @Inject
-    private EspectaculoPersistence persistence;
+    private ArtistaPersistence persistence;
 
     /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -61,9 +68,9 @@ public class EspectaculoPersistenceTest {
     /**
      *
      */
-    private List<EspectaculoEntity> data = new ArrayList<EspectaculoEntity>();
+    private List<ArtistaEntity> data = new ArrayList<ArtistaEntity>();
 
-    public EspectaculoPersistenceTest() {
+    public ArtistaPersistenceTest() {
     }
 
     @BeforeClass
@@ -93,13 +100,13 @@ public class EspectaculoPersistenceTest {
     }
 
     private void clearData() {
-        em.createQuery("delete from EspectaculoEntity").executeUpdate();
+        em.createQuery("delete from ArtistaEntity").executeUpdate();
     }
 
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            EspectaculoEntity entity = factory.manufacturePojo(EspectaculoEntity.class);
+            ArtistaEntity entity = factory.manufacturePojo(ArtistaEntity.class);
             em.persist(entity);
             data.add(entity);
         }
@@ -116,13 +123,12 @@ public class EspectaculoPersistenceTest {
     public void testCreate() {
 
         PodamFactory factory = new PodamFactoryImpl();
-        EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
-        EspectaculoEntity result = persistence.create(newEntity);
+        ArtistaEntity newEntity = factory.manufacturePojo(ArtistaEntity.class);
+        ArtistaEntity result = persistence.create(newEntity);
         Assert.assertNotNull(result);
-        EspectaculoEntity entity = em.find(EspectaculoEntity.class, result.getId());
+        ArtistaEntity entity = em.find(ArtistaEntity.class, result.getId());
         Assert.assertNotNull(entity);
         Assert.assertEquals(newEntity.getId(), entity.getId());
-        // Assert.assertEquals(newEntity.getPrecio(), entity.getPrecio(), 0.00);
     }
 
     /**
@@ -130,15 +136,15 @@ public class EspectaculoPersistenceTest {
      */
     @Test
     public void testUpdate() {
-        EspectaculoEntity entity = data.get(0);
+        ArtistaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        EspectaculoEntity newEntity = factory.manufacturePojo(EspectaculoEntity.class);
+        ArtistaEntity newEntity = factory.manufacturePojo(ArtistaEntity.class);
 
         newEntity.setId(entity.getId());
 
         persistence.update(newEntity);
 
-        EspectaculoEntity resp = em.find(EspectaculoEntity.class, entity.getId());
+        ArtistaEntity resp = em.find(ArtistaEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
@@ -148,9 +154,9 @@ public class EspectaculoPersistenceTest {
      */
     @Test
     public void testDelete() {
-        EspectaculoEntity entity = data.get(0);
+        ArtistaEntity entity = data.get(0);
         persistence.delete(entity);
-        EspectaculoEntity deleted = em.find(EspectaculoEntity.class, entity.getId());
+        ArtistaEntity deleted = em.find(ArtistaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
@@ -159,8 +165,8 @@ public class EspectaculoPersistenceTest {
      */
     @Test
     public void testFind() {
-        EspectaculoEntity entity = data.get(0);
-        EspectaculoEntity newEntity = persistence.find(entity.getId());
+        ArtistaEntity entity = data.get(0);
+        ArtistaEntity newEntity = persistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
@@ -170,11 +176,11 @@ public class EspectaculoPersistenceTest {
      */
     @Test
     public void testFindAll() {
-        List<EspectaculoEntity> list = persistence.findAll();
+        List<ArtistaEntity> list = persistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (EspectaculoEntity ent : list) {
+        for (ArtistaEntity ent : list) {
             boolean found = false;
-            for (EspectaculoEntity entity : data) {
+            for (ArtistaEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }

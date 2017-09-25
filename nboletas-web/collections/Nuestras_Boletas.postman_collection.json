@@ -1,1463 +1,1594 @@
 {
-	"variables": [],
-	"info": {
-		"name": "Nuestras_Boletas",
-		"_postman_id": "7f6345af-eaa3-9307-371a-662cafd1a844",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
+	"id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+	"name": "Nuestras_Boletas",
+	"description": "",
+	"order": [],
+	"folders": [
 		{
-			"name": "Entities",
+			"id": "e85de49d-258e-1cb5-42d0-91175d28a6bb",
+			"name": "BoletaReembolso",
 			"description": "",
-			"item": [
-				{
-					"name": "Boletas",
-					"description": "",
-					"item": [
-						{
-							"name": "crea una boleta",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);\r",
-											"\r",
-											""
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": " {\"precio\": 223.12, \"vendida\":false }"
-								},
-								"description": "creo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene todas las boletas",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data= JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;",
-											"tests[\"authors count\"] = data.length >= 0;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": " {\"precio\": 123.12, \"vendida\":false }"
-								},
-								"description": "obtengo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene una boleta",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": " {\"precio\": 123.12, \"vendida\":false }"
-								},
-								"description": "obengo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "actualiza una boleta",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": " {\"precio\": 100.12, \"vendida\":true }"
-								},
-								"description": "actualizo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "borra una boleta",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"tests[\"Status code is 404\"] = responseCode.code;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/9",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"9"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "borro una boleta"
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Organizador",
-					"description": "",
-					"item": [
-						{
-							"name": "crea un organizador",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);\r",
-											"\r",
-											""
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"nombreEmpresa\": \"aloja\"}"
-								},
-								"description": "creo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene todos los organizadores",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data= JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;",
-											"tests[\"authors count\"] = data.length >= 0;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "obtengo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene un organizador",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "obengo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "actualiza un organizador",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"nombreEmpresa\":\"Ayuda\"}"
-								},
-								"description": "actualizo una boleta"
-							},
-							"response": []
-						},
-						{
-							"name": "borra un orgnizador",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"tests[\"Status code is 404\"] = responseCode.code;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizador/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizador",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "borro una boleta"
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				}
-			]
+			"order": [
+				"31dc1041-1739-a66f-2b83-3ec4e9546f87",
+				"9b4140c5-acc5-67e9-7714-b2999d44140a",
+				"2b67cbf5-96e3-882b-7873-b23282251f6f",
+				"3e8a57d2-5035-5d46-27d7-b0bf16bcd538",
+				"6bf2186b-da0f-2000-20c7-960bba1c6a99"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
 		},
 		{
+			"id": "20bb116f-beee-a7ad-f45b-12d3039f7ea4",
+			"name": "Boletas",
+			"description": "",
+			"order": [
+				"e0b9f18e-d17b-9a59-9918-571d110f3bb6",
+				"1d814274-f543-86f9-2106-0b035791fb3b",
+				"4a8a3c38-2bc3-4c71-2817-c4d66496e618",
+				"d9fb9f9e-71b1-a5ef-fe47-e2398a67c808",
+				"48158b34-5bdc-88e5-1443-9917df017e10"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
+		},
+		{
+			"id": "cd1afd01-03de-c55e-4881-5838411af018",
+			"name": "BoletasEnvio",
+			"description": "",
+			"order": [
+				"24ded58a-a376-7ff1-eb41-3d0992d5b060",
+				"18838218-4315-e567-2363-f092a70fceae",
+				"b69079bc-4e0c-19c8-6271-3f171e4cdedf",
+				"c70d631a-35f6-1140-d039-890e68b58343",
+				"9ade14e7-998d-18ea-50e6-9491c8786738"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
+		},
+		{
+			"name": "Division de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"order": [
+				"3e67769b-bab4-249f-9586-5863874d1be5",
+				"57ccdade-3689-55cf-4013-8b562fed0696",
+				"d0d74fa6-5def-cd39-b2b0-178e0093db35",
+				"741ced40-02ea-17ef-54ff-67ae7fd2704c",
+				"ff9c65cf-45e9-f83e-a37f-a7dcae72494a"
+			],
+			"owner": 0,
+			"folder": "bdfc11a9-7235-22eb-4ad7-96138aca5653",
+			"folders_order": [],
+			"id": "ae7cdf12-5d76-8ece-f3fa-b0823cf988c4"
+		},
+		{
+			"name": "DivisionSilla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"order": [
+				"009117f1-6b32-850c-1a21-3cd62cfe8f84",
+				"7b3beabc-dcf7-456c-6afd-cf4126cced81",
+				"5c8e3b93-52af-c91e-4d2c-5ce193394f86",
+				"0b65d8ec-814b-999b-6d6e-74093e001906",
+				"0d695e0c-5f18-fd6b-33c3-97a2b4669afe"
+			],
+			"owner": 0,
+			"folder": "d08afb6e-ed4a-81b8-a9ab-f3515ab7ca52",
+			"folders_order": [],
+			"id": "2130fa8e-1c6a-c112-1d59-c79a8d5b86d1"
+		},
+		{
+			"id": "bdfc11a9-7235-22eb-4ad7-96138aca5653",
+			"name": "Entities",
+			"description": "",
+			"order": [],
+			"folders_order": [
+				"20bb116f-beee-a7ad-f45b-12d3039f7ea4",
+				"76fc0fef-4e6b-27d6-2ee6-2ee88a485248",
+				"0ffef161-e0ce-f0ec-dfc3-a929ce1e5883",
+				"ae7cdf12-5d76-8ece-f3fa-b0823cf988c4"
+			],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
+		},
+		{
+			"id": "76fc0fef-4e6b-27d6-2ee6-2ee88a485248",
+			"name": "Organizador",
+			"description": "",
+			"order": [
+				"1fe63b55-df0a-7c15-c333-cb8bd96cf57b",
+				"43e63f34-c068-1950-5e80-1e8280903539",
+				"d6de992f-df3c-f0b9-6ed7-e2329f7a7797",
+				"69704020-dd74-03d6-0776-30854f9e097c",
+				"4aa45684-c416-7b5c-f8d8-582e6a8db51b"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
+		},
+		{
+			"id": "29aca1b6-3755-6a37-ad99-2d582404cdc8",
+			"name": "OrganizadorEspectaculo",
+			"description": "",
+			"order": [
+				"318409fc-6647-590b-35e2-9725fb5cd0d1",
+				"7e4389b1-cffd-3839-e5f5-cf3132dbd1ca",
+				"33b2bb07-da56-cefd-702a-36fdb5527338",
+				"9efcef06-ea41-fc66-a463-f9595bcb07ea",
+				"97f26d3c-e0e4-9855-99fd-304f6081f7ea"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
+		},
+		{
+			"id": "d08afb6e-ed4a-81b8-a9ab-f3515ab7ca52",
 			"name": "Relaciones",
 			"description": "",
-			"item": [
+			"order": [],
+			"folders_order": [
+				"cd1afd01-03de-c55e-4881-5838411af018",
+				"29aca1b6-3755-6a37-ad99-2d582404cdc8",
+				"e85de49d-258e-1cb5-42d0-91175d28a6bb",
+				"2130fa8e-1c6a-c112-1d59-c79a8d5b86d1",
+				"4a98b02b-52e7-f8d1-8529-6d639171aa92"
+			],
+			"owner": 0,
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1"
+		},
+		{
+			"name": "Silla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"order": [
+				"a1512089-1584-1b24-c236-5a17e9e56726",
+				"e503e5c8-ff24-c46e-769c-58cd840b3072",
+				"ab75f31b-e0d8-b65f-b150-5ed6e9d5e01c",
+				"4579376d-8963-01e2-6bee-93067433bfb9",
+				"0f174222-edf6-32b2-0fa3-7d459e18cc13"
+			],
+			"owner": 0,
+			"folder": "bdfc11a9-7235-22eb-4ad7-96138aca5653",
+			"folders_order": [],
+			"id": "0ffef161-e0ce-f0ec-dfc3-a929ce1e5883"
+		},
+		{
+			"name": "SillaBoleta",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"order": [
+				"7a7c56a3-6708-ab37-fd58-69bd3d4de802",
+				"9d242187-33a3-0dc2-3ee5-48023b250f11",
+				"32b01813-543b-a334-8079-2669c9e5c5fc",
+				"3768896a-aeb6-62fe-5eb6-e2290ce0d8dd",
+				"49a3363f-d5ce-a90a-e4f6-31b7e4099f45"
+			],
+			"owner": 0,
+			"folder": "d08afb6e-ed4a-81b8-a9ab-f3515ab7ca52",
+			"folders_order": [],
+			"id": "4a98b02b-52e7-f8d1-8529-6d639171aa92"
+		}
+	],
+	"folders_order": [
+		"bdfc11a9-7235-22eb-4ad7-96138aca5653",
+		"d08afb6e-ed4a-81b8-a9ab-f3515ab7ca52"
+	],
+	"timestamp": 0,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "009117f1-6b32-850c-1a21-3cd62cfe8f84",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
 				{
-					"name": "BoletasEnvio",
+					"key": "Content-Type",
+					"value": "application/json",
 					"description": "",
-					"item": [
-						{
-							"name": "crear la boletaEnvio",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);\r",
-											""
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/5/envios",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"5",
-										"envios"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"direccion\" : \"aloja!\" }"
-								},
-								"description": "crea el envio de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene las boletas",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/5/envios",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"5",
-										"envios"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"dirrecion\" : \"aloja\" }"
-								},
-								"description": "obtiene el envio de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene la boleta con el envio id=8",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2",
-										"envios",
-										"8"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"dirrecion\" : \"tuPAPA\" }"
-								},
-								"description": "obtiene el envio con el id 4 de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "actualiza la boleta 2 con el envio 8",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2",
-										"envios",
-										"8"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"direccion\" : \"tuPAPA\" }"
-								},
-								"description": "actualiza el envio con el id 4 de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "borro la boleta 2 con el envio 7",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"tests[\"Status code is 404\"] = responseCode.code;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2/envios/7",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2",
-										"envios",
-										"7"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "borra el envio de la boleta 2"
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "OrganizadorEspectaculo",
-					"description": "",
-					"item": [
-						{
-							"name": "crear la organizadorEspectaculo",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);\r",
-											""
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1",
-										"espectaculos"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"nombre\": \"AYDIoMIO\", \"descripcion\": \"descripcion\"}"
-								},
-								"description": "crea el envio de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene los espectaculos de un organizador",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1",
-										"espectaculos"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "obtiene el envio de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene el espectaculo con el organizador",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1",
-										"espectaculos",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "obtiene el envio con el id 4 de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "actualiza un organizador con espectaculo",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1",
-										"espectaculos",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"nombre\": \"kel\", \"descripcion\": \"descripcion\"}"
-								},
-								"description": "actualiza el envio con el id 4 de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "borro el espectaculo 5 con ee organizador 3",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"tests[\"Status code is 404\"] = responseCode.code;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"organizadores",
-										"1",
-										"espectaculos",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "borra el envio de la boleta 2"
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "BoletaReembolso",
-					"description": "",
-					"item": [
-						{
-							"name": "crear la boletaReembolso",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"var data = JSON.parse(responseBody);\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
-											"console.log(data.id);\r",
-											""
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/reembolsos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"3",
-										"reembolsos"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"valor\" : \"12.32\" }"
-								},
-								"description": "crea el envio de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene las boletas",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/5/reembolsos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"5",
-										"reembolsos"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "obtiene el envio de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "obtiene la boleta con el reemboslo",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2/reembolsos/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2",
-										"reembolsos",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "obtiene el envio con el id 4 de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "actualiza la boleta 2 con el reembolso",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"console.log(responseBody);",
-											"var data = JSON.parse(responseBody);",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2/reembolsos/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2",
-										"reembolsos",
-										"1"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \"valor\" : \"20.00\" }"
-								},
-								"description": "actualiza el envio con el id 4 de la boleta 2"
-							},
-							"response": []
-						},
-						{
-							"name": "borro la boleta con reembolso",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"type": "text/javascript",
-										"exec": [
-											"tests[\"Status code is 404\"] = responseCode.code;"
-										]
-									}
-								}
-							],
-							"request": {
-								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2/reembolsos/7",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"nboletas-web",
-										"api",
-										"boletas",
-										"2",
-										"reembolsos",
-										"7"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": "devices",
-											"equals": true,
-											"description": "",
-											"disabled": true
-										}
-									],
-									"variable": []
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"description": "borra el envio de la boleta 2"
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
+					"enabled": true
 				}
-			]
+			],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/30/sillas",
+			"folder": "2130fa8e-1c6a-c112-1d59-c79a8d5b86d1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506320710326,
+			"name": "Crear una DivisionSilla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"costo\":1234.543}"
+		},
+		{
+			"id": "0b65d8ec-814b-999b-6d6e-74093e001906",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/30/sillas/9",
+			"folder": "2130fa8e-1c6a-c112-1d59-c79a8d5b86d1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322490416,
+			"name": "Actualizar una silla de una división",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"costo\":1.25}"
+		},
+		{
+			"id": "0d695e0c-5f18-fd6b-33c3-97a2b4669afe",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/30/sillas/2",
+			"folder": "2130fa8e-1c6a-c112-1d59-c79a8d5b86d1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506321577486,
+			"name": "Elimina una silla de una división",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
+		},
+		{
+			"id": "0f174222-edf6-32b2-0fa3-7d459e18cc13",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/30",
+			"folder": "0ffef161-e0ce-f0ec-dfc3-a929ce1e5883",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506321274226,
+			"name": "Eliminar una silla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
+		},
+		{
+			"id": "18838218-4315-e567-2363-f092a70fceae",
+			"name": "obtiene las boletas",
+			"description": "obtiene el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{ \"dirrecion\" : \"aloja\" }",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/5/envios?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "cd1afd01-03de-c55e-4881-5838411af018"
+		},
+		{
+			"id": "1d814274-f543-86f9-2106-0b035791fb3b",
+			"name": "obtiene todas las boletas",
+			"description": "obtengo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": " {\"precio\": 123.12, \"vendida\":false }",
+			"pathVariables": {},
+			"tests": "var data= JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"authors count\"] = data.length >= 0;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "20bb116f-beee-a7ad-f45b-12d3039f7ea4"
+		},
+		{
+			"id": "1fe63b55-df0a-7c15-c333-cb8bd96cf57b",
+			"name": "crea un organizador",
+			"description": "creo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "POST",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\"nombreEmpresa\": \"aloja\"}",
+			"pathVariables": {},
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n\r\n",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "76fc0fef-4e6b-27d6-2ee6-2ee88a485248"
+		},
+		{
+			"id": "24ded58a-a376-7ff1-eb41-3d0992d5b060",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/boletas/5/envios?",
+			"folder": "cd1afd01-03de-c55e-4881-5838411af018",
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506320537280,
+			"name": "crear la boletaEnvio",
+			"description": "crea el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{ \"direccion\" : \"aloja!\" }"
+		},
+		{
+			"id": "2b67cbf5-96e3-882b-7873-b23282251f6f",
+			"name": "obtiene la boleta con el reemboslo",
+			"description": "obtiene el envio con el id 4 de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2/reembolsos/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "e85de49d-258e-1cb5-42d0-91175d28a6bb"
+		},
+		{
+			"id": "318409fc-6647-590b-35e2-9725fb5cd0d1",
+			"name": "crear la organizadorEspectaculo",
+			"description": "crea el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "POST",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\"nombre\": \"AYDIoMIO\", \"descripcion\": \"descripcion\"}",
+			"pathVariables": {},
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "29aca1b6-3755-6a37-ad99-2d582404cdc8"
+		},
+		{
+			"id": "31dc1041-1739-a66f-2b83-3ec4e9546f87",
+			"name": "crear la boletaReembolso",
+			"description": "crea el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "POST",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{ \"valor\" : \"12.32\" }",
+			"pathVariables": {},
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/3/reembolsos?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "e85de49d-258e-1cb5-42d0-91175d28a6bb"
+		},
+		{
+			"id": "32b01813-543b-a334-8079-2669c9e5c5fc",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/20/boletas/6",
+			"folder": "4a98b02b-52e7-f8d1-8529-6d639171aa92",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322326152,
+			"name": "consultar una boleta de una silla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
+		},
+		{
+			"id": "33b2bb07-da56-cefd-702a-36fdb5527338",
+			"name": "obtiene el espectaculo con el organizador",
+			"description": "obtiene el envio con el id 4 de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "29aca1b6-3755-6a37-ad99-2d582404cdc8"
+		},
+		{
+			"id": "3768896a-aeb6-62fe-5eb6-e2290ce0d8dd",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/20/boletas/5",
+			"folder": "4a98b02b-52e7-f8d1-8529-6d639171aa92",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322388120,
+			"name": "Actualizar una boleta de una silla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"precio\":125.45}"
+		},
+		{
+			"id": "3e67769b-bab4-249f-9586-5863874d1be5",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones",
+			"folder": "ae7cdf12-5d76-8ece-f3fa-b0823cf988c4",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506319111646,
+			"name": "Consultar todas las divisiones de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"id\":1,\"name\": \"o\" } "
+		},
+		{
+			"id": "3e8a57d2-5035-5d46-27d7-b0bf16bcd538",
+			"name": "actualiza la boleta 2 con el reembolso",
+			"description": "actualiza el envio con el id 4 de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "PUT",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{ \"valor\" : \"20.00\" }",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2/reembolsos/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "e85de49d-258e-1cb5-42d0-91175d28a6bb"
+		},
+		{
+			"id": "43e63f34-c068-1950-5e80-1e8280903539",
+			"name": "obtiene todos los organizadores",
+			"description": "obtengo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "var data= JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"authors count\"] = data.length >= 0;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "76fc0fef-4e6b-27d6-2ee6-2ee88a485248"
+		},
+		{
+			"id": "4579376d-8963-01e2-6bee-93067433bfb9",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/7",
+			"folder": "0ffef161-e0ce-f0ec-dfc3-a929ce1e5883",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322604065,
+			"name": "Actualizar una silla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"costo\":303.56}"
+		},
+		{
+			"id": "48158b34-5bdc-88e5-1443-9917df017e10",
+			"name": "borra una boleta",
+			"description": "borro una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "DELETE",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/9?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "20bb116f-beee-a7ad-f45b-12d3039f7ea4"
+		},
+		{
+			"id": "49a3363f-d5ce-a90a-e4f6-31b7e4099f45",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/20/boletas/4",
+			"folder": "4a98b02b-52e7-f8d1-8529-6d639171aa92",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322133376,
+			"name": "Eliminar una boleta de una silla",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
+		},
+		{
+			"id": "4a8a3c38-2bc3-4c71-2817-c4d66496e618",
+			"name": "obtiene una boleta",
+			"description": "obengo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": " {\"precio\": 123.12, \"vendida\":false }",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "20bb116f-beee-a7ad-f45b-12d3039f7ea4"
+		},
+		{
+			"id": "4aa45684-c416-7b5c-f8d8-582e6a8db51b",
+			"name": "borra un orgnizador",
+			"description": "borro una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "DELETE",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizador/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "76fc0fef-4e6b-27d6-2ee6-2ee88a485248"
+		},
+		{
+			"id": "57ccdade-3689-55cf-4013-8b562fed0696",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones",
+			"folder": "ae7cdf12-5d76-8ece-f3fa-b0823cf988c4",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322648850,
+			"name": "Crear una division de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"name\":\"occidental\"} "
+		},
+		{
+			"id": "5c8e3b93-52af-c91e-4d2c-5ce193394f86",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/30/sillas/8",
+			"folder": "2130fa8e-1c6a-c112-1d59-c79a8d5b86d1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322475732,
+			"name": "Obtener una silla de una division de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
+		},
+		{
+			"id": "69704020-dd74-03d6-0776-30854f9e097c",
+			"name": "actualiza un organizador",
+			"description": "actualizo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "PUT",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\"nombreEmpresa\":\"Ayuda\"}",
+			"pathVariables": {},
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "76fc0fef-4e6b-27d6-2ee6-2ee88a485248"
+		},
+		{
+			"id": "6bf2186b-da0f-2000-20c7-960bba1c6a99",
+			"name": "borro la boleta con reembolso",
+			"description": "borra el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "DELETE",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2/reembolsos/7?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "e85de49d-258e-1cb5-42d0-91175d28a6bb"
+		},
+		{
+			"id": "741ced40-02ea-17ef-54ff-67ae7fd2704c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/8",
+			"folder": "ae7cdf12-5d76-8ece-f3fa-b0823cf988c4",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322706060,
+			"name": "Actualizar una división de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"name\":\"occidental\"} "
+		},
+		{
+			"id": "7a7c56a3-6708-ab37-fd58-69bd3d4de802",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/20/boletas",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear una boleta de una silla",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506321897952,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "4a98b02b-52e7-f8d1-8529-6d639171aa92",
+			"rawModeData": "{\"precio\":1004.65,\"vendida\":false}"
+		},
+		{
+			"id": "7b3beabc-dcf7-456c-6afd-cf4126cced81",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/30/sillas",
+			"folder": "2130fa8e-1c6a-c112-1d59-c79a8d5b86d1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506320680992,
+			"name": "Obtener las sillas de una division",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
+		},
+		{
+			"id": "7e4389b1-cffd-3839-e5f5-cf3132dbd1ca",
+			"name": "obtiene los espectaculos de un organizador",
+			"description": "obtiene el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "29aca1b6-3755-6a37-ad99-2d582404cdc8"
+		},
+		{
+			"id": "97f26d3c-e0e4-9855-99fd-304f6081f7ea",
+			"name": "borro el espectaculo 5 con ee organizador 3",
+			"description": "borra el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "DELETE",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "29aca1b6-3755-6a37-ad99-2d582404cdc8"
+		},
+		{
+			"id": "9ade14e7-998d-18ea-50e6-9491c8786738",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2/envios/7?",
+			"folder": "cd1afd01-03de-c55e-4881-5838411af018",
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506320579893,
+			"name": "borro la boleta 2 con el envio 7",
+			"description": "borra el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "9b4140c5-acc5-67e9-7714-b2999d44140a",
+			"name": "obtiene las boletas",
+			"description": "obtiene el envio de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/5/reembolsos?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "e85de49d-258e-1cb5-42d0-91175d28a6bb"
+		},
+		{
+			"id": "9d242187-33a3-0dc2-3ee5-48023b250f11",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/20/boletas",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"data": null,
+			"dataMode": "params",
+			"name": "Consultar todas las boletas de una silla",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506321945368,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "4a98b02b-52e7-f8d1-8529-6d639171aa92"
+		},
+		{
+			"id": "9efcef06-ea41-fc66-a463-f9595bcb07ea",
+			"name": "actualiza un organizador con espectaculo",
+			"description": "actualiza el envio con el id 4 de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "PUT",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\"nombre\": \"kel\", \"descripcion\": \"descripcion\"}",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "29aca1b6-3755-6a37-ad99-2d582404cdc8"
+		},
+		{
+			"id": "a1512089-1584-1b24-c236-5a17e9e56726",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/sillas",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"data": null,
+			"dataMode": "params",
+			"name": "Consultar todas las sillas",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506319641168,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "0ffef161-e0ce-f0ec-dfc3-a929ce1e5883"
+		},
+		{
+			"id": "ab75f31b-e0d8-b65f-b150-5ed6e9d5e01c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/sillas",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Crear una nueva silla",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506319834166,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "0ffef161-e0ce-f0ec-dfc3-a929ce1e5883",
+			"rawModeData": "{\"costo\":1000}"
+		},
+		{
+			"id": "b69079bc-4e0c-19c8-6271-3f171e4cdedf",
+			"name": "obtiene la boleta con el envio id=8",
+			"description": "obtiene el envio con el id 4 de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{ \"dirrecion\" : \"tuPAPA\" }",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "cd1afd01-03de-c55e-4881-5838411af018"
+		},
+		{
+			"id": "c70d631a-35f6-1140-d039-890e68b58343",
+			"name": "actualiza la boleta 2 con el envio 8",
+			"description": "actualiza el envio con el id 4 de la boleta 2",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "PUT",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{ \"direccion\" : \"tuPAPA\" }",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2/envios/8?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "cd1afd01-03de-c55e-4881-5838411af018"
+		},
+		{
+			"id": "d0d74fa6-5def-cd39-b2b0-178e0093db35",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/10",
+			"folder": "ae7cdf12-5d76-8ece-f3fa-b0823cf988c4",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506319135783,
+			"name": "Consultar una división de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": [],
+			"rawModeData": "{\"name\":\"occidental\"} "
+		},
+		{
+			"id": "d6de992f-df3c-f0b9-6ed7-e2329f7a7797",
+			"name": "obtiene un organizador",
+			"description": "obengo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "GET",
+			"headers": "",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "76fc0fef-4e6b-27d6-2ee6-2ee88a485248"
+		},
+		{
+			"id": "d9fb9f9e-71b1-a5ef-fe47-e2398a67c808",
+			"name": "actualiza una boleta",
+			"description": "actualizo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "PUT",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": " {\"precio\": 100.12, \"vendida\":true }",
+			"pathVariables": {},
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas/2?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "20bb116f-beee-a7ad-f45b-12d3039f7ea4"
+		},
+		{
+			"id": "e0b9f18e-d17b-9a59-9918-571d110f3bb6",
+			"name": "crea una boleta",
+			"description": "creo una boleta",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"method": "POST",
+			"headers": "Content-Type: application/json",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": " {\"precio\": 223.12, \"vendida\":false }",
+			"pathVariables": {},
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n\r\n",
+			"preRequestScript": "",
+			"url": "http://localhost:8080/nboletas-web/api/boletas?",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fields",
+					"value": "devices",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"collection_id": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"folder": "20bb116f-beee-a7ad-f45b-12d3039f7ea4"
+		},
+		{
+			"id": "e503e5c8-ff24-c46e-769c-58cd840b3072",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/sillas/20",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"data": null,
+			"dataMode": "params",
+			"name": "Consultar una silla",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1506319704503,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "0ffef161-e0ce-f0ec-dfc3-a929ce1e5883"
+		},
+		{
+			"id": "ff9c65cf-45e9-f83e-a37f-a7dcae72494a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/nboletas-web/api/divisiones/20",
+			"folder": "ae7cdf12-5d76-8ece-f3fa-b0823cf988c4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 404\"] = responseCode.code;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506322703211,
+			"name": "Eliminar una division de lugar",
+			"description": "",
+			"collectionId": "b88c71a4-d918-a158-dbcf-b28a117317e1",
+			"responses": []
 		}
 	]
 }
