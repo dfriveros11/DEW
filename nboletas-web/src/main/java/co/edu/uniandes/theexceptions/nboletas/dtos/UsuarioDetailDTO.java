@@ -20,15 +20,19 @@ public class UsuarioDetailDTO extends UsuarioDTO{
     private List<BoletaDTO> boletasCompradas;
 
     private List<ReembolsoDTO> reembolsos;
+    
+    public UsuarioDetailDTO(){
+        
+    }
 
     public UsuarioDetailDTO(UsuarioEntity entity) {
         super(entity);
         
-        List<BoletaDTO> bols = new LinkedList<>();
+        List<BoletaDTO> bols = null;
         List<ReembolsoDTO> reem = new LinkedList<>();
         
         if (entity.getBoletas() != null) {
-
+            bols = new LinkedList<>();
             for (BoletaEntity b : entity.getBoletas()) {
                 bols.add(new BoletaDTO(b));
             }
