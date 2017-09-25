@@ -144,7 +144,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/{{new_id2}}",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -154,7 +154,7 @@
 										"nboletas-web",
 										"api",
 										"boletas",
-										"{{new_id2}}"
+										"2"
 									],
 									"query": [
 										{
@@ -194,7 +194,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/{{new_id2}}",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -204,7 +204,7 @@
 										"nboletas-web",
 										"api",
 										"boletas",
-										"{{new_id2}}"
+										"2"
 									],
 									"query": [
 										{
@@ -248,7 +248,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/{{id}}",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/9",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -258,7 +258,7 @@
 										"nboletas-web",
 										"api",
 										"boletas",
-										"{{id}}"
+										"9"
 									],
 									"query": [
 										{
@@ -527,7 +527,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizador/{{new_id}}",
+									"raw": "http://localhost:8080/nboletas-web/api/organizador/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -537,7 +537,7 @@
 										"nboletas-web",
 										"api",
 										"organizador",
-										"{{new_id}}"
+										"1"
 									],
 									"query": [
 										{
