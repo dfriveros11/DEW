@@ -56,7 +56,7 @@ public class Nuestras_BoletasIT {
     public void setPostmanCollectionValues() throws FileNotFoundException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InterruptedException, ExecutionException {
 
         try (FileWriter wrt = new FileWriter(path)) {
-            wrt.write("newman run ".concat(BASEPATH.concat("\\collections\\Nuestras_Boletas.postman_collection.json").concat(" --disable-unicode")));
+            wrt.write("newman run ".concat(BASEPATH.concat("\\collections\\nboletas-Comentario.postman_collection.json").concat(" --disable-unicode")));
             wrt.flush();
         }
 

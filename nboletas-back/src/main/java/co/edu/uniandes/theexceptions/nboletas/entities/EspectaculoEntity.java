@@ -29,7 +29,7 @@ public class EspectaculoEntity extends BaseEntity implements Serializable {
     private List<OrganizadorEntity> organizador;
 
     @PodamExclude
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy="espectaculo")
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<ArtistaEntity> artista;
 
     @PodamExclude
