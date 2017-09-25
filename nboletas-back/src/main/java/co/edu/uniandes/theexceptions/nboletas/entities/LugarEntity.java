@@ -29,7 +29,7 @@ public class LugarEntity extends BaseEntity implements Serializable {
     private List<FuncionEntity> funciones;
 
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "lugar")
     private List<DivisionDeLugarEntity> divisiones;
 
     /**

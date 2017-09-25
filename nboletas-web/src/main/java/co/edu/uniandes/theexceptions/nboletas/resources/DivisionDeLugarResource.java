@@ -29,6 +29,10 @@ public class DivisionDeLugarResource {
     @Inject
     DivisionDeLugarLogic divisionDeLugarLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
+    @Inject
+    LugarLogic lugarLogic;
+            
+    
     private static final Logger LOGGER = Logger.getLogger(DivisionDeLugarResource.class.getName());
 
     /**
@@ -42,7 +46,8 @@ public class DivisionDeLugarResource {
      * @throws BusinessLogicException
      */
     @POST
-    public DivisionDeLugarDetailDTO createBoleta(DivisionDeLugarDetailDTO division) throws BusinessLogicException {
+    public DivisionDeLugarDetailDTO createDivision(DivisionDeLugarDetailDTO division) throws BusinessLogicException {
+        
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         DivisionDeLugarEntity divisionEntity = division.toEntity();
         // Invoca la lógica para crear la Boleta nueva
@@ -115,10 +120,6 @@ public class DivisionDeLugarResource {
         if (null == division) {
             throw new BusinessLogicException("No existe la division con el id: " + id);
         }
-        if (!division.getSillas().isEmpty()) {
-            //borrar las sillas
-        }
-
         divisionDeLugarLogic.delete(division);
     }
 

@@ -56,11 +56,11 @@ public class DivisionDeLugarDetailDTO extends DivisionDeLugarDTO {
     public DivisionDeLugarEntity toEntity() {
         DivisionDeLugarEntity entity = super.toEntity();
         if(getSillas()!=null){
-            List<SillaEntity> sillas=new ArrayList<>();
+            List<SillaEntity> sillasE=new ArrayList<>();
             for(SillaDTO s: getSillas()){
-                sillas.add(s.toEntity());
+                sillasE.add(s.toEntity());
             }
-            entity.setSillas(sillas);
+            entity.setSillas(sillasE);
         }
         
         if(getLugar()!=null){

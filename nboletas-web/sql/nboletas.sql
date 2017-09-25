@@ -4,6 +4,10 @@ delete from EnvioEntity;
 delete from ComentarioEntity;
 delete from EspectaculoEntity;
 delete from ArtistaEntity;
+delete from DivisionDeLugarEntity;
+delete from SillaEntity;
+delete from FuncionEntity;
+delete from LugarEntity;
 
 insert into BoletaEntity (id, precio, vendida) values (1, 100.23, 0);
 insert into BoletaEntity (id, precio, vendida) values (2, 20.23, 1);
@@ -23,9 +27,29 @@ insert into EnvioEntity (id, direccion) values (400, 'Carrera 43 # 70A-50 SUR');
 
 insert into ComentarioEntity (id,comentario,fecha) values (100,'Muy buen espectaculo','10/10/2017');
 insert into ComentarioEntity (id,comentario,fecha) values (200,'horror de evento','10/31/2017');
-insert into ComentarioEntity (id,comentario,fecha) values (300,'me gusto mucho asistir','11/01/1989');
+insert int  ComentarioEntity (id,comentario,fecha) values (300,'me gusto mucho asistir','11/01/1989');
 insert into ComentarioEntity (id,comentario,fecha) values (400,'me senti muy bien en el evento','06/20/2017');
 
+insert into DivisionDeLugarEntity (id,nombre) values (10,'Noroccidental alta');
+insert into DivisionDeLugarEntity (id,nombre) values (20,'Suroccidental alta');
+insert into DivisionDeLugarEntity (id,nombre) values (30,'Noroccidental baja');
+insert into DivisionDeLugarEntity (id,nombre) values (40,'Suroccidental baja');
+insert into DivisionDeLugarEntity (id,nombre) values (50,'VIP');
+
+insert into SillaEntity (id,costo) values (50,20.1);
+insert into SillaEntity (id,costo) values (40,260.5);
+insert into SillaEntity (id,costo) values (30,30.8);
+insert into SillaEntity (id,costo) values (20,1000.5);
+
+insert into LugarEntity (id,tipo) values (1,'CASA');
+insert into LugarEntity (id,tipo) values (2,'APTO');
+insert into LugarEntity (id,tipo) values (3,'TEATRO');
+insert into LugarEntity (id,tipo) values (4,'FINCA');
+
+insert into FuncionEntity (id,fecha,lugar_id) values (1,'10/10/2017',1);
+insert into FuncionEntity (id,fecha,lugar_id) values (2,'10/10/2016',1);
+insert into FuncionEntity (id,fecha,lugar_id) values (3,'10/10/2015',1);
+insert into FuncionEntity (id,fecha,lugar_id) values (4,'10/10/2014',2);
 insert into ArtistaEntity (id, nombreArtista) values (1, 'Juanes');
 insert into ArtistaEntity (id, nombreArtista) values (2, 'Shakira');
 insert into ArtistaEntity (id, nombreArtista) values (3, 'Cirque du Soleil');
