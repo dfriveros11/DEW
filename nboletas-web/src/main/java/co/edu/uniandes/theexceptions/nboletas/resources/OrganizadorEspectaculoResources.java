@@ -33,7 +33,7 @@ import javax.ws.rs.Produces;
  *
  * @author df.riveros11
  */
-@Path("organizador/{idOrganizador: \\d+}/espectaculos")
+@Path("organizadores/{idOrganizador: \\d+}/espectaculos")
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless

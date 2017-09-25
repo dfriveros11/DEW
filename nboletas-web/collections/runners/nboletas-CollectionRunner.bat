@@ -1,0 +1,1 @@
+newman run .\collections\nboletas.postman_collection.json --disable-unicode
