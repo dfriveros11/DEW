@@ -1,7 +1,18 @@
 delete from BoletaEntity;
-
+delete from OrganizadorEntity;
 delete from EnvioEntity;
 delete from ComentarioEntity;
+
+insert into BoletaEntity (id, precio, vendida) values (1, 100.23, false);
+insert into BoletaEntity (id, precio, vendida) values (2, 20.23, true);
+insert into BoletaEntity (id, precio, vendida) values (3, 0.23, false);
+insert into BoletaEntity (id, precio, vendida) values (4, 0.00, true);
+
+insert into OrganizadorEntity (id, nombreEmpresa) values (1, "Yo");
+insert into OrganizadorEntity (id, nombreEmpresa) values (2, "YoYQue");
+insert into OrganizadorEntity (id, nombreEmpresa) values (3, "DondeEstoy");
+insert into OrganizadorEntity (id, nombreEmpresa) values (4, "TuOtraVez");
+
 
 insert into EnvioEntity (id, direccion) values (100,'Calle 43 #7-26 - Aprt:101');
 insert into EnvioEntity (id, direccion) values (200, 'Cra 68i #26.48 - Casa');
