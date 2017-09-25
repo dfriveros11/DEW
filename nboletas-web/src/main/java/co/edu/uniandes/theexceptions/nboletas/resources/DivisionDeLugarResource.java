@@ -62,6 +62,16 @@ public class DivisionDeLugarResource {
     public List<DivisionDeLugarDetailDTO> getDivisiones() throws BusinessLogicException {
         return listEntity2DetailDTO(divisionDeLugarLogic.findAll());
     }
+    
+    @GET
+    @Path("{id: \\d+}")
+    public DivisionDeLugarDetailDTO getDivision(@PathParam("id") Long id) throws BusinessLogicException {
+        DivisionDeLugarEntity division = divisionDeLugarLogic.find(id);
+        if (division == null) {
+            throw new BusinessLogicException("No existe la division con el id: " + id);
+        }
+        return new DivisionDeLugarDetailDTO(division);
+    }
 
     /**
      * PUT http://localhost:8080/nboletas-web/api/divisiones/1 Ejemplo json {
@@ -81,7 +91,7 @@ public class DivisionDeLugarResource {
     public DivisionDeLugarDetailDTO updateDivisionDeLugar(@PathParam("id") Long id, DivisionDeLugarDetailDTO divisionDeLugar) throws BusinessLogicException, UnsupportedOperationException {
         DivisionDeLugarEntity divisionDeLugarActualizar = divisionDeLugar.toEntity();
         if (null == divisionDeLugarLogic.find(id)) {
-            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+            throw new BusinessLogicException("No existe la division con el id: " + id);
         }
         divisionDeLugarActualizar.setId(id);
         DivisionDeLugarEntity divisionDeLugarActualizada = divisionDeLugarLogic.update(divisionDeLugarActualizar);
@@ -103,7 +113,7 @@ public class DivisionDeLugarResource {
     public void deleteDivisionDeLugar(@PathParam("id") Long id) throws BusinessLogicException {
         DivisionDeLugarEntity division = divisionDeLugarLogic.find(id);
         if (null == division) {
-            throw new BusinessLogicException("No existe la boleta con el id: " + id);
+            throw new BusinessLogicException("No existe la division con el id: " + id);
         }
         if (!division.getSillas().isEmpty()) {
             //borrar las sillas

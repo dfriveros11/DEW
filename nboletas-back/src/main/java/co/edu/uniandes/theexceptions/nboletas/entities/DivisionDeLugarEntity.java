@@ -7,6 +7,7 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -23,7 +24,7 @@ public class DivisionDeLugarEntity extends BaseEntity implements Serializable {
     private String nombre;
 
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "division")
+    @OneToMany(orphanRemoval = true,cascade=CascadeType.REMOVE,fetch = FetchType.LAZY, mappedBy = "division")
     private List<SillaEntity> sillas;
 
     @PodamExclude

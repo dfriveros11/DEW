@@ -62,6 +62,16 @@ public class SillaResource {
         return listEntity2DetailDTO(sillaLogic.findAll());
     }
 
+    @GET
+    @Path("{id: \\d+}")
+    public SillaDetailDTO getSilla(@PathParam("id") Long id) throws BusinessLogicException {
+        SillaEntity silla = sillaLogic.find(id);
+        if (silla == null) {
+            throw new BusinessLogicException("No existe la silla con el id: " + id);
+        }
+        return new SillaDetailDTO(silla);
+    }
+    
     /**
      * PUT http://localhost:8080/nboletas-web/api/sillas/1 Ejemplo json { "id":
      * 1, "atirbuto1": "Valor nuevo" }
