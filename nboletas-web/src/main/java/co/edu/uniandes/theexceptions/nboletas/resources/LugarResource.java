@@ -62,6 +62,23 @@ public class LugarResource {
     public List<LugarDetailDTO> getLugares() throws BusinessLogicException {
         return listEntity2DetailDTO(lugarLogic.findAll());
     }
+    
+    /**
+     * GET para un lugar especifico.
+     * http://localhost:8080/nboletas-web/api/lugares/id
+     *
+     * @return la el lugar en objeto json DTO.
+     * @throws BusinessLogicException
+     * 
+     * En caso de no existir el id del lugar buscado se retorna un 404 not
+     * found.
+     */
+    @GET
+    @Path("{id: \\d+}")
+    public LugarDetailDTO getLugar(@PathParam("id") Long id) throws BusinessLogicException {
+        LugarEntity l = lugarLogic.find(id);
+        return new LugarDetailDTO(l);
+    }
 
     /**
      * POST http://localhost:8080/nboletas-web/api/lugares
@@ -95,7 +112,7 @@ public class LugarResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public LugarDetailDTO updateFuncion(@PathParam("id") Long id, LugarDetailDTO lugar) throws BusinessLogicException, UnsupportedOperationException {
+    public LugarDetailDTO updateLugar(@PathParam("id") Long id, LugarDetailDTO lugar) throws BusinessLogicException, UnsupportedOperationException {
         if (null == lugarLogic.find(id)) {
             throw new BusinessLogicException("No existe lugar con id: " + id);
         }

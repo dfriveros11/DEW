@@ -26,7 +26,7 @@ import javax.ws.rs.Produces;
  *
  * @author df.riveros11
  */
-@Path("organizador")
+@Path("organizadores")
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless

@@ -28,7 +28,7 @@ import javax.ws.rs.Produces;
  *
  * @author df.riveros11
  */
-@Path("boletas/{idBoleta: \\d+}/reembolso")
+@Path("boletas/{idBoleta: \\d+}/reembolsos")
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless

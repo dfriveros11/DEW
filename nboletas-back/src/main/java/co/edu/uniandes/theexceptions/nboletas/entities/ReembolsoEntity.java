@@ -21,7 +21,7 @@ public class ReembolsoEntity extends BaseEntity implements Serializable {
     /**
      * Valor del reembolso.
      */
-    private Double valor;
+    private double valor;
 
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)

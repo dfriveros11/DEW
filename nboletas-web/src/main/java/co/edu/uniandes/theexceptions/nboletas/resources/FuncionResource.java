@@ -64,7 +64,7 @@ public class FuncionResource {
      * @return la lista de todas las Funciones en objetos json DTO.
      * @throws BusinessLogicException
      *
-     * En caso de no existir el id de la Funcion a actualizar se retorna un 404
+     * En caso de no existir el id de la Funcion se retorna un 404
      * not found.
      */
     @GET
