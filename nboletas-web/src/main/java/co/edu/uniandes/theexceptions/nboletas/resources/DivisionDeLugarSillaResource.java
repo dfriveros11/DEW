@@ -15,8 +15,10 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -78,6 +80,38 @@ public class DivisionDeLugarSillaResource {
         }
         silla.setDivision(division);
         return new SillaDetailDTO(silla);
+    }
+    
+    @PUT
+    @Path("{sillasid: \\d+}")
+    public SillaDetailDTO updateDivisionSilla(@PathParam("divisionesid") Long idDivision, @PathParam("sillasid") Long idSilla, SillaDetailDTO silla) throws BusinessLogicException {
+        DivisionDeLugarEntity division = divisionLogic.find(idDivision);
+        if (division == null) {
+            throw new BusinessLogicException("No existe la division con ese id: " + idDivision);
+        }
+        if (null == sillaLogic.find(idSilla)) {
+            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+        }
+        SillaEntity sillaActualizar = silla.toEntity();
+        sillaActualizar.setDivision(division);
+        sillaActualizar.setId(idSilla);
+        SillaEntity actual = sillaLogic.update(sillaActualizar);
+        return new SillaDetailDTO(actual);
+    }
+    
+    @DELETE
+    @Path("{sillasid: \\d+}")
+    public void deleteDivisionSilla(@PathParam("divisionesid") Long idDivision, @PathParam("sillasid") Long idSilla) throws BusinessLogicException {
+        DivisionDeLugarEntity division = divisionLogic.find(idDivision);
+        if (division == null) {
+            throw new BusinessLogicException("No existe la division con ese id: " + idDivision);
+        }
+        SillaEntity silla = sillaLogic.find(idSilla);
+        if (silla == null) {
+            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+        }
+        silla.setDivision(division);
+        sillaLogic.delete(silla);
     }
 
     private List<SillaDetailDTO> listEntity2DetailDTO(List<SillaEntity> entityList) {
