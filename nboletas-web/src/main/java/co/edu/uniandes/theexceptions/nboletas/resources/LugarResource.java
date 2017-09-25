@@ -29,6 +29,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -68,15 +69,17 @@ public class LugarResource {
      * http://localhost:8080/nboletas-web/api/lugares/id
      *
      * @return la el lugar en objeto json DTO.
-     * @throws BusinessLogicException
+     * @throws WebApplicationException
      * 
      * En caso de no existir el id del lugar buscado se retorna un 404 not
      * found.
      */
     @GET
     @Path("{id: \\d+}")
-    public LugarDetailDTO getLugar(@PathParam("id") Long id) throws BusinessLogicException {
+    public LugarDetailDTO getLugar(@PathParam("id") Long id) throws WebApplicationException {
         LugarEntity l = lugarLogic.find(id);
+        if(l == null)
+            throw new WebApplicationException("No existe lugar con el id 0 + id", 404);
         return new LugarDetailDTO(l);
     }
 

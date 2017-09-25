@@ -15,7 +15,9 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Funciones count\"] = data.length === 4;"
 						]
 					}
 				}
@@ -37,7 +39,9 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Es la funcion con id 2\"] = data.id === 2;"
 						]
 					}
 				}
@@ -61,52 +65,21 @@
 			"response": []
 		},
 		{
-			"name": "Crear una funcion",
+			"name": "Obtener una funcion que no existe",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/funciones",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\" : 100,\n\t\"fecha\" : \"2017-10-10T00:00:00-05:00\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Editar una funcion especifica",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
 						]
 					}
 				}
 			],
 			"request": {
 				"url": "http://localhost:8080/nboletas-web/api/funciones/5",
-				"method": "PUT",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -124,19 +97,8 @@
 		},
 		{
 			"name": "Borrar una funcion especifica",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
 			"request": {
-				"url": "http://localhost:8080/nboletas-web/api/funciones/5",
+				"url": "http://localhost:8080/nboletas-web/api/funciones/4",
 				"method": "DELETE",
 				"header": [
 					{
@@ -148,6 +110,107 @@
 				"body": {
 					"mode": "raw",
 					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Se borro la funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Se borro la funcion\"] = data.length === 3;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/nboletas-web/api/funciones",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtener todas las funciones"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una funcion",
+			"request": {
+				"url": "http://localhost:8080/nboletas-web/api/funciones",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"fecha\" : \"2014-10-10T00:00:00-05:00\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Se creo la funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Se creo la funcion\"] = data.length === 4;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/nboletas-web/api/funciones",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Obtener todas las funciones"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar una funcion especifica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Cambio la fecha\"] = data.fecha === \"2018-10-10T00:00:00-05:00\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/nboletas-web/api/funciones/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"fecha\" : \"2018-10-10T00:00:00-05:00\"\n}"
 				},
 				"description": ""
 			},
