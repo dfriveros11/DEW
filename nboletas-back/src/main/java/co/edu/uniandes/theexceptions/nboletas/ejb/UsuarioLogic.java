@@ -25,5 +25,9 @@ public class UsuarioLogic extends AbstractLogic<UsuarioEntity> {
     protected AbstractPersistence<UsuarioEntity> getPersistence() {
         return persistence;
     }
+    
+    public UsuarioEntity findByUserName(String userName){
+        return persistence.findByUserName(userName);
+    }
 
 }
