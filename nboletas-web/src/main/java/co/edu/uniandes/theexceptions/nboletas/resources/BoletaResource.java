@@ -25,7 +25,11 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
 import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.dtos.FuncionDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.dtos.SillaDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -161,4 +165,25 @@ public class BoletaResource {
         return list;
     }
 
+    @GET
+    @Path("{id: \\d+}/usuarios")
+    public UsuarioDetailDTO getUsuario(@PathParam("id") Long id) throws BusinessLogicException {
+       BoletaEntity boleta = boletaLogic.find(id);
+       return new  UsuarioDetailDTO(boleta.getUsuario());
+    }
+    
+    @GET
+    @Path("{id: \\d+}/sillas")
+    public SillaDetailDTO getSilla(@PathParam("id") Long id) throws BusinessLogicException {
+       BoletaEntity boleta = boletaLogic.find(id);
+       return new  SillaDetailDTO(boleta.getSilla());
+    }
+    
+    @GET
+    @Path("{id: \\d+}/funciones")
+    public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws BusinessLogicException {
+       BoletaEntity boleta = boletaLogic.find(id);
+       return new  FuncionDetailDTO(boleta.getFuncion());
+    }
+    
 }
