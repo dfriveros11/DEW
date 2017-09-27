@@ -87,14 +87,14 @@ public class EspectaculoEntity extends BaseEntity implements Serializable {
     /**
      * @return the funcion
      */
-    public List<FuncionEntity> getFuncion() {
+    public List<FuncionEntity> getFunciones() {
         return funcion;
     }
 
     /**
      * @param funcion the funcion to set
      */
-    public void setFuncion(List<FuncionEntity> funcion) {
+    public void setFunciones(List<FuncionEntity> funcion) {
         this.funcion = funcion;
     }
 

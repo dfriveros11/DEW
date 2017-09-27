@@ -2,15 +2,17 @@ delete from BoletaEntity;
 delete from OrganizadorEntity;
 delete from EnvioEntity;
 delete from ComentarioEntity;
+delete from EspectaculoEntity;
+delete from ArtistaEntity;
 delete from DivisionDeLugarEntity;
 delete from SillaEntity;
 delete from FuncionEntity;
 delete from LugarEntity;
 
-insert into BoletaEntity (id, precio, vendida) values (1, 100.23, false);
-insert into BoletaEntity (id, precio, vendida) values (2, 20.23, true);
-insert into BoletaEntity (id, precio, vendida) values (3, 0.23, false);
-insert into BoletaEntity (id, precio, vendida) values (4, 0.00, true);
+insert into BoletaEntity (id, precio, vendida) values (1, 100.23, 0);
+insert into BoletaEntity (id, precio, vendida) values (2, 20.23, 1);
+insert into BoletaEntity (id, precio, vendida) values (3, 0.23, 0);
+insert into BoletaEntity (id, precio, vendida) values (4, 0.00, 1);
 
 insert into OrganizadorEntity (id, nombreEmpresa) values (1, 'Yo');
 insert into OrganizadorEntity (id, nombreEmpresa) values (2, 'YoYQue');
@@ -25,7 +27,7 @@ insert into EnvioEntity (id, direccion) values (400, 'Carrera 43 # 70A-50 SUR');
 
 insert into ComentarioEntity (id,comentario,fecha) values (100,'Muy buen espectaculo','10/10/2017');
 insert into ComentarioEntity (id,comentario,fecha) values (200,'horror de evento','10/31/2017');
-insert int  ComentarioEntity (id,comentario,fecha) values (300,'me gusto mucho asistir','11/01/1989');
+insert into  ComentarioEntity (id,comentario,fecha) values (300,'me gusto mucho asistir','11/01/1989');
 insert into ComentarioEntity (id,comentario,fecha) values (400,'me senti muy bien en el evento','06/20/2017');
 
 insert into DivisionDeLugarEntity (id,nombre) values (10,'Noroccidental alta');
@@ -48,3 +50,14 @@ insert into FuncionEntity (id,fecha,lugar_id) values (1,'10/10/2017',1);
 insert into FuncionEntity (id,fecha,lugar_id) values (2,'10/10/2016',1);
 insert into FuncionEntity (id,fecha,lugar_id) values (3,'10/10/2015',1);
 insert into FuncionEntity (id,fecha,lugar_id) values (4,'10/10/2014',2);
+
+insert into ArtistaEntity (id, nombre) values (1, 'Juanes');
+insert into ArtistaEntity (id, nombre) values (2, 'Shakira');
+insert into ArtistaEntity (id, nombre) values (3, 'Cirque du Soleil');
+insert into ArtistaEntity (id, nombre) values (4, 'Portugal The Man');
+
+
+insert into EspectaculoEntity (id, nombre, descripcion) values (1, 'Septimo dia', 'Espectaculo de Cirque Du Soleil junto a Soda Estereo');
+insert into EspectaculoEntity (id, nombre, descripcion) values (2, 'P.A.R.C.E', 'Gira de Juanes pro Colombia');
+insert into EspectaculoEntity (id, nombre, descripcion) values (3, 'Concierto Shakira', 'Concierto');
+insert into EspectaculoEntity (id, nombre, descripcion) values (4, 'Gira Portugal The Man', 'Concierto');

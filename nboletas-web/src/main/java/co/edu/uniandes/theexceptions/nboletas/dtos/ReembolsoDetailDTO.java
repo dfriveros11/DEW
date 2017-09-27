@@ -16,6 +16,10 @@ public class ReembolsoDetailDTO extends ReembolsoDTO{
    private BoletaDTO boleta;
 
     private UsuarioDTO usuario;
+    
+    public ReembolsoDetailDTO(){
+        
+    }
 
     public ReembolsoDetailDTO(ReembolsoEntity entity) {
         super(entity);
