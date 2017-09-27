@@ -86,7 +86,7 @@ public class FuncionResource {
      * GET para el espectaculo de una funcion.
      * http://localhost:8080/nboletas-web/api/funciones/id
      *
-     * @return la lista de todas las Funciones en objetos json DTO.
+     * @return 0 de todas las Funciones en objetos json DTO.
      * @throws WebApplicationException
      *
      * En caso de no existir el id de la Funcion se retorna un 404
