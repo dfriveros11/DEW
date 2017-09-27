@@ -6,13 +6,17 @@
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.dtos.EspectaculoDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.dtos.FuncionDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.dtos.LugarDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.FuncionLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.SillaLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.FuncionEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.LugarEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.SillaEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
@@ -77,7 +81,57 @@ public class FuncionResource {
         }
         return new FuncionDetailDTO(f);
     }
-
+    
+    /**
+     * GET para el espectaculo de una funcion.
+     * http://localhost:8080/nboletas-web/api/funciones/id
+     *
+     * @return la lista de todas las Funciones en objetos json DTO.
+     * @throws WebApplicationException
+     *
+     * En caso de no existir el id de la Funcion se retorna un 404
+     * not found.
+     * 
+     * En caso de no existir espectaculo para la funcion se retorna un 404
+     * not found.
+     */
+    @GET
+    @Path("{id: \\d+}/espectaculo")
+    public EspectaculoDetailDTO getEspectaculo(@PathParam("id") Long id) throws WebApplicationException {
+        FuncionEntity f = funcionLogic.find(id);
+        if (f == null) {
+            throw new WebApplicationException("No existe funcion con id " + id, 404);
+        }
+        EspectaculoEntity espectaculo = f.getEspectaculo();
+        if(espectaculo == null)  throw new WebApplicationException("La funcion con id " + id + " no tiene espectaculo asignado", 404);
+        return new EspectaculoDetailDTO(espectaculo);
+    }
+    
+    /**
+     * GET para el lugar de una funcion.
+     * http://localhost:8080/nboletas-web/api/funciones/id
+     *
+     * @return la lista de todas las Funciones en objetos json DTO.
+     * @throws WebApplicationException
+     *
+     * En caso de no existir el id de la Funcion se retorna un 404
+     * not found.
+     * 
+     * En caso de no existir lugar para la funcion se retorna un 404
+     * not found.
+     */
+    @GET
+    @Path("{id: \\d+}/lugar")
+    public LugarDetailDTO getLugar(@PathParam("id") Long id) throws WebApplicationException {
+        FuncionEntity f = funcionLogic.find(id);
+        if (f == null) {
+            throw new WebApplicationException("No existe funcion con id " + id, 404);
+        }
+        LugarEntity lugar = f.getLugar();
+        if(lugar == null)  throw new WebApplicationException("La funcion con id " + id + " no tiene lugar asignado", 404);
+        return new LugarDetailDTO(lugar);
+    }
+   
     /**
      * POST http://localhost:8080/nboletas-web/api/funciones
      *
