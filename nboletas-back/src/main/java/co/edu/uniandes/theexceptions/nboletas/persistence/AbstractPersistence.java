@@ -25,7 +25,7 @@ public abstract class AbstractPersistence<T> {
     }
 
     @PersistenceContext(unitName = "nboletasPU")
-    private EntityManager em;
+    protected EntityManager em;
 
     /**
      * Crear un objeto tipo T

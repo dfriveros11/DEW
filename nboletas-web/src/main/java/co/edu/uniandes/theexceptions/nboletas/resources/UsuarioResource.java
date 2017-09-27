@@ -81,7 +81,7 @@ public class UsuarioResource {
     @POST
     public UsuarioDetailDTO createUsuario(UsuarioDetailDTO usuario) throws BusinessLogicException {
         UsuarioEntity entity = usuario.toEntity();
-        if(logic.find(entity.getUserName())!=null)
+        if(logic.findByUserName(entity.getUserName())!=null)
             throw new BusinessLogicException("Ya se ha registrado un usuario con el user name: "+entity.getUserName());
         UsuarioEntity newEntity = logic.create(entity);
         return new UsuarioDetailDTO(newEntity);
