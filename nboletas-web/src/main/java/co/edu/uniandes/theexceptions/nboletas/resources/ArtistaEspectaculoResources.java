@@ -93,7 +93,7 @@ public class ArtistaEspectaculoResources {
             throw new BusinessLogicException("No existe el artista con ese id: " + idArtista);
         }
         if (null == espectaculoLogic.find(idEspectaculo)) {
-            throw new BusinessLogicException("No existe el organizador con ese id: " + idEspectaculo);
+            throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
         }
         EspectaculoEntity espectaculoActualizar = espectaculo.toEntity();
         List<ArtistaEntity> artistas = new ArrayList<>();

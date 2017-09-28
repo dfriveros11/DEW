@@ -28,7 +28,7 @@ import javax.ws.rs.Produces;
  *
  * @author angeloMarcetty
  */
-@Path("comentarios/{idComentario: \\d+}/boletas")
+@Path("/comentarios/{idComentario: \\d+}/boletas")
 @Produces("application/json")
 @Consumes("application/json")
 @Stateless
