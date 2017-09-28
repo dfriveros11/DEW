@@ -3,11 +3,11 @@ delete from EnvioEntity;
 delete from BoletaEntity;
 delete from OrganizadorEntity;
 delete from ComentarioEntity;
+delete from FuncionEntity;
 delete from EspectaculoEntity;
 delete from ArtistaEntity;
 delete from DivisionDeLugarEntity;
 delete from SillaEntity;
-delete from FuncionEntity;
 delete from LugarEntity;
 delete from EspectaculoEntity_OrganizadorEntity;
 delete from UsuarioEntity;
@@ -58,13 +58,13 @@ insert into LugarEntity (id,tipo) values (4,'FINCA');
 
 insert into FuncionEntity (id,fecha,lugar_id) values (1,'10/10/2017',1);
 insert into FuncionEntity (id,fecha,lugar_id) values (2,'10/10/2016',1);
-insert into FuncionEntity (id,fecha,lugar_id) values (3,'10/10/2015',1);
 insert into FuncionEntity (id,fecha,lugar_id) values (4,'10/10/2014',2);
 
 insert into ArtistaEntity (id, nombre) values (1, 'Juanes');
 insert into ArtistaEntity (id, nombre) values (2, 'Shakira');
 insert into ArtistaEntity (id, nombre) values (3, 'Cirque du Soleil');
 insert into ArtistaEntity (id, nombre) values (4, 'Portugal The Man');
+
 
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (1, 'aa', '123', 'yo', 'email', 'pais', 'ciudad');
 insert into BoletaEntity (id, precio, vendida, usuario_id, funcion_id, silla_id) values (1, 100.23, 0, 1, 1, 50);
@@ -74,3 +74,12 @@ insert into EnvioEntity (id, direccion, boleta_id) values (1,'Calle 43 #7-26 - A
 
 insert into BoletaEntity (id, precio, vendida) values (4, 1.00, 1);
 insert into ReembolsoEntity(id, valor, boleta_id) values (1, 100.00, 4);
+
+insert into EspectaculoEntity (id, nombre, descripcion) values (1, 'Septimo dia', 'Espectaculo de Cirque Du Soleil junto a Soda Estereo');
+insert into EspectaculoEntity (id, nombre, descripcion) values (2, 'P.A.R.C.E', 'Gira de Juanes pro Colombia');
+insert into EspectaculoEntity (id, nombre, descripcion) values (3, 'Concierto Shakira', 'Concierto');
+insert into EspectaculoEntity (id, nombre, descripcion) values (4, 'Gira Portugal The Man', 'Concierto');
+
+insert into FuncionEntity (id, fecha, espectaculo_id) values (3,'10/10/2014',2);
+
+>
