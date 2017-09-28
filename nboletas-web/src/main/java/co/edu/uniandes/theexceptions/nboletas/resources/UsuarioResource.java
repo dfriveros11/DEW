@@ -47,8 +47,8 @@ public class UsuarioResource {
      * @return la lista de todas las Funciones en objetos json DTO.
      */
     @GET
-    public List<UsuarioDTO> getUsuarios(){
-        return listEntity2DTO(logic.findAll());
+    public List<UsuarioDetailDTO> getUsuarios(){
+        return listEntity2DetailDTO(logic.findAll());
     }
     
     /**
@@ -128,10 +128,10 @@ public class UsuarioResource {
         logic.delete(entity);
     }  
     
-    private List<UsuarioDTO> listEntity2DTO(List<UsuarioEntity> entityList){
-        List<UsuarioDTO> list = new LinkedList<>();
+    private List<UsuarioDetailDTO> listEntity2DetailDTO(List<UsuarioEntity> entityList){
+        List<UsuarioDetailDTO> list = new LinkedList<>();
         for (UsuarioEntity entity : entityList)
-            list.add(new UsuarioDTO(entity));
+            list.add(new UsuarioDetailDTO(entity));
         return list;
     }
     

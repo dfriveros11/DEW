@@ -15,7 +15,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
  */
 public class ReembolsoDetailDTO extends ReembolsoDTO{
     
-   private BoletaDTO boleta;
+    private BoletaDTO boleta;
 
     private UsuarioDTO usuario;
     
