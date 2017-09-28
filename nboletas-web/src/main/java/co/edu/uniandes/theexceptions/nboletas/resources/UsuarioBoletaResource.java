@@ -5,13 +5,10 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
-import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDTO;
-import co.edu.uniandes.theexceptions.nboletas.dtos.ReembolsoDTO;
-import co.edu.uniandes.theexceptions.nboletas.dtos.ReembolsoDetailDTO;
-import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
+import co.edu.uniandes.theexceptions.nboletas.dtos.BoletaDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.LinkedList;
@@ -42,7 +39,7 @@ public class UsuarioBoletaResource {
     private UsuarioLogic usuarioLogic;
     
     @Inject
-    private ReembolsoLogic boletaLogic;
+    private BoletaLogic boletaLogic;
     
         
     /**
@@ -56,12 +53,12 @@ public class UsuarioBoletaResource {
      * found.
      */
     @GET
-    public List<BoletaDTO> getBoletasUsuario(@PathParam("idUsuario") Long id) throws WebApplicationException {
+    public List<BoletaDetailDTO> getBoletasUsuario(@PathParam("idUsuario") Long id) throws WebApplicationException {
         UsuarioEntity entity = usuarioLogic.find(id);
         if(entity == null) {
             throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
         }
-        List<BoletaDTO> boletas = listEntity2DTO(entity.getBoletas());
+        List<BoletaDetailDTO> boletas = listEntity2DetailDTO(entity.getBoletas());
         return boletas;
     }
     
@@ -80,7 +77,7 @@ public class UsuarioBoletaResource {
      */
     @GET
     @Path("{idReembolso: \\d+}")
-    public  BoletaDTO getBoletaUsuario(@PathParam("idUsuario") Long id, @PathParam("idReembolso") Long idBoleta) throws WebApplicationException {
+    public  BoletaDetailDTO getBoletaUsuario(@PathParam("idUsuario") Long id, @PathParam("idReembolso") Long idBoleta) throws WebApplicationException {
         UsuarioEntity entity = usuarioLogic.find(id);
         if(entity == null) {
             throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
@@ -94,39 +91,41 @@ public class UsuarioBoletaResource {
             throw new WebApplicationException("El recurso boleta: " + idBoleta + " no existe, relacionada con"
                     + "el usuario de id: "+ id, 404);
         }
-        return new BoletaDTO(boleta);
+        return new BoletaDetailDTO(boleta);
     }
     
    /**
-     * POST para crear una relacion usuario reembolso.
-     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos
+     * POST para crear una relacion usuario boleta.
+     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/boletas
      *
-     * @param reembolso correponde a la representación java del objeto json
+     * @param boleta correponde a la representación java del objeto json
      * enviado en el llamado, para agregar la relacion al usuario.
-     * @return el reembolso que fue creado para la relacion con el usuario en objeto json DTO.
+     * @return la boleta que fue creada para la relacion con el usuario en objeto json DTO.
      * @throws WebApplicationException
      * 
      * En caso de no existir el id del usuario se retorna un 404 not
      * found.
      */
     @POST
-    public ReembolsoDetailDTO createReembolsoUsuario(@PathParam("idReembolso") Long id, ReembolsoDetailDTO reembolso) throws WebApplicationException {
+    public BoletaDetailDTO createBoletaUsuario(@PathParam("idBoleta") Long id, BoletaDetailDTO boleta) throws WebApplicationException,BusinessLogicException{
         UsuarioEntity entity = usuarioLogic.find(id);
         if(entity == null) {
             throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
         }
-        
-        ReembolsoEntity reembolsoEntity = reembolso.toEntity();
-        reembolsoEntity.setUsuario(entity);
-        reembolsoEntity = boletaLogic.create(reembolsoEntity);
-        return new ReembolsoDetailDTO(reembolsoEntity);
+        BoletaEntity boletaEntity = boleta.toEntity();
+        if(boletaEntity == null){
+            throw new BusinessLogicException("La boleta no puede ser nula");
+        }
+        boletaEntity.setUsuario(entity);
+        boletaEntity = boletaLogic.create(boletaEntity);
+        return new BoletaDetailDTO(boletaEntity);
     }
     
    /**
-     * PUT para modificar una relacion usuario reembolso con uno ya existente en el sistema.
-     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos/idReembolso
+     * PUT para modificar una relacion usuario boleta con una ya existente en el sistema.
+     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/boletas/idBoleta
      *
-     * @return el reembolso que fue creado para la relacion con el usuario en objeto json DTO.
+     * @return la boleta que fue creada para la relacion con el usuario en objeto json DTO.
      * @throws WebApplicationException
      * 
      * En caso de no existir el id del usuario se retorna un 404 not
@@ -136,29 +135,28 @@ public class UsuarioBoletaResource {
      * se returna un 404 not found.
      */
     @PUT
-    @Path("{idReembolso: \\d+}")
-        public ReembolsoDetailDTO updateReembolsoUsuario(@PathParam("idUsuario") Long id, @PathParam("idReembolso") Long idReembolso) throws WebApplicationException {
+    @Path("{idBoleta: \\d+}")
+        public BoletaDetailDTO updateBoletaUsuario(@PathParam("idUsuario") Long id, @PathParam("idBoleta") Long idBoleta) throws WebApplicationException {
         UsuarioEntity entity = usuarioLogic.find(id);
         if(entity == null) {
             throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
         }
         
-        ReembolsoEntity reembolso = boletaLogic.find(idReembolso);
-        if(reembolso == null) {
-            throw new WebApplicationException("El recurso reembolso: " + idReembolso + " no existe, relacionada con"
+        BoletaEntity boleta = boletaLogic.find(idBoleta);
+        if(boleta == null) {
+            throw new WebApplicationException("El recurso reembolso: " + idBoleta + " no existe, relacionada con"
                     + "el usuario de id: "+ id, 404);
         }
         
-        reembolso.setUsuario(entity);
-        reembolso = boletaLogic.update(reembolso);
-        return new ReembolsoDetailDTO(reembolso);
+        boleta.setUsuario(entity);
+        boleta = boletaLogic.update(boleta);
+        return new BoletaDetailDTO(boleta);
     }
     
     /**
-     * DELETE para eliminar una relacion funcion-boleta ya existente en el sistema.
-     * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas/idBoleta
-     *
-     * @return el reembolso que fue creado para la relacion con el usuario en objeto json DTO.
+     * DELETE para eliminar una relacion usuario-boleta ya existente en el sistema.
+     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/boletas/idBoleta
+     * 
      * @throws WebApplicationException
      * 
      * En caso de no existir el id del usuario se retorna un 404 not
@@ -168,30 +166,29 @@ public class UsuarioBoletaResource {
      * se retorna un 404 not found.
      */
     @DELETE
-    @Path("{idReembolso: \\d+}")
-    public void deleteReembolsoUsuario(@PathParam("idUsuario") Long id, @PathParam("idReembolso") Long idReembolso) throws WebApplicationException {
+    @Path("{idBoleta: \\d+}")
+    public void deleteBoletaUsuario(@PathParam("idUsuario") Long id, @PathParam("idBoleta") Long idBoleta) throws WebApplicationException {
         UsuarioEntity entity = usuarioLogic.find(id);
         if(entity == null) {
             throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
         }
         
-        List<ReembolsoEntity> reembolsos = entity.getReembolsos();
-        ReembolsoEntity reembolso = null;
-        for(ReembolsoEntity reem : reembolsos) if(reem.getId().equals(idReembolso)) reembolso = reem;
-        if(reembolso == null) {
-            throw new WebApplicationException("El recurso reembolso: " + idReembolso + " no existe, relacionada con"
+        List<BoletaEntity> boletas = entity.getBoletas();
+        BoletaEntity boleta = null;
+        for(BoletaEntity bol : boletas) if(bol.getId().equals(idBoleta)) boleta = bol;
+        if(boleta == null) {
+            throw new WebApplicationException("El recurso boleta: " + idBoleta + " no existe, relacionada con"
                     + "el usuario de id: "+ id, 404);
         }
-        
-        reembolso.setUsuario(entity);
-        boletaLogic.delete(reembolso);
+        boleta.setUsuario(entity);
+        boletaLogic.delete(boleta);
     } 
         
             
-    private List<BoletaDTO> listEntity2DTO(List<BoletaEntity> entityList) {
-        List<BoletaDTO> list = new LinkedList<>();
+    private List<BoletaDetailDTO> listEntity2DetailDTO(List<BoletaEntity> entityList) {
+        List<BoletaDetailDTO> list = new LinkedList<>();
         for (BoletaEntity entity : entityList) {
-            list.add(new BoletaDTO(entity));
+            list.add(new BoletaDetailDTO(entity));
         }
         return list;
     }
