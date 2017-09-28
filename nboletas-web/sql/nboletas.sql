@@ -26,7 +26,7 @@ insert into EspectaculoEntity (id, nombre, descripcion) values (3, 'Concierto Sh
 insert into EspectaculoEntity (id, nombre, descripcion) values (4, 'Gira Portugal The Man', 'Concierto');
 
 insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (1,1);
-insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (3,3); 
+insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (3,1); 
 insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (4,3);
 insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (1,3); 
 
