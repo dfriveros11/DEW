@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 
 /**
  *
@@ -23,8 +25,17 @@ public class ReembolsoDetailDTO extends ReembolsoDTO{
 
     public ReembolsoDetailDTO(ReembolsoEntity entity) {
         super(entity);
-        boleta = new BoletaDTO(entity.getBoleta());
-        usuario = new UsuarioDTO(entity.getUsuario());
+        BoletaEntity boletaA =entity.getBoleta();
+        if (null != boletaA) {
+            boleta = new BoletaDTO(boletaA);
+        }
+        entity.setBoleta(null);
+        
+        UsuarioEntity usuarioA = entity.getUsuario();
+        if (null != usuarioA) {
+            usuario = new UsuarioDTO(usuarioA);
+        }
+        entity.setUsuario(null);
     }
 
     @Override

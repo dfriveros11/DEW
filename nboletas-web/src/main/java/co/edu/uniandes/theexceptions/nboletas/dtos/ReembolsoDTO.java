@@ -14,15 +14,17 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 public class ReembolsoDTO {
     
     private Long id;
-    private Double valor;
+    private double valor;
 
     public ReembolsoDTO() {
 
     }
 
     public ReembolsoDTO(ReembolsoEntity entity) {
-        this.id = entity.getId();
-        this.valor = entity.getValor();
+        if(entity != null){
+           this.id = entity.getId();
+           this.valor = entity.getValor();  
+        }
     }
 
     public ReembolsoEntity toEntity() {
@@ -30,5 +32,21 @@ public class ReembolsoDTO {
         entity.setId(this.id);
         entity.setValor(this.valor);
         return entity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 }
