@@ -8,8 +8,9 @@ delete from ArtistaEntity;
 delete from DivisionDeLugarEntity;
 delete from SillaEntity;
 delete from LugarEntity;
+delete from EspectaculoEntity_OrganizadorEntity;
+delete from UsuarioEntity;
 
-insert into BoletaEntity (id, precio, vendida) values (1, 100.23, 0);
 insert into BoletaEntity (id, precio, vendida) values (2, 20.23, 1);
 insert into BoletaEntity (id, precio, vendida) values (3, 0.23, 0);
 insert into BoletaEntity (id, precio, vendida) values (4, 0.00, 1);
@@ -19,6 +20,15 @@ insert into OrganizadorEntity (id, nombreEmpresa) values (2, 'YoYQue');
 insert into OrganizadorEntity (id, nombreEmpresa) values (3, 'DondeEstoy');
 insert into OrganizadorEntity (id, nombreEmpresa) values (4, 'TuOtraVez');
 
+insert into EspectaculoEntity (id, nombre, descripcion) values (1, 'Septimo dia', 'Espectaculo de Cirque Du Soleil junto a Soda Estereo');
+insert into EspectaculoEntity (id, nombre, descripcion) values (2, 'P.A.R.C.E', 'Gira de Juanes pro Colombia');
+insert into EspectaculoEntity (id, nombre, descripcion) values (3, 'Concierto Shakira', 'Concierto');
+insert into EspectaculoEntity (id, nombre, descripcion) values (4, 'Gira Portugal The Man', 'Concierto');
+
+insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (1,1);
+insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (3,3); 
+insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (4,3);
+insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id,organizador_id) values (1,3); 
 
 insert into EnvioEntity (id, direccion) values (100,'Calle 43 #7-26 - Aprt:101');
 insert into EnvioEntity (id, direccion) values (200, 'Cra 68i #26.48 - Casa');
