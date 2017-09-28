@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Nuestras_Boletas",
-		"_postman_id": "7f6345af-eaa3-9307-371a-662cafd1a844",
+		"_postman_id": "c791637d-e8c8-908a-461d-2ab7d8f0849c",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -34,7 +34,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -89,7 +89,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -144,7 +144,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/2?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -194,7 +194,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/2?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -248,7 +248,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/2",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/2?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -304,7 +304,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/boletas/2",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": "Se borro con exito la boleta\n"
 							},
 							"response": []
@@ -328,7 +331,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/boletas/1/usuarios",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -352,7 +358,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/boletas/1/sillas",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -376,7 +385,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/boletas/1/funciones",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -407,7 +419,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -462,7 +474,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -517,7 +529,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -567,7 +579,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/2",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/2?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -621,7 +633,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/2",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/2?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -677,7 +689,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/organizadores/2",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": "Se borro con exito el organizador 2"
 							},
 							"response": []
@@ -864,7 +879,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios/100",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios/100?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -918,7 +933,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios/200",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios/200?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1193,7 +1208,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/envios/200",
+									"raw": "http://localhost:8080/nboletas-web/api/envios/200?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1415,7 +1430,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/funciones",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": "Obtener todas las funciones"
 							},
 							"response": []
@@ -1449,6 +1467,50 @@
 									"mode": "raw",
 									"raw": "{\n\t\"fecha\" : \"2018-10-10T00:00:00-05:00\"\n}"
 								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener el lugar de una funcion",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/funciones/2/lugar",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener el lugar de una funcion que no tiene lugar asignado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 404;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/funciones/3/lugar",
+								"method": "GET",
+								"header": [],
+								"body": {},
 								"description": ""
 							},
 							"response": []
@@ -1636,7 +1698,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/lugares",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": "Obtener todas las funciones"
 							},
 							"response": []
@@ -1704,7 +1769,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1762,7 +1827,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1818,7 +1883,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1876,7 +1941,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -1899,7 +1967,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1956,7 +2024,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2020,7 +2088,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2077,7 +2145,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2133,7 +2201,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2191,7 +2259,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -2214,7 +2285,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2271,7 +2342,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2336,7 +2407,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2394,7 +2465,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2450,7 +2521,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2506,7 +2577,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos/1?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2565,7 +2636,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos",
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2624,7 +2695,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/boletas/4/reembolsos",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
