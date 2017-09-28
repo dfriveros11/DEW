@@ -67,7 +67,7 @@ public class ReembolsoResource {
     public ReembolsoDetailDTO getReembolso(@PathParam("id") Long id) throws WebApplicationException {
         ReembolsoEntity entity = logic.find(id);
         if(entity==null)
-            throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
+            throw new WebApplicationException("El recurso reembolso: " + id + " no existe.", 404);
         return new ReembolsoDetailDTO(entity);
     }
     
@@ -94,7 +94,7 @@ public class ReembolsoResource {
      * @return El Reembolso actualizado.
      * @throws WebApplicationException
      *
-     * En caso de no existir el id del Reembolso a actualizar, retornando un 404:
+     * En caso de no existir el id del Reembolso a actualizar, retornando un error 404:
      * not found.
      */
     @PUT
