@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -24,7 +25,7 @@ public class ReembolsoEntity extends BaseEntity implements Serializable {
     private double valor;
 
     @PodamExclude
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
 
     @PodamExclude

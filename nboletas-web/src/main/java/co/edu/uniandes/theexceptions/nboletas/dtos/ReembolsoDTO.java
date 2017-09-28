@@ -14,7 +14,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 public class ReembolsoDTO {
     
     private Long id;
-    private Double valor;
+    private double valor;
 
     public ReembolsoDTO() {
 
@@ -44,7 +44,7 @@ public class ReembolsoDTO {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
     

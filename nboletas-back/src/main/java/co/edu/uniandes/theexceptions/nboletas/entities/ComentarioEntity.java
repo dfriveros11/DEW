@@ -31,6 +31,7 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     private Date fecha;
 
     @PodamExclude
+    @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
 
     @PodamExclude
