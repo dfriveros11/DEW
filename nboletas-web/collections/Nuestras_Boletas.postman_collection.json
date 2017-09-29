@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Nuestras_Boletas",
-		"_postman_id": "f35582f7-0a3e-6a63-5c29-9670450a7d0b",
+		"_postman_id": "a0d5da14-5be8-dce6-b4b4-d3422efe1248",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -719,7 +719,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios?",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -772,7 +772,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios?",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -825,7 +825,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios/100?",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios/100",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -879,7 +879,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios/100?",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios/100",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -933,7 +933,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/comentarios/200?",
+									"raw": "http://localhost:8080/nboletas-web/api/comentarios/200",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -994,7 +994,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/envios?",
+									"raw": "http://localhost:8080/nboletas-web/api/envios",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1047,7 +1047,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/envios/100?",
+									"raw": "http://localhost:8080/nboletas-web/api/envios/100",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1101,7 +1101,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/envios?",
+									"raw": "http://localhost:8080/nboletas-web/api/envios",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1154,7 +1154,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/envios/200?",
+									"raw": "http://localhost:8080/nboletas-web/api/envios/200",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1208,7 +1208,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/envios/200?",
+									"raw": "http://localhost:8080/nboletas-web/api/envios/200",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2207,7 +2207,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2291,7 +2291,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2348,7 +2348,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/?",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2359,8 +2359,7 @@
 										"api",
 										"organizadores",
 										"1",
-										"espectaculos",
-										""
+										"espectaculos"
 									],
 									"query": [
 										{
@@ -2733,7 +2732,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/?",
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2744,8 +2743,7 @@
 										"api",
 										"lugares",
 										"1",
-										"funciones",
-										""
+										"funciones"
 									],
 									"query": [
 										{
@@ -2792,7 +2790,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/?",
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -2803,8 +2801,7 @@
 										"api",
 										"lugares",
 										"1",
-										"funciones",
-										""
+										"funciones"
 									],
 									"query": [
 										{
@@ -2848,7 +2845,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/1?",
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -3667,6 +3664,141 @@
 									"raw": ""
 								},
 								"description": "obtiene el envio de la boleta 2"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "BoletaComentario",
+					"description": "",
+					"item": [
+						{
+							"name": "Crear comentario Boleta-Comentario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/boletas/90/comentarios",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"comentario\" : \"Hola New :v\" }"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtienes los comentarios de una boleta",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/boletas/90/comentarios",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene el comentario 1 de la Boleta 90",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/boletas/90/comentarios/1",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Actualiza el comentario 1 de la Boleta 90",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/boletas/90/comentarios/1",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"comentario\" : \"Hola Update :DSAS\" }"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Borra comentario 1 de la boleta 90",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 204\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/boletas/90/comentarios/1",
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"description": ""
 							},
 							"response": []
 						}
