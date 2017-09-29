@@ -65,9 +65,11 @@ insert into ArtistaEntity (id, nombre) values (2, 'Shakira');
 insert into ArtistaEntity (id, nombre) values (3, 'Cirque du Soleil');
 insert into ArtistaEntity (id, nombre) values (4, 'Portugal The Man');
 
-
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (1, 'aa', '123', 'yo', 'email', 'pais', 'ciudad');
 insert into BoletaEntity (id, precio, vendida, usuario_id, funcion_id, silla_id) values (1, 100.23, 0, 1, 1, 50);
+
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (100, 'miUsuario', 'niClave', 'miNombre', 'miEmail', 'miPais', 'miCiudad');
+insert into ReembolsoEntity(id, valor) values (8, 30.00);
 
 insert into BoletaEntity (id, precio, vendida) values (3, 0.23, 0);
 insert into EnvioEntity (id, direccion, boleta_id) values (1,'Calle 43 #7-26 - Aprt:101', 3);
