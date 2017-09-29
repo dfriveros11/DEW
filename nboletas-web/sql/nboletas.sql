@@ -1,8 +1,8 @@
 delete from ReembolsoEntity;
 delete from EnvioEntity;
+delete from ComentarioEntity;
 delete from BoletaEntity;
 delete from OrganizadorEntity;
-delete from ComentarioEntity;
 delete from FuncionEntity;
 delete from EspectaculoEntity;
 delete from ArtistaEntity;
@@ -76,3 +76,7 @@ insert into BoletaEntity (id, precio, vendida) values (4, 1.00, 1);
 insert into ReembolsoEntity(id, valor, boleta_id) values (1, 100.00, 4);
 
 insert into FuncionEntity (id, fecha, espectaculo_id) values (3,'10/10/2014',2);
+
+
+insert into BoletaEntity (id, precio, vendida) values (90, 98000, 0);
+insert into ComentarioEntity (id,comentario,fecha, boleta_id) values (1,'Final inesperado!! :O','10/10/2017',90);
