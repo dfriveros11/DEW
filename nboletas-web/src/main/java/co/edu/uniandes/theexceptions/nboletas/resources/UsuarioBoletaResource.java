@@ -54,11 +54,11 @@ public class UsuarioBoletaResource {
      */
     @GET
     public List<BoletaDetailDTO> getBoletasUsuario(@PathParam("idUsuario") Long idUsuario) throws WebApplicationException {
-        UsuarioEntity entity = usuarioLogic.find(idUsuario);
-        if(entity == null)
+        UsuarioEntity usuario = usuarioLogic.find(idUsuario);
+        if(usuario == null)
             throw new WebApplicationException("El recurso usuario: " + idUsuario + " no existe.", 404);
-        List<BoletaDetailDTO> boletas = listEntity2DetailDTO(entity.getBoletas());
-        return boletas;
+        usuario.getBoletas();
+        return listEntity2DetailDTO(usuario.getBoletas());
     }
     
    /**

@@ -116,3 +116,14 @@ insert into SillaEntity(id, costo) values (180, 560.21);
 insert into BoletaEntity (id, precio, vendida, silla_id) values (1560, 98000, 0, 170);
 insert into BoletaEntity (id, precio, vendida, silla_id) values (1400, 98000, 0, 180);
 
+/*=====================================================Relacion Usuario-Boleta==========================================================================*/
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (103, 'usuarioAsignado', 'claveAsignada', 'nombreAsignado', 'emailAsignado', 'paisAsignado', 'ciudadAsignada');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (102, 'userabc', 'claveabc','nombreAbc', 'emailABC', 'paisAbc', 'ciudadAbc');
+insert into BoletaEntity (id, precio, vendida,usuario_id) values (45, 1.00, 1,103);
+insert into BoletaEntity (id, precio, vendida,usuario_id) values (25, 1.00, 1,103);
+insert into BoletaEntity (id, precio, vendida,usuario_id) values (103, 1.00, 1,102);
+/*======================================================================================================================================================*/
+
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (104, 'aaa', 'aa1', 'nombreAsignado', 'emailAsignado', 'paisAsignado', 'ciudadAsignada');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (105, 'bbb', 'aa11','nombreAbc', 'emailABC', 'paisAbc', 'ciudadAbc');
+insert into ReembolsoEntity(id, valor, usuario_id) values (105, 30.00, 104);

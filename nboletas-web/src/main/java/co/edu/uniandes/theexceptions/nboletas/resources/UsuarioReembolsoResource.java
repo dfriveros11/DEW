@@ -80,19 +80,13 @@ public class UsuarioReembolsoResource {
             throw new WebApplicationException("El recurso usuario: " + idUsuario + " no existe.", 404);
         }
 
-        List<ReembolsoEntity> reembolsos = usuarioEntity.getReembolsos();
-        ReembolsoEntity reembolsoEntity = null;
-        for (ReembolsoEntity reem : reembolsos) {
-            if (reem.getId().equals(idReembolso)) {
-                reembolsoEntity = reem;
-            }
-        }
-
-        if (reembolsoEntity == null) {
+        ReembolsoEntity reembolso = reembolsoLogic.find(idReembolso);
+        if (reembolso == null) {
             throw new WebApplicationException("El recurso reembolso: " + idReembolso + " no existe, relacionada con"
                     + "el usuario de id: " + idUsuario, 404);
         }
-        return new ReembolsoDetailDTO(reembolsoEntity);
+        reembolso.setUsuario(usuarioEntity);
+        return new ReembolsoDetailDTO(reembolso);
     }
 
     /**
