@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Nuestras_Boletas",
-		"_postman_id": "c791637d-e8c8-908a-461d-2ab7d8f0849c",
+		"_postman_id": "f35582f7-0a3e-6a63-5c29-9670450a7d0b",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -1488,7 +1488,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/funciones/2/lugar",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -1510,7 +1513,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/funciones/3/lugar",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -2700,6 +2706,967 @@
 									"raw": ""
 								},
 								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "LugarFunciones",
+					"description": "",
+					"item": [
+						{
+							"name": "Obtiene las funciones de un lugar que existe en el sistema",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"funciones",
+										""
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Crea una funcion para un lugar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"funciones",
+										""
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"description": "crea el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Borra una funcion de un lugar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 204\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/1?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"funciones",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "borra el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Actualiza la funcion de un lugar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/funciones/1?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"funciones",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "actualiza el envio con el id 4 de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene funciones de un lugar sin funciones",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/boletas/3/envios/1",
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene las funciones",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/boletas/3/envios?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"boletas",
+										"3",
+										"envios"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "obtiene el envio de la boleta 2"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "FucionBoletas",
+					"description": "",
+					"item": [
+						{
+							"name": "Crea una boleta para una funcion",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/funciones/1/boletas/?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"funciones",
+										"1",
+										"boletas",
+										""
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"description": "crea el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene las boletas de una funcion que existe en el sistema",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/funciones/1/boletas/?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"funciones",
+										"1",
+										"boletas",
+										""
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Borra una boleta de una funcion",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 204\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/funciones/1/boletas/1?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"funciones",
+										"1",
+										"boletas",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "borra el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Actualiza la funcion de un lugar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/funciones/1/boletas/1?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"funciones",
+										"1",
+										"boletas",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "actualiza el envio con el id 4 de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene boletas de una funcion sin boletas",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/funciones/2/boletas/",
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene las funciones",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/funciones/1/boletas?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"funciones",
+										"1",
+										"boletas"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "obtiene el envio de la boleta 2"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "LugarDivisionesDeLugar",
+					"description": "",
+					"item": [
+						{
+							"name": "Crea una division para un lugar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/divisiones/?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"divisiones",
+										""
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"description": "crea el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene las funciones de un lugar que existe en el sistema",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/divisiones/?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"divisiones",
+										""
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Crea una division para un lugar copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/divisiones/10?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"divisiones",
+										"10"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"description": "crea el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Borra una division de un lugar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 204\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/divisiones/10?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"divisiones",
+										"10"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "borra el envio de la boleta 2"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene divisiones de un lugar sin divisiones",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/lugares/2/divisiones/",
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtiene las divisiones",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/lugares/1/divisiones?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"lugares",
+										"1",
+										"divisiones"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": "obtiene el envio de la boleta 2"
 							},
 							"response": []
 						}
