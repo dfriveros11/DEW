@@ -6,8 +6,8 @@ delete from OrganizadorEntity;
 delete from FuncionEntity;
 delete from EspectaculoEntity;
 delete from ArtistaEntity;
-delete from DivisionDeLugarEntity;
 delete from SillaEntity;
+delete from DivisionDeLugarEntity;
 delete from LugarEntity;
 delete from EspectaculoEntity_OrganizadorEntity;
 delete from UsuarioEntity;
@@ -80,3 +80,15 @@ insert into FuncionEntity (id, fecha, espectaculo_id) values (3,'10/10/2014',2);
 
 insert into BoletaEntity (id, precio, vendida) values (90, 98000, 0);
 insert into ComentarioEntity (id,comentario,fecha, boleta_id) values (1,'Final inesperado!! :O','10/10/2017',90);
+
+insert into DivisionDeLugarEntity(id, nombre) values (60,'palcos');
+insert into SillaEntity( id, costo, division_id) values (150, 2.0,60);
+
+
+insert into DivisionDeLugarEntity(id, nombre) values (70,'palcos 2');
+insert into SillaEntity( id, costo, division_id) values (160,8.76,70);
+
+insert into SillaEntity(id, costo) values (170, 30.21);
+insert into SillaEntity(id, costo) values (180, 560.21);
+insert into BoletaEntity (id, precio, vendida, silla_id) values (1560, 98000, 0, 170);
+insert into BoletaEntity (id, precio, vendida, silla_id) values (1400, 98000, 0, 180);
