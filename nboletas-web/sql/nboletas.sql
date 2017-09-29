@@ -65,11 +65,32 @@ insert into ArtistaEntity (id, nombre) values (2, 'Shakira');
 insert into ArtistaEntity (id, nombre) values (3, 'Cirque du Soleil');
 insert into ArtistaEntity (id, nombre) values (4, 'Portugal The Man');
 
+/*=====================================================================Entidad Usuario=========================================================*/
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (69, 'hs.hernandez', 'socketame123', 'Hugo', 'hs.hernandez@domain.onion', 'Argentina', 'newYork');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (195, 'mcoils0', 'Bl42q8FjKH', 'Maddy', 'mlaimable0@last.fm', 'Zimbabwe', 'Insiza');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (323, 'dandriveau0', 'Vhnm0Q', 'Dar', 'dwebling0@wordpress.com', 'Philippines', 'Kalandagan');
+/*=====================================================================Entidad Reembolso =========================================================*/
+insert into ReembolsoEntity(id, valor) values (52, 30000.00);
+insert into ReembolsoEntity(id, valor) values (45245, 1550000.00);
+insert into ReembolsoEntity(id, valor) values (453452786, 340000.00);
+/*=====================================================================================================================================================*/
+
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (1, 'aa', '123', 'yo', 'email', 'pais', 'ciudad');
 insert into BoletaEntity (id, precio, vendida, usuario_id, funcion_id, silla_id) values (1, 100.23, 0, 1, 1, 50);
 
+/*=====================================================================Entidad Usuario=========================================================*/
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (100, 'miUsuario', 'niClave', 'miNombre', 'miEmail', 'miPais', 'miCiudad');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (852, 'miUsuario.10', 'niClave', 'miNombrex1', 'miEmail@domain.com', 'miPaisA', 'miCiudadA');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (7865782, 'miUsuario.50', 'niClave', 'miNombrex2', 'miEmailx@domain.onion', 'miPaisB', 'miCiudadB');
+
+insert into BoletaEntity (id, precio, vendida, usuario_id, funcion_id, silla_id) values (1995, 20000, 0, 1, 1, 50);
+insert into BoletaEntity (id, precio, vendida, usuario_id, funcion_id, silla_id) values (2001, 30000, 0, 1, 1, 40);
+
 insert into ReembolsoEntity(id, valor) values (8, 30.00);
+insert into ReembolsoEntity(id, valor) values (520, 150.00);
+insert into ReembolsoEntity(id, valor) values (54204, 340.00);
+/*=====================================================================================================================================================*/
+
 
 insert into BoletaEntity (id, precio, vendida) values (3, 0.23, 0);
 insert into EnvioEntity (id, direccion, boleta_id) values (1,'Calle 43 #7-26 - Aprt:101', 3);
@@ -94,3 +115,4 @@ insert into SillaEntity(id, costo) values (170, 30.21);
 insert into SillaEntity(id, costo) values (180, 560.21);
 insert into BoletaEntity (id, precio, vendida, silla_id) values (1560, 98000, 0, 170);
 insert into BoletaEntity (id, precio, vendida, silla_id) values (1400, 98000, 0, 180);
+
