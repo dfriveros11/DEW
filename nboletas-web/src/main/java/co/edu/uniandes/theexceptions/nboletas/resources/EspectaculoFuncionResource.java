@@ -43,7 +43,7 @@ public class EspectaculoFuncionResource {
     public FuncionDetailDTO createEspectaculoFuncion(@PathParam("idEspectaculo") Long idEspectaculo, FuncionDetailDTO funcion) throws BusinessLogicException {
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
-            throw new BusinessLogicException("No existe la division con el id: " + idEspectaculo);
+            throw new BusinessLogicException("No existe el espectaculo con el id: " + idEspectaculo);
         }
         FuncionEntity funcionEntity = funcion.toEntity();
         funcionEntity.setEspectaculo(espectaculo);
