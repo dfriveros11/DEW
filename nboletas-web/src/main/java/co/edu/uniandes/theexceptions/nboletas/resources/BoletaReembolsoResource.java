@@ -77,6 +77,10 @@ public class BoletaReembolsoResource {
         if (reembolso == null) {
             throw new BusinessLogicException("No existe el reembolso con ese id: " + idReembolso);
         }
+        long id = reembolso.getBoleta().getId();
+        if(id != idBoleta){
+             throw new BusinessLogicException("No existe la relacion ");
+        }
         reembolso.setBoleta(boleta);
         return new ReembolsoDetailDTO(reembolso);
     }

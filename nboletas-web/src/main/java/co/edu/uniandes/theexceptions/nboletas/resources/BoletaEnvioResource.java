@@ -77,6 +77,10 @@ public class BoletaEnvioResource {
         if (envio == null) {
             throw new BusinessLogicException("No existe el envio con ese id: " + idEnvio);
         }
+        long id = envio.getBoleta().getId();
+        if(id != idBoleta){
+             throw new BusinessLogicException("No existe la relacion ");
+        }
         envio.setBoleta(boleta);
         return new EnvioDetailDTO(envio);
     }

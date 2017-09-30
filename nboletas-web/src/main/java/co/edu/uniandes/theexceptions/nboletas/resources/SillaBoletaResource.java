@@ -12,6 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.SillaEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -53,18 +54,13 @@ public class SillaBoletaResource {
     
     @GET
     public List<BoletaDetailDTO> getBoletas(@PathParam("sillasid") Long idSilla) throws BusinessLogicException {
-        List<BoletaEntity> list = new ArrayList<>();
+        
         SillaEntity silla = sillaLogic.find(idSilla);
         if (silla == null) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+            throw new BusinessLogicException("No existe la silla con el id: " + idSilla);
         }
-        List<BoletaEntity> boletas = silla.getBoletas();
-        if (boletas != null) {
-            for(BoletaEntity b: boletas){
-                list.add(b);
-            }
-        }
-        return listEntity2DetailDTO(list);
+        List<BoletaDetailDTO> list = listEntity2DetailDTO(silla.getBoletas());
+        return list;
     }
     
     @GET
@@ -72,11 +68,17 @@ public class SillaBoletaResource {
     public BoletaDetailDTO getBoleta(@PathParam("sillasid") Long idSilla, @PathParam("boletasid") Long idBoleta) throws BusinessLogicException {
         SillaEntity silla = sillaLogic.find(idSilla);
         if (silla == null) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+            throw new BusinessLogicException("No existe la silla con el id: " + idSilla);
         }
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
+        List<BoletaEntity> boletas=silla.getBoletas();
+        BoletaEntity boleta = null;
+        for(BoletaEntity b: boletas){
+            if(Objects.equals(b.getId(), idBoleta)){
+                boleta=b;
+            }
+        }
         if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta +" relacionada con la silla de id:"+ idSilla );
         }
         boleta.setSilla(silla);
         return new BoletaDetailDTO(boleta);
@@ -87,10 +89,11 @@ public class SillaBoletaResource {
     public BoletaDetailDTO updateSillaBoleta(@PathParam("sillasid") Long idSilla, @PathParam("boletasid") Long idBoleta, BoletaDetailDTO boleta) throws BusinessLogicException {
         SillaEntity silla = sillaLogic.find(idSilla);
         if (silla == null) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+            throw new BusinessLogicException("No existe una silla con el id: " + idSilla);
         }
-        if (null == boletaLogic.find(idBoleta)) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+        BoletaEntity bol=boletaLogic.find(idBoleta);
+        if (null == bol) {
+            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta);
         }
         BoletaEntity boletaActualizar = boleta.toEntity();
         boletaActualizar.setSilla(silla);
@@ -104,14 +107,20 @@ public class SillaBoletaResource {
     public void deleteSillaBoleta(@PathParam("sillasid") Long idSilla, @PathParam("boletasid") Long idBoleta) throws BusinessLogicException {
         SillaEntity silla = sillaLogic.find(idSilla);
         if (silla == null) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+            throw new BusinessLogicException("No existe una silla con el id: " + idSilla);
         }
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
+        BoletaEntity boleta=null;
+        List<BoletaEntity> boletas=silla.getBoletas();
+        for(BoletaEntity b:boletas){
+            if(b.getId().equals(idBoleta)){
+            boleta=b;
+            }            
+        }
         if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta +" relacionada con la silla de id:"+ idSilla);
         }
-        boleta.setSilla(silla);
-        boletaLogic.delete(boleta);
+        boleta.setSilla(null);
+        boletaLogic.update(boleta);
     }
     
     private List<BoletaDetailDTO> listEntity2DetailDTO(List<BoletaEntity> entityList) {

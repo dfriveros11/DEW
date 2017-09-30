@@ -53,18 +53,13 @@ public class DivisionDeLugarSillaResource {
     
     @GET
     public List<SillaDetailDTO> getSillas(@PathParam("divisionesid") Long idDivision) throws BusinessLogicException {
-        List<SillaEntity> list = new ArrayList<>();
+        
         DivisionDeLugarEntity division = divisionLogic.find(idDivision);
         if (division == null) {
             throw new BusinessLogicException("No existe la division con ese id: " + idDivision);
         }
-        List<SillaEntity> sillasE = division.getSillas();
-        if(sillasE!=null){
-        for (SillaEntity sillaEntity : sillasE) {
-            list.add(sillaEntity);
-        }
-        }
-        return listEntity2DetailDTO(list);
+        List<SillaDetailDTO> list = listEntity2DetailDTO(division.getSillas());
+        return list;
     }
     
     @GET
@@ -74,9 +69,15 @@ public class DivisionDeLugarSillaResource {
         if (division == null) {
             throw new BusinessLogicException("No existe la division con ese id: " + idDivision);
         }
-        SillaEntity silla = sillaLogic.find(idSilla);
-        if (silla == null) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+        SillaEntity silla = null;
+        List<SillaEntity> sillas= division.getSillas();
+        for(SillaEntity s:sillas){
+            if(s.getId().equals(idSilla)){
+                silla=s;
+            }
+        }
+        if(silla==null){
+            throw new BusinessLogicException("No existe una silla con id:" + idSilla + " relacionada con la división de id:"+idDivision );
         }
         silla.setDivision(division);
         return new SillaDetailDTO(silla);
@@ -87,10 +88,11 @@ public class DivisionDeLugarSillaResource {
     public SillaDetailDTO updateDivisionSilla(@PathParam("divisionesid") Long idDivision, @PathParam("sillasid") Long idSilla, SillaDetailDTO silla) throws BusinessLogicException {
         DivisionDeLugarEntity division = divisionLogic.find(idDivision);
         if (division == null) {
-            throw new BusinessLogicException("No existe la division con ese id: " + idDivision);
+            throw new BusinessLogicException("No existe una division con el id: " + idDivision);
         }
-        if (null == sillaLogic.find(idSilla)) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+        SillaEntity sil=sillaLogic.find(idSilla);
+        if (null == sil) {
+            throw new BusinessLogicException("No existe una silla con el id: " + idSilla);
         }
         SillaEntity sillaActualizar = silla.toEntity();
         sillaActualizar.setDivision(division);
@@ -104,14 +106,20 @@ public class DivisionDeLugarSillaResource {
     public void deleteDivisionSilla(@PathParam("divisionesid") Long idDivision, @PathParam("sillasid") Long idSilla) throws BusinessLogicException {
         DivisionDeLugarEntity division = divisionLogic.find(idDivision);
         if (division == null) {
-            throw new BusinessLogicException("No existe la division con ese id: " + idDivision);
+            throw new BusinessLogicException("No existe una division con el id: " + idDivision);
         }
-        SillaEntity silla = sillaLogic.find(idSilla);
+        SillaEntity silla = null;
+        List<SillaEntity> sillas=division.getSillas();
+        for(SillaEntity s:sillas){
+            if(s.getId().equals(idSilla)){
+                silla=s;
+            }
+        }
         if (silla == null) {
-            throw new BusinessLogicException("No existe la silla con ese id: " + idSilla);
+            throw new BusinessLogicException("No existe una silla con el id: " + idSilla + "relacionada con la división de id: " + idDivision );
         }
-        silla.setDivision(division);
-        sillaLogic.delete(silla);
+        silla.setDivision(null);
+        sillaLogic.update(silla);
     }
 
     private List<SillaDetailDTO> listEntity2DetailDTO(List<SillaEntity> entityList) {
