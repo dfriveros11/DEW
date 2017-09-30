@@ -438,11 +438,11 @@
 				"28b9bbe0-4eef-543c-85a9-1f5e1e686a97",
 				"fd19e69b-6557-1ab6-bf6c-770ebb23940f",
 				"1b123185-8b38-d880-5523-c4be4d93b106",
-				"8f6b1bf8-efda-6ef1-a76d-e1ba063456bb",
 				"12a98f50-3231-0d3d-058b-6dd822b3976f",
 				"2d78a9f1-665c-b9d4-caea-eee5bf38d6b2",
 				"43f95c4a-a844-3d9b-52d0-2b3fa22da7c1",
-				"4578290d-9516-3866-25e2-978efde0a4af"
+				"4578290d-9516-3866-25e2-978efde0a4af",
+				"8f6b1bf8-efda-6ef1-a76d-e1ba063456bb"
 			],
 			"owner": 0,
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83"
@@ -763,20 +763,17 @@
 		},
 		{
 			"id": "0ec8902c-e69d-6c11-e87b-f03c0a6c45f1",
-			"name": "obtiene los espectaculos de un organizador id=1",
-			"description": "obtiene el envio de la boleta 2",
-			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"method": "GET",
-			"headers": "Content-Type: application/json",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"pathVariables": {},
-			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
-			"preRequestScript": "",
-			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
-			"responses": [],
-			"pathVariableData": [],
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
+			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d",
 			"queryParams": [
 				{
 					"key": "fields",
@@ -786,15 +783,21 @@
 					"enabled": false
 				}
 			],
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				}
-			],
-			"collection_id": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d"
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506749745448,
+			"name": "obtiene los espectaculos de un organizador id=1",
+			"description": "obtiene el envio de la boleta 2",
+			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
+			"responses": [],
+			"rawModeData": ""
 		},
 		{
 			"id": "12fa7c0f-ad33-0156-ffb2-7aa82c39a4ae",
@@ -894,20 +897,17 @@
 		},
 		{
 			"id": "15862492-a33b-d626-2bb9-af5eaa8162a7",
-			"name": "borra el espectaculo1 del organizador 1",
-			"description": "borra el envio de la boleta 2",
-			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"method": "DELETE",
-			"headers": "Content-Type: application/json",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"pathVariables": {},
-			"tests": "tests[\"Status code is 204\"] = responseCode.code;",
-			"preRequestScript": "",
-			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
-			"responses": [],
-			"pathVariableData": [],
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
+			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d",
 			"queryParams": [
 				{
 					"key": "fields",
@@ -917,15 +917,21 @@
 					"enabled": false
 				}
 			],
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				}
-			],
-			"collection_id": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d"
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 204\"] = responseCode.code;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506749750628,
+			"name": "borra el espectaculo1 del organizador 1",
+			"description": "borra el envio de la boleta 2",
+			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
+			"responses": [],
+			"rawModeData": ""
 		},
 		{
 			"id": "1724b627-ca09-1cf7-bd5b-06bfa5dd2c10",
@@ -1266,7 +1272,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/comentarios/6",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/comentarios/32",
 			"folder": "8f6b1bf8-efda-6ef1-a76d-e1ba063456bb",
 			"queryParams": [
 				{
@@ -1286,7 +1292,7 @@
 			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506748694676,
+			"time": 1506784496597,
 			"name": "obtiene un comentario de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
@@ -2480,7 +2486,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores/1",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/organizadores/1",
 			"folder": "43f95c4a-a844-3d9b-52d0-2b3fa22da7c1",
 			"queryParams": [
 				{
@@ -2500,7 +2506,7 @@
 			"tests": "tests[\"Status code is 404\"] = responseCode.code;\ntests[\"Espectaculos count\"] = data.length === 1;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506727512683,
+			"time": 1506749899233,
 			"name": "borro el organizador de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
@@ -2583,7 +2589,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/funciones/1",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/funciones/2",
 			"folder": "1b123185-8b38-d880-5523-c4be4d93b106",
 			"queryParams": [
 				{
@@ -2600,11 +2606,11 @@
 			"method": "DELETE",
 			"data": [],
 			"dataMode": "raw",
-			"tests": "tests[\"Status code is 404\"] = responseCode.code;\ntests[\"Espectaculos count\"] = data.length === 1;",
+			"tests": "tests[\"Status code is 412\"] = responseCode.code;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506748507765,
-			"name": "borro el organizador de un espectaculo",
+			"time": 1506783688384,
+			"name": "borro una funcion de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
 			"responses": [],
@@ -2984,20 +2990,17 @@
 		},
 		{
 			"id": "74e54890-d792-810f-abce-3728afbcb310",
-			"name": "obtiene los espectaculos",
-			"description": "obtiene el envio con el id 4 de la boleta 2",
-			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"method": "GET",
-			"headers": "Content-Type: application/json",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"pathVariables": {},
-			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
-			"preRequestScript": "",
-			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
-			"responses": [],
-			"pathVariableData": [],
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
+			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d",
 			"queryParams": [
 				{
 					"key": "fields",
@@ -3007,15 +3010,21 @@
 					"enabled": false
 				}
 			],
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				}
-			],
-			"collection_id": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d"
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506749733494,
+			"name": "obtiene los espectaculos",
+			"description": "obtiene el envio con el id 4 de la boleta 2",
+			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
+			"responses": [],
+			"rawModeData": ""
 		},
 		{
 			"id": "76e04f7d-2f35-3ea1-7893-0d1250a64a54",
@@ -3355,7 +3364,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas/1",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/artistas/12",
 			"folder": "12a98f50-3231-0d3d-058b-6dd822b3976f",
 			"queryParams": [
 				{
@@ -3375,13 +3384,11 @@
 			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506726349871,
+			"time": 1506783949310,
 			"name": "obtiene un artista de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
 			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "4d1680d5-439d-fac2-94a0-38f065f671ea",
 			"rawModeData": ""
 		},
 		{
@@ -3788,20 +3795,17 @@
 		},
 		{
 			"id": "9e0e8c6b-61c0-5132-65fb-2dfd6c4ca5cb",
-			"name": "actualiza el espectaculo 1 del organizador 1",
-			"description": "actualiza el envio con el id 4 de la boleta 2",
-			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"method": "PUT",
-			"headers": "Content-Type: application/json",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "{\"nombre\": \"kel\", \"descripcion\": \"descripcion\"}",
-			"pathVariables": {},
-			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
-			"preRequestScript": "",
-			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1?",
-			"responses": [],
-			"pathVariableData": [],
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos/1",
+			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d",
 			"queryParams": [
 				{
 					"key": "fields",
@@ -3811,15 +3815,21 @@
 					"enabled": false
 				}
 			],
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				}
-			],
-			"collection_id": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d"
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506749747994,
+			"name": "actualiza el espectaculo 1 del organizador 1",
+			"description": "actualiza el envio con el id 4 de la boleta 2",
+			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
+			"responses": [],
+			"rawModeData": "{\"nombre\": \"kel\", \"descripcion\": \"descripcion\"}"
 		},
 		{
 			"id": "9e8f923c-82d4-9e0a-0fb8-65e0acfe82d7",
@@ -4003,7 +4013,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/comentarios/6",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/comentarios/32",
 			"folder": "8f6b1bf8-efda-6ef1-a76d-e1ba063456bb",
 			"queryParams": [
 				{
@@ -4023,7 +4033,7 @@
 			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506748691506,
+			"time": 1506784502771,
 			"name": "actualiza un comentario de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
@@ -4087,20 +4097,17 @@
 		},
 		{
 			"id": "a76f7bb0-3a42-da66-ff1b-d513f9c82b3d",
-			"name": "crear la organizadorEspectaculo",
-			"description": "crea el envio de la boleta 2",
-			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"method": "POST",
-			"headers": "Content-Type: application/json",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "{\"nombre\": \"AYDIoMIO\", \"descripcion\": \"descripcion\"}",
-			"pathVariables": {},
-			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n",
-			"preRequestScript": "",
-			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos?",
-			"responses": [],
-			"pathVariableData": [],
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/nboletas-web/api/organizadores/1/espectaculos",
+			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d",
 			"queryParams": [
 				{
 					"key": "fields",
@@ -4110,15 +4117,21 @@
 					"enabled": false
 				}
 			],
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": ""
-				}
-			],
-			"collection_id": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
-			"folder": "a36926d8-f934-e4c3-e6b0-4ce57564c28d"
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1506749742645,
+			"name": "crear la organizadorEspectaculo",
+			"description": "crea el envio de la boleta 2",
+			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
+			"responses": [],
+			"rawModeData": "{\"nombre\": \"AYDIoMIO\", \"descripcion\": \"descripcion\"}"
 		},
 		{
 			"id": "a915eb14-3157-c409-c300-099d568c8b32",
@@ -4384,10 +4397,10 @@
 			"method": "GET",
 			"data": [],
 			"dataMode": "raw",
-			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Espectaculos count\"] = data.length === 2;",
+			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506748697303,
+			"time": 1506782430659,
 			"name": "obtiene los comentarios de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
@@ -4726,7 +4739,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas/1",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/artistas/12",
 			"folder": "12a98f50-3231-0d3d-058b-6dd822b3976f",
 			"queryParams": [
 				{
@@ -4746,13 +4759,11 @@
 			"tests": "console.log(responseBody);\nvar data = JSON.parse(responseBody);\ntests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506727285556,
+			"time": 1506784006893,
 			"name": "actualiza un artista de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
 			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "cd0daf2f-d69f-174f-613f-e3e54ac7b5b0",
 			"rawModeData": "{\"nombre\": \"kel\"}"
 		},
 		{
@@ -5487,7 +5498,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/artistas",
 			"folder": "12a98f50-3231-0d3d-058b-6dd822b3976f",
 			"queryParams": [
 				{
@@ -5507,13 +5518,11 @@
 			"tests": "var data = JSON.parse(responseBody);\r\ntests[\"Status code is 200\"] = responseCode.code === 200;\r\nconsole.log(data.id);\r\n",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506726621772,
+			"time": 1506783907308,
 			"name": "crear el EspectaculoArtista",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
 			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "cab2a6a8-338b-7df0-91b7-1b8c698cc0dd",
 			"rawModeData": "{\"nombre\": \"AYDIoMIO\"}"
 		},
 		{
@@ -5527,7 +5536,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/comentarios/6",
+			"url": "http://localhost:8080/nboletas-web/api/espectaculos/2/comentarios/32",
 			"folder": "8f6b1bf8-efda-6ef1-a76d-e1ba063456bb",
 			"queryParams": [
 				{
@@ -5541,13 +5550,13 @@
 			"preRequestScript": "",
 			"pathVariables": {},
 			"pathVariableData": [],
-			"method": "GET",
+			"method": "DELETE",
 			"data": [],
 			"dataMode": "raw",
-			"tests": "tests[\"Status code is 404\"] = responseCode.code;\ntests[\"Espectaculos count\"] = data.length === 1;",
+			"tests": "tests[\"Status code is 204\"] = responseCode.code;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1506748685130,
+			"time": 1506784553482,
 			"name": "borro el comentario de un espectaculo",
 			"description": "",
 			"collectionId": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
