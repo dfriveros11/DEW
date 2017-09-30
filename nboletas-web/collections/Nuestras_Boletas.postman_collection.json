@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Nuestras_Boletas",
-		"_postman_id": "05031622-6e53-5eb5-4133-21ddde1c89a9",
+		"_postman_id": "a1fb13ed-9ddb-04a9-68f5-1869e604cd83",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -419,7 +419,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/organizadores",
+									"raw": "http://localhost:8080/nboletas-web/api/organizadores?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1819,7 +1819,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/sillas",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -1841,7 +1844,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/sillas/20",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -1925,7 +1931,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/sillas/30",
 								"method": "DELETE",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -2078,7 +2087,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/divisiones/30",
 								"method": "DELETE",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -2438,6 +2450,438 @@
 								"body": {
 									"mode": "raw",
 									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Artista",
+					"description": "",
+					"item": [
+						{
+							"name": "Obtener todos los artistas",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Artistas count\"] = data.length === 4;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": "Obtener todos los artistas"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un artista especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Es el artista con id 2\"] = data.id === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas/2",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"fecha\" : \"2010-10-10T00:00:00-05:00\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un artista que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code === 404;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas/5",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"fecha\" : \"2010-10-10T00:00:00-05:00\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar un artista especifico",
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas/4",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Se borro el artista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Se borro el artista\"] = data.length === 3;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Crear un artista",
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nombre\":\"Artista de prueba\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Se creo el artista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Se creo el artista\"] = data.length === 4;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Editar un artista especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Cambio el nombre\"] = data.nombre === \"Nuevo Nombre\";"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/artistas/4",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nombre\" : \"Nuevo Nombre\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Espectaculo",
+					"description": "",
+					"item": [
+						{
+							"name": "Obtener todos los espectaculos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Espectaculos count\"] = data.length === 4;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": "Obtener todas las funciones"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un espectaculo especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Es el espectaculo con id 2\"] = data.id === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos/2",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"fecha\" : \"2010-10-10T00:00:00-05:00\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un espectaculo que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code === 404;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos/5",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"fecha\" : \"2010-10-10T00:00:00-05:00\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Borrar un espectaculo especifico",
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos/4",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Se borro el espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Se borro el lugar\"] = data.length === 3;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": "Obtener todas las funciones"
+							},
+							"response": []
+						},
+						{
+							"name": "Crear un espectaculo",
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"nombre\":\"Espectaculo Prueba\", \"descripcion\":\"Descripcion Prueba\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Se creo el espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Se creo el espectaculo\"] = data.length === 4;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": "Obtener todas las funciones"
+							},
+							"response": []
+						},
+						{
+							"name": "Editar un espectaculo especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Cambio la descripcion\"] = data.descripcion === \"cambioDeDescripcion\";"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/espectaculos/1",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"descripcion\" : \"cambioDeDescripcion\"\n}"
 								},
 								"description": ""
 							},
@@ -4533,7 +4977,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/divisiones/60/sillas",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -4555,7 +5002,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/divisiones/60/sillas/150",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -4639,7 +5089,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/divisiones/70/sillas/160",
 								"method": "DELETE",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -4699,7 +5152,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/sillas/170/boletas",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -4721,7 +5177,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/sillas/170/boletas/1560",
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -4774,7 +5233,10 @@
 								"url": "http://localhost:8080/nboletas-web/api/sillas/180/boletas/1400",
 								"method": "DELETE",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"description": ""
 							},
 							"response": []
@@ -4803,7 +5265,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas/45",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas/45?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4861,7 +5323,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas/45",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas/45?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -4917,7 +5379,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas/45",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas/45?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5001,7 +5463,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5058,7 +5520,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5122,7 +5584,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/104/reembolsos/105",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/104/reembolsos/105?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5180,7 +5642,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/104/reembolsos/105",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/104/reembolsos/105?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5236,7 +5698,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/104/reembolsos/105",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/104/reembolsos/105?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5320,7 +5782,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5377,7 +5839,7 @@
 							],
 							"request": {
 								"url": {
-									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas",
+									"raw": "http://localhost:8080/nboletas-web/api/usuarios/103/boletas?",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -5414,6 +5876,1638 @@
 									"raw": "{ \"dirrecion\" : \"aloja\" }"
 								},
 								"description": "obtiene el envio de la boleta 2"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "EspectaculoFuncion",
+					"description": "",
+					"item": [
+						{
+							"name": "crear el EspectaculoFuncion",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/funciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"funciones"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"fecha\": \"10/10/2018\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene las funciones de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Espectaculos count\"] = data.length === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/funciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"funciones"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene una funcion de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/funciones/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"funciones",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "actualiza una funcion de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/funciones/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"funciones",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"fecha\": \"12/10/2017\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "borro el organizador de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;",
+											"tests[\"Espectaculos count\"] = data.length === 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/funciones/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"funciones",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "EspectaculoComentario",
+					"description": "",
+					"item": [
+						{
+							"name": "crear el EspectaculoComentario",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/comentarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"comentarios"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"comentario\": \"Buen espectaculo\", \"fecha\":\"03/25/2015\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene los comentarios de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Espectaculos count\"] = data.length === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"organizadores"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene un comentario de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/comentarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"comentarios",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "actualiza un comentario de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/comentarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"comentarios",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"comentario\": \"Mal evento\", \"fecha\": \"09/08/2009\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "borro el comentario de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;",
+											"tests[\"Espectaculos count\"] = data.length === 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/comentarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"comentarios",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "EspectaculoArtista",
+					"description": "",
+					"item": [
+						{
+							"name": "crear el EspectaculoArtista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"artistas"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"nombre\": \"AYDIoMIO\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene los artistas de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Espectaculos count\"] = data.length === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"artistas"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene un artista de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"artistas",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "actualiza un artista de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"artistas",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"nombre\": \"kel\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "borro el artista de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;",
+											"tests[\"Espectaculos count\"] = data.length === 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/artistas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"artistas",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ArtistaEspectaculo",
+					"description": "",
+					"item": [
+						{
+							"name": "crear el ArtistaEspectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/artistas/1/espectaculos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"artistas",
+										"1",
+										"espectaculos"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"nombre\": \"Espectaculo Ejemplo\", \"descripcion\": \"Descripcion ejemplo\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene los espectaculos de un artista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Espectaculos count\"] = data.length === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/artistas/1/espectaculos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"artistas",
+										"1",
+										"espectaculos"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene un espectaculo de un artista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/artistas/1/espectaculos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"artistas",
+										"1",
+										"espectaculos",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "actualiza un espectaculo de un artista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/artistas/1/espectaculos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"artistas",
+										"1",
+										"espectaculos",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"nombre\": \"kel\", \"descripcion\": \"descripcion\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "borro el espectaculo de un artista",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;",
+											"tests[\"Espectaculos count\"] = data.length === 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/artistas/1/espectaculos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"artistas",
+										"1",
+										"espectaculos",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "EspectaculoOrganizador",
+					"description": "",
+					"item": [
+						{
+							"name": "crear el EspectaculoOrganizador",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"organizadores"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"nombre\": \"AYDIoMIO\", \"descripcion\": \"descripcion\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene los organizadores de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Espectaculos count\"] = data.length === 2;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"organizadores"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtiene un organizador de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"organizadores",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "actualiza un organizador de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"organizadores",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"nombre\": \"kel\", \"descripcion\": \"descripcion\"}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "borro el organizador de un espectaculo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 404\"] = responseCode.code;",
+											"tests[\"Espectaculos count\"] = data.length === 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": {
+									"raw": "http://localhost:8080/nboletas-web/api/espectaculos/1/organizadores/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"nboletas-web",
+										"api",
+										"espectaculos",
+										"1",
+										"organizadores",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "devices",
+											"equals": true,
+											"description": "",
+											"disabled": true
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ComentarioBoleta",
+					"description": "",
+					"item": [
+						{
+							"name": "Crear ComentarioBoleta",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"console.log(data.id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/comentarios/200/boletas",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"precio\" : 58.000, \"vendida\": true, \"id\":1 }"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "obtener los Comentarios",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/comentarios/200/boletas",
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Comentario con boleta id=1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/comentarios/200/boletas/1",
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar Comentario c con boleta id=1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/comentarios/200/boletas/1",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"precio\" : 70000, \"vendida\": false }"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar Comentario 200 con boleta id = 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "http://localhost:8080/nboletas-web/api/comentarios/200/boletas/1",
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
 							},
 							"response": []
 						}
