@@ -49,7 +49,9 @@ public class EspectaculoArtistaResource {
             throw new BusinessLogicException("No existe el espectaculo con el id: " + idEspectaculo);
         }
         ArtistaEntity artistaE = artista.toEntity();
-        List<ArtistaEntity> artistas = new ArrayList<>();
+        List <EspectaculoEntity> lista= new ArrayList<>();
+        lista.add(espectaculo);
+        List<ArtistaEntity> artistas = espectaculo.getArtista();
         artistas.add(artistaE);
         espectaculo.setArtista(artistas);
         ArtistaEntity artistaCreado = artistaLogic.create(artistaE);
@@ -82,6 +84,10 @@ public class EspectaculoArtistaResource {
         ArtistaEntity artista = artistaLogic.find(idArtista);
         if (artista == null) {
             throw new BusinessLogicException("No existe el artista con ese id: " + idArtista);
+        }
+        List<ArtistaEntity> artistasE=espectaculo.getArtista();
+        if(!artistasE.contains(artista)){
+            throw new BusinessLogicException("El espectaculo no está asociado al artista con id: " + idArtista);
         }
         return new ArtistaDetailDTO(artista);
     }
