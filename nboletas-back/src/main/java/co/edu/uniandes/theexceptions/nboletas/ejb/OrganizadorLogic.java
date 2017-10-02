@@ -113,7 +113,14 @@ public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity> {
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
         }
-        persistenceOrganizador.deleteOrganizadorEspectaculo(idEspectaculo);
+        List<OrganizadorEntity> organizadores = new ArrayList<OrganizadorEntity>();
+        organizadores.add(organizador);
+        espectaculo.setOrganizador(organizadores);
+        try{
+            persistenceEspectaculo.delete(espectaculo);
+        }catch(PersistenceException e){
+            throw new PersistenceException("No se puede eliminar el espectaculo con el id: " + idEspectaculo + " relacionado al organizador con el id: " + idOrganizador + " El error es: " + e.getMessage());
+        }
     }
 
 }

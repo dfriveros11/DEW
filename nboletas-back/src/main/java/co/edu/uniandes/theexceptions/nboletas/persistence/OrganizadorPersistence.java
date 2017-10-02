@@ -47,10 +47,4 @@ LEFT JOIN ESPECTACULOENTITY ON ORGANIZADORENTITY.ID = ESPECTACULOENTITY_ORGANIZA
         em.createNativeQuery(query).executeUpdate();
         return entity;
     }
-
-    public void deleteOrganizadorEspectaculo(Long idEspectaculo) {
-        String query = "DELETE FROM APP.ESPECTACULOENTITY_ORGANIZADORENTITY WHERE ESPECTACULOs_ID = " + idEspectaculo;
-        em.createNativeQuery(query).executeUpdate();
-    }
-
 }
