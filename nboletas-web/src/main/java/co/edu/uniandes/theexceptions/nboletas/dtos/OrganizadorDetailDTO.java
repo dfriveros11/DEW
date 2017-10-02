@@ -7,7 +7,6 @@ package co.edu.uniandes.theexceptions.nboletas.dtos;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.OrganizadorEntity;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
 
