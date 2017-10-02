@@ -12,7 +12,7 @@ delete from LugarEntity;
 delete from EspectaculoEntity_OrganizadorEntity;
 delete from UsuarioEntity;
 
-/* Mis numero son del 1 al 99 (df.riveros11)**/
+/* Mis numero son del 0 al 99 (df.riveros11)**/
 insert into FuncionEntity (id, fecha) values (0, '10/10/2017');
 insert into SillaEntity (id, costo) values (0, 20.1);
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (0, 'aa', 'aa', 'Hugo', 'hs.hernandez@domain.onion', 'Argentina', 'newYork');
