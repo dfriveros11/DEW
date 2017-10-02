@@ -17,22 +17,22 @@ import java.util.List;
 public class SillaDetailDTO extends SillaDTO {
 
     private DivisionDeLugarDTO division;
-    
+
     private List<BoletaDTO> boletas;
-    
+
     public SillaDetailDTO() {
     }
 
     public SillaDetailDTO(SillaEntity entity) {
         super(entity);
-        if(entity.getDivision()!=null){
-            this.division= new DivisionDeLugarDTO(entity.getDivision());
+        if (entity.getDivision() != null) {
+            this.division = new DivisionDeLugarDTO(entity.getDivision());
         }
-        if(entity.getBoletas()!=null){
+        if (entity.getBoletas() != null) {
             this.boletas = new ArrayList<>();
-        for (BoletaEntity b : entity.getBoletas()) {
-            boletas.add(new BoletaDTO(b));
-        }
+            for (BoletaEntity b : entity.getBoletas()) {
+                boletas.add(new BoletaDTO(b));
+            }
         }
     }
 
@@ -55,12 +55,12 @@ public class SillaDetailDTO extends SillaDTO {
     @Override
     public SillaEntity toEntity() {
         SillaEntity silla = super.toEntity();
-        if(getDivision()!=null){
+        if (getDivision() != null) {
             silla.setDivision(division.toEntity());
         }
-        if(getBoletas()!=null){
-            List<BoletaEntity> boletasE= new ArrayList<>();
-            for(BoletaDTO b:getBoletas()){
+        if (getBoletas() != null) {
+            List<BoletaEntity> boletasE = new ArrayList<>();
+            for (BoletaDTO b : getBoletas()) {
                 boletasE.add(b.toEntity());
             }
             silla.setBoletas(boletasE);

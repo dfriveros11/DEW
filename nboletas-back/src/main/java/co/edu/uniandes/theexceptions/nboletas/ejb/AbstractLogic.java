@@ -5,8 +5,10 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import java.util.List;
+import javax.persistence.PersistenceException;
 
 /**
  *
@@ -23,7 +25,7 @@ public abstract class AbstractLogic<T> {
      * @param entity
      * @return
      */
-    public T create(T entity) {
+    public T create(T entity) throws PersistenceException {
         return getPersistence().create(entity);
     }
 
@@ -33,7 +35,7 @@ public abstract class AbstractLogic<T> {
      * @param entity
      * @return
      */
-    public T update(T entity) {
+    public T update(T entity) throws PersistenceException {
         return getPersistence().update(entity);
     }
 
@@ -42,7 +44,7 @@ public abstract class AbstractLogic<T> {
      *
      * @param entity
      */
-    public void delete(T entity) {
+    public void delete(T entity) throws PersistenceException {
         getPersistence().delete(entity);
     }
 
@@ -52,7 +54,7 @@ public abstract class AbstractLogic<T> {
      * @param id
      * @return
      */
-    public T find(Object id) {
+    public T find(Object id) throws PersistenceException {
         return getPersistence().find(id);
     }
 
@@ -61,7 +63,7 @@ public abstract class AbstractLogic<T> {
      *
      * @return list con todos los objetos
      */
-    public List<T> findAll() {
+    public List<T> findAll() throws PersistenceException {
         return getPersistence().findAll();
     }
 

@@ -7,18 +7,12 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.EnvioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.EnvioLogic;
-import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
-import com.gs.collections.impl.list.fixed.ArrayAdapter;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.PersistenceException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -41,51 +35,39 @@ public class BoletaEnvioResource {
     @Inject
     BoletaLogic boletaLogic;
 
-    @Inject
-    EnvioLogic envioLogic;
-
     @POST
-    public EnvioDetailDTO createBoletaEnvio(@PathParam("idBoleta") Long idBoleta, EnvioDetailDTO envio) throws BusinessLogicException {
+    public EnvioDetailDTO createBoletaEnvio(@PathParam("idBoleta") Long idBoleta, EnvioDetailDTO envio) throws BusinessLogicException, PersistenceException {
         EnvioEntity envioCreado = boletaLogic.createBoletaEnvio(idBoleta, envio.toEntity());
         return new EnvioDetailDTO(envioCreado);
     }
 
     @GET
-    public List<EnvioDetailDTO> getEnvios(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException {
-        List<EnvioEntity> envios = new ArrayList();
-        try{
-            EnvioEntity envio  = boletaLogic.find(idBoleta).getEnvio();
-            envios.add(envio);
-        }catch(Exception e){
-            throw new BusinessLogicException("No se encuentra la boleta con el id: " + idBoleta + " mayor infromacion: " + e.getMessage());
-        }
+    public List<EnvioDetailDTO> getEnvios(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException, PersistenceException {
+        List<EnvioEntity> envios = boletaLogic.findBoletaEnvios(idBoleta);
         EnvioDetailDTO entrega = new EnvioDetailDTO();
         return entrega.listEnvioEntity2EnvioDetailDTO(envios);
     }
 
     @GET
     @Path("{idEnvio: \\d+}")
-    public EnvioDetailDTO getEnvio(@PathParam("idBoleta") Long idBoleta, @PathParam("idEnvio") Long idEnvio) {
-        EnvioEntity envio = null;
-        try {
-            envio = boletaLogic.findBoletaEnvio(idBoleta, idEnvio);
-        } catch (BusinessLogicException ex) {
-            Logger.getLogger(BoletaEnvioResource.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public EnvioDetailDTO getEnvio(@PathParam("idBoleta") Long idBoleta, @PathParam("idEnvio") Long idEnvio) throws BusinessLogicException, PersistenceException {
+        EnvioEntity envio = boletaLogic.findBoletaEnvio(idBoleta, idEnvio);
         return new EnvioDetailDTO(envio);
     }
 
     @PUT
     @Path("{idEnvio: \\d+}")
-    public EnvioDetailDTO updateBoletaEnvio(@PathParam("idBoleta") Long idBoleta, @PathParam("idEnvio") Long idEnvio, EnvioDetailDTO envio) throws BusinessLogicException {
-        EnvioEntity actual = boletaLogic.updateBoletaEnvio(idBoleta, idEnvio, envio.toEntity());
+    public EnvioDetailDTO updateBoletaEnvio(@PathParam("idBoleta") Long idBoleta, @PathParam("idEnvio") Long idEnvio, EnvioDetailDTO envio) throws BusinessLogicException, PersistenceException {
+        EnvioEntity envioE = envio.toEntity();
+        envioE.setId(idEnvio);
+        EnvioEntity actual = boletaLogic.updateBoletaEnvio(idBoleta, envioE);
         return new EnvioDetailDTO(actual);
     }
 
     @DELETE
     @Path("{idEnvio: \\d+}")
-    public void deleteBoletaEnvio(@PathParam("idBoleta") Long idBoleta, @PathParam("idEnvio") Long idEnvio) throws BusinessLogicException {
+    public void deleteBoletaEnvio(@PathParam("idBoleta") Long idBoleta, @PathParam("idEnvio") Long idEnvio) throws BusinessLogicException, PersistenceException {
         boletaLogic.deleteBoletaEnvio(idBoleta, idEnvio);
     }
-    
+
 }

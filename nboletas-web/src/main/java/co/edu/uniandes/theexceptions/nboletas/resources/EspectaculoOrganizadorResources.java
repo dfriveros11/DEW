@@ -34,11 +34,11 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class EspectaculoOrganizadorResources {
-   
-@Inject
+
+    @Inject
     OrganizadorLogic organizadorLogic;
 
-@Inject
+    @Inject
     EspectaculoLogic espectaculoLogic;
 
     @POST
@@ -87,7 +87,7 @@ public class EspectaculoOrganizadorResources {
 
     @PUT
     @Path("{idOrganizador: \\d+}")
-    public OrganizadorDetailDTO updateEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador, OrganizadorDetailDTO organizador ) throws BusinessLogicException {
+    public OrganizadorDetailDTO updateEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador, OrganizadorDetailDTO organizador) throws BusinessLogicException {
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
@@ -115,7 +115,7 @@ public class EspectaculoOrganizadorResources {
         if (organizador == null) {
             throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);
         }
-        List<EspectaculoEntity> espectaculos= new ArrayList<>();
+        List<EspectaculoEntity> espectaculos = new ArrayList<>();
         espectaculos.add(espectaculo);
         organizador.setEspectaculos(espectaculos);
         organizadorLogic.delete(organizador);
@@ -129,4 +129,3 @@ public class EspectaculoOrganizadorResources {
         return list;
     }
 }
-

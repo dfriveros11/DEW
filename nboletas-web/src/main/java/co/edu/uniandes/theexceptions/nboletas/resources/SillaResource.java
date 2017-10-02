@@ -71,7 +71,7 @@ public class SillaResource {
         }
         return new SillaDetailDTO(silla);
     }
-    
+
     /**
      * PUT http://localhost:8080/nboletas-web/api/sillas/1 Ejemplo json { "id":
      * 1, "atirbuto1": "Valor nuevo" }

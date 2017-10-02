@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
-
 import co.edu.uniandes.theexceptions.nboletas.dtos.EspectaculoDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.ArtistaLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EspectaculoLogic;
@@ -34,11 +33,11 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class ArtistaEspectaculoResources {
-   
-@Inject
+
+    @Inject
     ArtistaLogic artistaLogic;
 
-@Inject
+    @Inject
     EspectaculoLogic espectaculoLogic;
 
     @POST
@@ -87,7 +86,7 @@ public class ArtistaEspectaculoResources {
 
     @PUT
     @Path("{idEspectaculo: \\d+}")
-    public EspectaculoDetailDTO updateArtistaEspectaculo(@PathParam("idArtista") Long idArtista, @PathParam("idEspectaculo") Long idEspectaculo, EspectaculoDetailDTO espectaculo ) throws BusinessLogicException {
+    public EspectaculoDetailDTO updateArtistaEspectaculo(@PathParam("idArtista") Long idArtista, @PathParam("idEspectaculo") Long idEspectaculo, EspectaculoDetailDTO espectaculo) throws BusinessLogicException {
         ArtistaEntity artista = artistaLogic.find(idArtista);
         if (artista == null) {
             throw new BusinessLogicException("No existe el artista con ese id: " + idArtista);
@@ -115,7 +114,7 @@ public class ArtistaEspectaculoResources {
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
         }
-        List<ArtistaEntity> artistas= new ArrayList<>();
+        List<ArtistaEntity> artistas = new ArrayList<>();
         artistas.add(artista);
         espectaculo.setArtista(artistas);
         espectaculoLogic.delete(espectaculo);
@@ -129,4 +128,3 @@ public class ArtistaEspectaculoResources {
         return list;
     }
 }
-

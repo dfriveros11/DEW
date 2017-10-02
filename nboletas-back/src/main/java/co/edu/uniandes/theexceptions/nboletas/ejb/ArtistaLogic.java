@@ -18,7 +18,7 @@ import javax.inject.Inject;
  */
 @Stateless
 public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
-    
+
     @Inject
     private ArtistaPersistence persistence;
 

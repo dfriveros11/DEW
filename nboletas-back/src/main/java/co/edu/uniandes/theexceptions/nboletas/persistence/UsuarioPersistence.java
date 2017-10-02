@@ -23,6 +23,7 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
 
     /**
      * Busca un usuario por un UserName dado por parametro.
+     *
      * @param userName username del usuario a buscar.
      * @return UsuarioEntity encontrado.
      */

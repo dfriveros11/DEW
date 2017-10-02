@@ -31,7 +31,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Arquillian.class)
 public class Nuestras_BoletasIT {
-    
+
     private static final String BASEPATH = System.getProperty("user.dir");
     String path = BASEPATH.concat("\\collections\\runners\\nboletas-CollectionRunner.bat");
 
@@ -67,8 +67,8 @@ public class Nuestras_BoletasIT {
      */
     @Test
     @RunAsClient
-    public void postman() throws FileNotFoundException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InterruptedException, ExecutionException{
-      setPostmanCollectionValues();
+    public void postman() throws FileNotFoundException, IOException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, InterruptedException, ExecutionException {
+        setPostmanCollectionValues();
 
         try {
             String prop = System.getProperty("user.dir");

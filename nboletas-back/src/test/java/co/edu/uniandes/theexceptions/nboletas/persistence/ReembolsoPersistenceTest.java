@@ -124,7 +124,7 @@ public class ReembolsoPersistenceTest {
         /*
         Assert.assertEquals(newEntity.getUsuario().getId(), entity.getUsuario().getId());
         Assert.assertEquals(newEntity.getBoleta().getId(), entity.getBoleta().getId());
-        */
+         */
 
     }
 
@@ -141,10 +141,10 @@ public class ReembolsoPersistenceTest {
         ReembolsoEntity resp = em.find(ReembolsoEntity.class, entity.getId());
         Assert.assertEquals(newEntity.getId(), resp.getId());
         Assert.assertEquals(newEntity.getValor(), resp.getValor(), 0.0);
-    /*
+        /*
         Assert.assertEquals(newEntity.getUsuario().getId(), entity.getUsuario().getId());
         Assert.assertEquals(newEntity.getBoleta().getId(), entity.getBoleta().getId());
-*/
+         */
     }
 
     /**
@@ -171,7 +171,7 @@ public class ReembolsoPersistenceTest {
         /*
         Assert.assertEquals(newEntity.getUsuario().getId(), entity.getUsuario().getId());
         Assert.assertEquals(newEntity.getBoleta().getId(), entity.getBoleta().getId());
-*/
+         */
     }
 
     /**

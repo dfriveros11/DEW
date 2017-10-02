@@ -24,8 +24,8 @@ public class EnvioDTO {
 
     //Conviertir Entity a DTO
     public EnvioDTO(EnvioEntity env) {
-        
-        if(env !=null){
+
+        if (env != null) {
             this.id = env.getId();
             this.direccion = env.getDireccion();
         }

@@ -40,7 +40,7 @@ import javax.ws.rs.WebApplicationException;
 @Consumes("application/json")
 @Stateless
 public class LugarResource {
-    
+
     @Inject
     private LugarLogic lugarLogic;
 
@@ -63,14 +63,14 @@ public class LugarResource {
     public List<LugarDetailDTO> getLugares() throws BusinessLogicException {
         return listEntity2DetailDTO(lugarLogic.findAll());
     }
-    
+
     /**
      * GET para un lugar especifico.
      * http://localhost:8080/nboletas-web/api/lugares/id
      *
      * @return la el lugar en objeto json DTO.
      * @throws WebApplicationException
-     * 
+     *
      * En caso de no existir el id del lugar buscado se retorna un 404 not
      * found.
      */
@@ -78,16 +78,17 @@ public class LugarResource {
     @Path("{id: \\d+}")
     public LugarDetailDTO getLugar(@PathParam("id") Long id) throws WebApplicationException {
         LugarEntity l = lugarLogic.find(id);
-        if(l == null)
+        if (l == null) {
             throw new WebApplicationException("No existe lugar con el id " + id, 404);
+        }
         return new LugarDetailDTO(l);
     }
 
     /**
      * POST http://localhost:8080/nboletas-web/api/lugares
      *
-     * @param lugar correponde a la representación java del objeto json
-     * enviado en el llamado.
+     * @param lugar correponde a la representación java del objeto json enviado
+     * en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java.
      * @throws BusinessLogicException

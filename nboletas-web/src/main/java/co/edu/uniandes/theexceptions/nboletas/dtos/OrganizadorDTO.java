@@ -19,7 +19,6 @@ public class OrganizadorDTO {
     public OrganizadorDTO() {
     }
 
-
     public OrganizadorDTO(OrganizadorEntity organizador) {
         if (organizador != null) {
             this.id = organizador.getId();

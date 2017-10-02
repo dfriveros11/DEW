@@ -25,14 +25,14 @@ public class DivisionDeLugarDetailDTO extends DivisionDeLugarDTO {
 
     public DivisionDeLugarDetailDTO(DivisionDeLugarEntity division) {
         super(division);
-        if(division.getLugar()!=null){
+        if (division.getLugar() != null) {
             this.lugar = new LugarDTO(division.getLugar());
         }
-        if(division.getSillas()!=null){
-        this.sillas = new ArrayList<>();
-        for (SillaEntity s : division.getSillas()) {
-            sillas.add(new SillaDTO(s));
-        }
+        if (division.getSillas() != null) {
+            this.sillas = new ArrayList<>();
+            for (SillaEntity s : division.getSillas()) {
+                sillas.add(new SillaDTO(s));
+            }
         }
     }
 
@@ -55,18 +55,18 @@ public class DivisionDeLugarDetailDTO extends DivisionDeLugarDTO {
     @Override
     public DivisionDeLugarEntity toEntity() {
         DivisionDeLugarEntity entity = super.toEntity();
-        if(getSillas()!=null){
-            List<SillaEntity> sillasE=new ArrayList<>();
-            for(SillaDTO s: getSillas()){
+        if (getSillas() != null) {
+            List<SillaEntity> sillasE = new ArrayList<>();
+            for (SillaDTO s : getSillas()) {
                 sillasE.add(s.toEntity());
             }
             entity.setSillas(sillasE);
         }
-        
-        if(getLugar()!=null){
+
+        if (getLugar() != null) {
             entity.setLugar(lugar.toEntity());
         }
-        
+
         return entity;
     }
 }

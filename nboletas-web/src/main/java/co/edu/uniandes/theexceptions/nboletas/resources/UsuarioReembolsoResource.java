@@ -41,14 +41,13 @@ public class UsuarioReembolsoResource {
     private ReembolsoLogic reembolsoLogic;
 
     /**
-     * GET
-     * Retorna todos los objetos reembolsos en representación Detail. 
+     * GET Retorna todos los objetos reembolsos en representación Detail.
      * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos
      *
      * @param idUsuario
      * @return los reembolsos del usuario en objetos json DTO.
-     * @throws WebApplicationException
-     * En caso de no existir el id del Usuario se retorna un 404 not found.
+     * @throws WebApplicationException En caso de no existir el id del Usuario
+     * se retorna un 404 not found.
      */
     @GET
     public List<ReembolsoDetailDTO> getReembolsosUsuario(@PathParam("idUsuario") Long idUsuario) throws WebApplicationException {
@@ -61,16 +60,15 @@ public class UsuarioReembolsoResource {
     }
 
     /**
-     * GET
-     * Retorna un Objeto de tipo Reembolso en representación Detail.
+     * GET Retorna un Objeto de tipo Reembolso en representación Detail.
      * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos/idReembolso
      *
      * @param idUsuario
      * @param idReembolso
      * @return un reembolso especifico del usuario en objeto json DTO.
-     * @throws WebApplicationException
-     * En caso de no existir el id del usuario se retorna un 404 not found.
-     * En caso de no existir el id del Reembolso se retorna un 404 not found.
+     * @throws WebApplicationException En caso de no existir el id del usuario
+     * se retorna un 404 not found. En caso de no existir el id del Reembolso se
+     * retorna un 404 not found.
      */
     @GET
     @Path("{idReembolso: \\d+}")
@@ -90,8 +88,8 @@ public class UsuarioReembolsoResource {
     }
 
     /**
-     * POST
-     * Crea un objeto de tipo reembolso ya relacionado con el usuario de id dado. 
+     * POST Crea un objeto de tipo reembolso ya relacionado con el usuario de id
+     * dado.
      * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos
      *
      * @param idUsuario
@@ -116,18 +114,16 @@ public class UsuarioReembolsoResource {
     }
 
     /**
-     * PUT 
-     * Es el encargado de actualizar objetos Reembolso.
+     * PUT Es el encargado de actualizar objetos Reembolso.
      * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos/idReembolso
      *
      * @param idUsuario
      * @param idReembolso
      * @return el reembolso que fue creado para la relacion con el usuario en
      * objeto json DTO.
-     * @throws WebApplicationException
-     * En caso de no existir el id del usuario se retorna un 404 not found.
-     * En caso de no existir un reembolso con el id por parametro se returna un
-     * 404 not found.
+     * @throws WebApplicationException En caso de no existir el id del usuario
+     * se retorna un 404 not found. En caso de no existir un reembolso con el id
+     * por parametro se returna un 404 not found.
      */
     @PUT
     @Path("{idReembolso: \\d+}")
@@ -136,7 +132,7 @@ public class UsuarioReembolsoResource {
         if (usuarioEntity == null) {
             throw new WebApplicationException("El recurso usuario: " + idUsuario + " no existe.", 404);
         }
-        
+
         ReembolsoEntity reembolsoEntity = reembolsoLogic.find(idReembolso);
         if (reembolsoEntity == null) {
             throw new WebApplicationException("El recurso reembolso: " + idReembolso + " no existe, relacionada con"
@@ -148,16 +144,14 @@ public class UsuarioReembolsoResource {
     }
 
     /**
-     * DELETE
-     * Elimina una relación de tipo Usuario-Reembolso.
+     * DELETE Elimina una relación de tipo Usuario-Reembolso.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas/idBoleta
      *
      * @param idUsuario
      * @param idReembolso
-     * @throws WebApplicationException
-     * En caso de no existir el usuario con id dado se retorna un 404 not found.
-     * En caso de no existir un reembolso con el id por parametro se retorna un
-     * 404 not found.
+     * @throws WebApplicationException En caso de no existir el usuario con id
+     * dado se retorna un 404 not found. En caso de no existir un reembolso con
+     * el id por parametro se retorna un 404 not found.
      */
     @DELETE
     @Path("{idReembolso: \\d+}")

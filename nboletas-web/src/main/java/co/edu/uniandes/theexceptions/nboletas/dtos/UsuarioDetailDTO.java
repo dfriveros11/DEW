@@ -15,37 +15,37 @@ import java.util.List;
  *
  * @author jm.contreras10
  */
-public class UsuarioDetailDTO extends UsuarioDTO{
-    
+public class UsuarioDetailDTO extends UsuarioDTO {
+
     private List<BoletaDTO> boletasCompradas;
 
     private List<ReembolsoDTO> reembolsos;
-    
-    public UsuarioDetailDTO(){
-        
+
+    public UsuarioDetailDTO() {
+
     }
 
     public UsuarioDetailDTO(UsuarioEntity entity) {
         super(entity);
-        
-        List<BoletaDTO> bols = null;
-        List<ReembolsoDTO> reem = new LinkedList<>();
-        
-        if (entity.getBoletas() != null) {
-            bols = new LinkedList<>();
-            for (BoletaEntity b : entity.getBoletas()) {
-                bols.add(new BoletaDTO(b));
-            }
-        }
-        if (entity.getReembolsos() != null) {
-            for (ReembolsoEntity r : entity.getReembolsos()) {
-                reem.add(new ReembolsoDTO(r));
-            }
-        }
+        if (entity != null) {
+            List<BoletaDTO> bols = null;
+            List<ReembolsoDTO> reem = new LinkedList<>();
 
-        boletasCompradas = bols;
-        reembolsos = reem;
+            if (entity.getBoletas() != null) {
+                bols = new LinkedList<>();
+                for (BoletaEntity b : entity.getBoletas()) {
+                    bols.add(new BoletaDTO(b));
+                }
+            }
+            if (entity.getReembolsos() != null) {
+                for (ReembolsoEntity r : entity.getReembolsos()) {
+                    reem.add(new ReembolsoDTO(r));
+                }
+            }
 
+            boletasCompradas = bols;
+            reembolsos = reem;
+        }
     }
 
     @Override
@@ -54,7 +54,7 @@ public class UsuarioDetailDTO extends UsuarioDTO{
 
         List<BoletaEntity> bols = new LinkedList<>();
         List<ReembolsoEntity> reems = new LinkedList<>();
-        
+
         if (this.boletasCompradas != null) {
             for (BoletaDTO b : this.boletasCompradas) {
                 bols.add(b.toEntity());
@@ -67,7 +67,6 @@ public class UsuarioDetailDTO extends UsuarioDTO{
             }
         }
 
-        
         entity.setBoletas(bols);
         entity.setReembolsos(reems);
 

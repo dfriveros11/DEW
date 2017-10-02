@@ -33,14 +33,13 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class BoletaComentarioResource {
-    
+
     @Inject
     BoletaLogic boletaLogic;
-    
+
     @Inject
     ComentarioLogic comentarioLogic;
-    
-    
+
     @POST
     public ComentarioDetailDTO createBoletaComentario(@PathParam("idBoleta") Long idBoleta, ComentarioDetailDTO comentario) throws BusinessLogicException {
         BoletaEntity boleta = boletaLogic.find(idBoleta);
@@ -52,9 +51,7 @@ public class BoletaComentarioResource {
         ComentarioEntity comentarioCreado = comentarioLogic.create(comentarioE);
         return new ComentarioDetailDTO(comentarioCreado);
     }
-    
-    
-    
+
     @GET
     public List<ComentarioDetailDTO> getComentarios(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException {
         List<ComentarioEntity> list = new ArrayList<>();
@@ -68,8 +65,7 @@ public class BoletaComentarioResource {
         }
         return listEntity2DetailDTO(list);
     }
-    
-    
+
     @GET
     @Path("{idComentario: \\d+}")
     public ComentarioDetailDTO getComentario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario) throws BusinessLogicException {
@@ -85,8 +81,6 @@ public class BoletaComentarioResource {
         return new ComentarioDetailDTO(comentario);
     }
 
-    
-    
     @PUT
     @Path("{idComentario: \\d+}")
     public ComentarioDetailDTO updateBoletaComentario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario, ComentarioDetailDTO comentario) throws BusinessLogicException {
@@ -103,10 +97,8 @@ public class BoletaComentarioResource {
         ComentarioEntity actual = comentarioLogic.update(comentarioActualizar);
         return new ComentarioDetailDTO(actual);
     }
-    
-    
-    
-     @DELETE
+
+    @DELETE
     @Path("{idComentario: \\d+}")
     public void deleteBoletaComenario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario) throws BusinessLogicException {
         BoletaEntity boleta = boletaLogic.find(idBoleta);
@@ -120,19 +112,13 @@ public class BoletaComentarioResource {
         comentario.setBoleta(boleta);
         comentarioLogic.delete(comentario);
     }
-    
-    
-    
-    
+
     private List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
         List<ComentarioDetailDTO> list = new ArrayList<>();
         for (ComentarioEntity entity : entityList) {
             list.add(new ComentarioDetailDTO(entity));
         }
-        return list;    }
-    
-    
-    
-    
-    
+        return list;
+    }
+
 }

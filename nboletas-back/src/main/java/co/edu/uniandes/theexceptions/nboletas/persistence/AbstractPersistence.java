@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 
 /**
  *
@@ -33,7 +34,7 @@ public abstract class AbstractPersistence<T> {
      * @param entity
      * @return
      */
-    public T create(T entity) {
+    public T create(T entity) throws PersistenceException {
         em.persist(entity);
         return entity;
     }
@@ -44,7 +45,7 @@ public abstract class AbstractPersistence<T> {
      * @param entity
      * @return
      */
-    public T update(T entity) {
+    public T update(T entity) throws PersistenceException {
         em.merge(entity);
         return entity;
     }
@@ -54,7 +55,7 @@ public abstract class AbstractPersistence<T> {
      *
      * @param entity
      */
-    public void delete(T entity) {
+    public void delete(T entity) throws PersistenceException {
         em.remove(em.merge(entity));
     }
 
@@ -64,7 +65,7 @@ public abstract class AbstractPersistence<T> {
      * @param id
      * @return
      */
-    public T find(Object id) {
+    public T find(Object id) throws PersistenceException {
         return (em.find(entityClass, id));
     }
 
@@ -73,7 +74,7 @@ public abstract class AbstractPersistence<T> {
      *
      * @return list con todos los objetos
      */
-    public List<T> findAll() {
+    public List<T> findAll() throws PersistenceException {
         javax.persistence.criteria.CriteriaQuery oq = em.getCriteriaBuilder().createQuery();
         oq.select(oq.from(entityClass));
         return em.createQuery(oq).getResultList();
