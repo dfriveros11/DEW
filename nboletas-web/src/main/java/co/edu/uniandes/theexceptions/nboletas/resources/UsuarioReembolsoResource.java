@@ -6,27 +6,19 @@
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.ReembolsoDetailDTO;
-import co.edu.uniandes.theexceptions.nboletas.dtos.UsuarioDetailDTO;
-import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
-import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.PersistenceException;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -93,40 +85,6 @@ public class UsuarioReembolsoResource {
         return new ReembolsoDetailDTO(usuarioLogic.createUsuarioReembolso(idUsuario, reembolso.toEntity()));
     }
     
-    //TODO de aqui para abajo (06/10/2017 - 01:16 am)
-
-    /**
-     * PUT Es el encargado de actualizar objetos Reembolso.
-     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/reembolsos/idReembolso
-     *
-     * @param idUsuario
-     * @param idReembolso
-     * @return el reembolso que fue creado para la relacion con el usuario en
-     * objeto json DTO.
-     * @throws WebApplicationException En caso de no existir el id del usuario
-     * se retorna un 404 not found. En caso de no existir un reembolso con el id
-     * por parametro se returna un 404 not found.
-     */
-    @PUT
-    @Path("{idReembolso: \\d+}")
-    public ReembolsoDetailDTO updateReembolsoUsuario(@PathParam("idUsuario") Long idUsuario, @PathParam("idReembolso") Long idReembolso) throws WebApplicationException {
-        //TODO
-    }
-
-    /**
-     * DELETE Elimina una relación de tipo Usuario-Reembolso.
-     * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas/idBoleta
-     *
-     * @param idUsuario
-     * @param idReembolso
-     * @throws WebApplicationException En caso de no existir el usuario con id
-     * dado se retorna un 404 not found. En caso de no existir un reembolso con
-     * el id por parametro se retorna un 404 not found.
-     */
-    @DELETE
-    @Path("{idReembolso: \\d+}")
-    public void deleteReembolsoUsuario(@PathParam("idUsuario") Long idUsuario, @PathParam("idReembolso") Long idReembolso) throws WebApplicationException {
-        //TODO
-    }
-
+    //El reembolso no deberia tener un metodo de actualizacion, ya que el cliente no deberia poder modificar este.
+    //El reembolso no deberia tener un metodo de eliminadion, ya que el cliente no deberia poder modificar este.
 }
