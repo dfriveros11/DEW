@@ -36,7 +36,7 @@ public class UsuarioDTO {
         }
     }
 
-    public UsuarioEntity toEntity() {
+    public UsuarioEntity toEntity(){
         UsuarioEntity entity = new UsuarioEntity();
         entity.setId(id);
         entity.setUserName(userName);

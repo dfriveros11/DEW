@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -42,4 +44,48 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
             return sameCodigo.get(0);
         }
     }
+    
+    /**
+     * Indica si un usuario ha hecho un reembolso con id dado.
+     * <pre> El Reembolso y el Usuario existen en el sistema.
+     * @param idUsuario
+     * @param reembolso
+     * @return 
+     */
+    public boolean isReembolsoOnUsuario(long idUsuario,long idReembolso){
+        //El usuario
+        UsuarioEntity usuario = find(idUsuario);
+        //Sus reembolsos
+        List<ReembolsoEntity> reembolsos = usuario.getReembolsos();
+        //veryficacion
+        for (ReembolsoEntity reembolso : reembolsos) {
+            if(reembolso.getId() == idReembolso)
+                return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Indica si un usuario ha comprado una boleta con el id dado.
+     * <pre> El Usuario y la Boleta existen en el sistema.
+     * @param idUsuario
+     * @param idBoleta
+     * @return 
+     */
+    public boolean isBoletaOnUsuario(long idUsuario, long idBoleta){
+        //El usuario
+        UsuarioEntity usuario = find(idUsuario);
+        //Sus boletas
+        List<BoletaEntity> boletas = usuario.getBoletas();
+        //veryficacion
+        for (BoletaEntity boleta : boletas) {
+            if(boleta.getId() == idBoleta)
+                return true;
+        }
+        return false;
+    }
+    
+
+    
+    
 }
