@@ -92,8 +92,7 @@ public class BoletaResource {
      */
     @GET
     public List<BoletaDetailDTO> getBoletas() throws BusinessLogicException, PersistenceException {
-        BoletaDetailDTO entrega = new BoletaDetailDTO();
-        return entrega.listBoletaEntity2BoletaDetailDTO(boletaLogic.findAll());
+        return BoletaDetailDTO.listBoletaEntity2BoletaDetailDTO(boletaLogic.findAll());
     }
 
     @GET

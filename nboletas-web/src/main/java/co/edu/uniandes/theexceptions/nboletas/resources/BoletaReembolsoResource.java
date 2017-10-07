@@ -44,8 +44,7 @@ public class BoletaReembolsoResource {
     @GET
     public List<ReembolsoDetailDTO> getReembolsos(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException, PersistenceException {
         List<ReembolsoEntity> list = boletaLogic.findBoletaReembolsos(idBoleta);
-        ReembolsoDetailDTO entrega = new ReembolsoDetailDTO();
-        return entrega.listReembolsoEntity2ReembolsoDetailDTO(list);
+        return ReembolsoDetailDTO.listReembolsoEntity2ReembolsoDetailDTO(list);
     }
 
     @GET

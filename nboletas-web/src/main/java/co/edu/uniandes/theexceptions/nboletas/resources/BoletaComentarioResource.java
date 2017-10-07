@@ -7,14 +7,12 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.ComentarioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.BoletaLogic;
-import co.edu.uniandes.theexceptions.nboletas.ejb.ComentarioLogic;
-import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.PersistenceException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -37,88 +35,38 @@ public class BoletaComentarioResource {
     @Inject
     BoletaLogic boletaLogic;
 
-    @Inject
-    ComentarioLogic comentarioLogic;
 
     @POST
-    public ComentarioDetailDTO createBoletaComentario(@PathParam("idBoleta") Long idBoleta, ComentarioDetailDTO comentario) throws BusinessLogicException {
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con el id: " + idBoleta);
-        }
-        ComentarioEntity comentarioE = comentario.toEntity();
-        comentarioE.setBoleta(boleta);
-        ComentarioEntity comentarioCreado = comentarioLogic.create(comentarioE);
+    public ComentarioDetailDTO createBoletaComentario(@PathParam("idBoleta") Long idBoleta, ComentarioDetailDTO comentario) throws BusinessLogicException, PersistenceException {
+        ComentarioEntity comentarioCreado = boletaLogic.createBoletaComentario(idBoleta, comentario.toEntity());
         return new ComentarioDetailDTO(comentarioCreado);
     }
 
     @GET
-    public List<ComentarioDetailDTO> getComentarios(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException {
-        List<ComentarioEntity> list = new ArrayList<>();
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
-        }
-        ComentarioEntity comentario = boleta.getComentario();
-        if (comentario != null) {
-            list.add(boleta.getComentario());
-        }
-        return listEntity2DetailDTO(list);
+    public List<ComentarioDetailDTO> getComentarios(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException, PersistenceException {
+        List<ComentarioEntity> list = boletaLogic.findBoletaComentarios(idBoleta);
+        return ComentarioDetailDTO.listComentarioEntity2ComentarioDetailDTO(list);
     }
 
     @GET
     @Path("{idComentario: \\d+}")
-    public ComentarioDetailDTO getComentario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario) throws BusinessLogicException {
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
-        }
-        ComentarioEntity comentario = comentarioLogic.find(idComentario);
-        if (comentario == null) {
-            throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
-        }
-        comentario.setBoleta(boleta);
+    public ComentarioDetailDTO getComentario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario) throws BusinessLogicException, PersistenceException {
+        ComentarioEntity comentario = boletaLogic.findBoletaComentarios(idBoleta, idComentario);
         return new ComentarioDetailDTO(comentario);
     }
 
     @PUT
     @Path("{idComentario: \\d+}")
-    public ComentarioDetailDTO updateBoletaComentario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario, ComentarioDetailDTO comentario) throws BusinessLogicException {
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
-        }
-        if (null == comentarioLogic.find(idComentario)) {
-            throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
-        }
-        ComentarioEntity comentarioActualizar = comentario.toEntity();
-        comentarioActualizar.setBoleta(boleta);
-        comentarioActualizar.setId(idComentario);
-        ComentarioEntity actual = comentarioLogic.update(comentarioActualizar);
+    public ComentarioDetailDTO updateBoletaComentario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario, ComentarioDetailDTO comentario) throws BusinessLogicException, PersistenceException {
+        ComentarioEntity comentarioA = comentario.toEntity();
+        comentarioA.setId(idComentario);
+        ComentarioEntity actual = boletaLogic.updateBoletaComentario(idBoleta, comentarioA);
         return new ComentarioDetailDTO(actual);
     }
 
     @DELETE
     @Path("{idComentario: \\d+}")
-    public void deleteBoletaComenario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario) throws BusinessLogicException {
-        BoletaEntity boleta = boletaLogic.find(idBoleta);
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
-        }
-        ComentarioEntity comentario = comentarioLogic.find(idComentario);
-        if (comentario == null) {
-            throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
-        }
-        comentario.setBoleta(boleta);
-        comentarioLogic.delete(comentario);
+    public void deleteBoletaComenario(@PathParam("idBoleta") Long idBoleta, @PathParam("idComentario") Long idComentario) throws BusinessLogicException, PersistenceException {
+        boletaLogic.deleteBoletaComentario(idBoleta, idComentario);
     }
-
-    private List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
-        List<ComentarioDetailDTO> list = new ArrayList<>();
-        for (ComentarioEntity entity : entityList) {
-            list.add(new ComentarioDetailDTO(entity));
-        }
-        return list;
-    }
-
 }

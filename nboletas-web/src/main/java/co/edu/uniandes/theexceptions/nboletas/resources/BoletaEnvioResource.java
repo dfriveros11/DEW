@@ -44,8 +44,7 @@ public class BoletaEnvioResource {
     @GET
     public List<EnvioDetailDTO> getEnvios(@PathParam("idBoleta") Long idBoleta) throws BusinessLogicException, PersistenceException {
         List<EnvioEntity> envios = boletaLogic.findBoletaEnvios(idBoleta);
-        EnvioDetailDTO entrega = new EnvioDetailDTO();
-        return entrega.listEnvioEntity2EnvioDetailDTO(envios);
+        return EnvioDetailDTO.listEnvioEntity2EnvioDetailDTO(envios);
     }
 
     @GET

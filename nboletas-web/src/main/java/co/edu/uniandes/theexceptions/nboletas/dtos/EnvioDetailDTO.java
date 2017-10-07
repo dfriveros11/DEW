@@ -48,6 +48,7 @@ public class EnvioDetailDTO extends EnvioDTO {
      *
      * @return
      */
+    @Override
     public EnvioEntity toEntity() {
         EnvioEntity envEnt = super.toEntity();
 
@@ -72,7 +73,7 @@ public class EnvioDetailDTO extends EnvioDTO {
         this.boleta = boleta;
     }
 
-    public List<EnvioDetailDTO> listEnvioEntity2EnvioDetailDTO(List<EnvioEntity> entityList) {
+    public static List<EnvioDetailDTO> listEnvioEntity2EnvioDetailDTO(List<EnvioEntity> entityList) {
         List<EnvioDetailDTO> list = new ArrayList<>();
         for (EnvioEntity entity : entityList) {
             list.add(new EnvioDetailDTO(entity));
@@ -80,7 +81,7 @@ public class EnvioDetailDTO extends EnvioDTO {
         return list;
     }
 
-    public List<EnvioEntity> listEnvioDetailDTO2EnvioEntity(List<EnvioDetailDTO> detailList) {
+    public static List<EnvioEntity> listEnvioDetailDTO2EnvioEntity(List<EnvioDetailDTO> detailList) {
         List<EnvioEntity> list = new ArrayList<>();
         for (EnvioDetailDTO detail : detailList) {
             list.add(detail.toEntity());

@@ -24,11 +24,13 @@ SOFTWARE.
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
+import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.ComentarioPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.EnvioPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.ReembolsoPersistence;
 import java.util.ArrayList;
@@ -52,6 +54,9 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
 
     @Inject
     private ReembolsoPersistence persistenceReembolso;
+    
+    @Inject
+    private ComentarioPersistence persistenceComentario;
 
     @Override
     protected AbstractPersistence<BoletaEntity> getPersistence() {
@@ -141,7 +146,7 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         }
     }
 
-    public ReembolsoEntity createBoletaReembolso(Long idBoleta, ReembolsoEntity reembolso) throws BusinessLogicException {
+    public ReembolsoEntity createBoletaReembolso(Long idBoleta, ReembolsoEntity reembolso) throws BusinessLogicException, PersistenceException {
         BoletaEntity boleta = persistenceBoleta.find(idBoleta);
         if (boleta == null) {
             throw new BusinessLogicException("No existe la boleta con el id: " + idBoleta);
@@ -156,7 +161,7 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         return reembolsoCreado;
     }
 
-    public ReembolsoEntity findBoletaReembolso(Long idBoleta, Long idReembolso) throws BusinessLogicException {
+    public ReembolsoEntity findBoletaReembolso(Long idBoleta, Long idReembolso) throws BusinessLogicException, PersistenceException {
         BoletaEntity boleta = persistenceBoleta.find(idBoleta);
         if (boleta == null) {
             throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
@@ -173,7 +178,7 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         return reembolso;
     }
 
-    public List<ReembolsoEntity> findBoletaReembolsos(Long idBoleta) throws BusinessLogicException {
+    public List<ReembolsoEntity> findBoletaReembolsos(Long idBoleta) throws BusinessLogicException, PersistenceException {
         List<ReembolsoEntity> reembolsos = new ArrayList();
         BoletaEntity boleta = persistenceBoleta.find(idBoleta);
         if (boleta == null) {
@@ -183,12 +188,12 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
             ReembolsoEntity reembolso = boleta.getReembolso();
             reembolsos.add(reembolso);
         } catch (PersistenceException e) {
-            throw new PersistenceException(" Sucedio un error en la base de datos mayor infromacion: " + e.getMessage());
+            throw new PersistenceException(" Sucedio un error en la base de datos mayor informacion: " + e.getMessage());
         }
         return reembolsos;
     }
 
-    public ReembolsoEntity updateBoletaReembolso(Long idBoleta, ReembolsoEntity reembolso) throws BusinessLogicException {
+    public ReembolsoEntity updateBoletaReembolso(Long idBoleta, ReembolsoEntity reembolso) throws BusinessLogicException, PersistenceException {
         BoletaEntity boleta = persistenceBoleta.find(idBoleta);
         if (boleta == null) {
             throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
@@ -207,7 +212,7 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         return reembolsoFinal;
     }
 
-    public void deleteBoletaReembolso(Long idBoleta, Long idReembolso) throws BusinessLogicException {
+    public void deleteBoletaReembolso(Long idBoleta, Long idReembolso) throws BusinessLogicException,PersistenceException {
         BoletaEntity boleta = persistenceBoleta.find(idBoleta);
         if (boleta == null) {
             throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
@@ -221,6 +226,88 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
             persistenceReembolso.delete(reembolso);
         } catch (PersistenceException e) {
             throw new PersistenceException("No se puede eliminar el reembolso con el id: " + idReembolso + " relacionado a la boleta con el id: " + idBoleta + " El error es: " + e.getMessage());
+        }
+    }
+
+    public ComentarioEntity createBoletaComentario(Long idBoleta, ComentarioEntity comentario) throws BusinessLogicException, PersistenceException {
+        BoletaEntity boleta = persistenceBoleta.find(idBoleta);
+        if (boleta == null) {
+            throw new BusinessLogicException("No existe la boleta con el id: " + idBoleta);
+        }
+        comentario.setBoleta(boleta);
+        ComentarioEntity comentarioCreado = null;
+        try{
+            persistenceComentario.create(comentario);
+        }catch(PersistenceException e){
+            throw new PersistenceException("Un error al crear el comentario relacionado a la boleta con id:  " + idBoleta + " el error es: " + e.getMessage());
+        }
+       return comentarioCreado;
+    }
+
+    public List<ComentarioEntity> findBoletaComentarios(Long idBoleta) throws BusinessLogicException, PersistenceException {
+        List<ComentarioEntity> list = new ArrayList<ComentarioEntity>();
+        BoletaEntity boleta = persistenceBoleta.find(idBoleta);
+        if (boleta == null) {
+            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+        }
+        ComentarioEntity comentario = boleta.getComentario();
+        if (comentario != null) {
+            list.add(boleta.getComentario());
+        }
+        return list;
+    }
+
+    public ComentarioEntity findBoletaComentarios(Long idBoleta, Long idComentario) throws BusinessLogicException, PersistenceException {
+        BoletaEntity boleta = persistenceBoleta.find(idBoleta);
+        if (boleta == null) {
+            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+        }
+        ComentarioEntity comentario = persistenceComentario.find(idComentario);
+        if (comentario == null) {
+            throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
+        }
+        long id = comentario.getBoleta().getId();
+        if (id != idBoleta) {
+            throw new BusinessLogicException("No existe la relacion ");
+        }
+        comentario.setBoleta(boleta);
+        return comentario;
+    }
+
+    public ComentarioEntity updateBoletaComentario(Long idBoleta, ComentarioEntity comentario) throws BusinessLogicException, PersistenceException{
+        BoletaEntity boleta = persistenceBoleta.find(idBoleta);
+        if (boleta == null) {
+            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+        }
+        long idComentario = comentario.getId();
+        if (null == persistenceComentario.find(idComentario)) {
+            throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
+        }
+        comentario.setBoleta(boleta);
+        comentario.setId(idComentario);
+        ComentarioEntity actual = null;
+        try {
+            actual = persistenceComentario.update(comentario);
+        } catch (PersistenceException e) {
+            throw new PersistenceException("No se pudo actualizar el comentario con el id: " + idComentario + " relacionado a la boleta con el id: " + idBoleta + " el error es: " + e.getMessage());
+        }
+        return actual;
+    }
+
+    public void deleteBoletaComentario(Long idBoleta, Long idComentario) throws BusinessLogicException, PersistenceException {
+       BoletaEntity boleta = persistenceBoleta.find(idBoleta);
+        if (boleta == null) {
+            throw new BusinessLogicException("No existe la boleta con ese id: " + idBoleta);
+        }
+        ComentarioEntity comentario = persistenceComentario.find(idComentario);
+        if (comentario == null) {
+            throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
+        }
+        comentario.setBoleta(boleta);
+        try {
+            persistenceComentario.delete(comentario);
+        } catch (PersistenceException e) {
+            throw new PersistenceException("No se puede eliminar el comentario con el id: " + idComentario + " relacionado a la boleta con el id: " + idBoleta + " El error es: " + e.getMessage());
         }
     }
 

@@ -24,7 +24,6 @@ SOFTWARE.
 package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -77,8 +76,8 @@ public class BoletaEntity extends BaseEntity implements Serializable {
         return vendida;
     }
 
-    public void setVenida(boolean venida) {
-        this.vendida = venida;
+    public void setVendida(boolean vendida) {
+        this.vendida = vendida;
     }
 
     public ReembolsoEntity getReembolso() {

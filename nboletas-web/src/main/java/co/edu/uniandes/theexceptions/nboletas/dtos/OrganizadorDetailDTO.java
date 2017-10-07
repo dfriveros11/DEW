@@ -47,7 +47,7 @@ public class OrganizadorDetailDTO extends OrganizadorDTO {
         return entity;
     }
 
-    public List<OrganizadorDetailDTO> listOrganizadorEntity2OrganizadorDetailDTO(List<OrganizadorEntity> entityList) {
+    public static List<OrganizadorDetailDTO> listOrganizadorEntity2OrganizadorDetailDTO(List<OrganizadorEntity> entityList) {
         List<OrganizadorDetailDTO> list = new ArrayList<>();
         for (OrganizadorEntity entity : entityList) {
             list.add(new OrganizadorDetailDTO(entity));
@@ -55,7 +55,7 @@ public class OrganizadorDetailDTO extends OrganizadorDTO {
         return list;
     }
 
-    public List<OrganizadorEntity> listBoletaDetailDTO2BoletaEntity(List<OrganizadorDetailDTO> detailDtoList) {
+    public static List<OrganizadorEntity> listBoletaDetailDTO2BoletaEntity(List<OrganizadorDetailDTO> detailDtoList) {
         List<OrganizadorEntity> list = new ArrayList<>();
         for (OrganizadorDetailDTO detail : detailDtoList) {
             list.add(detail.toEntity());

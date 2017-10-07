@@ -20,11 +20,15 @@ insert into BoletaEntity (id, precio, vendida, funcion_id, silla_id, usuario_id)
 
 insert into BoletaEntity (id, precio, vendida) values (1, 10.23, 1);
 
-insert into BoletaEntity (id, precio, vendida) values (2, 30.01, 0);
+insert into BoletaEntity (id, precio, vendida) values (2, 30.01, 1);
 insert into EnvioEntity (id, direccion, boleta_id) values (1,'Calle 43 #7-26 - Aprt:101', 2);
 
 insert into BoletaEntity (id, precio, vendida) values (3, 10.00, 1);
 insert into ReembolsoEntity(id, valor, boleta_id) values (1, 100.00, 3);
+
+insert into BoletaEntity(id, precio, vendida) values (4, 55, 1);
+insert into ComentarioEntity(id, comentario, fecha, espectaculo_id, boleta_id) values (1, 'ajá tu qué', '2017-12-4', null, 4);
+
 
 insert into OrganizadorEntity(id, nombreEmpresa) values (0, 'Tu, NO OTRA VEZ');
 

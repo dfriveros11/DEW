@@ -49,6 +49,7 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
      * Indica si un usuario ha hecho un reembolso con id dado.
      * <pre> El Reembolso y el Usuario existen en el sistema.
      * @param idUsuario
+     * @param idReembolso
      * @param reembolso
      * @return 
      */

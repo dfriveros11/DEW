@@ -27,13 +27,15 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
 
     public ReembolsoDetailDTO(ReembolsoEntity entity) {
         super(entity);
-        BoletaEntity boletaA = entity.getBoleta();
-        if (boletaA != null) {
-            boleta = new BoletaDTO(entity.getBoleta());
-        }
-        UsuarioEntity usuarioA = entity.getUsuario();
-        if (usuarioA != null) {
-            usuario = new UsuarioDTO(entity.getUsuario());
+        if (entity != null) {
+            BoletaEntity boletaA = entity.getBoleta();
+            if (boletaA != null) {
+                boleta = new BoletaDTO(entity.getBoleta());
+            }
+            UsuarioEntity usuarioA = entity.getUsuario();
+            if (usuarioA != null) {
+                usuario = new UsuarioDTO(entity.getUsuario());
+            }
         }
     }
 
@@ -66,9 +68,11 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
     }
 
     /**
-     * Transforma una lista de ReembolsoEntity a una lista de ReembolsoDetailDTO.
+     * Transforma una lista de ReembolsoEntity a una lista de
+     * ReembolsoDetailDTO.
+     *
      * @param entityList
-     * @return 
+     * @return
      */
     public static List<ReembolsoDetailDTO> listReembolsoEntity2ReembolsoDetailDTO(List<ReembolsoEntity> entityList) {
         List<ReembolsoDetailDTO> list = new ArrayList<>();
@@ -79,9 +83,11 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
     }
 
     /**
-     * Transforma una lista de ReembolsoEntity a una lista de ReembolsoDetailDTO.
+     * Transforma una lista de ReembolsoEntity a una lista de
+     * ReembolsoDetailDTO.
+     *
      * @param detailList
-     * @return 
+     * @return
      */
     public static List<ReembolsoEntity> listReembolsoDetailDTO2ReembolsoEntity(List<ReembolsoDetailDTO> detailList) {
         List<ReembolsoEntity> list = new ArrayList<>();

@@ -6,7 +6,6 @@
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
-import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,7 +103,7 @@ public class ComentarioDetailDTO extends ComentarioDTO {
         this.espectaculo = espectaculo;
     }
 
-    public List<ComentarioDetailDTO> listComentarioEntity2ComentarioDetailDTO(List<ComentarioEntity> entityList) {
+    public static  List<ComentarioDetailDTO> listComentarioEntity2ComentarioDetailDTO(List<ComentarioEntity> entityList) {
         List<ComentarioDetailDTO> list = new ArrayList<>();
         for (ComentarioEntity entity : entityList) {
             list.add(new ComentarioDetailDTO(entity));
@@ -112,7 +111,7 @@ public class ComentarioDetailDTO extends ComentarioDTO {
         return list;
     }
 
-    public List<ComentarioEntity> listComentarioDetailDTO2ComentarioEntity(List<ComentarioDetailDTO> detailDtoList) {
+    public static List<ComentarioEntity> listComentarioDetailDTO2ComentarioEntity(List<ComentarioDetailDTO> detailDtoList) {
         List<ComentarioEntity> list = new ArrayList<>();
         for (ComentarioDetailDTO detail : detailDtoList) {
             list.add(detail.toEntity());

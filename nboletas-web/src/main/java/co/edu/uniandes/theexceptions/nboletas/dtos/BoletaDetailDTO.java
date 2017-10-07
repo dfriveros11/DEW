@@ -187,7 +187,7 @@ public class BoletaDetailDTO extends BoletaDTO {
         this.silla = silla;
     }
 
-    public List<BoletaDetailDTO> listBoletaEntity2BoletaDetailDTO(List<BoletaEntity> entityList) {
+    public static List<BoletaDetailDTO> listBoletaEntity2BoletaDetailDTO(List<BoletaEntity> entityList) {
         List<BoletaDetailDTO> list = new ArrayList<>();
         for (BoletaEntity entity : entityList) {
             list.add(new BoletaDetailDTO(entity));
@@ -195,7 +195,7 @@ public class BoletaDetailDTO extends BoletaDTO {
         return list;
     }
 
-    public List<BoletaEntity> listBoletaDetailDTO2BoletaEntity(List<BoletaDetailDTO> detailDtoList) {
+    public static List<BoletaEntity> listBoletaDetailDTO2BoletaEntity(List<BoletaDetailDTO> detailDtoList) {
         List<BoletaEntity> list = new ArrayList<>();
         for (BoletaDetailDTO detail : detailDtoList) {
             list.add(detail.toEntity());
