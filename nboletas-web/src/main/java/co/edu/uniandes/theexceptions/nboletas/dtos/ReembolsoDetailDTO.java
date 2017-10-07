@@ -65,7 +65,12 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
         this.usuario = usuario;
     }
 
-    public List<ReembolsoDetailDTO> listReembolsoEntity2ReembolsoDetailDTO(List<ReembolsoEntity> entityList) {
+    /**
+     * Transforma una lista de ReembolsoEntity a una lista de ReembolsoDetailDTO.
+     * @param entityList
+     * @return 
+     */
+    public static List<ReembolsoDetailDTO> listReembolsoEntity2ReembolsoDetailDTO(List<ReembolsoEntity> entityList) {
         List<ReembolsoDetailDTO> list = new ArrayList<>();
         for (ReembolsoEntity entity : entityList) {
             list.add(new ReembolsoDetailDTO(entity));
@@ -73,7 +78,12 @@ public class ReembolsoDetailDTO extends ReembolsoDTO {
         return list;
     }
 
-    public List<ReembolsoEntity> listReembolsoDetailDTO2ReembolsoEntity(List<ReembolsoDetailDTO> detailList) {
+    /**
+     * Transforma una lista de ReembolsoEntity a una lista de ReembolsoDetailDTO.
+     * @param detailList
+     * @return 
+     */
+    public static List<ReembolsoEntity> listReembolsoDetailDTO2ReembolsoEntity(List<ReembolsoDetailDTO> detailList) {
         List<ReembolsoEntity> list = new ArrayList<>();
         for (ReembolsoDetailDTO detail : detailList) {
             list.add(detail.toEntity());
