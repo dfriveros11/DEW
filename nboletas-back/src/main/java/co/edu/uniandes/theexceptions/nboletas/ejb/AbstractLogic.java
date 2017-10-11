@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
-import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import java.util.List;
 import javax.persistence.PersistenceException;
