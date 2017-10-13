@@ -7,9 +7,11 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.TransactionRequiredException;
 
 /**
  *
@@ -34,7 +36,7 @@ public abstract class AbstractPersistence<T> {
      * @param entity
      * @return
      */
-    public T create(T entity) throws PersistenceException {
+    public T create(T entity) throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
         em.persist(entity);
         return entity;
     }
@@ -45,7 +47,7 @@ public abstract class AbstractPersistence<T> {
      * @param entity
      * @return
      */
-    public T update(T entity) throws PersistenceException {
+    public T update(T entity) throws IllegalArgumentException, TransactionRequiredException {
         em.merge(entity);
         return entity;
     }
@@ -55,7 +57,7 @@ public abstract class AbstractPersistence<T> {
      *
      * @param entity
      */
-    public void delete(T entity) throws PersistenceException {
+    public void delete(T entity) throws IllegalArgumentException, TransactionRequiredException {
         em.remove(em.merge(entity));
     }
 
@@ -65,7 +67,7 @@ public abstract class AbstractPersistence<T> {
      * @param id
      * @return
      */
-    public T find(Object id) throws PersistenceException {
+    public T find(Object id) throws IllegalArgumentException {
         return (em.find(entityClass, id));
     }
 
@@ -74,7 +76,7 @@ public abstract class AbstractPersistence<T> {
      *
      * @return list con todos los objetos
      */
-    public List<T> findAll() throws PersistenceException {
+    public List<T> findAll() throws IllegalStateException {
         javax.persistence.criteria.CriteriaQuery oq = em.getCriteriaBuilder().createQuery();
         oq.select(oq.from(entityClass));
         return em.createQuery(oq).getResultList();
