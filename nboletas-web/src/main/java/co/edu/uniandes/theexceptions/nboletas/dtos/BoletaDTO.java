@@ -99,7 +99,7 @@ public class BoletaDTO {
         BoletaEntity entity = new BoletaEntity();
         entity.setId(this.id);
         entity.setPrecio(this.precio);
-        entity.setVenida(this.vendida);
+        entity.setVendida(this.vendida);
         return entity;
     }
 
