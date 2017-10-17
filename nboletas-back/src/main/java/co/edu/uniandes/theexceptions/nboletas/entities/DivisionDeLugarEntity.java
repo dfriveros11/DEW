@@ -24,7 +24,7 @@ public class DivisionDeLugarEntity extends BaseEntity implements Serializable {
     private String nombre;
 
     @PodamExclude
-    @OneToMany(orphanRemoval = true,cascade=CascadeType.REMOVE,fetch = FetchType.LAZY, mappedBy = "division")
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "division")
     private List<SillaEntity> sillas;
 
     @PodamExclude

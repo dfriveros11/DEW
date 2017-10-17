@@ -33,13 +33,13 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Stateless
 public class SillaBoletaResource {
-    
+
     @Inject
     SillaLogic sillaLogic;
-    
+
     @Inject
     BoletaLogic boletaLogic;
-    
+
     @POST
     public BoletaDetailDTO createSillaBoleta(@PathParam("sillasid") Long idSilla, BoletaDetailDTO boleta) throws BusinessLogicException {
         SillaEntity silla = sillaLogic.find(idSilla);
@@ -51,10 +51,10 @@ public class SillaBoletaResource {
         BoletaEntity boletaCreada = boletaLogic.create(boletaE);
         return new BoletaDetailDTO(boletaCreada);
     }
-    
+
     @GET
     public List<BoletaDetailDTO> getBoletas(@PathParam("sillasid") Long idSilla) throws BusinessLogicException {
-        
+
         SillaEntity silla = sillaLogic.find(idSilla);
         if (silla == null) {
             throw new BusinessLogicException("No existe la silla con el id: " + idSilla);
@@ -62,7 +62,7 @@ public class SillaBoletaResource {
         List<BoletaDetailDTO> list = listEntity2DetailDTO(silla.getBoletas());
         return list;
     }
-    
+
     @GET
     @Path("{boletasid: \\d+}")
     public BoletaDetailDTO getBoleta(@PathParam("sillasid") Long idSilla, @PathParam("boletasid") Long idBoleta) throws BusinessLogicException {
@@ -70,20 +70,20 @@ public class SillaBoletaResource {
         if (silla == null) {
             throw new BusinessLogicException("No existe la silla con el id: " + idSilla);
         }
-        List<BoletaEntity> boletas=silla.getBoletas();
+        List<BoletaEntity> boletas = silla.getBoletas();
         BoletaEntity boleta = null;
-        for(BoletaEntity b: boletas){
-            if(Objects.equals(b.getId(), idBoleta)){
-                boleta=b;
+        for (BoletaEntity b : boletas) {
+            if (Objects.equals(b.getId(), idBoleta)) {
+                boleta = b;
             }
         }
         if (boleta == null) {
-            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta +" relacionada con la silla de id:"+ idSilla );
+            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta + " relacionada con la silla de id:" + idSilla);
         }
         boleta.setSilla(silla);
         return new BoletaDetailDTO(boleta);
     }
-    
+
     @PUT
     @Path("{boletasid: \\d+}")
     public BoletaDetailDTO updateSillaBoleta(@PathParam("sillasid") Long idSilla, @PathParam("boletasid") Long idBoleta, BoletaDetailDTO boleta) throws BusinessLogicException {
@@ -91,7 +91,7 @@ public class SillaBoletaResource {
         if (silla == null) {
             throw new BusinessLogicException("No existe una silla con el id: " + idSilla);
         }
-        BoletaEntity bol=boletaLogic.find(idBoleta);
+        BoletaEntity bol = boletaLogic.find(idBoleta);
         if (null == bol) {
             throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta);
         }
@@ -109,20 +109,20 @@ public class SillaBoletaResource {
         if (silla == null) {
             throw new BusinessLogicException("No existe una silla con el id: " + idSilla);
         }
-        BoletaEntity boleta=null;
-        List<BoletaEntity> boletas=silla.getBoletas();
-        for(BoletaEntity b:boletas){
-            if(b.getId().equals(idBoleta)){
-            boleta=b;
-            }            
+        BoletaEntity boleta = null;
+        List<BoletaEntity> boletas = silla.getBoletas();
+        for (BoletaEntity b : boletas) {
+            if (b.getId().equals(idBoleta)) {
+                boleta = b;
+            }
         }
         if (boleta == null) {
-            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta +" relacionada con la silla de id:"+ idSilla);
+            throw new BusinessLogicException("No existe una boleta con el id: " + idBoleta + " relacionada con la silla de id:" + idSilla);
         }
         boleta.setSilla(null);
         boletaLogic.update(boleta);
     }
-    
+
     private List<BoletaDetailDTO> listEntity2DetailDTO(List<BoletaEntity> entityList) {
         List<BoletaDetailDTO> list = new ArrayList<>();
         for (BoletaEntity entity : entityList) {

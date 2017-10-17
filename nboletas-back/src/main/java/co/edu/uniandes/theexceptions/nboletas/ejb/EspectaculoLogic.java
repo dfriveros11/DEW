@@ -17,13 +17,13 @@ import javax.inject.Inject;
  */
 @Stateless
 public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
-    
+
     @Inject
     private EspectaculoPersistence persistence;
 
     @Override
     protected AbstractPersistence<EspectaculoEntity> getPersistence() {
-         return persistence;
+        return persistence;
     }
 
 }

@@ -31,8 +31,7 @@ public class DivisionDeLugarResource {
 
     @Inject
     LugarLogic lugarLogic;
-            
-    
+
     private static final Logger LOGGER = Logger.getLogger(DivisionDeLugarResource.class.getName());
 
     /**
@@ -47,7 +46,7 @@ public class DivisionDeLugarResource {
      */
     @POST
     public DivisionDeLugarDetailDTO createDivision(DivisionDeLugarDetailDTO division) throws BusinessLogicException {
-        
+
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         DivisionDeLugarEntity divisionEntity = division.toEntity();
         // Invoca la lógica para crear la Boleta nueva
@@ -67,7 +66,7 @@ public class DivisionDeLugarResource {
     public List<DivisionDeLugarDetailDTO> getDivisiones() throws BusinessLogicException {
         return listEntity2DetailDTO(divisionDeLugarLogic.findAll());
     }
-    
+
     @GET
     @Path("{id: \\d+}")
     public DivisionDeLugarDetailDTO getDivision(@PathParam("id") Long id) throws BusinessLogicException {

@@ -6,6 +6,8 @@
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,5 +39,21 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
     public EspectaculoEntity toEntity() {
         EspectaculoEntity BoletaE = super.toEntity();
         return BoletaE;
+    }
+
+    public List<EspectaculoDetailDTO> listEspectaculoEntity2EspectaculoDetailDTO(List<EspectaculoEntity> entityList) {
+        List<EspectaculoDetailDTO> list = new ArrayList<>();
+        for (EspectaculoEntity entity : entityList) {
+            list.add(new EspectaculoDetailDTO(entity));
+        }
+        return list;
+    }
+
+    public List<EspectaculoEntity> listEspectaculoDetailDto2EspectaculoEntity(List<EspectaculoDetailDTO> entityList) {
+        List<EspectaculoEntity> list = new ArrayList<>();
+        for (EspectaculoDetailDTO entity : entityList) {
+            list.add(entity.toEntity());
+        }
+        return list;
     }
 }

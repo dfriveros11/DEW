@@ -52,7 +52,7 @@ public class BoletaDTO {
      */
     public BoletaDTO(BoletaEntity boleta) {
 
-        if(boleta != null){
+        if (boleta != null) {
 
             this.id = boleta.getId();
             this.precio = boleta.getPrecio();

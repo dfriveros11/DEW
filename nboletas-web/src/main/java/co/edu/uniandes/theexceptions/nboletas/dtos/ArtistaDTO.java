@@ -12,7 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
  * @author jf.ramos
  */
 public class ArtistaDTO {
-    
+
     private Long id;
     private String nombre;
 
@@ -55,7 +55,6 @@ public class ArtistaDTO {
         this.nombre = nombre;
     }
 
-
     /**
      * Convertir DTO a Entity
      *
@@ -67,5 +66,5 @@ public class ArtistaDTO {
         entity.setNombre(this.nombre);
         return entity;
     }
-    
+
 }

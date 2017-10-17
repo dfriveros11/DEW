@@ -50,11 +50,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     private String ciudad;
 
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "usuario")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private List<BoletaEntity> boletas;
 
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "usuario")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private List<ReembolsoEntity> reembolsos;
 
     public List<BoletaEntity> getBoletas() {

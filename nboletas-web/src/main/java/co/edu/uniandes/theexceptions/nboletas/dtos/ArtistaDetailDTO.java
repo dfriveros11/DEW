@@ -12,8 +12,8 @@ import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
  * @author jf.ramos
  */
 public class ArtistaDetailDTO extends ArtistaDTO {
-    
-        /**
+
+    /**
      * Constructor por defecto
      */
     public ArtistaDetailDTO() {
@@ -38,5 +38,5 @@ public class ArtistaDetailDTO extends ArtistaDTO {
         ArtistaEntity BoletaE = super.toEntity();
         return BoletaE;
     }
-    
+
 }

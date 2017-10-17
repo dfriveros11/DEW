@@ -12,7 +12,7 @@ import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
  * @author jm.contreras10
  */
 public class UsuarioDTO {
-    
+
     private Long id;
     private String userName;
     private String password;
@@ -25,16 +25,18 @@ public class UsuarioDTO {
     }
 
     public UsuarioDTO(UsuarioEntity entity) {
-        this.id = entity.getId();
-        this.userName = entity.getUserName();
-        this.password = entity.getPassword();
-        this.nombreUsuario = entity.getNombreUsuario();
-        this.email = entity.getEmail();
-        this.pais = entity.getPais();
-        this.ciudad = entity.getCiudad();
+        if (entity != null) {
+            this.id = entity.getId();
+            this.userName = entity.getUserName();
+            this.password = entity.getPassword();
+            this.nombreUsuario = entity.getNombreUsuario();
+            this.email = entity.getEmail();
+            this.pais = entity.getPais();
+            this.ciudad = entity.getCiudad();
+        }
     }
 
-    public UsuarioEntity toEntity() {
+    public UsuarioEntity toEntity(){
         UsuarioEntity entity = new UsuarioEntity();
         entity.setId(id);
         entity.setUserName(userName);

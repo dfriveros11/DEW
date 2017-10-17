@@ -22,7 +22,7 @@ public class ArtistaEntity extends BaseEntity implements Serializable {
     private String nombre;
 
     @PodamExclude
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy="artista")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "artista")
     private List<EspectaculoEntity> espectaculos;
 
     public String getNombre() {
