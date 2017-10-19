@@ -48,7 +48,9 @@ public class EspectaculoOrganizadorResources {
             throw new BusinessLogicException("No existe el espectaculo con el id: " + idEspectaculo);
         }
         OrganizadorEntity organizadorE = organizador.toEntity();
-        List<OrganizadorEntity> organizadores = new ArrayList<>();
+        List <EspectaculoEntity> lista= new ArrayList<>();
+        lista.add(espectaculo);
+        List<OrganizadorEntity> organizadores = espectaculo.getOrganizador();
         organizadores.add(organizadorE);
         espectaculo.setOrganizador(organizadores);
         OrganizadorEntity organizadorCreado = organizadorLogic.create(organizadorE);
@@ -81,6 +83,10 @@ public class EspectaculoOrganizadorResources {
         OrganizadorEntity organizador = organizadorLogic.find(idOrganizador);
         if (organizador == null) {
             throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);
+        }
+        List<OrganizadorEntity> organizadoresE=espectaculo.getOrganizador();
+        if(!organizadoresE.contains(organizador)){
+            throw new BusinessLogicException("El espectaculo no está asociado al organizador con id: " + idOrganizador);
         }
         return new OrganizadorDetailDTO(organizador);
     }

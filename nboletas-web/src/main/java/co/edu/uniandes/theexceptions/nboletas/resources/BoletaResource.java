@@ -70,16 +70,10 @@ public class BoletaResource {
      * @return Devuelve el objeto json de entrada que contiene el id creado por
      * la base de datos y el tipo del objeto java. Ejemplo: { "type":
      * "BoletaDetailDTO", "id": 1, atributo1 : "valor" }
-     * @throws BusinessLogicException
      */
     @POST
-    public BoletaDetailDTO createBoleta(BoletaDetailDTO Boleta) throws BusinessLogicException, PersistenceException {
-        BoletaEntity boleta = null;
-        try {
-            boleta = boletaLogic.create(Boleta.toEntity());
-        } catch (PersistenceException e) {
-            throw new PersistenceException("Hubo un error al crear la boleta: " + e.getMessage());
-        }
+    public BoletaDetailDTO createBoleta(BoletaDetailDTO Boleta) {
+        BoletaEntity boleta = boletaLogic.create(Boleta.toEntity());
         return new BoletaDetailDTO(boleta);
     }
 
@@ -88,10 +82,9 @@ public class BoletaResource {
      * http://localhost:8080/nboletas-web/api/boletas
      *
      * @return la lista de todas las Boletas en objetos json DTO.
-     * @throws BusinessLogicException
      */
     @GET
-    public List<BoletaDetailDTO> getBoletas() throws BusinessLogicException, PersistenceException {
+    public List<BoletaDetailDTO> getBoletas() {
         return BoletaDetailDTO.listBoletaEntity2BoletaDetailDTO(boletaLogic.findAll());
     }
 
@@ -120,17 +113,12 @@ public class BoletaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public BoletaDetailDTO updateBoleta(@PathParam("id") Long id, BoletaDetailDTO boleta) throws BusinessLogicException, PersistenceException {
+    public BoletaDetailDTO updateBoleta(@PathParam("id") Long id, BoletaDetailDTO boleta) throws BusinessLogicException {
         boleta.setId(id);
         if (null == boletaLogic.find(id)) {
             throw new BusinessLogicException("No existe la boleta con el id: " + id);
         }
-        BoletaEntity boletaActualizada = null;
-        try {
-            boletaActualizada = boletaLogic.update(boleta.toEntity());
-        } catch (PersistenceException e) {
-            throw new PersistenceException("hubo un error al actualizar la boleta: " + e.getMessage());
-        }
+        BoletaEntity boletaActualizada =  boletaLogic.update(boleta.toEntity());
         return (new BoletaDetailDTO(boletaActualizada));
     }
 
@@ -147,21 +135,18 @@ public class BoletaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteBoleta(@PathParam("id") Long id) throws BusinessLogicException, PersistenceException {
+    public void deleteBoleta(@PathParam("id") Long id) throws BusinessLogicException {
         BoletaEntity boleta = boletaLogic.find(id);
         if (null == boleta) {
             throw new BusinessLogicException("No existe la boleta con el id: " + id);
         }
-        try {
             boletaLogic.delete(boleta);
-        } catch (PersistenceException e) {
-            throw new PersistenceException("Hubo un error al borrar la boleta: " + e.getMessage());
-        }
+       
     }
 
     @GET
     @Path("{id: \\d+}/usuarios")
-    public UsuarioDetailDTO getUsuario(@PathParam("id") Long id) throws BusinessLogicException, PersistenceException {
+    public UsuarioDetailDTO getUsuario(@PathParam("id") Long id) throws BusinessLogicException {
         BoletaEntity boleta = boletaLogic.find(id);
         if (boleta == null) {
             throw new BusinessLogicException("No se encontra la boleta con el id: " + id);
@@ -171,7 +156,7 @@ public class BoletaResource {
 
     @GET
     @Path("{id: \\d+}/sillas")
-    public SillaDetailDTO getSilla(@PathParam("id") Long id) throws BusinessLogicException, PersistenceException {
+    public SillaDetailDTO getSilla(@PathParam("id") Long id) throws BusinessLogicException {
         BoletaEntity boleta = boletaLogic.find(id);
         if (boleta == null) {
             throw new BusinessLogicException("No se encontra la boleta con el id: " + id);
@@ -181,7 +166,7 @@ public class BoletaResource {
 
     @GET
     @Path("{id: \\d+}/funciones")
-    public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws BusinessLogicException, PersistenceException {
+    public FuncionDetailDTO getFuncion(@PathParam("id") Long id) throws BusinessLogicException {
         BoletaEntity boleta = boletaLogic.find(id);
         if (boleta == null) {
             throw new BusinessLogicException("No se encontra la boleta con el id: " + id);
