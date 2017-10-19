@@ -3,6 +3,8 @@
         // External dependencies
         'ui.router',
         'ui.bootstrap',
+        'BoletaModule',
+        'OrganizadorModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas
