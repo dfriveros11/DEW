@@ -60,7 +60,7 @@ public class FuncionResource {
      */
     @GET
     public List<FuncionDetailDTO> getFunciones() throws BusinessLogicException {
-        return listEntity2DetailDTO(funcionLogic.findAll());
+        return FuncionDetailDTO.listFuncionEntity2DetailDTO(funcionLogic.findAll());
     }
 
     /**
@@ -193,13 +193,5 @@ public class FuncionResource {
             throw new BusinessLogicException("No existe funcion con el id: " + id);
         }
         funcionLogic.delete(f);
-    }
-
-    private List<FuncionDetailDTO> listEntity2DetailDTO(List<FuncionEntity> entityList) {
-        List<FuncionDetailDTO> list = new ArrayList<>();
-        for (FuncionEntity entity : entityList) {
-            list.add(new FuncionDetailDTO(entity));
-        }
-        return list;
     }
 }

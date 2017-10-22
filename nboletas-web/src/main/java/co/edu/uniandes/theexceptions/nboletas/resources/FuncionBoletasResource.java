@@ -37,9 +37,6 @@ public class FuncionBoletasResource {
     @Inject
     private FuncionLogic funcionLogic;
 
-    @Inject
-    private BoletaLogic boletaLogic;
-
     /**
      * GET para las boletas de una funcion especifica.
      * http://localhost:8080/nboletas-web/api/funciones/idFuncion/boletas
@@ -51,12 +48,8 @@ public class FuncionBoletasResource {
      */
     @GET
     public List<BoletaDetailDTO> getBoletasFuncion(@PathParam("idFuncion") Long id) throws BusinessLogicException {
-        FuncionEntity f = funcionLogic.find(id);
-        if (f == null) {
-            throw new BusinessLogicException("No existe funcion con el id " + id);
-        }
-        List<BoletaDetailDTO> list = listEntity2DetailDTO(f.getBoletas());
-        return list;
+        List<BoletaEntity> getBoletas = funcionLogic.getBoletasFuncion(id);
+        return BoletaDetailDTO.listBoletaEntity2BoletaDetailDTO(getBoletas);
     }
 
     /**
@@ -73,24 +66,8 @@ public class FuncionBoletasResource {
     @GET
     @Path("{idBoleta: \\d+}")
     public BoletaDetailDTO getBoletaFuncion(@PathParam("idFuncion") Long id, @PathParam("idBoleta") Long idBoleta) throws BusinessLogicException {
-        FuncionEntity f = funcionLogic.find(id);
-        if (f == null) {
-            throw new BusinessLogicException("No existe funcion con el id " + id);
-        }
-
-        List<BoletaEntity> boletas = f.getBoletas();
-        BoletaEntity boleta = null;
-        for (BoletaEntity b : boletas) {
-            if (b.getId().equals(idBoleta)) {
-                boleta = b;
-            }
-        }
-
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe boleta con el id " + idBoleta + " relacionada "
-                    + "con la funcion de id " + id);
-        }
-        return new BoletaDetailDTO(boleta);
+        BoletaEntity getBoleta = funcionLogic.getBoletaFuncion(id, idBoleta);
+        return new BoletaDetailDTO(getBoleta);
     }
 
     /**
@@ -107,15 +84,8 @@ public class FuncionBoletasResource {
      */
     @POST
     public BoletaDetailDTO createBoletaFuncion(@PathParam("idFuncion") Long id, BoletaDetailDTO boleta) throws BusinessLogicException {
-        FuncionEntity f = funcionLogic.find(id);
-        if (f == null) {
-            throw new BusinessLogicException("No existe funcion con el id " + id);
-        }
-
-        BoletaEntity b = boleta.toEntity();
-        b.setFuncion(f);
-        b = boletaLogic.create(b);
-        return new BoletaDetailDTO(b);
+        BoletaEntity newBoleta = funcionLogic.createBoletaFuncion(id, boleta.toEntity());
+        return new BoletaDetailDTO(newBoleta);
     }
 
     /**
@@ -135,19 +105,8 @@ public class FuncionBoletasResource {
     @PUT
     @Path("{idBoleta: \\d+}")
     public BoletaDetailDTO updateBoletaFuncion(@PathParam("idFuncion") Long id, @PathParam("idBoleta") Long idBoleta) throws BusinessLogicException {
-        FuncionEntity f = funcionLogic.find(id);
-        if (f == null) {
-            throw new BusinessLogicException("No existe funcion con el id " + id);
-        }
-
-        BoletaEntity b = boletaLogic.find(idBoleta);
-        if (b == null) {
-            throw new BusinessLogicException("No existe una boleta con el id " + idBoleta);
-        }
-
-        b.setFuncion(f);
-        b = boletaLogic.update(b);
-        return new BoletaDetailDTO(b);
+        BoletaEntity updateBoleta = funcionLogic.updateBoletaFuncion(id, idBoleta);
+        return new BoletaDetailDTO(updateBoleta);
     }
 
     /**
@@ -167,32 +126,6 @@ public class FuncionBoletasResource {
     @DELETE
     @Path("{idBoleta: \\d+}")
     public void deleteBoletaFuncion(@PathParam("idFuncion") Long id, @PathParam("idBoleta") Long idBoleta) throws BusinessLogicException {
-        FuncionEntity f = funcionLogic.find(id);
-        if (f == null) {
-            throw new BusinessLogicException("No existe funcion con el id " + id);
-        }
-
-        List<BoletaEntity> boletas = f.getBoletas();
-        BoletaEntity boleta = null;
-        for (BoletaEntity b : boletas) {
-            if (b.getId().equals(idBoleta)) {
-                boleta = b;
-            }
-        }
-        if (boleta == null) {
-            throw new BusinessLogicException("No existe una boleta con el id " + idBoleta + " relacionada "
-                    + "con la funcion de id " + id);
-        }
-
-        boleta.setFuncion(null);
-        boleta = boletaLogic.update(boleta);
-    }
-
-    private List<BoletaDetailDTO> listEntity2DetailDTO(List<BoletaEntity> entityList) {
-        List<BoletaDetailDTO> list = new ArrayList<>();
-        for (BoletaEntity entity : entityList) {
-            list.add(new BoletaDetailDTO(entity));
-        }
-        return list;
+        funcionLogic.deleteBoletaFuncion(id, idBoleta);
     }
 }
