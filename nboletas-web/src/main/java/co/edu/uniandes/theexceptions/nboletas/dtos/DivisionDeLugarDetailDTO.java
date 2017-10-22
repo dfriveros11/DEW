@@ -69,4 +69,31 @@ public class DivisionDeLugarDetailDTO extends DivisionDeLugarDTO {
 
         return entity;
     }
+    
+    /**
+     *
+     * lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos BoletaEntity a una lista de
+     * objetos BoletaDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de Boletas de tipo Entity que
+     * vamos a convertir a DTO.
+     * @return la lista de Boletas en forma DTO (json)
+     */
+    public static List<DivisionDeLugarDetailDTO> listBoletaEntity2BoletaDetailDTO(List<DivisionDeLugarEntity> entityList) {
+        List<DivisionDeLugarDetailDTO> list = new ArrayList<>();
+        for (DivisionDeLugarEntity entity : entityList) {
+            list.add(new DivisionDeLugarDetailDTO(entity));
+        }
+        return list;
+    }
+    
+    public static List<DivisionDeLugarEntity> listDivisionDeLugarDetailDTO2DivisionDeLugarEntity(List<DivisionDeLugarDetailDTO> detailDtoList) {
+        List<DivisionDeLugarEntity> list = new ArrayList<>();
+        for (DivisionDeLugarDetailDTO detail : detailDtoList) {
+            list.add(detail.toEntity());
+        }
+        return list;
+    }
 }

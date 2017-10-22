@@ -67,5 +67,32 @@ public class SillaDetailDTO extends SillaDTO {
         }
         return silla;
     }
+    
+    /**
+     *
+     * lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos BoletaEntity a una lista de
+     * objetos BoletaDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de Boletas de tipo Entity que
+     * vamos a convertir a DTO.
+     * @return la lista de Boletas en forma DTO (json)
+     */
+    public static List<SillaDetailDTO> listSillaEntity2SillaDetailDTO(List<SillaEntity> entityList) {
+        List<SillaDetailDTO> list = new ArrayList<>();
+        for (SillaEntity entity : entityList) {
+            list.add(new SillaDetailDTO(entity));
+        }
+        return list;
+    }
+    
+    public static List<SillaEntity> listSillaDetailDTO2SillaEntity(List<SillaDetailDTO> detailDtoList) {
+        List<SillaEntity> list = new ArrayList<>();
+        for (SillaDetailDTO detail : detailDtoList) {
+            list.add(detail.toEntity());
+        }
+        return list;
+    }
 
 }
