@@ -110,4 +110,16 @@ public class FuncionDetailDTO extends FuncionDTO {
     public void setEspectaculo(EspectaculoDTO espectaculo) {
         this.espectaculo = espectaculo;
     }
+    
+    public static List<FuncionDetailDTO> listFuncionEntity2DetailDTO(List<FuncionEntity> findAll) {
+        List<FuncionDetailDTO> f = new ArrayList<>();
+        for(FuncionEntity e : findAll) f.add(new FuncionDetailDTO(e));
+        return f;
+    }
+    
+    public static List<FuncionEntity> listFuncionDetailDTO2Entity(List<FuncionDetailDTO> findAll) {
+        List<FuncionEntity> f = new ArrayList<>();
+        for(FuncionDetailDTO e : findAll) f.add(e.toEntity());
+        return f;
+    }
 }
