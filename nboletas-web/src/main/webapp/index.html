@@ -17,6 +17,17 @@
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script> 
     </head>
     <body>
+        <div class="container-fluid"> 
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs">
+                        <li><a ui-sref="usuarios">Usuarios</a></li>
+                    </ul>                   
+                </div>
+            </div>               
+            <div ui-view="mainView">
+            </div> 
+        </div>
         <h1>Boleta</h1>
         <span>By TheExceptions</span>
     </body>
