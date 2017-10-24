@@ -3,7 +3,8 @@
         // External dependencies
         'ui.router',
         'ui.bootstrap',
-        'BoletaModule',
+        'boletasModule',
+        'organizadoresModule',
         'funcionesModule'
         // Internal modules dependencies   
     ]);
