@@ -4,7 +4,7 @@
         'ui.router',
         'ui.bootstrap',
         'BoletaModule',
-        'OrganizadorModule'
+        'funcionesModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas

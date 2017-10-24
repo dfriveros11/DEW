@@ -14,8 +14,8 @@
                     .state('boleta', {
                         url: "/boletas",
                         views: {
-                            "":{
-                                templateUrl: basePath + "boletas.html"
+                            'mainView':{
+                                templateUrl: basePath + "boleta.html"
                             }
                         }
                         
