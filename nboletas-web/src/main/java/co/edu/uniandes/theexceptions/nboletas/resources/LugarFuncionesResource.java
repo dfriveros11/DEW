@@ -40,9 +40,6 @@ import javax.ws.rs.Produces;
 public class LugarFuncionesResource {
 
     @Inject
-    private FuncionLogic funcionLogic;
-
-    @Inject
     private LugarLogic lugarLogic;
 
     /**
@@ -56,12 +53,8 @@ public class LugarFuncionesResource {
      */
     @GET
     public List<FuncionDetailDTO> getFuncionesLugar(@PathParam("idLugar") Long id) throws BusinessLogicException {
-        LugarEntity l = lugarLogic.find(id);
-        if (l == null) {
-            throw new BusinessLogicException("No existe lugar con el id " + id);
-        }
-        List<FuncionDetailDTO> list = listEntity2DetailDTO(l.getFunciones());
-        return list;
+        List<FuncionEntity> getFunciones = lugarLogic.getFuncionesLugar(id);
+        return FuncionDetailDTO.listFuncionEntity2DetailDTO(getFunciones);
     }
 
     /**
@@ -78,24 +71,8 @@ public class LugarFuncionesResource {
     @GET
     @Path("{idFuncion: \\d+}")
     public FuncionDetailDTO getFuncionLugar(@PathParam("idLugar") Long id, @PathParam("idFuncion") Long idFuncion) throws BusinessLogicException {
-        LugarEntity l = lugarLogic.find(id);
-        if (l == null) {
-            throw new BusinessLogicException("No existe lugar con el id " + id);
-        }
-
-        List<FuncionEntity> funciones = l.getFunciones();
-        FuncionEntity funcion = null;
-        for (FuncionEntity f : funciones) {
-            if (f.getId().equals(idFuncion)) {
-                funcion = f;
-            }
-        }
-
-        if (funcion == null) {
-            throw new BusinessLogicException("No existe funcion con el id " + idFuncion + " relacionada "
-                    + "con el lugar de id " + id);
-        }
-        return new FuncionDetailDTO(funcion);
+        FuncionEntity getFuncion = lugarLogic.getFuncionLugar(id, idFuncion);
+        return new FuncionDetailDTO(getFuncion);
     }
 
     /**
@@ -112,15 +89,8 @@ public class LugarFuncionesResource {
      */
     @POST
     public FuncionDetailDTO createFuncionLugar(@PathParam("idLugar") Long id, FuncionDetailDTO funcion) throws BusinessLogicException {
-        LugarEntity l = lugarLogic.find(id);
-        if (l == null) {
-            throw new BusinessLogicException("No existe lugar con el id " + id);
-        }
-
-        FuncionEntity f = funcion.toEntity();
-        f.setLugar(l);
-        f = funcionLogic.create(f);
-        return new FuncionDetailDTO(f);
+        FuncionEntity createFuncion = lugarLogic.createFuncionLugar(id, funcion.toEntity());
+        return new FuncionDetailDTO(createFuncion);
     }
 
     /**
@@ -140,19 +110,8 @@ public class LugarFuncionesResource {
     @PUT
     @Path("{idFuncion: \\d+}")
     public FuncionDetailDTO updateFuncionLugar(@PathParam("idLugar") Long id, @PathParam("idFuncion") Long idFuncion) throws BusinessLogicException {
-        LugarEntity l = lugarLogic.find(id);
-        if (l == null) {
-            throw new BusinessLogicException("No existe lugar con el id " + id);
-        }
-
-        FuncionEntity f = funcionLogic.find(idFuncion);
-        if (f == null) {
-            throw new BusinessLogicException("No existe una funcion con el id " + idFuncion);
-        }
-
-        f.setLugar(l);
-        f = funcionLogic.update(f);
-        return new FuncionDetailDTO(f);
+        FuncionEntity updateFuncion = lugarLogic.updateFuncionLugar(id, idFuncion);
+        return new FuncionDetailDTO(updateFuncion);
     }
 
     /**
@@ -171,32 +130,6 @@ public class LugarFuncionesResource {
     @DELETE
     @Path("{idFuncion: \\d+}")
     public void deleteFuncionLugar(@PathParam("idLugar") Long id, @PathParam("idFuncion") Long idFuncion) throws BusinessLogicException {
-        LugarEntity l = lugarLogic.find(id);
-        if (l == null) {
-            throw new BusinessLogicException("No existe lugar con el id " + id);
-        }
-
-        List<FuncionEntity> funciones = l.getFunciones();
-        FuncionEntity funcion = null;
-        for (FuncionEntity f : funciones) {
-            if (f.getId().equals(idFuncion)) {
-                funcion = f;
-            }
-        }
-        if (funcion == null) {
-            throw new BusinessLogicException("No existe una funcion con el id " + idFuncion + " relacionada "
-                    + "con el lugar de id " + id);
-        }
-
-        funcion.setLugar(null);
-        funcion = funcionLogic.update(funcion);
-    }
-
-    private List<FuncionDetailDTO> listEntity2DetailDTO(List<FuncionEntity> entityList) {
-        List<FuncionDetailDTO> list = new ArrayList<>();
-        for (FuncionEntity entity : entityList) {
-            list.add(new FuncionDetailDTO(entity));
-        }
-        return list;
+        lugarLogic.deleteFuncionLugar(id, idFuncion);
     }
 }

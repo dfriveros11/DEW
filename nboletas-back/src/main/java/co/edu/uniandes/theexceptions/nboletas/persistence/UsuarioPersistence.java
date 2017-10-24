@@ -44,13 +44,5 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
         }
     }
 
-    @Override
-    public UsuarioEntity update(UsuarioEntity entity) throws IllegalArgumentException, TransactionRequiredException {
-        String query = "UPDATE APP.USUARIOENTITY SET  = ";
-        
-    }
-    
-    
-    
     
 }

@@ -61,7 +61,7 @@ public class LugarResource {
      */
     @GET
     public List<LugarDetailDTO> getLugares() throws BusinessLogicException {
-        return listEntity2DetailDTO(lugarLogic.findAll());
+        return LugarDetailDTO.listLugarEntity2DetailDTO(lugarLogic.findAll());
     }
 
     /**
@@ -145,13 +145,5 @@ public class LugarResource {
             throw new BusinessLogicException("No existe funcion con el id: " + id);
         }
         lugarLogic.delete(l);
-    }
-
-    private List<LugarDetailDTO> listEntity2DetailDTO(List<LugarEntity> entityList) {
-        List<LugarDetailDTO> list = new ArrayList<>();
-        for (LugarEntity entity : entityList) {
-            list.add(new LugarDetailDTO(entity));
-        }
-        return list;
     }
 }
