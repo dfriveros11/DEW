@@ -16,7 +16,7 @@ function(ng){
                         views: {
                         'mainView': {
                             templateUrl: basePath + 'usuarios.list.html',
-                                    controller: 'usuariosCtrl',
+                                   controller: 'usuariosCtrl',
                                    controllerAs: 'ctrl'
                             }
                         }
