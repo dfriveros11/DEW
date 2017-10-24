@@ -1,7 +1,7 @@
 (function (ng) {
-    var mod = ng.module("editorialModule");
-    mod.constant("editorialContext", "api/editorials");
-    mod.controller('editorialCtrl', ['$scope', '$http', 'editorialContext',
+    var mod = ng.module("usuariosModule");
+    mod.constant("usuariosContext", "api/usuarios");
+    mod.controller('usuariosCtrl', ['$scope', '$http', 'usuariosContext',
         function ($scope, $http, usuariosContext) {
             $http.get('data/usuarios.json').then(function (response) {
                 $scope.usuariosRecords = response.data;
@@ -10,4 +10,3 @@
     ]);
 }
 )(angular);
-
