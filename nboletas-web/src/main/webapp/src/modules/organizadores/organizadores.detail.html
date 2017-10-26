@@ -1,0 +1,29 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+         <div class="col-md-3">
+            <div class="thumb">
+                <img src="http://3.bp.blogspot.com/-ti-MI9Zl3nM/VWcvaDixo3I/AAAAAAAAAJQ/nI7svyjT5vg/s1600/usuario.png" alt="logo" /></a>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <dl>                             
+                <hr>
+                <dt>ID</dt>
+                <dd>{{currentOrganizador.id}}</dd>
+                
+                <hr>
+                <dt>Nombre De La Empresa</dt>
+                <dd>{{currentOrganizador.nombreEmpresa}}</dd>
+                
+                <ul ng-repeat="espectaculo in currentOrganizador.espectaculos">
+                        <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})">{{espectaculo.nombre}}</a>
+                        <dd>{{espectaculo.descripcion}}</dd>
+                </ul>
+               
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>

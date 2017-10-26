@@ -1,4 +1,10 @@
 <div class="container-fluid">
+    <div class="panel-body">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-info" ui-sref="boletasCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new boleta</a>
+                    </div>
+                </div>
     <div class="col-md-4">
         <table class="table table-hover">
             <thead>
@@ -11,8 +17,11 @@
             <tbody>
                 <tr ng-repeat="boleta in boletasRecords">
                     <td id="{{$index}}-id">   <a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</a></td>
-                    <td id="{{$index}}-precio">{{boleta.precio}}</td>   
-                    <td id="{{$index}}-vendida">{{boleta.vendida}}</td> 
+                    <td id="{{$index}}-precio">{{boleta.precio | currency}}</td>   
+                    <td id="{{$index}}-vendida">{{boleta.vendida }}</td> 
+                    <td id="{{$index}}-actions">
+                        <a class="btn btn-danger btn-sm" ui-sref="boletaDelete({boletaId: boleta.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             </tbody>
         </table>

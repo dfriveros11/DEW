@@ -30,6 +30,44 @@
                                 controllerAs: 'ctrl'
                             }
                         }
+                    })
+                    .state('organizadorDetail',{
+                        url: '/{organizadorId:int}/detail',
+                        parent: 'organizadores',
+                        param: {
+                            organizadorId: null
+                        },
+                        views: {
+                            
+                            'detailView': {
+                                templateUrl: basePath + 'organizadores.detail.html',
+                                controller: 'organizadorCtrl',
+                                controllerAs: 'ctrl'
+                            }
+                        }       
+                    })
+                    .state('organizadoresCreate',{
+                        url: '/create',
+                        parent: 'organizadores',
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/new/organizadores.new.html',
+                                controller: 'organizadorNewCtrl'
+                            }
+                        }        
+                    })
+                    .state('organizadorDelete',{
+                       url: '/delete/{organizadorId:int}',
+                        parent: 'organizadores',
+                        param: {
+                            organizadorId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/delete/organizadores.delete.html',
+                                controller: 'organizadorDeleteCtrl'
+                            }
+                        }         
                     });
         }]);
 })(window.angular);
