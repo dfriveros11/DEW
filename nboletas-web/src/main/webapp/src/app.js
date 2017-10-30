@@ -5,7 +5,8 @@
         'ui.bootstrap',
         'boletasModule',
         'organizadoresModule',
-        'funcionesModule'
+        'funcionesModule',
+        'usuariosModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas
