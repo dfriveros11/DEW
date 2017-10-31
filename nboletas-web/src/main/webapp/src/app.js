@@ -6,7 +6,7 @@
         'boletasModule',
         'organizadoresModule',
         'funcionesModule',
-        'espectaculosModule'
+        'espectaculosModule',
         'usuariosModule'
         // Internal modules dependencies   
     ]);
