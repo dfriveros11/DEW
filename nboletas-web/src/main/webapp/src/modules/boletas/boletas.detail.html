@@ -1,0 +1,57 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+         <div class="col-md-3">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentBoleta.image}}"/>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <dl> 
+                
+                <hr>
+                <dt>ID</dt>
+                <dt>{{currentBoleta.id}}</dt>
+                
+                <hr>
+                <dt>Precio</dt>
+                <dd>{{currentBoleta.precio| currency}}</dd>
+          
+                <hr>
+                <dt>¿Esta Vendida?</dt>
+                <dd>{{currentBoleta.vendida}}</dd>
+                
+                <hr>
+                <dt>Nombre Del Usuario</dt>
+                <dd>{{currentBoleta.usuario.userName}}</dd>
+                
+                <hr>
+                <dt>Reembolso</dt>
+                <dd>{{currentBoleta.reembolso.valor}}</dd>
+                
+                <hr>
+                <dt>Envio</dt>
+                <dd>{{currentBoleta.envio.id}}</dd>
+                <dd>{{currentBoleta.envio.dirrecion}}</dd>
+                
+                <hr>
+                <dt>Funcion</dt>
+                <dd>{{currentBoleta.funcion.fecha | date:'yyyy-MM-dd'}}</dd>
+                <dd>{{currentBoleta.funcion.lugar}}</dd>
+                
+                <hr>
+                <dt>Silla</dt>
+                <dd> <span>ID:</span> {{currentBoleta.silla.id}}</dd>
+                <dd>{{currentBoleta.silla.costo | currency}}</dd>
+                
+                <hr>
+                <dt>Comentario</dt>
+                <dd>{{currentBoleta.comentario.comentario}}</dd>
+                <dd>{{currentBoleta.comentario.fecha | date:'yyyy-MM-dd'}}</dd>
+ 
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>
