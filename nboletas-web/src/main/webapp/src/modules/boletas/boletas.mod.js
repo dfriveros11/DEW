@@ -55,6 +55,19 @@
                             }
                         }        
                     })
+                    .state('boletaUpdate', {
+                        url: '/update/{boletaId:int}',
+                        parent: 'boletas',
+                        param: {
+                            boletaId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/update/boletas.update.html',
+                                controller: 'boletaUpdateCtrl'
+                            }
+                        }
+                    })
                     .state('boletaDelete',{
                        url: '/delete/{boletaId:int}',
                         parent: 'boletas',
