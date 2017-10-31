@@ -56,6 +56,19 @@
                             }
                         }        
                     })
+                    .state('organizadorUpdate', {
+                        url: '/update/{organizadorId:int}',
+                        parent: 'organizadores',
+                        param: {
+                            organizadorId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/update/organizadores.update.html',
+                                controller: 'organizadorUpdateCtrl'
+                            }
+                        }
+                    })
                     .state('organizadorDelete',{
                        url: '/delete/{organizadorId:int}',
                         parent: 'organizadores',
