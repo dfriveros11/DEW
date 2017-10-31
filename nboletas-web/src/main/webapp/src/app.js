@@ -6,8 +6,7 @@
         'boletasModule',
         'organizadoresModule',
         'funcionesModule',
-        'espectaculosModule',
-        'usuariosModule'
+        'espectaculosModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas
