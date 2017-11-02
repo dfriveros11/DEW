@@ -14,10 +14,26 @@ var mod = ng.module("funcionesModule", []);
                 url: '/funciones',
                 views: {
                     'mainView': {
-                        templateUrl: basePath + 'funciones.list.html'
+                        templateUrl: basePath + 'funciones.list.html',
+                        controller: 'funcionesCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
-            });
+            })
+            .state('funcionesDetail' ,{
+                        url: '/{funcionId:int}/detail',
+                        parent: 'later',
+                        param: {
+                            funcionId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + 'funciones.list.html',
+                                controller: 'funcionesCtrl',
+                                controllerAs: 'ctrl'
+                            }
+                        }
+                    });
         }]);
 
 })(window.angular);
