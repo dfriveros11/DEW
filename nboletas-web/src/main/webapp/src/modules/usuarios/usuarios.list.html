@@ -7,13 +7,20 @@
                 <tr>
                     <th>id</th>    
                     <th>User Name</th>  
-
+                    <th>Nombre del usuario</th>
+                    <th>Email</th>
+                    <th>Pais</th>
+                    <th>Ciudad</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="user in users">
                     <td id="{{$index}}-name">{{user.id}}</td>
-                    <td id="{{$index}}-birthDate">{{user.userName}}</td>                   
+                    <td id="{{$index}}-userName">{{user.userName}}</td>
+                    <td id="{{$index}}-nombreUsuario">{{user.nombreUsuario}}</td>
+                    <td id="{{$index}}-email">{{user.email}}</td>
+                    <td id="{{$index}}-pais">{{user.pais}}</td>
+                    <td id="{{$index}}-ciudad">{{user.ciudad}}</td>
                 </tr>
             </tbody>
         </table>

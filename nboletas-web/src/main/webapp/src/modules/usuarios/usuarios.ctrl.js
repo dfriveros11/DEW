@@ -1,13 +1,12 @@
 (function (ng) {
-    var mod = angular.module('userModule');
-    mod.constant('usersContext', 'api/users');
-    mod.controller('userCtrl', ['$scope', '$http', 'usersContext',userControllerF]);
+    var mod = angular.module('usuarioModule');
+    mod.constant('usuariosContext', 'api/users');
+    mod.controller('usuarioCtrl', ['$scope', '$http', 'usuariosContext',controladorUsuario]);
     
-    function userControllerF($scope, $http, usersContext) {
+    function controladorUsuario($scope, $http, usuariosContext) {
             $http.get('data/usuarios.json').then(function (response) {
                 $scope.users = response.data;
             });
         }
     
-}
-)(angular);
+})(angular);
