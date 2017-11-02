@@ -1,18 +1,19 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
+<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
     <div class="col-md-4">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Nombre</th>                      
+                    <th>id</th>    
+                    <th>User Name</th>  
+
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="i in usuariosRecords">
-                    <td id="{{$index}}-name">{{usuario.name}}</td>   
-                    <td id="{{$index}}-name">{{usuario.name}}</td>                                       
+                <tr ng-repeat="user in users">
+                    <td id="{{$index}}-name">{{user.id}}</td>
+                    <td id="{{$index}}-birthDate">{{user.userName}}</td>                   
                 </tr>
             </tbody>
         </table>
