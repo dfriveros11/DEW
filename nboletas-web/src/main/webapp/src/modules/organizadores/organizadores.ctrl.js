@@ -12,8 +12,6 @@
                 $http.get(organizadoresContext + '/' + $state.params.organizadorId).then(function (response) {
                     $scope.currentOrganizador = response.data;
                     $scope.espectaculosRecord = response.data.espectaculo;
-                    console.log($scope.currentOrganizador);
-                    console.log($scope.espectaculosRecord);
                 });
             }
         }
