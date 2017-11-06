@@ -3,7 +3,7 @@
     <div class="row">
          <div class="col-md-3">
             <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentEspectaculo.image}}"/>
+                <img class="img-responsive" ng-src="{{currentEspectaculo.imagen}}"/>
             </div>
 
         </div>
@@ -21,7 +21,39 @@
                 <hr>
                 <dt>Descripcion</dt>
                 <dd>{{currentEspectaculo.descripcion}}</dd>
- 
+                
+                <hr>
+                <dt>Artistas</dt>
+                <dd>
+                <ul>
+                    <li ng-repeat="x in currentEspectaculo.artistas">
+                        <a href="#!/artistas/{{x.id}}/detail">{{x.nombre}}</a>
+                    </li>
+                </ul>
+            </dd>
+            <hr>
+            <dt>Organizadores</dt>
+                <dd>
+                <ul>
+                    <li ng-repeat="x in currentEspectaculo.organizadores">
+                        <a href="#!/organizadores/{{x.id}}/detail">{{x.nombreEmpresa}}</a>
+                    </li>
+                </ul>
+            </dd>
+            <hr>
+            <dt>Comentarios</dt>
+            <dd>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Comentario</th>
+                        <th>Boleta</th>
+                    </tr>
+                    <tr ng-repeat="comentario in currentEspectaculo.comentarios">
+                        <td id="{{$index}}-id"> {{comentario.comentario}}</td>
+                        <td id="{{$index}}-Boleta"> <a href="#!/boletas/{{comentario.idBoleta}}/detail">{{comentario.idBoleta}}</td>   
+                    </tr>
+                </table>
+            </dd>
             </dl>
         </div>
     </div>

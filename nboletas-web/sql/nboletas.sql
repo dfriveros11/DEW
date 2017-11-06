@@ -123,3 +123,4 @@ insert into ArtistaEntity (id, nombre) values (3, 'Cirque du Soleil');
 insert into ArtistaEntity (id, nombre) values (4, 'Portugal The Man');
 
 insert into FuncionEntity (id, fecha, espectaculo_id) values (3,'10/10/2014',2);
+
