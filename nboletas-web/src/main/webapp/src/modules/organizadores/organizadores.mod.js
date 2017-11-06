@@ -38,7 +38,11 @@
                             organizadorId: null
                         },
                         views: {
-                            
+                            'listView': {
+                                templateUrl: basePath + 'listEspectaculos/espectaculos.list.html',
+                                controller: 'organizadorCtrl',
+                                controllerAs: 'ctrl'
+                            },
                             'detailView': {
                                 templateUrl: basePath + 'organizadores.detail.html',
                                 controller: 'organizadorCtrl',
