@@ -45,8 +45,13 @@ public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntit
 
     public EspectaculoEntity updateOrganizadorEspectaculo(EspectaculoEntity entity, long idOrganizador) throws PersistenceException {
         this.update(entity);
-        String query = "UPDATE APP.ESPECTACULOENTITY_ORGANIZADORENTITY  SET ESPECTACULOS_ID = " + entity.getId() + " WHERE ORGANIZADOR_ID = " + idOrganizador;
-        em.createNativeQuery(query).executeUpdate();
+        try{
+           String query = "INSERT INTO ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values ("+ entity.getId() +","+ idOrganizador +")";
+           em.createNativeQuery(query).executeUpdate();
+        }catch(Exception e){
+            String query = "UPDATE APP.ESPECTACULOENTITY_ORGANIZADORENTITY  SET ESPECTACULOS_ID = " + entity.getId() + " WHERE ORGANIZADOR_ID = " + idOrganizador;
+            em.createNativeQuery(query).executeUpdate();
+        }
         return entity;
     }
 }

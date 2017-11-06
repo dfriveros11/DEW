@@ -5,12 +5,9 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
-import co.edu.uniandes.theexceptions.nboletas.dtos.UsuarioDTO;
 import co.edu.uniandes.theexceptions.nboletas.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
-import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -48,102 +45,80 @@ public class UsuarioResource {
      */
     @GET
     public List<UsuarioDetailDTO> getUsuarios() {
-        return listEntity2DetailDTO(logic.findAll());
+        return UsuarioDetailDTO.listUsuarioEntity2UsuarioDetailDTO(logic.findAll());
     }
 
     /**
      * GET Retorna al usuario con el id dado.
      * http://localhost:8080/nboletas-web/api/usuarios/id
      *
+     * En este metodo hay que ser cuidadoso pues los usuareios deciden que información 
+     * desean compartir con los demas.
+     * @param id
      * @return la lista de todos los Usuarios en objetos json DTO.
-     * @throws WebApplicationException
-     *
-     * En caso de no existir el id del Usuario a buscar, retornando un 404: not
-     * found.
+     * @throws BusinessLogicException
+     *  En caso de no cumplir con reglas del negocio.
      */
     @GET
     @Path("{id: \\d+}")
-    public UsuarioDetailDTO getUsuario(@PathParam("id") Long id) throws WebApplicationException {
-        UsuarioEntity entity = logic.find(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
-        }
-        return new UsuarioDetailDTO(entity);
+    public UsuarioDetailDTO getUsuario(@PathParam("id") Long id) throws BusinessLogicException {
+        return new UsuarioDetailDTO(logic.find(id));
+    }
+    
+    @GET
+    @Path("{userName}")
+    public UsuarioDetailDTO getUsuarioByUserName(@PathParam("userName")String userName) throws BusinessLogicException{
+        return new UsuarioDetailDTO(logic.findUsuarioByUserName(userName));
     }
 
     /**
-     * POST Crea un nuevo usuario.
+     * POST Crea un nuevo usuario (Register).
      * http://localhost:8080/nboletas-web/api/usuarios
-     *
+     *  
+     * Metodo equivalente al registro del usuario en el sistema.
      * @param usuario correponde a la representación java del objeto json
      * enviado en el llamado.
      * @return Devuelve el objeto json de entrada que contiene el id creado por
-     * la base de datos y el tipo del objeto java.
-     * @throws BusinessLogicException Cuando ya existe un usuario con el
-     * userName ingresado.
+     * @throws BusinessLogicException
+     *  En caso de no cumplir con reglas del negocio.
      */
     @POST
     public UsuarioDetailDTO createUsuario(UsuarioDetailDTO usuario) throws BusinessLogicException {
-        UsuarioEntity entity = usuario.toEntity();
-        if (logic.findByUserName(entity.getUserName()) != null) {
-            throw new BusinessLogicException("Ya se ha registrado un usuario con el user name: " + entity.getUserName() + ", Error 412");
-        }
-        UsuarioEntity newEntity = logic.create(entity);
-        return new UsuarioDetailDTO(newEntity);
+        return new UsuarioDetailDTO(logic.create(usuario.toEntity()));
     }
 
     /**
-     * PUT Actualiza al usuario con el id dado.
+     * PUT Actualiza los datos del usuario dado.
      * http://localhost:8080/nboletas-web/api/usuarios/id
      *
+     * <pre> En este caso al ser usuario cliente, este metodo solo permite modificar datos propios.
      * @param id del Usuario a actualizar.
      * @param usuario datos a actualizar del Usuario.
      * @return El usuario actualizado.
-     * @throws BusinessLogicException Cuando ya existe un usuario con el
-     * userName ingresado para cambiar.
-     * @throws WebApplicationException En caso de no existir el id del Usuario a
-     * actualizar, retornando un 404: not found.
+     * @throws BusinessLogicException
+     *  En caso de no cumplir con reglas del negocio.
      */
     @PUT
     @Path("{id: \\d+}")
     public UsuarioDetailDTO updateUsuario(@PathParam("id") Long id, UsuarioDetailDTO usuario) throws WebApplicationException, BusinessLogicException {
-        if (logic.find(id) == null) {
-            throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
-        }
-        UsuarioEntity entity = usuario.toEntity();
-        if (logic.findByUserName(entity.getUserName()) != null) {
-            throw new BusinessLogicException("Ya se ha registrado un usuario con el user name: " + entity.getUserName() + ", Error 412");
-        }
-        entity.setId(id);
-        UsuarioEntity actualizedEntity = logic.update(entity);
-        return new UsuarioDetailDTO(actualizedEntity);
+        usuario.setId(id);
+        return new UsuarioDetailDTO(logic.update(usuario.toEntity()));
     }
 
     /**
      * DELETE Elimina un objeto Usuario.
      * http://localhost:8080/nboletas-web/api/usuarios/id
      *
+     * Elimina una cuenta del sistema Nuestras Boletas.
      * @param id corresponde al Usuario a borrar.
-     * @throws WebApplicationException En caso de no existir el id del Usuario a
-     * borrar, retornando un 404 not: found.
-     *
+     * @throws BusinessLogicException
+     *  En caso de no cumplir con reglas del negocio.
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteUsuario(@PathParam("id") Long id) throws WebApplicationException {
-        UsuarioEntity entity = logic.find(id);
-        if (entity == null) {
-            throw new WebApplicationException("El recurso usuario: " + id + " no existe.", 404);
-        }
-        logic.delete(entity);
-    }
-
-    private List<UsuarioDetailDTO> listEntity2DetailDTO(List<UsuarioEntity> entityList) {
-        List<UsuarioDetailDTO> list = new LinkedList<>();
-        for (UsuarioEntity entity : entityList) {
-            list.add(new UsuarioDetailDTO(entity));
-        }
-        return list;
+    public void deleteUsuario(@PathParam("id") Long id) throws BusinessLogicException {
+        UsuarioDetailDTO user = getUsuario(id);
+        logic.delete(user.toEntity());
     }
 
 }
