@@ -1,0 +1,37 @@
+.header-site{
+   height: 100%;
+   width: 100%;
+   border: 2px transparent;
+   border-radius: 5px;
+   background-image: url("../images/tile-tittle.gif");
+}
+
+.nav-site{
+    border: 2px;
+    border-radius: 8px;
+    background-color: #a8a2ea;
+}
+
+ul.master {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a8a2ea;
+}
+
+li.master {
+    float: left;
+}
+
+li.master a {
+    display: block;
+    color: #2d1ae9;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li.master a:hover {
+    background-color: #6353ff;
+}
