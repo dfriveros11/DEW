@@ -1,0 +1,33 @@
+<form ng-submit="createFuncion()" name="funcion">
+    <div class="form-group row">
+        <div class="form-group col-md-8">
+            <label for="funcionHora" class="col-sm-2">Hora</label>
+            <input id="boletaPrecio" required ng-model="funcionHora" class="col-sm-6"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="form-group col-md-8">
+            <label for="funcionLugar" class="col-sm-2">Lugar ID</label>
+            <input type="number" id="funcionLugar" required ng-model="funcionLugar" class="col-sm-6"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="form-group col-md-8">
+            <label for="funcionEspectaculo" class="col-sm-2">Espectaculo ID</label>
+            <input type="number" id="funcionEspectaculo" required ng-model="funcionEspectaculo" class="col-sm-6"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="form-group col-sm-4" ng-if="!funcion.$valid">
+            <div class="alert alert-warning">
+                <strong>Warning!</strong><p>All inputs are required*</p>
+            </div> 
+        </div> 
+    </div> 
+    <div class="form-group row">
+        <div class="form-group col-sm-12">
+            <input ng-show="funcion.$valid" type="submit" value="Save" class="btn btn-success"/>
+            <a class="btn btn-info" ui-sref="funcionesList">Cancel</a>
+        </div>
+    </div>
+</form>
