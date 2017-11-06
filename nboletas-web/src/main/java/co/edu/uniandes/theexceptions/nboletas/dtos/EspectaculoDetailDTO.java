@@ -58,7 +58,7 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
         return entity;
     }
 
-    public List<EspectaculoDetailDTO> listEspectaculoEntity2EspectaculoDetailDTO(List<EspectaculoEntity> entityList) {
+    public static List<EspectaculoDetailDTO> listEspectaculoEntity2EspectaculoDetailDTO(List<EspectaculoEntity> entityList) {
         List<EspectaculoDetailDTO> list = new ArrayList<>();
         for (EspectaculoEntity entity : entityList) {
             list.add(new EspectaculoDetailDTO(entity));
@@ -66,7 +66,7 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
         return list;
     }
 
-    public List<EspectaculoEntity> listEspectaculoDetailDto2EspectaculoEntity(List<EspectaculoDetailDTO> entityList) {
+    public static List<EspectaculoEntity> listEspectaculoDetailDto2EspectaculoEntity(List<EspectaculoDetailDTO> entityList) {
         List<EspectaculoEntity> list = new ArrayList<>();
         for (EspectaculoDetailDTO entity : entityList) {
             list.add(entity.toEntity());

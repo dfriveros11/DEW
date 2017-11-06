@@ -8,6 +8,7 @@
                 function ($scope, $http, organizadoresContexts, $state, $rootScope, $filter, espectaculosContext) {
                     $rootScope.edit = true;
                     var idsEspectaculos = [];
+                    var idsBorrar = [];
                     var idOrganizador= $state.params.organizadorId;
 
                 $http.get(organizadoresContexts + '/' + idOrganizador).then(function (response) {
@@ -51,6 +52,7 @@
                         var data = ev.dataTransfer.getData("text");
                         ev.target.appendChild(document.getElementById(data));
                         //Para remover el book que no se va asociar, por eso se usa el splice que quita el id del book en el array idsBook
+                        idsBorrar.push("" + data);
                         var index = idsEspectaculos.indexOf(data);
                         if (index > -1) {
                             idsEspectaculos.splice(index, 1);
@@ -67,6 +69,12 @@
                                 });
                             }
                             }
+                        if(idsBorrar.length > 0){
+                            for(var leg in idsBorrar){
+                                $http.delete(organizadoresContexts + "/" + response.data.id + "/espectaculos/" + parseInt(idsBorrar[leg])).then(function (response) {
+                                });
+                            }
+                        }
                     $state.go('organizadoresList', {organizadorId: response.data.id}, {reload: true});
                 });
                 };
@@ -74,14 +82,11 @@
                         $scope.espectaculosOrganizador = [];
                         for (var ite in idsEspectaculos) {
                             for (var all in $scope.allEspectaculos) {
-                                console.log("estoy afuera");
                                 if ($scope.allEspectaculos[all].id === parseInt(idsEspectaculos[ite])) {
-                                 console.log("estoy adentro");   
                                  $scope.espectaculosOrganizador.push($scope.allEspectaculos[all]);
                                 }
                             }
                         }
-                        console.log($scope.espectaculosOrganizador);
                     };
                 }
             ]);

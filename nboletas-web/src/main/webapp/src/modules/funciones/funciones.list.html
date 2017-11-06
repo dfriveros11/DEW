@@ -10,13 +10,23 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Fecha</th>  
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Espectaculo</th>
+                    <th>Lugar</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="funcion in funcionesGetAll">
                     <td id="{{$index}}-id">   <a ui-sref="funcionesDetail({funcionId:funcion.id})">{{funcion.id}}</a></td>
-                    <td id="{{$index}}-Fecha">{{funcion.fecha | date : yyyy-MM-dd}}</td>   
+                    <td id="{{$index}}-fecha">{{funcion.fecha | date : yyyy-MM-dd}}</td>  
+                    <td id="{{$index}}-hora">{{funcion.hora}}</td> 
+                    <td id="{{$index}}-espectaculo">{{funcion.espectaculo.nombre}}</td>   
+                    <td id="{{$index}}-lugar">{{funcion.lugar.direccion}}</td>
+                    <td id="{{$index}}-actions">
+                        <a class="btn btn-default btn-sm" ui-sref="funcionesUpdate({funcionId: funcion.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="funcionesDelete({funcionId: funcion.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
