@@ -51,6 +51,7 @@ public class EspectaculoArtistaResource {
         List <EspectaculoEntity> lista= new ArrayList<>();
         lista.add(espectaculo);
         List<ArtistaEntity> artistas = espectaculo.getArtista();
+        artistaE.setEspectaculos(lista);
         artistas.add(artistaE);
         espectaculo.setArtista(artistas);
         ArtistaEntity artistaCreado = artistaLogic.create(artistaE);

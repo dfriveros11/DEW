@@ -55,11 +55,24 @@
                             }
                         }        
                     })
+                    .state('espectaculoUpdate', {
+                        url: '/update/{espectaculoId:int}',
+                        parent: 'espectaculos',
+                        param: {
+                            espectaculoId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/update/espectaculos.update.html',
+                                controller: 'espectaculoUpdateCtrl'
+                            }
+                        }
+                    })
                     .state('espectaculosDelete',{
                        url: '/delete/{espectaculoId:int}',
                         parent: 'espectaculos',
                         param: {
-                            espectaculosId: null
+                            espectaculoId: null
                         },
                         views: {
                             'detailView': {
