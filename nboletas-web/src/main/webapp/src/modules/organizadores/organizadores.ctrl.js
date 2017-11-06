@@ -11,9 +11,9 @@
             if (($state.params.organizadorId !== undefined) && ($state.params.organizadorId !== null)) {
                 $http.get(organizadoresContext + '/' + $state.params.organizadorId).then(function (response) {
                     $scope.currentOrganizador = response.data;
-                    $scope.espectaculosRecord = response.data.espectaculo;
-                    console.log($scope.currentOrganizador);
-                    console.log($scope.espectaculosRecord);
+                    $http.get(organizadoresContext + '/' + $state.params.organizadorId + '/espectaculos').then(function(response){
+                        $scope.espectaculosRecord = response.data;
+                    });
                 });
             }
         }

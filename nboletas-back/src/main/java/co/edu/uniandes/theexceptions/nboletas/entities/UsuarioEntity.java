@@ -7,9 +7,12 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -22,31 +25,40 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     /**
      * User-Name del usuario.
      */
+    @NotNull
+    @Column(name = "userName", unique = true)
     private String userName;
 
     /**
      * Contraseña del usuario.
      */
+    @NotNull
     private String password;
 
     /**
      * Nombre completo del usuario.
      */
+    @NotNull
     private String nombreUsuario;
 
     /**
      * E-mail del usuario.
      */
+    @NotNull
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9]"
+            + "(?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="{invalid.email}")
     private String email;
 
     /**
      * Pais del usuario.
      */
+    @NotNull
     private String pais;
 
     /**
      * ciudad del usuario.
      */
+    @NotNull
     private String ciudad;
 
     @PodamExclude

@@ -16,6 +16,7 @@ public class FuncionDTO {
 
     private Long id;
     private Date fecha;
+    private String hora;
 
     public FuncionDTO() {
     }
@@ -23,12 +24,14 @@ public class FuncionDTO {
     public FuncionDTO(FuncionEntity entity) {
         this.id = entity.getId();
         this.fecha = entity.getFecha();
+        this.hora = entity.getHora();
     }
 
     public FuncionEntity toEntity() {
         FuncionEntity entity = new FuncionEntity();
         entity.setId(this.getId());
         entity.setFecha(this.getFecha());
+        entity.setHora(this.getHora());
         return entity;
     }
 
@@ -59,4 +62,20 @@ public class FuncionDTO {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    /**
+     * @return the hora
+     */
+    public String getHora() {
+        return hora;
+    }
+
+    /**
+     * @param hora the hora to set
+     */
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+    
+    
 }

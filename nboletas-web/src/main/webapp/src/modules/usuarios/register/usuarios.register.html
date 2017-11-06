@@ -1,0 +1,31 @@
+<div class="col-md-6 well">
+
+  <form novalidate name="form" id="user-form" role="form" ng-submit="form.$valid && ctrl.saveRecord(currentRecord.id)">
+
+    <div ng-messages="form.$error">
+      <div ng-message="required">Fill the required fields!</div>
+    </div>
+
+    <fieldset>
+      <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id" />
+      <div class="form-group col-md-12" ng-class="{'has-success': form.name.$valid && form.name.$dirty, 'has-error': form.name.$invalid && (form.name.$dirty || form.$submitted)}">
+        <label for="userName" class="col-md-2 control-label">Usuario</label>
+        <label for="password" class="col-md-2 control-label">Contraseña</label>
+        <label for="nombreUsuario" class="col-md-2 control-label">Nombre</label>
+        <label for="email" class="col-md-2 control-label">E-mail</label>
+        <label for="pais" class="col-md-2 control-label">Pais</label>
+        <label for="ciudad" class="col-md-2 control-label">Ciudad</label>
+        <div class="col-md-10">
+          <input id="userName" name="userName" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.userName" required />
+          <input id="password" name="password" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.password" required />
+          <input id="nombreUsuario" name="nombreUsuario" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.nombreUsuario" required />
+          <input id="email" name="nombreUsuario" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.email" required />
+          <input id="pais" name="nombreUsuario" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.pais" required />
+          <input id="ciudad" name="nombreUsuario" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.ciudad" required />
+        </div>
+      </div>
+      <button type="button" ui-sref='espectaculosList'>Cancelar</button>
+      <button type="submit">Registrarse</button>
+    </fieldset>
+  </form>
+</div>

@@ -43,8 +43,7 @@ public class OrganizadorEspectaculoResources {
     @GET
     public List<EspectaculoDetailDTO> getEspectaculos(@PathParam("idOrganizador") Long idOrganizador) throws BusinessLogicException {
         List<EspectaculoEntity> list = organizadorLogic.findOrganizadoresEspectaculos(idOrganizador);
-        EspectaculoDetailDTO entrega = new EspectaculoDetailDTO();
-        return entrega.listEspectaculoEntity2EspectaculoDetailDTO(list);
+        return EspectaculoDetailDTO.listEspectaculoEntity2EspectaculoDetailDTO(list);
     }
 
     @GET
@@ -63,6 +62,11 @@ public class OrganizadorEspectaculoResources {
         return new EspectaculoDetailDTO(actual);
     }
 
+    @DELETE
+    public void deleteOrganizadorEspectaculos(@PathParam("idOrganizador") Long idOrganizador, List<EspectaculoDetailDTO> espectaculos) throws BusinessLogicException {
+        organizadorLogic.deleteOrganizadorEspectaculos(idOrganizador, EspectaculoDetailDTO.listEspectaculoDetailDto2EspectaculoEntity(espectaculos));
+    }
+    
     @DELETE
     @Path("{idEspectaculo: \\d+}")
     public void deleteOrganizadorEspectaculo(@PathParam("idOrganizador") Long idOrganizador, @PathParam("idEspectaculo") Long idEspectaculo) throws BusinessLogicException {

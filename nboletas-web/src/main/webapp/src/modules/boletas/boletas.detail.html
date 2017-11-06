@@ -24,32 +24,27 @@
                 
                 <hr>
                 <dt>Nombre Del Usuario</dt>
-                <dd>{{currentBoleta.usuario.userName}}</dd>
+                <dd><a ui-sref="usuarioDetail({usuarioId: currentBoleta.usuario.id})">{{currentBoleta.usuario.userName}}</a></dd>
                 
                 <hr>
                 <dt>Reembolso</dt>
-                <dd>{{currentBoleta.reembolso.valor}}</dd>
+                <dd><a ui-sref="reembolsoDetail({reembolsoId: currentBoleta.reembolso.id})">{{currentBoleta.reembolso.id}}</a></dd>
                 
                 <hr>
                 <dt>Envio</dt>
-                <dd>{{currentBoleta.envio.id}}</dd>
-                <dd>{{currentBoleta.envio.dirrecion}}</dd>
+                <dd><a ui-sref="envioDetail({envioId: currentBoleta.envio.id})">{{currentBoleta.envio.id}}</a></dd>
                 
                 <hr>
                 <dt>Funcion</dt>
-                <dd>{{currentBoleta.funcion.fecha | date:'yyyy-MM-dd'}}</dd>
-                <dd>{{currentBoleta.funcion.lugar}}</dd>
+                <dd><a ui-sref="funcionDetail({funcionId: currentBoleta.funcion.id})">{{currentBoleta.funcion.id}}</a></dd>
                 
                 <hr>
                 <dt>Silla</dt>
-                <dd> <span>ID:</span> {{currentBoleta.silla.id}}</dd>
-                <dd>{{currentBoleta.silla.costo | currency}}</dd>
+                <dd><a ui-sref="sillaDetail({sillaId: currentBoleta.silla.id})">{{currentBoleta.silla.id}}</a></dd>
                 
                 <hr>
                 <dt>Comentario</dt>
-                <dd>{{currentBoleta.comentario.comentario}}</dd>
-                <dd>{{currentBoleta.comentario.fecha | date:'yyyy-MM-dd'}}</dd>
- 
+                <dd><a ui-sref="comentarioDetail({comentarioId: currentBoleta.comentario.id})">{{currentBoleta.comentario.id}}</a></dd>
             </dl>
         </div>
     </div>

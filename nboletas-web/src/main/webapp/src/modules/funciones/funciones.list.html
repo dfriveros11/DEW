@@ -2,25 +2,30 @@
     <div class="panel-body">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="boletasCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new boleta</a>
-                    </div>
+                        <a class="btn btn-info" ui-sref="funcionesCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new Funcion</a>
+                    </div>    
                 </div>
     <div class="col-md-4">
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Fecha</th>  
-                    <th>Lugar</th>  
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Espectaculo</th>
+                    <th>Lugar</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="boleta in boletasRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</a></td>
-                    <td id="{{$index}}-precio">{{boleta.precio | currency}}</td>   
-                    <td id="{{$index}}-vendida">{{boleta.vendida }}</td> 
+                <tr ng-repeat="funcion in funcionesGetAll">
+                    <td id="{{$index}}-id">   <a ui-sref="funcionesDetail({funcionId:funcion.id})">{{funcion.id}}</a></td>
+                    <td id="{{$index}}-fecha">{{funcion.fecha | date : yyyy-MM-dd}}</td>  
+                    <td id="{{$index}}-hora">{{funcion.hora}}</td> 
+                    <td id="{{$index}}-espectaculo">{{funcion.espectaculo.nombre}}</td>   
+                    <td id="{{$index}}-lugar">{{funcion.lugar.direccion}}</td>
                     <td id="{{$index}}-actions">
-                        <a class="btn btn-danger btn-sm" ui-sref="boletaDelete({boletaId: boleta.id})"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a class="btn btn-default btn-sm" ui-sref="funcionesUpdate({funcionId: funcion.id})"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-sm" ui-sref="funcionesDelete({funcionId: funcion.id})"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             </tbody>

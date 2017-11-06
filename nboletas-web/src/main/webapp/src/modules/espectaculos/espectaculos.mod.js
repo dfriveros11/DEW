@@ -37,6 +37,7 @@
                         param: {
                             espectaculoId: null
                         },
+                        
                         views: {
                             'detailView': {
                                 templateUrl: basePath + 'espectaculos.detail.html',

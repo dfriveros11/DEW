@@ -6,6 +6,8 @@
         'boletasModule',
         'organizadoresModule',
         'funcionesModule',
+        'espectaculosModule',
+        'usuarioModule',
         'espectaculosModule', 
         'artistasModule'
         // Internal modules dependencies   
@@ -13,5 +15,5 @@
     // Resuelve problemas de las promesas
     app.config(['$qProvider', function ($qProvider) {
             $qProvider.errorOnUnhandledRejections(false);
-        }]);
+    }]);
 })(window.angular);

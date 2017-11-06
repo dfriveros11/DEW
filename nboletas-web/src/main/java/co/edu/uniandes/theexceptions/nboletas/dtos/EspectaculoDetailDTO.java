@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class EspectaculoDetailDTO extends EspectaculoDTO {
 
-    
     private List<ArtistaDTO> artistas;
     private List<OrganizadorDTO> organizadores;
     private List<ComentarioDTO> comentarios;
@@ -31,16 +30,22 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
         
         super(espectaculo);
         this.artistas=new ArrayList<>();
+        if(espectaculo.getArtista()!=null){
         for(ArtistaEntity artista: espectaculo.getArtista()){
             artistas.add(new ArtistaDTO(artista));
         }
+        }
         this.organizadores=new ArrayList<>();
+        if(espectaculo.getOrganizador()!=null){
         for(OrganizadorEntity organizador: espectaculo.getOrganizador()){
             organizadores.add(new OrganizadorDTO(organizador));
         }
+        }
         this.comentarios=new ArrayList<>();
+        if(espectaculo.getComentarios()!=null){
         for(ComentarioEntity comentario: espectaculo.getComentarios()){
             comentarios.add(new ComentarioDTO(comentario));
+        }
         }
     }
 
@@ -48,6 +53,7 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
      * Constructor por defecto
      *
      */
+
     public EspectaculoDetailDTO() {
  
     }
@@ -92,11 +98,32 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
      */
     @Override
     public EspectaculoEntity toEntity() {
-        EspectaculoEntity espectaculoE = super.toEntity();
-        return espectaculoE;
+        EspectaculoEntity entity = super.toEntity();
+        if (organizadores != null) {
+            List<OrganizadorEntity> organizadoresEntity = new ArrayList<>();
+            for (OrganizadorDTO organizador : organizadores) {
+                organizadoresEntity.add(organizador.toEntity());
+            }
+            entity.setOrganizador(organizadoresEntity);
+        }
+        if (organizadores != null) {
+            List<OrganizadorEntity> organizadoresEntity = new ArrayList<>();
+            for (OrganizadorDTO organizador : organizadores) {
+                organizadoresEntity.add(organizador.toEntity());
+            }
+            entity.setOrganizador(organizadoresEntity);
+        }
+        if (organizadores != null) {
+            List<OrganizadorEntity> organizadoresEntity = new ArrayList<>();
+            for (OrganizadorDTO organizador : organizadores) {
+                organizadoresEntity.add(organizador.toEntity());
+            }
+            entity.setOrganizador(organizadoresEntity);
+        }
+        return entity;
     }
 
-    public List<EspectaculoDetailDTO> listEspectaculoEntity2EspectaculoDetailDTO(List<EspectaculoEntity> entityList) {
+    public static List<EspectaculoDetailDTO> listEspectaculoEntity2EspectaculoDetailDTO(List<EspectaculoEntity> entityList) {
         List<EspectaculoDetailDTO> list = new ArrayList<>();
         for (EspectaculoEntity entity : entityList) {
             list.add(new EspectaculoDetailDTO(entity));
@@ -104,7 +131,7 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
         return list;
     }
 
-    public List<EspectaculoEntity> listEspectaculoDetailDto2EspectaculoEntity(List<EspectaculoDetailDTO> entityList) {
+    public static List<EspectaculoEntity> listEspectaculoDetailDto2EspectaculoEntity(List<EspectaculoDetailDTO> entityList) {
         List<EspectaculoEntity> list = new ArrayList<>();
         for (EspectaculoDetailDTO entity : entityList) {
             list.add(entity.toEntity());

@@ -43,8 +43,18 @@ LEFT JOIN ESPECTACULOENTITY ON ORGANIZADORENTITY.ID = ESPECTACULOENTITY_ORGANIZA
 
     public OrganizadorEntity updateOrganizadorEspectaculo(OrganizadorEntity entity, long idEspectaculo) throws PersistenceException {
         this.update(entity);
-        String query = "UPDATE APP.ESPECTACULOENTITY_ORGANIZADORENTITY  SET ORGANIZADOR_ID = " + entity.getId() + " WHERE ESPECTACULOS_ID = " + idEspectaculo;
-        em.createNativeQuery(query).executeUpdate();
+        try{
+           String query = "INSERT INTO ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values ("+ idEspectaculo +","+ entity.getId() +")";
+           em.createNativeQuery(query).executeUpdate();
+        }catch(Exception e){
+            String query = "UPDATE APP.ESPECTACULOENTITY_ORGANIZADORENTITY  SET ORGANIZADOR_ID = " + entity.getId() + " WHERE ESPECTACULOS_ID = " + idEspectaculo;
+            em.createNativeQuery(query).executeUpdate();
+        }
         return entity;
+    }
+
+    public void deleteOrganizadorEspectaculo(Long idOrganizador, Long idEspectaculo) {
+        String query = "DELETE FROM APP.ESPECTACULOENTITY_ORGANIZADORENTITY WHERE (ESPECTACULOS_ID = " + idEspectaculo + " AND ORGANIZADOR_ID = " + idOrganizador + ")";
+        em.createNativeQuery(query).executeUpdate();
     }
 }
