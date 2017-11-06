@@ -23,8 +23,7 @@
                     <td id="{{$index}}-pais">{{user.pais}}</td>
                     <td id="{{$index}}-ciudad">{{user.ciudad}}</td>
                     <td>
-                        <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-edit"></span> Detail</button>
-                        <button id="{{$index}}-remove-btn" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-remove"></span> Remove</button>
+                        <button id="{{$index}}-edit-btn" class="btn btn-info" ui-sref="usuarioDetail({usuarioUser: user.userName})" ><span class="glyphicon glyphicon-edit"></span> Detail</button>
                     </td>
                 </tr>
             </tbody>

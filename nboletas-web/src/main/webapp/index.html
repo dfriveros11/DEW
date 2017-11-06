@@ -39,7 +39,6 @@
         
         <script src="src/modules/usuarios/usuarios.mod.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/usuarios.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/usuarios/list/usuarios.list.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/register/usuarios.register.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/login/usuarios.login.ctrl.js" type="text/javascript"></script>
         
@@ -51,10 +50,12 @@
         
       <!--Navbar -->
       <div class="header-site container-fluid">
-          <ul class="nav nav-pills pull-right">
-            <li class="active"><a ui-sref="usuarioLogin">Ingresar</a></li>
-            <li><a ui-sref="usuarioRegister">Registrarse</a></li>
-          </ul>
+          <div ui-view="usersView">
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a ui-sref="usuarioLogin">Ingresar</a></li>
+                <li><a ui-sref="usuarioRegister">Registrarse</a></li>
+            </ul>
+          </div>
         <header class="page-header">
             <img src="resources/images/NuestrasBoletasBanner.png" ui-sref="espectaculosList">
         </header>

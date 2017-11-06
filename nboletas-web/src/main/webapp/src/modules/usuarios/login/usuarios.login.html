@@ -1,16 +1,10 @@
-<href src="src/modules/usuarios/login/usuarios.login.css">
 <div class="container-fluid">
-    
-    
     <div class="wrapper">
         <form class="form-signin" >       
             <h2 class="form-signin-heading">Ingresar</h2>
                 <input type="text" class="form-control" placeholder="Usuario" required="" autofocus="" ng-model="username"/>
                 <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="password"/>      
-        <button class="btn btn-lg btn-primary btn-block" ui-sref="#" type="submit">Ingresar</button>   
+        <button class="btn btn-lg btn-primary btn-block" ui-sref="usuarioDetail({usuarioUser: username})" type="submit">Ingresar</button>   
         </form>
     </div>
-    
-    
-
 </div>

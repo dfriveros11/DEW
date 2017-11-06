@@ -1,5 +1,6 @@
 (function (ng) {
     var mod = angular.module('usuarioModule', ['ui.router']);
+    
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/usuarios/';
             $urlRouterProvider.otherwise("/usuarios");
@@ -7,12 +8,9 @@
                 
             .state('usuario', {
                 url: '/usuarios',
-                abstract: true,
                 views: {
                     'mainView': {
-                        templateUrl: basePath + 'usuarios.html',
-                        controller: 'usuarioCtrl',
-                        controllerAs: 'ctrl'
+                        templateUrl: basePath + 'usuarios.html'
                     }
                 }
             })
@@ -22,7 +20,7 @@
                 views:{
                     'listView':{
                         templateUrl: basePath + '/list/usuarios.list.html',
-                        controller: 'usuarioListCtrl',
+                        controller: 'usuarioCtrl',
                         controllerAs: 'ctrl'
                     }
                 }
@@ -31,10 +29,9 @@
                 url: '/register',
                 parent: 'usuario',
                 views: {
-                    'mainView': {
+                    'detailView': {
                         templateUrl: basePath + '/register/usuarios.register.html',
-                        controller: 'usuariosRegisterCtrl',
-                        controllerAs: 'ctrl'
+                        controller: 'usuariosRegisterCtrl'
                     }
                 }
             })
@@ -48,6 +45,25 @@
                         controllerAs: 'ctrl'
                     }
                 }
+            })
+            .state('usuarioDetail',{
+                url: '/{usuarioUser:string}/info',
+                parent: 'usuario',
+                param: {
+                    usuarioUser: null
+                },
+                views: {
+                    'listView': {
+                        templateUrl: basePath + 'list/usuarios.list.html',
+                        controller: 'usuarioCtrl',
+                        controllerAs: 'ctrl'
+                    },
+                    'detailView': {
+                        templateUrl: basePath + 'usuario.info.html',
+                        controller: 'usuarioCtrl',
+                        controllerAs: 'ctrl'
+                    }
+                }       
             });
         }
     ]);
