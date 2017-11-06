@@ -3,23 +3,86 @@
         function (ng) {
             var mod = ng.module("organizadoresModule");
             mod.constant("organizadoresContexts", "api/organizadores");
-            mod.controller('organizadorUpdateCtrl', ['$scope', '$http', 'organizadoresContexts', '$state', '$rootScope', '$filter',
-                function ($scope, $http, organizadoresContexts, $state, $rootScope, $filter) {
+            mod.constant("espectaculosContext", "espectaculos");
+            mod.controller('organizadorUpdateCtrl', ['$scope', '$http', 'organizadoresContexts', '$state', '$rootScope', '$filter', 'espectaculosContext',
+                function ($scope, $http, organizadoresContexts, $state, $rootScope, $filter, espectaculosContext) {
                     $rootScope.edit = true;
-
+                    var idsEspectaculos = [];
                     var idOrganizador= $state.params.organizadorId;
 
-                    //Consulto el autor a editar.
-                    $http.get(organizadoresContexts + '/' + idOrganizador).then(function (response) {
-                        var organizador = response.data;
-                        $scope.organizador.nombreEmpresa = organizador.nombreEmpresa;
-                        $scope.organizador.espectaculos = organizador.espectaculos;
+                $http.get(organizadoresContexts + '/' + idOrganizador).then(function (response) {
+                    var organizador = response.data;
+                    $scope.organizador.nombreEmpresa = organizador.nombreEmpresa;
+                    $http.get(organizadoresContexts + '/' + idOrganizador + '/espectaculos').then(function(response){
+                        $scope.organizador.espectaculos = response.data;
                     });
+                    $scope.getFiltro();
+                });
+                $scope.getFiltro = function() {
+                    $http.get(espectaculosContext).then(function (response) {
+                    $scope.allEspectaculos = response.data;
+                    $scope.espectaculosOrganizador = $scope.organizador.espectaculos;
+                    var filteredBooks = $scope.allEspectaculos.filter(function (allEspectaculos) {
+                                return $scope.espectaculosOrganizador.filter(function (espectaculosOrganizador) {
+                                    return espectaculosOrganizador.id === allEspectaculos.id;
+                                }).length === 0;
+                            });
+
+                            $scope.allEspectaculosShow = filteredBooks;
+                });};
+                $scope.allowDrop = function (ev) {
+                        ev.preventDefault();
+                    };
+
+                    $scope.drag = function (ev) {
+                        ev.dataTransfer.setData("text", ev.target.id);
+                    };
+
+                    $scope.dropAdd = function (ev) {
+                        ev.preventDefault();
+                        var data = ev.dataTransfer.getData("text");
+                        ev.target.appendChild(document.getElementById(data));
+                        //Cuando un book se añade al autor, se almacena su id en el array idsBook
+                        idsEspectaculos.push("" + data);
+                    };
+
+                    $scope.dropDelete = function (ev) {
+                        ev.preventDefault();
+                        var data = ev.dataTransfer.getData("text");
+                        ev.target.appendChild(document.getElementById(data));
+                        //Para remover el book que no se va asociar, por eso se usa el splice que quita el id del book en el array idsBook
+                        var index = idsEspectaculos.indexOf(data);
+                        if (index > -1) {
+                            idsEspectaculos.splice(index, 1);
+                        }
+                    };
                 $scope.updateOrganizador = function () {
-                    $http.put(organizadoresContexts + "/" + idOrganizador, $scope.organizador).then(function (response) {
+                    $scope.newEspectaculos();
+                    $http.put(organizadoresContexts + "/" + idOrganizador,{
+                        nombreEmpresa: $scope.organizador.nombreEmpresa
+                    }).then(function (response) {
+                        if (idsEspectaculos.length > 0) {
+                            for(var all in $scope.espectaculosOrganizador){
+                                $http.put(organizadoresContexts + "/" + response.data.id + "/espectaculos/" + $scope.espectaculosOrganizador[all].id ,$scope.espectaculosOrganizador[all]).then(function (response) {
+                                });
+                            }
+                            }
                     $state.go('organizadoresList', {organizadorId: response.data.id}, {reload: true});
                 });
                 };
+                 $scope.newEspectaculos = function () {
+                        $scope.espectaculosOrganizador = [];
+                        for (var ite in idsEspectaculos) {
+                            for (var all in $scope.allEspectaculos) {
+                                console.log("estoy afuera");
+                                if ($scope.allEspectaculos[all].id === parseInt(idsEspectaculos[ite])) {
+                                 console.log("estoy adentro");   
+                                 $scope.espectaculosOrganizador.push($scope.allEspectaculos[all]);
+                                }
+                            }
+                        }
+                        console.log($scope.espectaculosOrganizador);
+                    };
                 }
             ]);
         }
