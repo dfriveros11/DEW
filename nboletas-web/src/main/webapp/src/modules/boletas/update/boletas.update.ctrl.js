@@ -3,6 +3,7 @@
         function (ng) {
             var mod = ng.module("boletasModule");
             mod.constant("boletasContext", "api/boletas");
+            mod.constant("espectaculosContext", "api/espectaculos");
             mod.controller('boletaUpdateCtrl', ['$scope', '$http', 'boletasContext', '$state', '$rootScope', '$filter',
                 function ($scope, $http, boletasContext, $state, $rootScope, $filter) {
                     $rootScope.edit = true;
