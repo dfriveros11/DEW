@@ -117,9 +117,28 @@ public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity> {
         organizadores.add(organizador);
         espectaculo.setOrganizador(organizadores);
         try{
-            persistenceEspectaculo.delete(espectaculo);
+            persistenceOrganizador.deleteOrganizadorEspectaculo(idOrganizador, idEspectaculo);
         }catch(PersistenceException e){
             throw new PersistenceException("No se puede eliminar el espectaculo con el id: " + idEspectaculo + " relacionado al organizador con el id: " + idOrganizador + " El error es: " + e.getMessage());
+        }
+    }
+
+    public void deleteOrganizadorEspectaculos(Long idOrganizador, List<EspectaculoEntity> listEspectaculoDetailDto2EspectaculoEntity) throws BusinessLogicException {
+        OrganizadorEntity organizador = persistenceOrganizador.find(idOrganizador);
+        if (organizador == null) {
+            throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);
+        }
+        for (EspectaculoEntity espectaculoEntity : listEspectaculoDetailDto2EspectaculoEntity) {
+            EspectaculoEntity espectaculo = persistenceEspectaculo.find(espectaculoEntity.getId());
+            if (espectaculo == null) {
+                throw new BusinessLogicException("No existe el espectaculo con ese id: " + espectaculoEntity.getId());
+            }
+        }
+        organizador.setEspectaculos(listEspectaculoDetailDto2EspectaculoEntity);
+        try{
+            persistenceOrganizador.update(organizador);
+        }catch(PersistenceException e){
+            throw new PersistenceException("No se puede actualizar  el organizador con el id: " + idOrganizador + " El error es: " + e.getMessage());
         }
     }
 

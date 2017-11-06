@@ -30,7 +30,6 @@ LEFT JOIN ESPECTACULOENTITY ON ORGANIZADORENTITY.ID = ESPECTACULOENTITY_ORGANIZA
         return null;
     }
     **/
-   
     @Override
     public OrganizadorEntity update(OrganizadorEntity entity) throws PersistenceException {
         String query = "UPDATE APP.ORGANIZADORENTITY SET";
@@ -52,5 +51,10 @@ LEFT JOIN ESPECTACULOENTITY ON ORGANIZADORENTITY.ID = ESPECTACULOENTITY_ORGANIZA
             em.createNativeQuery(query).executeUpdate();
         }
         return entity;
+    }
+
+    public void deleteOrganizadorEspectaculo(Long idOrganizador, Long idEspectaculo) {
+        String query = "DELETE FROM APP.ESPECTACULOENTITY_ORGANIZADORENTITY WHERE (ESPECTACULOS_ID = " + idEspectaculo + " AND ORGANIZADOR_ID = " + idOrganizador + ")";
+        em.createNativeQuery(query).executeUpdate();
     }
 }
