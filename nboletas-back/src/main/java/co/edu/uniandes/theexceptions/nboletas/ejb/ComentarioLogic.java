@@ -5,8 +5,11 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.ejb;
 
+import co.edu.uniandes.theexceptions.nboletas.entities.BoletaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
+import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.ComentarioPersistence;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,11 +22,23 @@ import javax.inject.Inject;
 public class ComentarioLogic extends AbstractLogic<ComentarioEntity> {
 
     @Inject
-    private ComentarioPersistence persistence;
+    private ComentarioPersistence comentarioPersistence;
+    
 
     @Override
     protected AbstractPersistence<ComentarioEntity> getPersistence() {
-        return persistence;
+        return comentarioPersistence;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

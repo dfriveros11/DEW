@@ -7,6 +7,8 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
+import javax.persistence.TransactionRequiredException;
 
 /**
  *
@@ -18,4 +20,21 @@ public class ComentarioPersistence extends AbstractPersistence<ComentarioEntity>
     public ComentarioPersistence() {
         super(ComentarioEntity.class);
     }
+    
+    
+    
+    public ComentarioEntity update(ComentarioEntity entity)throws IllegalArgumentException {
+        String setStatement = "";
+        if(entity.getComentario() != null) setStatement += "COMENTARIO = '" + entity.getComentario() + "', ";
+        if(!setStatement.equals("")) setStatement = setStatement.substring(0, setStatement.length() - 2);
+        
+        Query q = em.createNativeQuery("UPDATE COMENTARIOENTITY SET " + setStatement + " WHERE ID = " + entity.getId());
+        q.executeUpdate();
+        return entity;
+     
+    }
+    
+    
+    
+    
 }

@@ -3,12 +3,14 @@
         // External dependencies
         'ui.router',
         'ui.bootstrap',
+        // Internal modules dependencies   
         'boletasModule',
         'organizadoresModule',
         'funcionesModule',
         'espectaculosModule',
-        'usuarioModule'
-        // Internal modules dependencies   
+        'usuarioModule',
+        'enviosModule',
+        'comentariosModule'
     ]);
     // Resuelve problemas de las promesas
     app.config(['$qProvider', function ($qProvider) {
