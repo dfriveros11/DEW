@@ -52,7 +52,7 @@
                     }
                 }
             }).state('funcionesDelete', {
-                url: '/delete',
+                url: '/delete/{funcionId:int}',
                 parent: 'funciones',
                 
                 param: {
@@ -74,11 +74,6 @@
                 views: {
                     'detailView': {
                         templateUrl: basePath + 'funciones.detail.html',
-                        controller: 'funcionesCtrl',
-                        controllerAs: 'ctrl'
-                    },
-                    'listView': {
-                        templateUrl: basePath + 'funciones.list.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
                     }

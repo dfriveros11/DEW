@@ -68,8 +68,8 @@ public class ComentarioDetailDTO extends ComentarioDTO {
         if (this.getBoleta() != null) {
             comentEnt.setBoleta(this.getBoleta().toEntity());
         }
-        if (this.getComentario() != null) {
-//            comentEnt.setComentario(this.getComentario().toEntity());
+        if (this.getEspectaculo()!= null) {
+            comentEnt.setEspectaculo(this.getEspectaculo().toEntity());
         }
 
         return comentEnt;

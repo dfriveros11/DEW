@@ -1,0 +1,23 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">       
+        <div class="col-md-3">
+            <dl> 
+               <dt>Envio Detail</dt>
+                <hr>
+                <dt>ID</dt>
+                <dt>{{currentEnvio.id}}</dt>
+                
+                <hr>
+                <dt>Direccion</dt>
+                <dd>{{currentEnvio.direccion}}</dd>
+                
+                 <hr>
+                <dt>Boleta</dt>
+                <dd><a ui-sref="boletaDetail({boletaId: currentEnvio.boleta.id})">{{currentEnvio.boleta.id}}</a></dd>
+                            
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>

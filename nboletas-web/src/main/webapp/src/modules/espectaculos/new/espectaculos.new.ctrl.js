@@ -12,7 +12,8 @@
             $scope.createEspectaculo = function () {
                 $http.post(espectaculosContext, {
                     nombre: $scope.espectaculoNombre,
-                    descripcion: $scope.especaculoDescripcion
+                    descripcion: $scope.espectaculoDescripcion,
+                    imagen: $scope.espectaculoImagen
                 }).then(function (response) {
                     $state.go('espectaculosList', {espectaculoId: response.data.id}, {reload: true});
                 });

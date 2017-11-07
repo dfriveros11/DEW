@@ -107,6 +107,7 @@ public class FuncionPersistenceTest {
     public void testCreate() {
         PodamFactory factory = new PodamFactoryImpl();
         FuncionEntity newEntity = factory.manufacturePojo(FuncionEntity.class);
+        newEntity.setHora("8:00 pm");
         FuncionEntity result = persistence.create(newEntity);
         Assert.assertNotNull(result);
         FuncionEntity entity = em.find(FuncionEntity.class, result.getId());
@@ -122,7 +123,8 @@ public class FuncionPersistenceTest {
         FuncionEntity entity = data.get(0);
         try {
             entity.setFecha((new SimpleDateFormat("MM/dd/yyyy")).parse("08/31/1998"));
-        } catch (Exception e) {}
+        } catch (Exception e) { }
+        entity.setHora("9:00 pm");
         persistence.update(entity);
         FuncionEntity resp = em.find(FuncionEntity.class, entity.getId());
         Assert.assertEquals("08/31/1998", (new SimpleDateFormat("MM/dd/yyyy")).format(resp.getFecha()));

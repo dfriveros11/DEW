@@ -9,7 +9,13 @@
         'espectaculosModule',
         'usuarioModule',
         'espectaculosModule', 
-        'artistasModule'
+        'artistasModule',
+        'lugaresModule',
+        'divisionesModule',
+        'sillasModule',
+        'enviosModule',
+        'comentariosModule',
+        'reembolsosModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas

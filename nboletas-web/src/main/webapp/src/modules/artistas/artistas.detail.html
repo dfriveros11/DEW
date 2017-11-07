@@ -24,6 +24,9 @@
                 <dt>Espectaculos</dt>
                 <dd>
                 <ul>
+                    <li ng-if="currentArtista.espectaculos.length===0">
+                        <p><i>No hay espectaculos asociados</i></p>
+                    </li>
                     <li ng-repeat="x in currentArtista.espectaculos">
                         <a href="#!/espectaculos/{{x.id}}/detail">{{x.nombre}}</a>
                     </li>

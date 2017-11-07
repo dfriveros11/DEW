@@ -1,0 +1,34 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-3">
+            <dl> 
+                
+                <hr>
+                <dt>ID</dt>
+                <dt>{{currentDivision.id}}</dt>
+                
+                <hr>
+                <dt>Nombre</dt>
+                <dd>{{currentDivision.name}}</dd>
+                
+                <hr>
+                <dt>Sillas</dt>
+                <dd>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Costo</th>
+                    </tr>
+                    <tr ng-repeat="silla in currentDivision.sillas">
+                        <td id="{{$index}}-id"> {{silla.id}}</td>
+                        <td id="{{$index}}-costo"> <a href="#!/sillas/{{silla.id}}/detail">{{silla.costo}}</td>   
+                    </tr>
+                </table>
+                </dd>
+            
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>

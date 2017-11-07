@@ -48,7 +48,7 @@ public class EspectaculoOrganizadorResources {
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con el id: " + idEspectaculo);
         }
-        OrganizadorEntity organizadorE = organizador.toEntity();
+        OrganizadorEntity organizadorE = organizadorLogic.find(organizador.getId());
         List <EspectaculoEntity> lista= new ArrayList<>();
         lista.add(espectaculo);
         organizadorE.setEspectaculos(lista);

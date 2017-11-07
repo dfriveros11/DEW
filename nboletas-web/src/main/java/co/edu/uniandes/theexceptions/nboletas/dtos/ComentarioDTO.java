@@ -17,7 +17,6 @@ public class ComentarioDTO {
     private Long id;
     private String comentario;
     private Date fecha;
-    private Long idBoleta;
 
     /**
      * Constructor por defecto
@@ -31,18 +30,11 @@ public class ComentarioDTO {
         if (coment != null) {
             this.id = coment.getId();
             this.comentario = coment.getComentario();
-            this.fecha = coment.getFecha();
-            this.idBoleta=coment.getBoleta().getId();
+            this.fecha = coment.getFecha(); 
         }
     }
 
-    public Long getIdBoleta() {
-        return idBoleta;
-    }
 
-    public void setIdBoleta(Long idBoleta) {
-        this.idBoleta = idBoleta;
-    }
 
     /**
      * @return the id
