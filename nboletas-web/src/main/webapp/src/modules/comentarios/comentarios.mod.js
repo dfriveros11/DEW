@@ -13,12 +13,14 @@
             $stateProvider
                     .state('comentarios', {
                         url: "/comentarios",
+                        abstract: true,
                         views: {
                             'mainView':{
-                                templateUrl: basePath + 'comentarios.html'
+                                templateUrl: basePath + 'comentarios.html',
+                                controller: 'comentarioCtrl',
+                                controllerAs: 'ctrl'
                             }
-                        }
-                        
+                        }              
                     })
                     .state('comentariosList', {
                         url: '/list',
