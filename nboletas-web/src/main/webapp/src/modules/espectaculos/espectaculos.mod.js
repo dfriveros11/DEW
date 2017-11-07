@@ -56,6 +56,32 @@
                             }
                         }        
                     })
+                    .state('espectaculoArtista',{
+                        url: '/{espectaculoId:int}/createArtista',
+                        parent: 'espectaculos',
+                        param: {
+                            espectaculoId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/new/newArtista/espectaculos.newArtista.html',
+                                controller: 'espectaculoNewArtistaCtrl'
+                            }
+                        }        
+                    })
+                    .state('espectaculoOrganizador',{
+                        url: '/{espectaculoId:int}/createOrganizador',
+                        parent: 'espectaculos',
+                        param: {
+                            espectaculoId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + '/new/newOrganizador/espectaculos.newOrganizador.html',
+                                controller: 'espectaculoNewOrganizadorCtrl'
+                            }
+                        }        
+                    })
                     .state('espectaculoUpdate', {
                         url: '/update/{espectaculoId:int}',
                         parent: 'espectaculos',

@@ -17,28 +17,6 @@
                             <textarea id="espectaculoImagen" required ng-model="espectaculoImagen" class="col-sm-6"></textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="espectaculoArtistas" class="col-sm-2">Artistas (Deben existir previamente):</label>
-                            <ul>
-                                <li ng-repeat="i in [1, 2, 3, 4, 5]">
-                                    <label for="espectaculoArtistas" class="col-sm-2">Id Artista {{i}}:</label>
-                                    <textarea id="espectaculoArtistas" required ng-model="espectaculoArtistas" class="col-sm-6"></textarea>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <label for="espectaculoOrganizadores" class="col-sm-2">Organizadores (Deben existir previamente):</label>
-                            <ul>
-                                <li ng-repeat="i in [1, 2, 3, 4, 5]">
-                                    <label for="espectaculoOrganizadores" class="col-sm-2">Id Organizador {{i}}:</label>
-                                    <textarea id="espectaculoOrganizadores" required ng-model="espectaculoOrganizadores" class="col-sm-6"></textarea>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                    <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!espectaculo.$valid">
                             <div class="alert alert-warning">

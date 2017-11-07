@@ -23,6 +23,8 @@
                     <td id="{{$index}}-actions">
                         <a class="btn btn-default btn-sm" ui-sref="espectaculoUpdate({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-edit"></span>Modificar</a>
                         <a class="btn btn-danger btn-sm" ui-sref="espectaculosDelete({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+                        <a class="btn btn-info" ui-sref="espectaculoOrganizador({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-plus-sign"></span> Add new organizador</a>
+                        <a class="btn btn-info" ui-sref="espectaculoArtista({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-plus-sign"></span> Add new artista</a>
                     </td>
                 </tr>
             </tbody>

@@ -11,7 +11,8 @@
             $rootScope.edit = false;
             $scope.createArtista = function () {
                 $http.post(artistasContext, {
-                    nombre: $scope.artistaNombre
+                    nombre: $scope.artistaNombre,
+                    imagen: $scope.artistaImagen
                 }).then(function (response) {
                     $state.go('artistasList', {artistaId: response.data.id}, {reload: true});
                 });
