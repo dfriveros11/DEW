@@ -22,7 +22,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -37,6 +36,13 @@ public class ReembolsoResource {
     @Inject
     private ReembolsoLogic logic;
 
+    
+    @POST
+    public ReembolsoDetailDTO createReembolso(ReembolsoDetailDTO Reembolso) {
+        ReembolsoEntity reembolso = logic.create(Reembolso.toEntity());
+        return new ReembolsoDetailDTO(reembolso);
+    }
+    
     /**
      * GET Retorna una colección de objetos Reembolso en representación Detail.
      * http://localhost:8080/nboletas-web/api/reembolsos
@@ -62,7 +68,11 @@ public class ReembolsoResource {
     @GET
     @Path("{idReembolso: \\d+}")
     public ReembolsoDetailDTO getReembolso(@PathParam("idReembolso") Long idReembolso) throws BusinessLogicException {
-        return new ReembolsoDetailDTO(logic.find(idReembolso));
+        ReembolsoEntity reembolso = logic.find(idReembolso);
+        if (reembolso == null) {
+            throw new BusinessLogicException("No se encontra el reembolso con el id: " + idReembolso);
+        }
+        return new ReembolsoDetailDTO(reembolso);
     }
 
     /**
