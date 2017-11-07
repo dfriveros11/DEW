@@ -40,17 +40,19 @@ public class EspectaculoArtistaResource {
 
     @Inject
     EspectaculoLogic espectaculoLogic;
-
+    
+    
     @POST
     public ArtistaDetailDTO createEspectaculoArtista(@PathParam("idEspectaculo") Long idEspectaculo, ArtistaDetailDTO artista) throws BusinessLogicException {
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con el id: " + idEspectaculo);
         }
-        ArtistaEntity artistaE = artista.toEntity();
+        ArtistaEntity artistaE = artistaLogic.find(artista.getId());
         List <EspectaculoEntity> lista= new ArrayList<>();
         lista.add(espectaculo);
         List<ArtistaEntity> artistas = espectaculo.getArtista();
+        artistaE.setEspectaculos(lista);
         artistas.add(artistaE);
         espectaculo.setArtista(artistas);
         ArtistaEntity artistaCreado = artistaLogic.create(artistaE);

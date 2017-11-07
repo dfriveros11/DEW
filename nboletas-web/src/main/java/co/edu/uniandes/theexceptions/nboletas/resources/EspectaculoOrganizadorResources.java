@@ -6,6 +6,7 @@
 package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.EspectaculoDetailDTO;
+import co.edu.uniandes.theexceptions.nboletas.dtos.OrganizadorDTO;
 import co.edu.uniandes.theexceptions.nboletas.dtos.OrganizadorDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.EspectaculoLogic;
 import co.edu.uniandes.theexceptions.nboletas.ejb.OrganizadorLogic;
@@ -42,14 +43,15 @@ public class EspectaculoOrganizadorResources {
     EspectaculoLogic espectaculoLogic;
 
     @POST
-    public OrganizadorDetailDTO createEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, OrganizadorDetailDTO organizador) throws BusinessLogicException {
+    public OrganizadorDetailDTO createEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, OrganizadorDTO organizador) throws BusinessLogicException {
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con el id: " + idEspectaculo);
         }
-        OrganizadorEntity organizadorE = organizador.toEntity();
+        OrganizadorEntity organizadorE = organizadorLogic.find(organizador.getId());
         List <EspectaculoEntity> lista= new ArrayList<>();
         lista.add(espectaculo);
+        organizadorE.setEspectaculos(lista);
         List<OrganizadorEntity> organizadores = espectaculo.getOrganizador();
         organizadores.add(organizadorE);
         espectaculo.setOrganizador(organizadores);
@@ -58,7 +60,7 @@ public class EspectaculoOrganizadorResources {
     }
 
     @GET
-    public List<OrganizadorDetailDTO> getOrganizadores(@PathParam("idEspectaculo") Long idEspectaculo) throws BusinessLogicException {
+    public List<OrganizadorDTO> getOrganizadores(@PathParam("idEspectaculo") Long idEspectaculo) throws BusinessLogicException {
         List<OrganizadorEntity> list = new ArrayList<>();
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
@@ -75,7 +77,7 @@ public class EspectaculoOrganizadorResources {
 
     @GET
     @Path("{idOrganizador: \\d+}")
-    public OrganizadorDetailDTO getOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador) throws BusinessLogicException {
+    public OrganizadorDTO getOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador) throws BusinessLogicException {
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
@@ -93,7 +95,7 @@ public class EspectaculoOrganizadorResources {
 
     @PUT
     @Path("{idOrganizador: \\d+}")
-    public OrganizadorDetailDTO updateEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador, OrganizadorDetailDTO organizador) throws BusinessLogicException {
+    public OrganizadorDTO updateEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador, OrganizadorDetailDTO organizador) throws BusinessLogicException {
         EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
@@ -127,8 +129,8 @@ public class EspectaculoOrganizadorResources {
         organizadorLogic.delete(organizador);
     }
 
-    private List<OrganizadorDetailDTO> listEntity2DetailDTO(List<OrganizadorEntity> entityList) {
-        List<OrganizadorDetailDTO> list = new ArrayList<>();
+    private List<OrganizadorDTO> listEntity2DetailDTO(List<OrganizadorEntity> entityList) {
+        List<OrganizadorDTO> list = new ArrayList<>();
         for (OrganizadorEntity entity : entityList) {
             list.add(new OrganizadorDetailDTO(entity));
         }

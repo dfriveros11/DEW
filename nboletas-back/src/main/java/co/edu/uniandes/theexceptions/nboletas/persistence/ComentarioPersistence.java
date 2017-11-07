@@ -6,6 +6,9 @@
 package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.ejb.Stateless;
 import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
@@ -21,18 +24,23 @@ public class ComentarioPersistence extends AbstractPersistence<ComentarioEntity>
         super(ComentarioEntity.class);
     }
     
-    
-    
-    public ComentarioEntity update(ComentarioEntity entity)throws IllegalArgumentException {
-        String setStatement = "";
-        if(entity.getComentario() != null) setStatement += "COMENTARIO = '" + entity.getComentario() + "', ";
-        if(!setStatement.equals("")) setStatement = setStatement.substring(0, setStatement.length() - 2);
-        
-        Query q = em.createNativeQuery("UPDATE COMENTARIOENTITY SET " + setStatement + " WHERE ID = " + entity.getId());
-        q.executeUpdate();
-        return entity;
-     
-    }
+   
+//    public ComentarioEntity update(ComentarioEntity entity)throws IllegalArgumentException, TransactionRequiredException {
+//        String setStatement = "";
+//        if(entity.getComentario() != null) setStatement += "COMENTARIO = '" + entity.getComentario() + "', ";
+//        if(entity.getFecha() !=null){
+//           Date fecha1 = entity.getFecha();
+//           String newstring = new SimpleDateFormat("yyyy-MM-dd").format(entity.getFecha());         
+//            
+//            setStatement += "FECHA = '" + newstring + "', ";
+//        }
+//        if(!setStatement.equals("")) setStatement = setStatement.substring(0, setStatement.length() - 2);
+//        
+//        Query q = em.createNativeQuery("UPDATE COMENTARIOENTITY SET " + setStatement + " WHERE ID = " + entity.getId());
+//        q.executeUpdate();
+//        return entity;
+//     
+//    }
     
     
     

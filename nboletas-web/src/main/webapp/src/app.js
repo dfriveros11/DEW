@@ -9,6 +9,9 @@
         'funcionesModule',
         'espectaculosModule',
         'usuarioModule',
+        'espectaculosModule', 
+        'artistasModule',
+        'lugaresModule',
         'enviosModule',
         'comentariosModule'
     ]);

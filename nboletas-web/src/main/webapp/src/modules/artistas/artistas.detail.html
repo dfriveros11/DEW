@@ -1,0 +1,41 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+         <div class="col-md-3">
+            <div class="thumb">
+                <img class="img-responsive" ng-src="{{currentArtista.imagen}}"/>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <dl> 
+                
+                <hr>
+                <dt>ID</dt>
+                <dt>{{currentArtista.id}}</dt>
+                
+                <hr>
+                <dt>Nombre</dt>
+                <dd>{{currentArtista.nombre}}</dd>
+          
+                
+                
+                <hr>
+                <dt>Espectaculos</dt>
+                <dd>
+                <ul>
+                    <li ng-if="currentArtista.espectaculos.length===0">
+                        <p><i>No hay espectaculos asociados</i></p>
+                    </li>
+                    <li ng-repeat="x in currentArtista.espectaculos">
+                        <a href="#!/espectaculos/{{x.id}}/detail">{{x.nombre}}</a>
+                    </li>
+                </ul>
+            </dd>
+            <hr>
+       
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>

@@ -3,7 +3,7 @@
         <div class="col-md-2" ng-repeat="espectaculo in espectaculosRecord">
             <div class="thumbnail">
                 <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})">                    
-                    <img class="img-responsive" ng-src='http://casinocirsavalencia.com/cmsupload/eventos/Halloween%20-%202016/111031094.jpg' alt="{{espectaculo.name}}" />                  
+                    <img class="img-responsive" ng-src="{{espectaculo.imagen}}" alt="{{espectaculo.name}}" />                  
                 </a>
             </div>
             <div class="caption text-center">
