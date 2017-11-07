@@ -63,7 +63,7 @@
                 url: '/{usuarioUser:string}/info',
                 parent: 'usuario',
                 param: {
-                    usuarioUser: null
+                    usuarioId: null
                 },
                 views: {
                     'listView': {

@@ -10,7 +10,7 @@
                 $http.get(usuariosContext + '/' + $scope.username)
                 .then(function (response) {
                     $scope.currentUser = response.data;
-                    $state.go('usuarioDetail',({usuarioUser: $scope.currentUser.userName}));
+                    $state.go('usuarioDetail',({usuarioId: $scope.currentUser.id}));
                 }),
                 function(response) {
                     $scope.loginFailed = true;

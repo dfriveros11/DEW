@@ -16,7 +16,7 @@
                 ciudad: $scope.ciudad
             };
             $http.post(usuariosContext,user).then(function (response) {
-                $state.go('usuarioRegisterSuccess', {usuarioUser: response.data.userName}, {reload: true});
+                $state.go('usuarioRegisterSuccess', {usuarioId: response.data.id}, {reload: true});
             }),
             function(response) {
                 $scope.creationFailed = true;

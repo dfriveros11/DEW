@@ -16,14 +16,14 @@
             </thead>
             <tbody>
                 <tr ng-repeat="user in users">
-                    <td id="{{$index}}-name">{{user.id}}</td>
+                    <td id="{{$index}}-id">{{user.id}}</td>
                     <td id="{{$index}}-userName">{{user.userName}}</td>
                     <td id="{{$index}}-nombreUsuario">{{user.nombreUsuario}}</td>
                     <td id="{{$index}}-email">{{user.email}}</td>
                     <td id="{{$index}}-pais">{{user.pais}}</td>
                     <td id="{{$index}}-ciudad">{{user.ciudad}}</td>
                     <td>
-                        <button id="{{$index}}-edit-btn" class="btn btn-info" ui-sref="usuarioDetail({usuarioUser: user.userName})" ><span class="glyphicon glyphicon-edit"></span> Detail</button>
+                        <button id="{{$index}}-edit-btn" class="btn btn-info" ui-sref="usuarioDetail({usuarioUser: user.id})" > Info</button>
                     </td>
                 </tr>
             </tbody>
