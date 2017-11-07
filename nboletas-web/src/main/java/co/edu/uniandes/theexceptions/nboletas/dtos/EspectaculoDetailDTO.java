@@ -5,12 +5,15 @@
  */
 package co.edu.uniandes.theexceptions.nboletas.dtos;
 
+import co.edu.uniandes.theexceptions.nboletas.ejb.ArtistaLogic;
+import co.edu.uniandes.theexceptions.nboletas.ejb.OrganizadorLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.ArtistaEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.ComentarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.EspectaculoEntity;
 import co.edu.uniandes.theexceptions.nboletas.entities.OrganizadorEntity;
 import java.util.ArrayList;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  *
@@ -18,10 +21,14 @@ import java.util.List;
  */
 public class EspectaculoDetailDTO extends EspectaculoDTO {
 
+    @Inject
+    private ArtistaLogic artistaLogic;
+    @Inject
+    private OrganizadorLogic organizadorLogic;
+
     private List<ArtistaDTO> artistas;
     private List<OrganizadorDTO> organizadores;
     private List<ComentarioDTO> comentarios;
-    
     /**
      * Constructor de un entity
      * @param espectaculo
@@ -102,26 +109,36 @@ public class EspectaculoDetailDTO extends EspectaculoDTO {
         if (organizadores != null) {
             List<OrganizadorEntity> organizadoresEntity = new ArrayList<>();
             for (OrganizadorDTO organizador : organizadores) {
-                organizadoresEntity.add(organizador.toEntity());
+                if(organizador!=null){
+                OrganizadorEntity organizadorBuscado=organizadorLogic.find(organizador.getId());
+                if(organizadorBuscado!=null){
+                    organizadoresEntity.add(organizadorBuscado);
+                }
+            }
             }
             entity.setOrganizador(organizadoresEntity);
         }
-        if (organizadores != null) {
-            List<OrganizadorEntity> organizadoresEntity = new ArrayList<>();
-            for (OrganizadorDTO organizador : organizadores) {
-                organizadoresEntity.add(organizador.toEntity());
+        if (artistas != null) {
+            List<ArtistaEntity> artistasEntity = new ArrayList<>();
+            for (ArtistaDTO artista : artistas) {
+                if(artista!=null){
+                ArtistaEntity artistaBuscado=artistaLogic.find(artista.getId());
+                if(artistaBuscado!=null){
+                    artistasEntity.add(artistaBuscado);
+                }
             }
-            entity.setOrganizador(organizadoresEntity);
+           }
+            entity.setArtista(artistasEntity);
         }
-        if (organizadores != null) {
-            List<OrganizadorEntity> organizadoresEntity = new ArrayList<>();
-            for (OrganizadorDTO organizador : organizadores) {
-                organizadoresEntity.add(organizador.toEntity());
+        if (comentarios != null) {
+            List<ComentarioEntity> comentariosEntity = new ArrayList<>();
+            for (ComentarioDTO comentario : comentarios) {
+                comentariosEntity.add(comentario.toEntity());
             }
-            entity.setOrganizador(organizadoresEntity);
+            entity.setComentarios(comentariosEntity);
         }
         return entity;
-    }
+        }
 
     public static List<EspectaculoDetailDTO> listEspectaculoEntity2EspectaculoDetailDTO(List<EspectaculoEntity> entityList) {
         List<EspectaculoDetailDTO> list = new ArrayList<>();

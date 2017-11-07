@@ -6,7 +6,6 @@
             var idEspectaculo = $state.params.espectaculoId;
             $scope.deleteEspectaculo = function () {
                 $http.delete(espectaculosContext + '/' + idEspectaculo, {}).then(function (response) {
-                    console.log(response);
                     $state.go('espectaculosList', {espectaculoId: response.data.id}, {reload: true});
                 });
             };

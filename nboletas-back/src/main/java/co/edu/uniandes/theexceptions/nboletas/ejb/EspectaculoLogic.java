@@ -10,6 +10,7 @@ import co.edu.uniandes.theexceptions.nboletas.persistence.AbstractPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.EspectaculoPersistence;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.TransactionRequiredException;
 
 /**
  *
@@ -24,6 +25,22 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
     @Override
     protected AbstractPersistence<EspectaculoEntity> getPersistence() {
         return persistence;
+    }
+   
+    @Override
+    public void delete(EspectaculoEntity entity){
+        try {
+            Long id=entity.getId();
+            persistence.deleteArtistaEspectaculo(id);
+            persistence.deleteComentarioEspectaculo(id);
+            persistence.deleteFuncionEspectaculo(id);
+            persistence.deleteOrganizadorEspectaculo(id);
+            persistence.delete(entity);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("La instancia no es una entidad", e);
+        } catch (TransactionRequiredException e) {
+            throw new TransactionRequiredException("No existe ninguna transaccion");
+        }
     }
 
 }
