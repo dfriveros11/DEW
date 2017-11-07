@@ -76,11 +76,6 @@
                         templateUrl: basePath + 'funciones.detail.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
-                    },
-                    'listView': {
-                        templateUrl: basePath + 'funciones.list.html',
-                        controller: 'funcionesCtrl',
-                        controllerAs: 'ctrl'
                     }
                 }
             });

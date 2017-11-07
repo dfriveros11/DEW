@@ -76,11 +76,6 @@
                         templateUrl: basePath + 'lugares.detail.html',
                         controller: 'lugaresCtrl',
                         controllerAs: 'ctrl'
-                    },
-                    'listView': {
-                        templateUrl: basePath + 'lugares.list.html',
-                        controller: 'lugaresCtrl',
-                        controllerAs: 'ctrl'
                     }
                 }
             });
