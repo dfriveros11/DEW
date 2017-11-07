@@ -28,8 +28,8 @@
                 <dt>Boletas compradas</dt>
                 <ul ng-repeat="boleta in currentUser.boletasCompradas">
                     <dd><b>Boleta con id: </b>{{boleta.id}}</dd>
-                    <dd>{{boleta.precio}}</dd>
-                    <button type="button" class="btn btn-info" ui-sref="boletaDetail({boletaId: boleta.id)">Info</button>
+                    <dd><b>Precio: </b>{{boleta.precio}}</dd>
+                    <button type="button" class="btn btn-info" ui-sref="boletaDetail({boletaId: boleta.id})" >Info</button>
                 </ul>
                
             </dl>

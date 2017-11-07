@@ -4,15 +4,21 @@
     mod.controller('usuarioLoginCtrl', ['$scope', '$http', 'usuariosContext','$state',login]);
     
     function login($scope, $http, usuariosContext, $state){
-        
-        if (($state.params.usuarioUser !== undefined) && ($state.params.usuarioUser !== null)) {
-            $http.get(usuariosContext + '/' + $state.params.usuarioUser).then(function (response) {
-                $scope.currentUser = response.data;
-                $http.get(usuariosContext + '/' + $scope.currentUser.id + '/boletas').then(function(response){
-                    $scope.boletas = response.data;
-                });
-            });
-        }
+        $scope.loginFailed=false;
+        $scope.signIn  = function () {
+            if (($scope.username !== undefined) && ($scope.username !== null)) {
+                $http.get(usuariosContext + '/' + $scope.username)
+                .then(function (response) {
+                    $scope.currentUser = response.data;
+                    $state.go('usuarioDetail',({usuarioUser: $scope.currentUser.userName}));
+                }),
+                function(response) {
+                    $scope.loginFailed = true;
+                    $scope.data = response.data || 'Request failed';
+                    $scope.status = response.status;
+                };
+            }
+        };
         
     }
     

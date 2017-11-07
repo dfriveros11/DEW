@@ -4,14 +4,30 @@
     mod.controller('usuariosRegisterCtrl', ['$scope', '$http', 'usuariosContext', '$state', '$rootScope',register]);
     
     function register($scope, $http, usuariosContext, $state, $rootScope){
-            $rootScope.edit = false;
-            $scope.registerUser = function () {
-                $http.post(usuariosContext, {
-                    nombreEmpresa: $scope.organizadorNombreEmpresa
-                }).then(function (response) {
-                    $state.go('organizadoresList', {organizadorId: response.data.id}, {reload: true});
-                });
+        $scope.creationFailed = false;
+        $rootScope.edit = false;
+        $scope.registerUsuario = function () {
+            var user = {
+                userName: $scope.userName,
+                password: $scope.password,
+                nombreUsuario: $scope.nombreUsuario,
+                email: $scope.email,
+                pais: $scope.pais,
+                ciudad: $scope.ciudad
             };
+            $http.post(usuariosContext,user).then(function (response) {
+                $state.go('usuarioRegisterSuccess', {usuarioUser: response.data.userName}, {reload: true});
+            }),
+            function(response) {
+                $scope.creationFailed = true;
+                $scope.data = response.data || 'Request failed';
+                $scope.status = response.status;
+            };
+            
+            
+        };
+        
     }
+
     
 })(angular);

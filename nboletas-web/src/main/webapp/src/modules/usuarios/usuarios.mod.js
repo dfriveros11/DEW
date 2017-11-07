@@ -18,7 +18,7 @@
                 url: '/list',
                 parent: 'usuario',
                 views:{
-                    'listView':{
+                    'detailView':{
                         templateUrl: basePath + '/list/usuarios.list.html',
                         controller: 'usuarioCtrl',
                         controllerAs: 'ctrl'
@@ -32,6 +32,19 @@
                     'detailView': {
                         templateUrl: basePath + '/register/usuarios.register.html',
                         controller: 'usuariosRegisterCtrl'
+                    }
+                }
+            })
+            .state('usuarioRegisterSuccess',{
+                url: '/successRegistration',
+                parent: 'usuario',
+                param: {
+                    usuarioUser: null
+                },
+                'views': {
+                    'detailView':{
+                        templateUrl: basePath + '/register/usuarios.register.success.html',
+                        controller: 'usuariosRegisterSuccessCtrl'
                     }
                 }
             })

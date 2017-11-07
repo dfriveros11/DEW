@@ -11,6 +11,7 @@
         function(response) {
             $scope.data = response.data || 'Request failed';
             $scope.status = response.status;
+            $scope.createFailed = true;
         };
              
         if (($state.params.usuarioUser !== undefined) && ($state.params.usuarioUser !== null)) {
