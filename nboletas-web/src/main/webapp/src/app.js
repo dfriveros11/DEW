@@ -12,6 +12,8 @@
         'espectaculosModule', 
         'artistasModule',
         'lugaresModule',
+        'divisionesModule',
+        'sillasModule',
         'enviosModule',
         'comentariosModule'
     ]);
