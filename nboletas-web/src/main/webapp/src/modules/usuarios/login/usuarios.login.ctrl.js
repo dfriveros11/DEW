@@ -1,22 +1,25 @@
 (function (ng) {
     var mod = ng.module('usuarioModule');
     mod.constant("usuariosContext", "api/usuarios");
-    mod.controller('usuarioLoginCtrl', ['$scope', '$http', 'usuariosContext',login]);
+    mod.controller('usuarioLoginCtrl', ['$scope', '$http', 'usuariosContext','$state',login]);
     
-    function controladorUsuario() {
-        
-    };
-    
-    function login($scope, $http, usuariosContext, $state, $css){
-        
-            if (($state.params.user !== undefined) && ($state.params.user !== null)
-                    && ($state.params.password !== undefined) && ($state.params.password !== null)) {
-                
-                $http.get(usuariosContext + '/' + $state.params.user).then(function (response) {
-                    $scope.Usuario = response.data;
-                });
-                
+    function login($scope, $http, usuariosContext, $state){
+        $scope.loginFailed=false;
+        $scope.signIn  = function () {
+            if (($scope.username !== undefined) && ($scope.username !== null)) {
+                $http.get(usuariosContext + '/' + $scope.username)
+                .then(function (response) {
+                    $scope.currentUser = response.data;
+                    $state.go('usuarioDetail',({usuarioId: $scope.currentUser.id}));
+                }),
+                function(response) {
+                    $scope.loginFailed = true;
+                    $scope.data = response.data || 'Request failed';
+                    $scope.status = response.status;
+                };
             }
+        };
+        
     }
     
 })(angular);

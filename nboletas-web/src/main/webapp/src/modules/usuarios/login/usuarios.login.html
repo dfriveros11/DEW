@@ -1,16 +1,15 @@
-<href src="src/modules/usuarios/login/usuarios.login.css">
 <div class="container-fluid">
-    
-    
+    <div class="alert alert-warning" ng-show="loginFailed">
+        <p>{{status}}</p>
+    </div>
     <div class="wrapper">
-        <form class="form-signin" >       
+        <form ng-submit="signIn()" class="form-signin" name="sign">
             <h2 class="form-signin-heading">Ingresar</h2>
                 <input type="text" class="form-control" placeholder="Usuario" required="" autofocus="" ng-model="username"/>
-                <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="password"/>      
-        <button class="btn btn-lg btn-primary btn-block" ui-sref="#" type="submit">Ingresar</button>   
+                <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="password"/>  
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button>
+                <br>
+                <a ui-sref="espectaculosList">Cancelar</a>
         </form>
     </div>
-    
-    
-
 </div>

@@ -31,9 +31,8 @@
                     }
                 }
             }).state('funcionesUpdate', {
-                url: '/{funcionId:int}/update',
+                url: '/update/{funcionId:int}',
                 parent: 'funciones',
-
                 param: {
                     funcionId: null
                 },
@@ -41,6 +40,28 @@
                     'detailView': {
                         templateUrl: basePath + '/update/funciones.update.html',
                         controller: 'funcionesUpdateCtrl'
+                    }
+                }
+            }).state('funcionesCreate', {
+                url: '/create',
+                parent: 'funciones',
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/new/funciones.new.html',
+                        controller: 'funcionesNewCtrl'
+                    }
+                }
+            }).state('funcionesDelete', {
+                url: '/delete/{funcionId:int}',
+                parent: 'funciones',
+                
+                param: {
+                    funcionId: null
+                },
+                views: {
+                    'detailView': {
+                        templateUrl: basePath + '/delete/funciones.delete.html',
+                        controller: 'funcionesDeleteCtrl'
                     }
                 }
             }).state('funcionesDetail', {
@@ -55,11 +76,15 @@
                         templateUrl: basePath + 'funciones.detail.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
+                    },
+                    'listView': {
+                        templateUrl: basePath + 'funciones.list.html',
+                        controller: 'funcionesCtrl',
+                        controllerAs: 'ctrl'
                     }
                 }
             });
         }]);
-
 })(window.angular);
 
 
