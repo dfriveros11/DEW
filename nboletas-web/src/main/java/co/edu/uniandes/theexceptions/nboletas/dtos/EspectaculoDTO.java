@@ -37,10 +37,12 @@ public class EspectaculoDTO {
      * @param espectaculo: Es la entidad que se va a convertir a DTO
      */
     public EspectaculoDTO(EspectaculoEntity espectaculo) {
-        this.id = espectaculo.getId();
-        this.imagen=espectaculo.getImagen();
-        this.nombre = espectaculo.getNombre();
-        this.descripcion = espectaculo.getDescripcion();
+        if(espectaculo != null){
+            this.id = espectaculo.getId();
+            this.imagen=espectaculo.getImagen();
+            this.nombre = espectaculo.getNombre();
+            this.descripcion = espectaculo.getDescripcion();
+        }
     }
 
     /**
