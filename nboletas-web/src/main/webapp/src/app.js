@@ -14,7 +14,8 @@
         'divisionesModule',
         'sillasModule',
         'enviosModule',
-        'comentariosModule'
+        'comentariosModule',
+        'reembolsosModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas

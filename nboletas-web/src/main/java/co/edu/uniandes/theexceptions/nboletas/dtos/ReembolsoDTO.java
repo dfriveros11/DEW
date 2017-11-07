@@ -42,7 +42,7 @@ public class ReembolsoDTO {
         this.id = id;
     }
 
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
 
