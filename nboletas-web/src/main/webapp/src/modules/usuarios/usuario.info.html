@@ -1,0 +1,39 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="thumb">
+                    <img src="https://www.hostelhops.com/img/profile/user/facebook-default.png?1508323045" alt="logo" height="100" width="100"/></a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <dl>                             
+                    <hr>
+                    <dt>Usuario</dt>
+                    <dd>{{currentUser.userName}}</dd>
+                    <hr>
+                    <dt>Nombre</dt>
+                    <dd>{{currentUser.nombreUsuario}}</dd>
+                    <hr>
+                    <dt>Email</dt>
+                    <dd>{{currentUser.email}}</dd>
+                    <hr>
+                    <dt>Pais</dt>
+                    <dd>{{currentUser.pais}}</dd>
+                    <hr>
+                    <dt>Ciudad</dt>
+                    <dd>{{currentUser.ciudad}}</dd>
+                    <hr>
+                    <dt>Boletas compradas</dt>
+                    <ul ng-repeat="boleta in currentUser.boletasCompradas">
+                        <dd><b>Boleta con id: </b>{{boleta.id}}</dd>
+                        <dd><b>Precio: </b>{{boleta.precio}}</dd>
+                        <button type="button" class="btn btn-info" ui-sref="boletaDetail({boletaId: boleta.id})" >Info</button>
+                    </ul>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
