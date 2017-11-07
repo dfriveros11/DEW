@@ -1,0 +1,33 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">       
+        <div class="col-md-3">
+            <dl> 
+               <dt>Comentario Detail</dt>
+                <hr>
+                <dt>ID</dt>
+                <dt>{{currentcomentario.id}}</dt>
+                
+                <hr>
+                <dt>Comentario</dt>
+                <dd>{{currentcomentario.comentario}}</dd>
+                
+                <hr>
+                <dt>fecha</dt>
+                <dd>{{currentcomentario.fecha| date:'yyyy-MM-dd'}}</dd>
+                
+                 <hr>
+                <dt>Boleta</dt>
+                <dd><a ui-sref="boletaDetail({boletaId: currentcomentario.boleta.id})">{{currentcomentario.boleta.id}}</a></dd>
+                   
+                
+                 <hr>
+                <dt>Espectaculo</dt>
+                <dd><a ui-sref="espectaculoDetail({espectaculoId: currentcomentario.espectaculo.id})">{{currentcomentario.espectaculo.id}}</a></dd>
+                   
+                
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>

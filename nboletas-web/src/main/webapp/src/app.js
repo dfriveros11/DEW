@@ -12,7 +12,9 @@
         'artistasModule',
         'lugaresModule',
         'divisionesModule',
-        'sillasModule'
+        'sillasModule',
+        'enviosModule',
+        'comentariosModule'
         // Internal modules dependencies   
     ]);
     // Resuelve problemas de las promesas
