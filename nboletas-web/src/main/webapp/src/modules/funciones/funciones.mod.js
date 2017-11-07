@@ -52,7 +52,7 @@
                     }
                 }
             }).state('funcionesDelete', {
-                url: '/delete',
+                url: '/delete/{funcionId:int}',
                 parent: 'funciones',
                 
                 param: {
