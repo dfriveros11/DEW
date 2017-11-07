@@ -1,0 +1,35 @@
+<div class="panel panel-default"> 
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-3">
+            <dl> 
+                
+                <hr>
+                <dt>ID</dt>
+                <dt>{{currentSilla.id}}</dt>
+                
+                <hr>
+                <dt>Costo</dt>
+                <dd>{{currentSilla.costo}}</dd>
+          
+            <hr>
+            <dt>Boletas</dt>
+            <dd>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Id</th>
+                        <th>Precio</th>
+                        <th>Vendida</th>
+                    </tr>
+                    <tr ng-repeat="boleta in currentSilla.boletas">
+                        <td id="{{$index}}-id"> {{boleta.id}}</td>
+                        <td id="{{$index}}-precio">{{boleta.precio}}</td>  
+                        <td id="{{$index}}-vendida"> {{boleta.vendida}}</td>
+                    </tr>
+                </table>
+            </dd>
+            </dl>
+        </div>
+    </div>
+        </div>
+</div>

@@ -42,10 +42,10 @@ insert into DivisionDeLugarEntity (id,nombre) values (30,'Noroccidental baja');
 insert into DivisionDeLugarEntity (id,nombre) values (40,'Suroccidental baja');
 insert into DivisionDeLugarEntity (id,nombre) values (50,'VIP');
 
-insert into SillaEntity (id,costo) values (50,20.1);
-insert into SillaEntity (id,costo) values (40,260.5);
-insert into SillaEntity (id,costo) values (30,30.8);
-insert into SillaEntity (id,costo) values (20,1000.5);
+insert into SillaEntity (id,costo,division_id) values (50,20.1,10);
+insert into SillaEntity (id,costo,division_id) values (40,260.5,20);
+insert into SillaEntity (id,costo,division_id) values (30,30.8,30);
+insert into SillaEntity (id,costo,division_id) values (20,1000.5,20);
 
 insert into LugarEntity (id,tipo) values (1,'CASA');
 insert into LugarEntity (id,tipo) values (2,'APTO');
