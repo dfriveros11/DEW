@@ -4,8 +4,8 @@
     
     function success($scope, $state){
         
-        if (($state.params.userName !== undefined) && ($state.params.userName !== null)) {
-            $scope.user = $state.params.userName;
+        if (($state.params.usuario !== undefined) && ($state.params.usuario !== null)) {
+            $scope.user = $state.params.usuario;
         }
         
     }

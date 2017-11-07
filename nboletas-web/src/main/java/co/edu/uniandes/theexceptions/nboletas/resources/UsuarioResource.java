@@ -7,8 +7,10 @@ package co.edu.uniandes.theexceptions.nboletas.resources;
 
 import co.edu.uniandes.theexceptions.nboletas.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.UsuarioLogic;
+import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -84,7 +86,9 @@ public class UsuarioResource {
      */
     @POST
     public UsuarioDetailDTO createUsuario(UsuarioDetailDTO usuario) throws BusinessLogicException {
-        return new UsuarioDetailDTO(logic.create(usuario.toEntity()));
+        UsuarioEntity usr = logic.create(usuario.toEntity());
+        LOGGER.log(Level.SEVERE, "Id: {0}", usr.getId());
+        return new UsuarioDetailDTO(usr);
     }
 
     /**

@@ -38,13 +38,13 @@ public class UsuarioDTO {
 
     public UsuarioEntity toEntity(){
         UsuarioEntity entity = new UsuarioEntity();
-        entity.setId(id);
-        entity.setUserName(userName);
-        entity.setPassword(password);
-        entity.setNombreUsuario(nombreUsuario);
-        entity.setEmail(email);
-        entity.setPais(pais);
-        entity.setCiudad(ciudad);
+        entity.setId(this.id);
+        entity.setUserName(this.userName);
+        entity.setPassword(this.password);
+        entity.setNombreUsuario(this.nombreUsuario);
+        entity.setEmail(this.email);
+        entity.setPais(this.pais);
+        entity.setCiudad(this.ciudad);
         return entity;
     }
 

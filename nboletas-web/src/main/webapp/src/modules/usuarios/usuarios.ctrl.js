@@ -11,11 +11,10 @@
         function(response) {
             $scope.data = response.data || 'Request failed';
             $scope.status = response.status;
-            $scope.createFailed = true;
         };
              
-        if (($state.params.usuarioUser !== undefined) && ($state.params.usuarioUser !== null)) {
-            $http.get(usuariosContext + '/' + $state.params.usuarioUser).then(function (response) {
+        if (($state.params.usuarioId!== undefined) && ($state.params.usuarioId !== null)) {
+            $http.get(usuariosContext + '/' + $state.params.usuarioId).then(function (response) {
                 $scope.currentUser = response.data;
                 $http.get(usuariosContext + '/' + $scope.currentUser.id + '/boletas').then(function(response){
                     $scope.boletas = response.data;

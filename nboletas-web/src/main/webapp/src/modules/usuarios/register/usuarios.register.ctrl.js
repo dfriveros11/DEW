@@ -7,6 +7,7 @@
         $scope.creationFailed = false;
         $rootScope.edit = false;
         $scope.registerUsuario = function () {
+            
             var user = {
                 userName: $scope.userName,
                 password: $scope.password,
@@ -15,8 +16,11 @@
                 pais: $scope.pais,
                 ciudad: $scope.ciudad
             };
+            
             $http.post(usuariosContext,user).then(function (response) {
-                $state.go('usuarioRegisterSuccess', {usuarioId: response.data.id}, {reload: true});
+                var usr = response.data;
+                console.log(usr.id);
+                $state.go('usuarioRegisterSuccess', {usuario: usr.id });
             }),
             function(response) {
                 $scope.creationFailed = true;

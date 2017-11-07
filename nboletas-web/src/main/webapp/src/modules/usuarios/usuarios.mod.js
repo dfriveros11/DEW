@@ -39,7 +39,7 @@
                 url: '/successRegistration',
                 parent: 'usuario',
                 param: {
-                    usuarioUser: null
+                    usuario: null
                 },
                 'views': {
                     'detailView':{
@@ -60,7 +60,7 @@
                 }
             })
             .state('usuarioDetail',{
-                url: '/{usuarioUser:string}/info',
+                url: '/{usuarioId:int}/info',
                 parent: 'usuario',
                 param: {
                     usuarioId: null

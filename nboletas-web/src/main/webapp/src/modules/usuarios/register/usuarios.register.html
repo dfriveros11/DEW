@@ -14,7 +14,7 @@
                         <div class="alert-warning" ng-if="!usuario.userName.$valid">
                             (*)
                         </div> 
-                        <dd><input id="userName" name="userName" class="form-control" type="text" ng-model="currentRecord.userName" ng-init="currentRecord.userName" required /></dd>
+                        <dd><input id="userName" name="userName" class="form-control" type="text" ng-model="userName" ng-init="userName" required /></dd>
 
                         <!--Password-->
                         <hr> 
@@ -22,7 +22,7 @@
                         <div class="alert-warning" ng-if="!usuario.password.$valid">
                             (*)
                         </div>
-                        <dd><input id="password" name="password" class="form-control" type="password" ng-model="currentRecord.password" ng-init="currentRecord.password" required /></dd>
+                        <dd><input id="password" name="password" class="form-control" type="password" ng-model="password" required /></dd>
 
                         <!--Nombre-->
                         <hr>
@@ -30,7 +30,7 @@
                         <div class="alert-warning" ng-if="!usuario.nombreUsuario.$valid">
                             (*)
                         </div> 
-                        <dd><input id="nombreUsuario" name="nombreUsuario" class="form-control" type="text" ng-model="currentRecord.nombreUsuario" ng-init="currentRecord.nombreUsuario" required /></dd>
+                        <dd><input id="nombreUsuario" name="nombreUsuario" class="form-control" type="text" ng-model="nombreUsuario" required /></dd>
 
                         <!--Email-->
                         <hr>
@@ -38,7 +38,7 @@
                             <p>El correo electronico debe estar en un formato valido*</p><hr>
                         </div> 
                         <dt><label for="email" class="col-md-2 control-label">Email</label></dt>
-                        <dd><input id="email" name="email" class="form-control" type="email" ng-model="currentRecord.email" ng-init="currentRecord.email" required /></dd>
+                        <dd><input id="email" name="email" class="form-control" type="email" ng-model="email" required /></dd>
                         
                         <!--Pais-->
                         <hr>
@@ -46,7 +46,7 @@
                         <div class="alert-warning" ng-if="!usuario.pais.$valid">
                             (*)
                         </div> 
-                        <dd><input id="pais" name="pais" class="form-control" type="text" ng-model="currentRecord.pais" ng-init="currentRecord.pais" required /></dd>
+                        <dd><input id="pais" name="pais" class="form-control" type="text" ng-model="pais" required /></dd>
 
                         <!--Ciudad-->
                         <hr>
@@ -54,7 +54,7 @@
                         <div class="alert-warning" ng-if="!usuario.ciudad.$valid">
                             (*)
                         </div> 
-                        <dd><input id="ciudad" name="ciudad" class="form-control" type="text" ng-model="currentRecord.ciudad" ng-init="currentRecord.ciudad" required /></dd>
+                        <dd><input id="ciudad" name="ciudad" class="form-control" type="text" ng-model="ciudad" required /></dd>
 
 
                     </dl>

@@ -9,8 +9,8 @@
             if (($scope.username !== undefined) && ($scope.username !== null)) {
                 $http.get(usuariosContext + '/' + $scope.username)
                 .then(function (response) {
-                    $scope.currentUser = response.data;
-                    $state.go('usuarioDetail',({usuarioId: $scope.currentUser.id}));
+                    $scope.currentLUser = response.data;
+                    $state.go('usuarioDetail',({usuarioId: $scope.currentLUser.id}));
                 }),
                 function(response) {
                     $scope.loginFailed = true;

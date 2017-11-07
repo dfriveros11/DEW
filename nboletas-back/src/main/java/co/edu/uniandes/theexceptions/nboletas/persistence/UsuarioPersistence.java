@@ -8,7 +8,6 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 /**
