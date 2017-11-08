@@ -1,4 +1,4 @@
-/* global windows */
+    /* global windows */
 
 (function (ng) {
     var mod = ng.module("boletasModule");

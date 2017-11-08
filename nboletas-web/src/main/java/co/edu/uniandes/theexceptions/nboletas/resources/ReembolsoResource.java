@@ -88,9 +88,12 @@ public class ReembolsoResource {
     @PUT
     @Path("{idReembolso: \\d+}")
     public ReembolsoDetailDTO updateReembolso(@PathParam("idReembolso") Long idReembolso, ReembolsoDetailDTO reembolso) throws BusinessLogicException, PersistenceException {
-        ReembolsoEntity rE = reembolso.toEntity();
-        rE.setId(idReembolso);
-        return new ReembolsoDetailDTO(logic.update(rE));    //TODO
+        reembolso.setId(idReembolso);
+        if (null == logic.find(idReembolso)) {
+            throw new BusinessLogicException("No existe el reembolso con el id: " + idReembolso);
+        }
+        ReembolsoEntity reembolsoActualizado = logic.update(reembolso.toEntity());
+        return (new ReembolsoDetailDTO(reembolsoActualizado));
     }
 
     /**
