@@ -45,7 +45,7 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
             throw new TransactionRequiredException("No existe ninguna transaccion");
         }
     }
-    /**Recibimos todo la lista de organizadores que vamos a desasociar**/
+    /**Recibimos todo el id del organizador que vamos a desasociar**/
     public void deleterEspectaculoOrganizado(Long idOrganizador, Long idEspectaculo) throws BusinessLogicException {
         OrganizadorEntity organizador = persistenceOrganizador.find(idOrganizador);
         if (organizador == null) {
