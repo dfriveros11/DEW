@@ -39,7 +39,7 @@
                                 }).length === 0;
                             });
 
-                            $scope.allOrganizadoresShow = filteredBooks;
+                            $scope.allEspectaculosShow = filteredBooks;
                      });};
                         
                 /** esto ya es html 5 y ya esta pedefinido **/
