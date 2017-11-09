@@ -74,4 +74,10 @@ public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntit
         String query = "DELETE FROM APP.ESPECTACULOENTITY_ARTISTAENTITY WHERE (ESPECTACULOS_ID = " + idEspectaculo +" )";
         em.createNativeQuery(query).executeUpdate();
     }
+    
+    /** Aqui solo vamos a borrar la tabla intermediaria del organizador y espectaculo**/
+    public void deleteEspectaculoTablaIntermediaOrganizador(Long idOrganizador, Long idEspectaculo) {
+        String query = "DELETE FROM APP.ESPECTACULOENTITY_ORGANIZADORENTITY WHERE (ESPECTACULOS_ID = " + idEspectaculo + " AND ORGANIZADOR_ID = " + idOrganizador + ")";
+        em.createNativeQuery(query).executeUpdate();
+    }
 }
