@@ -11,6 +11,10 @@
                 $http.get(funcionesContext + '/' + $state.params.funcionId).then(function (response) {
                     $scope.currentFuncion = response.data;
                 });
+
+                $http.get(funcionesContext + '/' + $state.params.funcionId + '/boletas').then(function (response) {
+                    $scope.boletasFuncion = response.data;
+                });
             }
         }
     ]);
