@@ -17,6 +17,32 @@
                             <input id="espectaculoDescripcion" required ng-model="espectaculo.descripcion" class="col-sm-6"/>
                         </div>
                     </div>
+                    <!-- Aca es para mostrar y selecionnar los organizadores -->
+                    <div ng-if="edit" class="panel-group" id="theEspectaculos">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Associated Organizadores</div>
+                            <div class="panel-body">
+                                <div id="div2" ondrop="angular.element(document.getElementById('theEspectaculos')).scope().dropAdd(event)" ondragover="angular.element(document.getElementById('theEspectaculos')).scope().allowDrop(event)">
+                                    <label></label>
+                                    <div ng-show="edit" ng-repeat="organizador in espectaculos.organizador">
+                                        <p draggable="true" ondragstart="angular.element(document.getElementById('theEspectaculos')).scope().drag(event)" id="{{organizador.id}}">{{organizador.nombreEmpresa}}</p>                                 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">All Organizadores</div>
+                            <div class="panel-body">
+                                <div id="div1" ondrop="angular.element(document.getElementById('theEspectaculos')).scope().dropDelete(event)" ondragover="angular.element(document.getElementById('theEspectaculos')).scope().allowDrop(event)">
+                                    <label></label>
+                                    <div ng-repeat="organizador in allOrganizadoresShow ">
+                                        <p draggable="true" ondragstart="angular.element(document.getElementById('theEspectaculos')).scope().drag(event)" id="{{organizador.id}}">{{organizador.nombreEmpresa}}</p>                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
                    <div class="form-group row">
                         <div class="form-group col-sm-4" ng-if="!espectaculo.$valid">
                             <div class="alert alert-warning">
