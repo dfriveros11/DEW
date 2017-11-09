@@ -29,7 +29,7 @@
                                 }).length === 0;
                             });
 
-                            $scope.allOrganizadoresShow = filteredBooks;
+                            $scope.allEspectaculosShow = filteredBooks;
                 });};
                 $scope.allowDrop = function (ev) {
                         ev.preventDefault();

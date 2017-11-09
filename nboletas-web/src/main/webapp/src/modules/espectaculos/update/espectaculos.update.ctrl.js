@@ -39,7 +39,7 @@
                                 }).length === 0;
                             });
 
-                            $scope.allEspectaculosShow = filteredBooks;
+                            $scope.allOrganizadoresShow = filteredBooks;
                      });};
                         
                 /** esto ya es html 5 y ya esta pedefinido **/
@@ -74,7 +74,7 @@
                 $scope.updateEspectaculo = function () {
                     $scope.newOrganizadores();
                     $http.put(espectaculosContext + "/" + idEspectaculo,{
-                        nombre: $scope.espectaculo.nombreEmpresa,
+                        nombre: $scope.espectaculo.nombre,
                         imagen: $scope.espectaculo.imagen,
                         descripcion: $scope.espectaculo.descripcion
                     }).then(function (response) {
