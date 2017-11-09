@@ -129,6 +129,7 @@ public class EspectaculoOrganizadorResources {
         organizadorLogic.delete(organizador);
     }
     
+    /** Aca solo llamos a la logica y listo **/
     @DELETE
     @Path("{idOrganizador: \\d+}")
     public void deleteOrganizadorEspectaculo(@PathParam("idOrganizador") Long idOrganizador, @PathParam("idEspectaculo") Long idEspectaculo) throws BusinessLogicException {
