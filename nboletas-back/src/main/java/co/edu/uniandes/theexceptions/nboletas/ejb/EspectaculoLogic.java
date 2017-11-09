@@ -45,24 +45,20 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
             throw new TransactionRequiredException("No existe ninguna transaccion");
         }
     }
-    
-    public void deleteEspectaculoOrganizadores(Long idEspectaculo, List<OrganizadorEntity> organizadores) throws BusinessLogicException {
-        EspectaculoEntity espectaculo = persistence.find(idEspectaculo);
+    /**Recibimos todo la lista de organizadores que vamos a desasociar**/
+    public void deleterEspectaculoOrganizado(Long idOrganizador, Long idEspectaculo) throws BusinessLogicException {
+        OrganizadorEntity organizador = persistenceOrganizador.find(idOrganizador);
+        if (organizador == null) {
+            throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);
+        }
+        EspectaculoEntity espectaculo = persistenceEspectaculo.find(idEspectaculo);
         if (espectaculo == null) {
-            throw new BusinessLogicException("No existe el organizador con ese id: " + idEspectaculo);
-        }
-        for (OrganizadorEntity organizadorEntity : organizadores) {
-            OrganizadorEntity organizador = organizadorPersistence.find(organizadorEntity.getId());
-            if (organizador == null) {
-                throw new BusinessLogicException("No existe el espectaculo con ese id: " + organizadorEntity.getId());
-            }
-        }
-        espectaculo.setOrganizador(organizadores);
+            throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
+        };
         try{
-            persistence.update(espectaculo);
+            persistence.deleteEspectaculoTablaIntermediaOrganizador(idOrganizador, idEspectaculo);
         }catch(PersistenceException e){
-            throw new PersistenceException("No se puede actualizar  el espectaculo con el id: " + idEspectaculo + " El error es: " + e.getMessage());
+            throw new PersistenceException("No se puede eliminar el espectaculo con el id: " + idEspectaculo + " relacionado al organizador con el id: " + idOrganizador + " El error es: " + e.getMessage());
         }
     }
-
 }
