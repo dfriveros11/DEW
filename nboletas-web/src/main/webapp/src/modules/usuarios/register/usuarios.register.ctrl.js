@@ -6,6 +6,8 @@
     function register($scope, $http, usuariosContext, $state, $rootScope){
         $scope.creationFailed = false;
         $rootScope.edit = false;
+        $scope.usr = "Error";
+        
         $scope.registerUsuario = function () {
             
             var user = {
@@ -18,9 +20,12 @@
             };
             
             $http.post(usuariosContext,user).then(function (response) {
-                var usr = response.data;
-                console.log(usr.id);
-                $state.go('usuarioRegisterSuccess', {usuario: usr.id });
+                $scope.data = response.data;
+                $scope.usr = 1;
+                $http.get(usuariosContext + '/' + user.userName).then(function (responseG) {
+                    $scope.id = responseG.data.id;
+                    $state.go('usuarioRegisterSuccess',({usuarioId: $scope.id}));
+                });
             }),
             function(response) {
                 $scope.creationFailed = true;

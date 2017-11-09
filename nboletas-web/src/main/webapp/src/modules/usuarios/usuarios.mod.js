@@ -39,7 +39,7 @@
                 url: '/successRegistration',
                 parent: 'usuario',
                 param: {
-                    usuario: null
+                    usuarioId: null
                 },
                 'views': {
                     'detailView':{

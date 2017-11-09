@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -22,12 +23,15 @@ public class ReembolsoEntity extends BaseEntity implements Serializable {
     /**
      * Valor del reembolso.
      */
+    @NotNull
     private double valor;
-
+    
+    @NotNull
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY)
     private BoletaEntity boleta;
-
+    
+    @NotNull
     @PodamExclude
     @ManyToOne(fetch = FetchType.LAZY)
     private UsuarioEntity usuario;

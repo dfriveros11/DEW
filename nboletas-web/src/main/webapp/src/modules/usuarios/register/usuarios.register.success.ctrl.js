@@ -3,9 +3,9 @@
     mod.controller('usuariosRegisterSuccessCtrl', ['$scope','$state',success]);
     
     function success($scope, $state){
-        
-        if (($state.params.usuario !== undefined) && ($state.params.usuario !== null)) {
-            $scope.user = $state.params.usuario;
+        console.log($state.params.usuarioId);
+        if (($state.params.usuarioId !== undefined) && ($state.params.usuarioId !== null)) {
+            $scope.userId = $state.params.usuarioId;
         }
         
     }

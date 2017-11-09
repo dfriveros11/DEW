@@ -8,6 +8,7 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 import co.edu.uniandes.theexceptions.nboletas.entities.UsuarioEntity;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 /**
@@ -41,6 +42,27 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
         } else {
             return sameCodigo.get(0);
         }
+    }
+    
+    /**
+     * Todas las variables son verificadas con sus constraints en la base de datos.
+     * @param entity
+     * @return
+     * @throws PersistenceException 
+     */
+    @Override
+    public UsuarioEntity update(UsuarioEntity entity) throws PersistenceException {
+        //TODAS LAS VARIABLES OBLIGATORIAS con respectivo constraint verificado en la base de datos.
+        String query = "UPDATE APP.USUARIOENTITY SET USERNAME = ";
+        query += entity.getUserName();
+        query += ", PASSWORD =" + entity.getPassword();
+        query += ", NOMBREUSUARIO =" + entity.getUserName();
+        query += ", EMAIL =" + entity.getEmail();
+        query += ", PAIS =" + entity.getPais();
+        query += ", CIUDAD =" + entity.getCiudad();
+        query += " WHERE ID = " + entity.getId();
+        em.createNativeQuery(query).executeUpdate();
+        return entity;
     }
 
     
