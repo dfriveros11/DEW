@@ -95,41 +95,18 @@ public class EspectaculoOrganizadorResources {
 
     @PUT
     @Path("{idOrganizador: \\d+}")
-    public OrganizadorDTO updateEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador, OrganizadorDetailDTO organizador) throws BusinessLogicException {
-        EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
-        if (espectaculo == null) {
-            throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
-        }
-        if (null == organizadorLogic.find(idOrganizador)) {
-            throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);
-        }
-        OrganizadorEntity organizadorActualizar = organizador.toEntity();
-        List<EspectaculoEntity> espectaculos = new ArrayList<>();
-        espectaculos.add(espectaculo);
-        organizadorActualizar.setEspectaculos(espectaculos);
-        organizadorActualizar.setId(idOrganizador);
-        OrganizadorEntity actual = organizadorLogic.update(organizadorActualizar);
+    public OrganizadorDetailDTO updateEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador, OrganizadorDetailDTO organizador) throws BusinessLogicException {
+        OrganizadorEntity organizadorE = organizador.toEntity();
+        organizadorE.setId(idOrganizador);
+        OrganizadorEntity actual = espectaculoLogic.updateEspectaculoOrganizador(idEspectaculo, organizadorE);
         return new OrganizadorDetailDTO(actual);
     }
 
-    @DELETE
-    @Path("{idOrganizador: \\d+}")
-    public void deleteEspectaculoOrganizador(@PathParam("idEspectaculo") Long idEspectaculo, @PathParam("idOrganizador") Long idOrganizador) throws BusinessLogicException {
-        EspectaculoEntity espectaculo = espectaculoLogic.find(idEspectaculo);
-        if (espectaculo == null) {
-            throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
-        }
-        OrganizadorEntity organizador = organizadorLogic.find(idOrganizador);
-        if (organizador == null) {
-            throw new BusinessLogicException("No existe el organizador con ese id: " + idOrganizador);
-        }
-        List<EspectaculoEntity> espectaculos = new ArrayList<>();
-        espectaculos.add(espectaculo);
-        organizador.setEspectaculos(espectaculos);
-        organizadorLogic.delete(organizador);
-    }
     
-    /** Aca solo llamos a la logica y listo **/
+    /** Aca solo llamos a la logica y listo
+     * @param idOrganizador
+     * @param idEspectaculo
+     * @throws co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException **/
     @DELETE
     @Path("{idOrganizador: \\d+}")
     public void deleteOrganizadorEspectaculo(@PathParam("idOrganizador") Long idOrganizador, @PathParam("idEspectaculo") Long idEspectaculo) throws BusinessLogicException {
