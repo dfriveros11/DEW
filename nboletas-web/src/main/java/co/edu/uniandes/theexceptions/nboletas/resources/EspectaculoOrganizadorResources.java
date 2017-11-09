@@ -128,6 +128,12 @@ public class EspectaculoOrganizadorResources {
         organizador.setEspectaculos(espectaculos);
         organizadorLogic.delete(organizador);
     }
+    
+    @DELETE
+    @Path("{idOrganizador: \\d+}")
+    public void deleteOrganizadorEspectaculo(@PathParam("idOrganizador") Long idOrganizador, @PathParam("idEspectaculo") Long idEspectaculo) throws BusinessLogicException {
+        espectaculoLogic.deleterEspectaculoOrganizado(idOrganizador, idEspectaculo);
+    }
 
     private List<OrganizadorDTO> listEntity2DetailDTO(List<OrganizadorEntity> entityList) {
         List<OrganizadorDTO> list = new ArrayList<>();
