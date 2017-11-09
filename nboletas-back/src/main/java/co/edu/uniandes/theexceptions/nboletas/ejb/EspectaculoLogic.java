@@ -21,6 +21,9 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
 
     @Inject
     private EspectaculoPersistence persistence;
+    
+    @Inject
+    private OrganizadorPersistence organizadorPersistence;
 
     @Override
     protected AbstractPersistence<EspectaculoEntity> getPersistence() {
@@ -40,6 +43,25 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
             throw new IllegalArgumentException("La instancia no es una entidad", e);
         } catch (TransactionRequiredException e) {
             throw new TransactionRequiredException("No existe ninguna transaccion");
+        }
+    }
+    
+    public void deleteEspectaculoOrganizadores(Long idEspectaculo, List<OrganizadorEntity> organizadores) throws BusinessLogicException {
+        EspectaculoEntity espectaculo = persistence.find(idEspectaculo);
+        if (espectaculo == null) {
+            throw new BusinessLogicException("No existe el organizador con ese id: " + idEspectaculo);
+        }
+        for (OrganizadorEntity organizadorEntity : organizadores) {
+            OrganizadorEntity organizador = organizadorPersistence.find(organizadorEntity.getId());
+            if (organizador == null) {
+                throw new BusinessLogicException("No existe el espectaculo con ese id: " + organizadorEntity.getId());
+            }
+        }
+        espectaculo.setOrganizador(organizadores);
+        try{
+            persistence.update(espectaculo);
+        }catch(PersistenceException e){
+            throw new PersistenceException("No se puede actualizar  el espectaculo con el id: " + idEspectaculo + " El error es: " + e.getMessage());
         }
     }
 
