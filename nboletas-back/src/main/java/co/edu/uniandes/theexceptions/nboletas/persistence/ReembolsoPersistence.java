@@ -19,23 +19,6 @@ public class ReembolsoPersistence extends AbstractPersistence<ReembolsoEntity> {
     public ReembolsoPersistence() {
         super(ReembolsoEntity.class);
     }
-    
-    /**
-     * Todas las variables se verifican en Constraints desde la base de datos.
-     * @param entity
-     * @return 
-     */
-    @Override
-    public ReembolsoEntity update(ReembolsoEntity entity){
-        //TODAS LAS VARIABLES OBLIGATORIAS con respectivo constraint verificado en la base de datos.
-        String query = "UPDATE APP.REEMBOLSOENTITY SET VALOR = ";
-        query += entity.getValor();
-        query += ", BOLETA_ID =" + entity.getBoleta().getId();
-        query += ", USUARIO_ID =" + entity.getUsuario().getId();
-        query += " WHERE ID = " + entity.getId();
-        em.createNativeQuery(query).executeUpdate();
-        return entity;
-    }
 
     @Override
     public ReembolsoEntity update(ReembolsoEntity entity) throws PersistenceException {
