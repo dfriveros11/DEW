@@ -97,3 +97,24 @@ insert into BoletaEntity (id, precio, vendida, silla_id) values (200, 98000, 0, 
 insert into BoletaEntity (id, precio, vendida, silla_id) values (210, 34000, 1, 210);
 insert into BoletaEntity (id, precio, vendida, silla_id) values (220, 645000, 0, 220);
 insert into BoletaEntity (id, precio, vendida, silla_id) values (230, 75000, 1, 230);
+
+/* Jorge (300-399) */
+insert into LugarEntity (id, direccion, ubicacion, tipo) values (300,'Teatro GranColombia', 'Bogota', 'TEATRO');
+insert into LugarEntity (id, direccion, ubicacion, tipo) values (301,'Teatro Chico', 'Bogota', 'TEATRO');
+insert into LugarEntity (id, direccion, ubicacion, tipo) values (302,'Teatro Manuela Beltran', 'Bogota', 'TEATRO');
+insert into LugarEntity (id, direccion, ubicacion, tipo) values (303,'Friends Stadium', 'Switzerland', 'ESTADIO');
+
+insert into DivisionDeLugarEntity (id, nombre) values (310, 'Preferencial');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id) values (312, 'Regular', 301);
+insert into DivisionDeLugarEntity (id, nombre, lugar_id) values (314, 'Preferencial', 302);
+insert into DivisionDeLugarEntity (id, nombre, lugar_id) values (316, 'Regular', 303);
+
+insert into EspectaculoEntity(id, descripcion, nombre) values (330, 'Para toda la familia', 'Circus');
+
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (320, '10/10/2014', '3:00 pm', 330, 300);
+insert into FuncionEntity (id, fecha, hora, lugar_id) values (321, '10/10/2014', '8:00 pm', 301);
+insert into FuncionEntity (id, fecha, hora, espectaculo_id) values (322, '10/10/2014', '4:45 pm', 330);
+insert into FuncionEntity (id, fecha, hora) values (323, '10/10/2014', '4:45 pm');
+
+insert into BoletaEntity (id, precio, vendida, funcion_id) values (340, 100.00, 0, 320);
+insert into BoletaEntity (id, precio, vendida) values (341, 120.00, 0);
