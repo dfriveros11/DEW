@@ -2,11 +2,421 @@
 	"variables": [],
 	"info": {
 		"name": "Nuestras_Boletas_OP",
-		"_postman_id": "9e8cc429-5096-d49a-fec5-baf1220fbfeb",
+		"_postman_id": "9d808755-a700-ef33-4e93-3a92c5bde569",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "UsuarioReembolsos",
+			"description": "",
+			"item": [
+				{
+					"name": "Se obtienen los reembolsos del usuario 106",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/nboletas-web/api/usuarios/106/reembolsos",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Se obtienen los reembolsos del usuario 106"
+					},
+					"response": []
+				},
+				{
+					"name": "Se obtiene el reembolso 101 que realizo el usuario 106",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/nboletas-web/api/usuarios/106/reembolsos/101",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Se obtiene el reembolso 101 que realizo el usuario 106"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UsuarioBoletas",
+			"description": "",
+			"item": [
+				{
+					"name": "Se obtubieron las boletas del usuario 104",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/nboletas-web/api/usuarios/104/boletas",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Se obtubieron las boletas del usuario 104"
+					},
+					"response": []
+				},
+				{
+					"name": "Se obtuvo la boleta con id 107 comprada por el usuario con id 104",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/nboletas-web/api/usuarios/104/boletas/107",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Se obtuvo la boleta con id 107 comprada por el usuario con id 104"
+					},
+					"response": []
+				},
+				{
+					"name": "El usuario con id 104 compro la boleta con id 109",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/nboletas-web/api/usuarios/104/boletas/109",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "El usuario con id 104 compro la boleta con id 109"
+					},
+					"response": []
+				},
+				{
+					"name": "Se obtuvo la boleta comprada",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:8080/nboletas-web/api/usuarios/104/boletas/109",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Se obtuvo la boleta comprada"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"description": "",
+			"item": [
+				{
+					"name": "Obtener todos los usuarios registrados",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " http://localhost:8080/nboletas-web/api/usuarios",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Obtener todos los usuarios registrados"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un usuario registrado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " http://localhost:8080/nboletas-web/api/usuarios/100",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Obtener un usuario registrado"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar un usuario registrado.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " http://localhost:8080/nboletas-web/api/usuarios/100",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ciudad\": \"Lucerna\",\n    \"email\": \"jm.contreras10@lucerna.edu.sw\",\n    \"id\": 100,\n    \"nombreUsuario\": \"Jeison Contreras\",\n    \"pais\": \"Sweizzerland\",\n    \"password\": \"123456789\",\n    \"userName\": \"jm.contreras10\",\n    \"boletasCompradas\": [\n        {\n            \"id\": 100,\n            \"precio\": 300,\n            \"vendida\": true\n        }\n    ],\n    \"reembolsos\": []\n}"
+						},
+						"description": "Actualizar un usuario registrado."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtiene el usuario actualizado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"console.log(responseBody);",
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " http://localhost:8080/nboletas-web/api/usuarios/100",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ciudad\": \"Lucerna\",\n    \"email\": \"jm.contreras10@lucerna.edu.sw\",\n    \"id\": 100,\n    \"nombreUsuario\": \"Jeison Contreras\",\n    \"pais\": \"Sweizzerland\",\n    \"password\": \"123456789\",\n    \"userName\": \"jm.contreras10\",\n    \"boletasCompradas\": [\n        {\n            \"id\": 100,\n            \"precio\": 300,\n            \"vendida\": true\n        }\n    ],\n    \"reembolsos\": []\n}"
+						},
+						"description": "Obtiene el usuario actualizado"
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina un usuario registrado (Borrar cuenta)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " http://localhost:8080/nboletas-web/api/usuarios/100",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Elimina un usuario registrado (Borrar cuenta)"
+					},
+					"response": []
+				},
+				{
+					"name": "Se elimino la cuenta del usuario con id 100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " http://localhost:8080/nboletas-web/api/usuarios/100",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Se elimino la cuenta del usuario con id 100"
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Boleta",
 			"description": "",
