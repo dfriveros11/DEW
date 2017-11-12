@@ -75,7 +75,9 @@ insert into BoletaEntity (id, precio, vendida, usuario_id) values (106, 100.00, 
 /*-----Boletas(Reembolsadas)-----**/
 insert into BoletaEntity (id, precio, vendida, usuario_id) values (107, 200.00, 1, 104);
 insert into BoletaEntity (id, precio, vendida, usuario_id) values (108, 300.00, 1,106);
-
+/*-----Boletas(Sin comprar)**/
+insert into BoletaEntity (id, precio, vendida) values (109, 300.00, 1);
+insert into BoletaEntity (id, precio, vendida) values (110, 300.00, 1);
 /*------Reembolsos**/
 insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (100, 300.00, 107, 104);
 insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (101, 10.00, 108, 106);

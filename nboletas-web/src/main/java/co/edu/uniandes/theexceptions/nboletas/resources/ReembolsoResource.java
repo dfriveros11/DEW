@@ -9,7 +9,6 @@ import co.edu.uniandes.theexceptions.nboletas.dtos.ReembolsoDetailDTO;
 import co.edu.uniandes.theexceptions.nboletas.ejb.ReembolsoLogic;
 import co.edu.uniandes.theexceptions.nboletas.entities.ReembolsoEntity;
 import co.edu.uniandes.theexceptions.nboletas.exceptions.BusinessLogicException;
-import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

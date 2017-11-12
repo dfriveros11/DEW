@@ -17,6 +17,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.PersistenceException;
+import javax.persistence.TransactionRequiredException;
 
 /**
  *
@@ -55,6 +56,29 @@ public class UsuarioLogic extends AbstractLogic<UsuarioEntity> {
             throw new BusinessLogicException("No encontrado el usuario con nombre de usuario: " + userName);
         }
         return usuario;
+    }
+    
+    @Override
+    public void delete(UsuarioEntity entity) {
+        try {
+            //Obteniendo boleta completa
+            entity = persistence.find(entity.getId());
+            //Desconectando todas las boletas compradas por el usuario
+            for (BoletaEntity bol : entity.getBoletas()) {
+                bol.setUsuario(null);
+                bol.setVendida(false);
+                boletaPersistence.update(bol);
+            }
+            //Eliminando reeembolsos del usuario
+            for (ReembolsoEntity reem : entity.getReembolsos()) {
+                reembolsoPersistence.delete(reem);
+            }
+            persistence.delete(entity);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("La instancia no es una entidad", e);
+        } catch (TransactionRequiredException e) {
+            throw new TransactionRequiredException("No existe ninguna transaccion");
+        }
     }
     
     /**
@@ -132,7 +156,7 @@ public class UsuarioLogic extends AbstractLogic<UsuarioEntity> {
         BoletaEntity boletaEnReembolso = reembolso.getBoleta();
         //Revision existencia de la Boleta a reembolsar
         BoletaEntity boletaEntity = boletaPersistence.find(boletaEnReembolso.getId());
-        if (usuarioEntity == null){
+        if (boletaEntity == null){
             throw new BusinessLogicException("No se encuentra la boleta con id: " + boletaEnReembolso.getId());
         }
         //Obteniendo usuarioEnBoleta
@@ -142,9 +166,10 @@ public class UsuarioLogic extends AbstractLogic<UsuarioEntity> {
             throw new BusinessLogicException("La boleta existe pero no ha sido comprada.");
         }
         //Revisiom Usuario si posee la boleta
-        if (usuarioEnBoleta.getId()==idUsuario)
+        if (usuarioEnBoleta.getId()!= idUsuario){
             throw new BusinessLogicException("El usuario con id: " + idUsuario
                     +", no ha comprado la boleta con id: " + boletaEntity.getId());
+        }
         //Estableciendo boleta como "reembolsada"
         boletaEntity.setVendida(false);
         //Estableciendo usuario a boleta

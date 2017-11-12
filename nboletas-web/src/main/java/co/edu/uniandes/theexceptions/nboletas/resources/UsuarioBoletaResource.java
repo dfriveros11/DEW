@@ -61,15 +61,17 @@ public class UsuarioBoletaResource {
 
     /**
      * POST Encargado de "Comprar" una boleta añadiendola al usuario.
-     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/boletas
+     * http://localhost:8080/nboletas-web/api/usuarios/idUsuario/boletas/idBoleta
      * @param idUsuario
+     * @param idBoleta
      * @return la boleta que fue creada para la relacion con el usuario en
      * objeto json DetailDTO.
      * @throws BusinessLogicException
      *  En caso de no cumplir con reglas del negocio.
      */
     @POST
-    public BoletaDetailDTO createBoletaUsuario(@PathParam("idUsuario") Long idUsuario,Long idBoleta) throws BusinessLogicException {
+    @Path("{idBoleta: \\d+}")
+    public BoletaDetailDTO createBoletaUsuario(@PathParam("idUsuario") Long idUsuario,@PathParam("idBoleta")Long idBoleta) throws BusinessLogicException {
         return new BoletaDetailDTO(usuarioLogic.createUsuarioBoleta(idUsuario, idBoleta));       
     }
 
