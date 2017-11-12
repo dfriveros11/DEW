@@ -15,6 +15,8 @@
             <hr>
             <dt>Boletas</dt>
             <dd>
+                <button id="buttonTablaBoletas" onclick="toggle('tablaBoletas', 'buttonTablaBoletas', 'Show boletas', 'Close boletas')">Close boletas</button>
+                <div id="tablaBoletas" class="col-md-4" style="display : block">
                 <table class="table table-bordered">
                     <tr>
                         <th>Id</th>
@@ -22,11 +24,12 @@
                         <th>Vendida</th>
                     </tr>
                     <tr ng-repeat="boleta in currentSilla.boletas">
-                        <td id="{{$index}}-id"> {{boleta.id}}</td>
+                        <td id="{{$index}}-id"> <a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</td>
                         <td id="{{$index}}-precio">{{boleta.precio}}</td>  
                         <td id="{{$index}}-vendida"> {{boleta.vendida}}</td>
                     </tr>
                 </table>
+                </div>    
             </dd>
             </dl>
         </div>
