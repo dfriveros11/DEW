@@ -120,3 +120,44 @@ insert into FuncionEntity (id, fecha, hora) values (323, '10/10/2014', '4:45 pm'
 
 insert into BoletaEntity (id, precio, vendida, funcion_id) values (340, 100.00, 0, 320);
 insert into BoletaEntity (id, precio, vendida) values (341, 120.00, 0);
+
+
+
+
+ /* Angelo (400-499)**/
+insert into LugarEntity (id, direccion, ubicacion, tipo) values (400,'Teatro Jorge Eliecer Gaitan', 'Bogota', 'TEATRO');
+
+insert into SillaEntity (id, costo) values (400, 48000);
+insert into SillaEntity (id, costo) values (401, 49000);
+insert into SillaEntity (id, costo) values (402, 20000);
+insert into SillaEntity (id, costo) values (403, 35000);
+
+insert into EspectaculoEntity(id, descripcion, nombre) values (400, 'Alci Acosta llega a Bogotá después de su exitosa presentación en Quito,  un espectáculo de gran acogida por parte de sus seguidores y amigos.' , 'Alci Acosta Sinfónico');
+insert into EspectaculoEntity(id, descripcion, nombre) values (401, 'invitación al epicentro mismo de Vetusta Morla para asistir en primera persona a una reafirmación de su esencia', 'VETUSTA MORLA');
+
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (400, '11/11/2017', '3:00 pm', 400, 400);
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (401, '12/11/2017', '4:00 pm', 401, 400);
+
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (400, 'sasha11', '12345', 'Sasha', 'Sasha11@domain.onion', 'Colombia', 'Bogota');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (401, 'fernanda11', '123', 'Fer', 'Fer11@domain.onion', 'Colombia', 'Bogota');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (402, 'miyu11', '12', 'miyu', 'miyu11@domain.onion', 'Colombia', 'Bogota');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (403, 'julian12', '1234', 'juliancho', 'juliancho12@domain.onion', 'Colombia', 'Bogota');
+
+insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (400, 98000, 1, 400,400,400);
+insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (401, 99000, 1, 401,401,401);
+insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (402, 65000, 1, 402,402,400);
+insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (403, 75000, 1, 403,403,401);
+
+insert into EnvioEntity (id, direccion, boleta_id) values (400,'Calle 43 #7-26 - Aprt:101',403);
+insert into EnvioEntity (id, direccion, boleta_id) values (401, 'Cra 68i #26.48 - Casa',402);
+insert into EnvioEntity (id, direccion, boleta_id) values (402,'Cl. 8 Sur #71d:20',401);
+insert into EnvioEntity (id, direccion, boleta_id) values (403, 'Carrera 43 # 70A-50 SUR',400);
+
+insert into ReembolsoEntity(id, valor, boleta_id) values (400, 1000, 400);
+
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (400,'Muy buen espectaculo','10/10/2017',400,400);
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (401,'horror de evento','10/31/2017',401,401);
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (402,'me gusto mucho asistir','11/01/1989',400,402);
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (403,'me senti muy bien en el evento','06/20/2017',401,403);
+
+
