@@ -15,16 +15,19 @@
                 <hr>
                 <dt>Sillas</dt>
                 <dd>
+                <button id="buttonTablaSillas" onclick="toggle('tablaSillas', 'buttonTablaSillas', 'Show sillas', 'Close sillas')">Close sillas</button>
+                <div id="tablaSillas" class="col-md-4" style="display : block">
                 <table class="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Costo</th>
                     </tr>
                     <tr ng-repeat="silla in currentDivision.sillas">
-                        <td id="{{$index}}-id"> {{silla.id}}</td>
-                        <td id="{{$index}}-costo"> <a href="#!/sillas/{{silla.id}}/detail">{{silla.costo}}</td>   
+                        <td id="{{$index}}-id"> <a href="#!/sillas/{{silla.id}}/detail">{{silla.id}}</td>
+                        <td id="{{$index}}-costo"> {{silla.costo}}</td>   
                     </tr>
                 </table>
+                </div>
                 </dd>
             
             </dl>

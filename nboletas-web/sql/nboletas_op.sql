@@ -40,3 +40,20 @@ insert into EspectaculoEntity(id, descripcion, nombre) values (1, 'erda', 'erdax
 insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values (0, 1);
 insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values (1, 2);
 
+ /* Fabian (200-299)**/
+
+insert into DivisionDeLugarEntity (id,nombre) values (200,'Noroccidental alta');
+insert into DivisionDeLugarEntity (id,nombre) values (210,'Suroccidental alta');
+insert into DivisionDeLugarEntity (id,nombre) values (220,'Noroccidental baja');
+insert into DivisionDeLugarEntity (id,nombre) values (230,'Suroccidental baja');
+insert into DivisionDeLugarEntity (id,nombre) values (240,'VIP');
+
+insert into SillaEntity (id,costo,division_id) values (200,20.1,200);
+insert into SillaEntity (id,costo,division_id) values (210,260.5,210);
+insert into SillaEntity (id,costo,division_id) values (220,30.8,220);
+insert into SillaEntity (id,costo,division_id) values (230,1000.5,230);
+
+insert into BoletaEntity (id, precio, vendida, silla_id) values (200, 98000, 0, 200);
+insert into BoletaEntity (id, precio, vendida, silla_id) values (210, 34000, 1, 210);
+insert into BoletaEntity (id, precio, vendida, silla_id) values (220, 645000, 0, 220);
+insert into BoletaEntity (id, precio, vendida, silla_id) values (230, 75000, 1, 230);

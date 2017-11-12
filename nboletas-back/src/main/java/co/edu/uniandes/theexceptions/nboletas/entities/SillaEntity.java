@@ -7,6 +7,7 @@ package co.edu.uniandes.theexceptions.nboletas.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -21,7 +22,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class SillaEntity extends BaseEntity implements Serializable {
 
     @PodamExclude
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "silla")
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE,fetch = FetchType.LAZY, mappedBy = "silla")
     private List<BoletaEntity> boletas;
 
     @PodamExclude
