@@ -7,6 +7,8 @@ package co.edu.uniandes.theexceptions.nboletas.persistence;
 
 import co.edu.uniandes.theexceptions.nboletas.entities.DivisionDeLugarEntity;
 import javax.ejb.Stateless;
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 //import javax.persistence.PersistenceException;
 
 /**
@@ -19,14 +21,21 @@ public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLu
     public DivisionDeLugarPersistence() {
         super(DivisionDeLugarEntity.class);
     }
-    /**
+   
     public DivisionDeLugarEntity update(DivisionDeLugarEntity entity) throws PersistenceException{
-        String query = "UPDATE APP.DIVISIONDELUGARENTITY SET NOMBRE = ";
+        String query ="";
         if(entity.getNombre()!=null){
-            query += "'" + entity.getNombre() + "'";
-        }else{
-            query += "' '";
+            query += "NOMBRE= '" + entity.getNombre() + "',";
         }
+        if(entity.getLugar()!=null){
+            query += "LUGAR_ID= " + entity.getLugar().getId() + ",";
+        }
+        if(!query.equals("")){
+            query = query.substring(0, query.length()-2);
+        }
+        Query q = em.createNativeQuery("UPDATE APP.DIVISIONDELUGARENTITY SET " + query + " WHERE ID = " + entity.getId());
+        q.executeUpdate();
+        return entity;
     }
-    */
+    
  }
