@@ -52,7 +52,7 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
      */
     @Override
     public UsuarioEntity update(UsuarioEntity entity) throws PersistenceException {
-        //TODAS LAS VARIABLES OBLIGATORIAS con respectivo constraint verificado en la base de datos.
+        //TODAS LAS VARIABLES OBLIGATORIAS con respectivo CONSTRAINT verificado en la base de datos.
         String query = "UPDATE APP.USUARIOENTITY SET USERNAME = ";
         query += entity.getUserName();
         query += ", PASSWORD =" + entity.getPassword();

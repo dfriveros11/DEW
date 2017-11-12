@@ -103,6 +103,7 @@ insert into BoletaEntity (id, precio, vendida, silla_id) values (1400, 98000, 0,
 /*=====================================================Relacion Usuario-Boleta==========================================================================*/
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (103, 'usuarioAsignado', 'claveAsignada', 'nombreAsignado', 'emailAsignado', 'paisAsignado', 'ciudadAsignada');
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (102, 'userabc', 'claveabc','nombreAbc', 'emailABC', 'paisAbc', 'ciudadAbc');
+
 insert into BoletaEntity (id, precio, vendida,usuario_id) values (45, 1.00, 1,103);
 insert into BoletaEntity (id, precio, vendida,usuario_id) values (25, 1.00, 1,103);
 insert into BoletaEntity (id, precio, vendida,usuario_id) values (103, 1.00, 1,102);

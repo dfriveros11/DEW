@@ -40,6 +40,46 @@ insert into EspectaculoEntity(id, descripcion, nombre) values (1, 'erda', 'erdax
 insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values (0, 1);
 insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values (1, 2);
 
+ /* Jeison (100-199)**/
+
+//Usuarios
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (100, 'jm.contreras10', '123456789', 'Jeison Contreras', 'jm.contreras10@uniandes.edu.co', 'Colombia', 'Bogotá');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (101, 'sbaldosa', '123456789', 'Santiago Baldosa', 'sbaldosa@unichile.edu.ch', 'Chile', 'Santiago');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (102, 'am.valero10', '123456789', 'Angelo Valero', 'am.valero@uniandes.edu.co', 'Colombia', 'Bogotá');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (103, 'fc.alvarez10', '123456789', 'Fabian Alvarez', 'fc.alvarez@uniandes.edu.co', 'Colombia', 'Bogotá');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (104, 'ja.gomez1', '123456789', 'Jorge Gomez', 'ja.gomez1@uniandes.edu.co', 'Colombia', 'Bogotá');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (105, 'jf.ramos', '123456789', 'Felipe Ramos', 'jf.ramos@uniandes.edu.co', 'Colombia', 'Bogotá');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
+values (106, 'df.riveros11', '123456789', 'Diego', 'df.riveros11@uniandes.edu.co', 'Colombia', 'Bogotá');
+
+//Boletas(Compradas)
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (100, 300.00, 1, 100);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (101, 200.00, 1, 101);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (102 300.00, 1,102);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (103, 400.00, 1, 102);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (104, 500.00, 1, 103);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (105, 600.00, 1, 105);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (106, 100.00, 1, 104);
+//Boletas(Reembolsadas)
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (107, 200.00, 1, 104);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (108 300.00, 1,106);
+
+//Reembolsos
+insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (100, 300.00,107, 104);
+insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (101, 10.00,108, 106);
+
  /* Fabian (200-299)**/
 
 insert into DivisionDeLugarEntity (id,nombre) values (200,'Noroccidental alta');
