@@ -6,9 +6,20 @@
 (function (ng) {
     var mod = ng.module("funcionesModule");
     mod.constant("funcionesContext", "api/funciones");
-    mod.controller('funcionesNewCtrl', ['$scope', '$http', 'funcionesContext', '$state', '$rootScope',
-        function ($scope, $http, funcionesContext, $state, $rootScope) {
+    mod.constant("espectaculosContext", "api/espectaculos");
+    mod.constant("lugaresContext", "api/lugares");
+    mod.controller('funcionesNewCtrl', ['$scope', '$http', 'funcionesContext', 'espectaculosContext', 'lugaresContext', '$state', '$rootScope',
+        function ($scope, $http, funcionesContext, espectaculosContext, lugaresContext, $state, $rootScope) {
             $rootScope.edit = false;
+
+            $http.get(espectaculosContext).then(function (response) {
+                $scope.espectaculosGetAll = response.data;
+            });
+
+            $http.get(lugaresContext).then(function (response) {
+                $scope.lugaresGetAll = response.data;
+            });
+
             $scope.createFuncion = function () {
                 $http.post(funcionesContext, {
                     hora: $scope.funcionHora,

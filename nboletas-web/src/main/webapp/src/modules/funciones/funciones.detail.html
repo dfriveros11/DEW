@@ -18,11 +18,11 @@
 
                     <hr>
                     <dt>Espectaculo</dt>
-                    <dd>{{currentFuncion.espectaculo.nombre}}</dd>
+                    <dd><a ui-sref="espectaculoDetail({espectaculoId: currentFuncion.espectaculo.id})">{{currentFuncion.espectaculo.nombre}}</a></dd>
 
                     <hr>
                     <dt>Lugar</dt>
-                    <dd>{{currentFuncion.lugar.direccion}}</dd>
+                    <dd><a ui-sref="lugaresDetail({lugarId: currentFuncion.lugar.id})">{{currentFuncion.lugar.direccion}}</a></dd>
                 </dl>
             </div>
             <button id="buttonTablaBoletas" onclick="toggle('tablaBoletas', 'buttonTablaBoletas', 'Show boletas', 'Close boletas')">Close boletas</button>
