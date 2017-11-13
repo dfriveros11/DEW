@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html ng-app="mainApp">
     <head>
+	
         <title>Boleta - By The Exceptions</title>
         
+	<!-- META-DATA -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
+	<!-- CSS -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="resources/css/styles.css" />
         <link rel="stylesheet" href="resources/css/index.css" />
+        <link rel="stylesheet" href="resources/css/navBar.css" />
+        <link rel="stylesheet" href="resources/css/usuarioMod.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
-        <link rel="stylesheet" href="/w3css/3/w3.css">
-        
-        
+        <!-- Bower -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
         
+        <!--Angular-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        
+        <!-- Boletas -->
         <script src="src/modules/boletas/boletas.mod.js" type="text/javascript"></script>
         <script src="src/modules/boletas/boletas.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/boletas/new/boletas.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/boletas/delete/boletas.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/boletas/update/boletas.update.ctrl.js" type="text/javascript"></script>
         
+	<!-- Organizadores -->
         <script src="src/modules/organizadores/organizadores.mod.js" type="text/javascript"></script>
         <script src="src/modules/organizadores/organizadores.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/organizadores/new/organizadores.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/organizadores/delete/organizadores.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/organizadores/update/organizadores.update.ctrl.js" type="text/javascript"></script>
         
+	<!-- Funciones -->
         <script src="src/modules/funciones/funciones.mod.js" type="text/javascript"></script>
         <script src="src/modules/funciones/funciones.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/funciones/update/funciones.update.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/funciones/new/funciones.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/funciones/delete/funciones.delete.ctrl.js" type="text/javascript"></script>
         
+        <!-- Lugares -->
         <script src="src/modules/lugares/lugares.mod.js" type="text/javascript"></script>
         <script src="src/modules/lugares/lugares.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/lugares/update/lugares.update.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/lugares/new/lugares.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/lugares/delete/lugares.delete.ctrl.js" type="text/javascript"></script>
         
+        <!-- Espectaculos -->
         <script src="src/modules/espectaculos/espectaculos.mod.js" type="text/javascript"></script>
         <script src="src/modules/espectaculos/espectaculos.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/espectaculos/new/espectaculos.new.ctrl.js" type="text/javascript"></script>
@@ -52,26 +63,28 @@
         <script src="src/modules/espectaculos/delete/espectaculos.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/espectaculos/update/espectaculos.update.ctrl.js" type="text/javascript"></script>
         
-        
+        <!-- Artistas -->
         <script src="src/modules/artistas/artistas.mod.js" type="text/javascript"></script>
         <script src="src/modules/artistas/artistas.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/artistas/new/artistas.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/artistas/delete/artistas.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/artistas/update/artistas.update.ctrl.js" type="text/javascript"></script>
 
-        
+        <!-- Usuarios -->
         <script src="src/modules/usuarios/usuarios.mod.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/usuarios.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/register/usuarios.register.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/login/usuarios.login.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/register/usuarios.register.success.ctrl.js" type="text/javascript"></script>
         
+        <!-- Divisiones -->
         <script src="src/modules/divisiones/divisiones.mod.js" type="text/javascript"></script>
         <script src="src/modules/divisiones/divisiones.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/divisiones/new/divisiones.new.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/divisiones/delete/divisiones.delete.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/divisiones/update/divisiones.update.ctrl.js" type="text/javascript"></script>
         
+        <!-- Sillas -->
         <script src="src/modules/sillas/sillas.mod.js" type="text/javascript"></script>
         <script src="src/modules/sillas/sillas.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/sillas/new/sillas.new.ctrl.js" type="text/javascript"></script>
@@ -102,62 +115,55 @@
         <script src="src/funciones.js" type="text/javascript"></script>
         <script src="src/app.js" type="text/javascript"></script> 
         <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
-        
+		
     </head>
     <body>
         
-    <!--Navbar -->
-    <div class="header-site container-fluid">
-      
-    <div ui-view="usersView">
-      <ul class="nav nav-pills pull-right">
-          <li class="active"><a ui-sref="usuarioLogin "><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-          <li><a ui-sref="usuarioRegister"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-      </ul>
-    </div>
-    <header class="page-header">
-        <img src="resources/images/NuestrasBoletasBanner.png" ui-sref="espectaculosList">
+    <!--Header-->
+    <header class="header-site container-fluid">
+        <div class="container-fluid user">
+            <button type="button" class="btn btn-default glyphicon glyphicon-log-in" ui-sref="usuarioLogin"> Ingresar</button>
+            <button type="button" class="btn btn-default glyphicon glyphicon-pencil" ui-sref="usuarioRegister"> Registrarse</button>
+        </div>
+        <!--Logotipo-->
+        <div class="container-fluid logo">
+            <h1><img src="resources/images/NuestrasBoletasBanner.png" alt="logo"/> Nuestras Boletas 
+                <span id="registred" class="glyphicon glyphicon-registration-mark"></span>
+            </h1>
+        </div>
     </header>
-          
-    <nav class="nav-site n8 avbar navbar-default row">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <ul class="master nav">
-                    <li class="master"><a ui-sref="boletasList">Boletas</a></li>
-                    <li class="master"><a ui-sref="organizadoresList">Organizadores</a></li>
-                    <li class="master"><a ui-sref="funcionesList">Funciones</a></li>
-                    <li class="master"><a ui-sref="espectaculosList">Espectaculos</a></li>
-                    <li class="master"><a ui-sref="artistasList">Artistas</a></li>
-                    <li class="master"><a ui-sref="usuarioList">Usuarios</a></li>
-                    <li class="master"><a ui-sref="lugaresList">Lugar</a></li>
-                    <li class="master"><a ui-sref="comentariosList">Comentarios</a></li>
-                    <li class="master"><a ui-sref="enviosList">Envios</a></li>
-                    <li class="master"><a ui-sref="divisionesList">Divisiones</a></li>
-                    <li class="master"><a ui-sref="sillasList">Sillas</a></li>
-                    <li class="master"><a ui-sref="reembolsosList">Reembolsos</a></li>
-                </ul>
-            </div>
+    <!--/Header-->
+    
+    <!--Barra de navegacion-->
+    <nav class="navi" data-spy="affix" data-offset-top="180">
+        <div class="navi-int">
+            <ul>
+                <li><a class="principalLink" ui-sref="inicio">Inicio</a></li>
+                <li><a ui-sref="espectaculosList">Espectaculos</a></li>
+                <li><a ui-sref="funcionesList">Funciones</a></li>
+                <li><a ui-sref="artistasList">Artistas</a></li>
+                <li><a ui-sref="inicio">Sobre nosotros</a></li>
+            </ul>
         </div>
     </nav>
+    <!--/Barra de navegacion-->
+    
+    <!--Dokumentin-->
+    <div class="doc container-fluid span12">
+        <div class="span12">
+            <div class="well" ui-view="mainView">
 
-    </div>
-      <!--/Navbar -->
-
-
-        
-        <div class="row">
-            <div class="span12">
-                <div class="well" ui-view="mainView">
-                    
-                </div>
             </div>
-	</div> 	
-      
-      
-        <div class="navbar navbar-default navbar-fixed-bottom nav-site">
-            <p class="navbar-text pull-left">By The Exception
-                <img src="http://images.clipartpanda.com/exception-clipart-men-exception-th.png" alt="logo" width="8%" /></a>
-            </p>
         </div>
+    </div> 	
+    <!--/Dokumentin-->
+      
+    <div class="footerA navbar-fixed-bottom">
+        <div class="inFooter">
+            <p class="footerp"> By The Exception
+                <img src="http://images.clipartpanda.com/exception-clipart-men-exception-th.png" alt="logo" width="3%" /></a>
+            </p>
+        <div>
+    </div>
     </body>
 </html>

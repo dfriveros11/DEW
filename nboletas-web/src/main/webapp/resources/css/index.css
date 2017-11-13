@@ -1,41 +1,53 @@
 .header-site{
    height: 100%;
-   width: 100%;
-   border: 2px transparent;
-   border-radius: 5px;
+   height: 180px;
    background-image: url("../images/tile-tittle.gif");
 }
 
-.nav-site{
-    border: 2px;
-    border-radius: 8px;
-    background-color: #344076;
+body{
+    background-image: url("../images/tile-body.gif");
 }
 
-ul.master {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #344076;
+h1 {
+    font-family: sans-serif;
+    color: white;
 }
 
-li.master {
-    float: left;
+.logo{
+    position: relative;
+    width: 80%;
+    text-align: left;
 }
 
-li.master a {
-    display: block;
-    color: #ffffff;
+.user{
+    position: relative;
+    width: 80%;
+    padding-top: 1%;
+    padding-right: 3%;
+    text-align: right;
+}
+
+.doc{
+    position: relative;
+    width: 80%;
     text-align: center;
-    padding: 16px;
-    text-decoration: none;
 }
 
-li.master a:hover {
-    background-color: #6873a1;
+.footerA{
+    width: 100%;
+    height: 30px;
+    background-color: #121832;
 }
 
-li.master a:visited {
-    background-color: #4f587d;
+.inFooter{
+    position: relative;
+    padding-left: 12%;
+    width: 80%;
+    text-align: center;
 }
+
+.footerp{
+    text-align: left;
+    color: white;
+}
+
