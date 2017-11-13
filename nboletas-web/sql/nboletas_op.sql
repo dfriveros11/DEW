@@ -22,18 +22,21 @@ insert into BoletaEntity (id, precio, vendida) values (1, 10.23, 1);
 
 insert into BoletaEntity (id, precio, vendida) values (2, 30.01, 1);
 insert into EnvioEntity (id, direccion, boleta_id) values (1,'Calle 43 #7-26 - Aprt:101', 2);
+insert into EnvioEntity (id, direccion) values (2,'Calle 43 #7-26 - Aprt:101');
 
 insert into BoletaEntity (id, precio, vendida) values (3, 10.00, 1);
 insert into ReembolsoEntity(id, valor, boleta_id) values (1, 100.00, 3);
+insert into ReembolsoEntity(id, valor) values (2, 100.00);
 
 insert into BoletaEntity(id, precio, vendida) values (4, 55, 1);
 insert into ComentarioEntity(id, comentario, fecha, espectaculo_id, boleta_id) values (1, 'ajá tu qué', '2017-12-4', null, 4);
+insert into ComentarioEntity(id, comentario, fecha) values (2, 'ajá tu qué', '2017-12-4');
 
 
-insert into OrganizadorEntity(id, nombreEmpresa) values (0, 'Tu, NO OTRA VEZ');
+insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (0, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/predicciones-linux-300x200.jpg', 'Tu, NO OTRA VEZ');
 
-insert into OrganizadorEntity(id, nombreEmpresa) values (1, 'CULO DE MONDADA');
-insert into OrganizadorEntity(id, nombreEmpresa) values (2, 'ECHEVERRY');
+insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'CULO DE MONDADA');
+insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (2, 'https://experienciadigital.es/wp-content/uploads/2017/08/linux-696x422.jpg', 'ECHEVERRY');
 insert into EspectaculoEntity(id, descripcion, nombre) values (0, 'aloja', 'que te importa');
 insert into EspectaculoEntity(id, descripcion, nombre) values (1, 'erda', 'erdax2');
 

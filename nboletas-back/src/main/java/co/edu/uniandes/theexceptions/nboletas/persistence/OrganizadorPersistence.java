@@ -32,9 +32,17 @@ LEFT JOIN ESPECTACULOENTITY ON ORGANIZADORENTITY.ID = ESPECTACULOENTITY_ORGANIZA
     **/
     @Override
     public OrganizadorEntity update(OrganizadorEntity entity) throws PersistenceException {
+        boolean coma = false;
         String query = "UPDATE APP.ORGANIZADORENTITY SET";
         if (!entity.getNombreEmpresa().equals("") && !entity.getNombreEmpresa().equals(" ")) {
             query += " NOMBREEMPRESA = '" + entity.getNombreEmpresa() + "'";
+            coma = true;
+        }
+        if(!entity.getImagen().equals("") && !entity.getImagen().equals(" ")){
+            if(coma){
+                query += ",";
+            }
+            query += " IMAGEN = '" + entity.getImagen() + "'"; 
         }
         query += " WHERE ID = " + entity.getId();
         em.createNativeQuery(query).executeUpdate();

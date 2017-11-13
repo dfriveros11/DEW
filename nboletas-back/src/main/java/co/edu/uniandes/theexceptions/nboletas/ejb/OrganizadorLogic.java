@@ -113,9 +113,16 @@ public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity> {
         if (espectaculo == null) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
         }
-        List<OrganizadorEntity> organizadores = new ArrayList<OrganizadorEntity>();
-        organizadores.add(organizador);
-        espectaculo.setOrganizador(organizadores);
+        List<EspectaculoEntity> espetaculos = organizador.getEspectaculos();
+        boolean noHayRelacion = true;
+        for (EspectaculoEntity espetaculo : espetaculos) {
+            if(espetaculo.getId().compareTo(idEspectaculo) == 0){
+                noHayRelacion = false;
+            }
+        }
+        if(noHayRelacion){
+            throw new BusinessLogicException("No existe relacion entre el organizador con el id: " + idOrganizador + " y el el espectaculo con el id: " + idEspectaculo);
+        }
         try{
             persistenceOrganizador.deleteOrganizadorEspectaculo(idOrganizador, idEspectaculo);
         }catch(PersistenceException e){
