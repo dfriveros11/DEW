@@ -1,10 +1,15 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 (
         function (ng) {
             var mod = ng.module("organizadoresModule");
             mod.constant("organizadoresContexts", "api/organizadores");
             mod.constant("espectaculosContext", "espectaculos");
-            mod.controller('organizadorUpdateCtrl', ['$scope', '$http', 'organizadoresContexts', '$state', '$rootScope', '$filter', 'espectaculosContext',
+            mod.controller('organizadorUpdateEspectaculoCtrl', ['$scope', '$http', 'organizadoresContexts', '$state', '$rootScope', '$filter', 'espectaculosContext',
                 function ($scope, $http, organizadoresContexts, $state, $rootScope, $filter, espectaculosContext) {
                     $rootScope.edit = true;
                     var idsEspectaculos = [];
@@ -94,4 +99,5 @@
             ]);
         }
 )(angular);
+
 

@@ -138,6 +138,9 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         if (envio == null) {
             throw new BusinessLogicException("No existe el envio con ese id: " + idEnvio);
         }
+        if(idEnvio.compareTo(boleta.getEnvio().getId()) != 0){
+            throw new BusinessLogicException("No existe ninguna relacion entre la boleta con el id :" +idBoleta + " y el envio con id :" +idEnvio);
+        }
         envio.setBoleta(boleta);
         try {
             persistenceEnvio.delete(envio);
@@ -221,6 +224,9 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         if (reembolso == null) {
             throw new BusinessLogicException("No existe el reembolso con ese id: " + idReembolso);
         }
+        if(reembolso.getId().compareTo(boleta.getReembolso().getId()) != 0){
+            throw new BusinessLogicException("No existe ninguna relacion entre la boleta con el id :" +idBoleta + " y el reembolso con id :" +reembolso.getId());
+        }
         reembolso.setBoleta(boleta);
         try {
             persistenceReembolso.delete(reembolso);
@@ -302,6 +308,9 @@ public class BoletaLogic extends AbstractLogic<BoletaEntity> {
         ComentarioEntity comentario = persistenceComentario.find(idComentario);
         if (comentario == null) {
             throw new BusinessLogicException("No existe el comentario con ese id: " + idComentario);
+        }
+        if(comentario.getId().compareTo(boleta.getComentario().getId()) != 0){
+            throw new BusinessLogicException("No existe ninguna relacion entre la boleta con el id :" +idBoleta + " y el comentario con id :" +comentario.getId());
         }
         comentario.setBoleta(boleta);
         try {
