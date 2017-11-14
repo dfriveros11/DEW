@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Nuestras_Boletas_OP",
-		"_postman_id": "9d808755-a700-ef33-4e93-3a92c5bde569",
+		"_postman_id": "8e1b83a5-ca88-f80e-67b7-41f4c6a75d62",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -3170,7 +3170,7 @@
 						}
 					],
 					"request": {
-						"url": "http://localhost:8080/nboletas-web/api/lugares/301/divisiones/310?",
+						"url": "http://localhost:8080/nboletas-web/api/lugares/300/divisiones/310?",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -3196,7 +3196,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://localhost:8080/nboletas-web/api/lugares/301/divisiones/310?",
+							"raw": "http://localhost:8080/nboletas-web/api/lugares/300/divisiones/310?",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -3206,7 +3206,7 @@
 								"nboletas-web",
 								"api",
 								"lugares",
-								"301",
+								"300",
 								"divisiones",
 								"310"
 							],

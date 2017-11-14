@@ -31,7 +31,7 @@ public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLu
             query += "LUGAR_ID= " + entity.getLugar().getId() + ",";
         }
         if(!query.equals("")){
-            query = query.substring(0, query.length()-2);
+            query = query.substring(0, query.length()-1);
         }
         Query q = em.createNativeQuery("UPDATE APP.DIVISIONDELUGARENTITY SET " + query + " WHERE ID = " + entity.getId());
         q.executeUpdate();
