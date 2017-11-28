@@ -23,11 +23,6 @@
                 url: '/funciones',
                 abstract: 'true',
                 views: {
-                    'mainView': {
-                        templateUrl: basePath + 'funciones.html',
-                        controller: 'funcionesCtrl',
-                        controllerAs: 'ctrl'
-                    }
                 }
             }).state('funcionesUpdate', {
                 url: '/update/{funcionId:int}',

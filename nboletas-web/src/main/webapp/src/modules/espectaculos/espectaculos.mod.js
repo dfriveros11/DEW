@@ -14,11 +14,7 @@
                         url: "/espectaculos",
                         abstract: true,
                         views: {
-                            'mainView':{
-                                templateUrl: basePath + 'espectaculos.html',
-                                controller: 'espectaculoCtrl',
-                                controllerAs: 'ctrl'
-                            }
+                                 
                         }
                         
                     })
