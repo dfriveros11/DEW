@@ -4,7 +4,7 @@
                     <h2><a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})">{{espectaculo.nombre}}</a></h2>
                 </div>
             </header>
-            <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})" class="image featured"><img ng-src="https://www.elheraldo.co/sites/default/files/styles/width_860/public/articulo/2015/08/29/rey_momo_2016.jpg?itok=mc17RLcL" alt="" /></a>
+            <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})" class="image featured"><img ng-src="{{espectaculo.imagen}}" alt="" /></a>
             <p>{{espectaculo.descripcion}}</p>
             <footer>
                 <ul class="actions">
