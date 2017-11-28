@@ -12,7 +12,6 @@
 
             $stateProvider.state('funcionesList', {
                 url: '/list',
-                parent: 'funciones',
                 views: {
                     'listView': {
                         templateUrl: basePath + 'funciones.list.html',

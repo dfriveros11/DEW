@@ -24,10 +24,10 @@
                     })
                     .state('espectaculosList', {
                         url: '/list',
-                        parent: 'espectaculos',
                         views:{
                             'listView':{
-                                templateUrl: basePath + 'espectaculos.list.html'
+                                templateUrl: basePath + 'espectaculos.list.html',
+                                controller: 'espectaculoCtrl'
                             }
                         }
                     })

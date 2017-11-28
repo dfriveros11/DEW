@@ -24,7 +24,6 @@
                     })
                     .state('artistasList', {
                         url: '/list',
-                        parent: 'artistas',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'artistas.list.html'
