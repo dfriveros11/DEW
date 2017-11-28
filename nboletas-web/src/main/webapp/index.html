@@ -1,169 +1,403 @@
-<!DOCTYPE html>
-<html ng-app="mainApp">
-    <head>
-	
-        <title>Boleta - By The Exceptions</title>
-        
-	<!-- META-DATA -->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Nuestras Boletas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="resources/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+                
+                <!--Angular-->
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+                
+                <!-- Boletas -->
+                <script src="src/modules/boletas/boletas.mod.js" type="text/javascript"></script>
+                <script src="src/modules/boletas/boletas.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/boletas/new/boletas.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/boletas/delete/boletas.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/boletas/update/boletas.update.ctrl.js" type="text/javascript"></script>
 
-	<!-- CSS -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="resources/css/styles.css" />
-        <link rel="stylesheet" href="resources/css/index.css" />
-        <link rel="stylesheet" href="resources/css/navBar.css" />
-        <link rel="stylesheet" href="resources/css/usuarioMod.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      
-        <!-- Bower -->
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        
-        <!--Angular-->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        
-        <!-- Boletas -->
-        <script src="src/modules/boletas/boletas.mod.js" type="text/javascript"></script>
-        <script src="src/modules/boletas/boletas.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/boletas/new/boletas.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/boletas/delete/boletas.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/boletas/update/boletas.update.ctrl.js" type="text/javascript"></script>
-        
-	<!-- Organizadores -->
-        <script src="src/modules/organizadores/organizadores.mod.js" type="text/javascript"></script>
-        <script src="src/modules/organizadores/organizadores.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/organizadores/new/organizadores.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/organizadores/delete/organizadores.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/organizadores/update/organizadores.update.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/organizadores/update/organizadores.updateEspectaculo.ctrl.js" type="text/javascript"></script>
-  
-        <script src="src/modules/funciones/funciones.mod.js" type="text/javascript"></script>
-        <script src="src/modules/funciones/funciones.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/funciones/update/funciones.update.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/funciones/new/funciones.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/funciones/delete/funciones.delete.ctrl.js" type="text/javascript"></script>
-        
-        <!-- Lugares -->
-        <script src="src/modules/lugares/lugares.mod.js" type="text/javascript"></script>
-        <script src="src/modules/lugares/lugares.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/lugares/update/lugares.update.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/lugares/new/lugares.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/lugares/delete/lugares.delete.ctrl.js" type="text/javascript"></script>
-        
-        <!-- Espectaculos -->
-        <script src="src/modules/espectaculos/espectaculos.mod.js" type="text/javascript"></script>
-        <script src="src/modules/espectaculos/espectaculos.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/espectaculos/new/espectaculos.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/espectaculos/new/newArtista/espectaculos.newArtista.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/espectaculos/new/newOrganizador/espectaculos.newOrganizador.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/espectaculos/delete/espectaculos.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/espectaculos/update/espectaculos.update.ctrl.js" type="text/javascript"></script>
-        
-        <!-- Artistas -->
-        <script src="src/modules/artistas/artistas.mod.js" type="text/javascript"></script>
-        <script src="src/modules/artistas/artistas.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/artistas/new/artistas.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/artistas/delete/artistas.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/artistas/update/artistas.update.ctrl.js" type="text/javascript"></script>
+                <!-- Organizadores -->
+                <script src="src/modules/organizadores/organizadores.mod.js" type="text/javascript"></script>
+                <script src="src/modules/organizadores/organizadores.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/organizadores/new/organizadores.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/organizadores/delete/organizadores.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/organizadores/update/organizadores.update.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/organizadores/update/organizadores.updateEspectaculo.ctrl.js" type="text/javascript"></script>
 
-        <!-- Usuarios -->
-        <script src="src/modules/usuarios/usuarios.mod.js" type="text/javascript"></script>
-        <script src="src/modules/usuarios/usuarios.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/usuarios/register/usuarios.register.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/usuarios/login/usuarios.login.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/usuarios/register/usuarios.register.success.ctrl.js" type="text/javascript"></script>
-        
-        <!-- Divisiones -->
-        <script src="src/modules/divisiones/divisiones.mod.js" type="text/javascript"></script>
-        <script src="src/modules/divisiones/divisiones.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/divisiones/new/divisiones.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/divisiones/delete/divisiones.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/divisiones/update/divisiones.update.ctrl.js" type="text/javascript"></script>
-        
-        <!-- Sillas -->
-        <script src="src/modules/sillas/sillas.mod.js" type="text/javascript"></script>
-        <script src="src/modules/sillas/sillas.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/sillas/new/sillas.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/sillas/delete/sillas.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/sillas/update/sillas.update.ctrl.js" type="text/javascript"></script>
-       
-        <!-- Comentarios -->
-        <script src="src/modules/comentarios/comentarios.mod.js" type="text/javascript"></script>
-        <script src="src/modules/comentarios/comentarios.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/comentarios/delete/comentarios.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/comentarios/new/comentarios.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/comentarios/update/comentarios.update.ctrl.js" type="text/javascript"></script>
-      
-        <!-- Envios -->
-        <script src="src/modules/envios/envios.mod.js" type="text/javascript"></script>
-        <script src="src/modules/envios/envios.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/envios/delete/envios.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/envios/new/envios.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/envios/update/envios.update.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/funciones/funciones.mod.js" type="text/javascript"></script>
+                <script src="src/modules/funciones/funciones.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/funciones/update/funciones.update.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/funciones/new/funciones.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/funciones/delete/funciones.delete.ctrl.js" type="text/javascript"></script>
 
-        <!-- Reembolso hecho por df.riveros11 -->
-        <script src="src/modules/reembolsos/reembolsos.mod.js" type="text/javascript"></script>
-        <script src="src/modules/reembolsos/reembolsos.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/reembolsos/new/reembolsos.new.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/reembolsos/delete/reembolsos.delete.ctrl.js" type="text/javascript"></script>
-        <script src="src/modules/reembolsos/update/reembolsos.update.ctrl.js" type="text/javascript"></script>
+                <!-- Lugares -->
+                <script src="src/modules/lugares/lugares.mod.js" type="text/javascript"></script>
+                <script src="src/modules/lugares/lugares.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/lugares/update/lugares.update.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/lugares/new/lugares.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/lugares/delete/lugares.delete.ctrl.js" type="text/javascript"></script>
 
-        <script src="src/funciones.js" type="text/javascript"></script>
-        <script src="src/app.js" type="text/javascript"></script> 
-        <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
-		
-    </head>
-    <body>
+                <!-- Espectaculos -->
+                <script src="src/modules/espectaculos/espectaculos.mod.js" type="text/javascript"></script>
+                <script src="src/modules/espectaculos/espectaculos.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/espectaculos/new/espectaculos.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/espectaculos/new/newArtista/espectaculos.newArtista.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/espectaculos/new/newOrganizador/espectaculos.newOrganizador.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/espectaculos/delete/espectaculos.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/espectaculos/update/espectaculos.update.ctrl.js" type="text/javascript"></script>
+
+                <!-- Artistas -->
+                <script src="src/modules/artistas/artistas.mod.js" type="text/javascript"></script>
+                <script src="src/modules/artistas/artistas.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/artistas/new/artistas.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/artistas/delete/artistas.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/artistas/update/artistas.update.ctrl.js" type="text/javascript"></script>
+
+                <!-- Usuarios -->
+                <script src="src/modules/usuarios/usuarios.mod.js" type="text/javascript"></script>
+                <script src="src/modules/usuarios/usuarios.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/usuarios/register/usuarios.register.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/usuarios/login/usuarios.login.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/usuarios/register/usuarios.register.success.ctrl.js" type="text/javascript"></script>
+
+                <!-- Divisiones -->
+                <script src="src/modules/divisiones/divisiones.mod.js" type="text/javascript"></script>
+                <script src="src/modules/divisiones/divisiones.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/divisiones/new/divisiones.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/divisiones/delete/divisiones.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/divisiones/update/divisiones.update.ctrl.js" type="text/javascript"></script>
+
+                <!-- Sillas -->
+                <script src="src/modules/sillas/sillas.mod.js" type="text/javascript"></script>
+                <script src="src/modules/sillas/sillas.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/sillas/new/sillas.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/sillas/delete/sillas.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/sillas/update/sillas.update.ctrl.js" type="text/javascript"></script>
+
+                <!-- Comentarios -->
+                <script src="src/modules/comentarios/comentarios.mod.js" type="text/javascript"></script>
+                <script src="src/modules/comentarios/comentarios.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/comentarios/delete/comentarios.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/comentarios/new/comentarios.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/comentarios/update/comentarios.update.ctrl.js" type="text/javascript"></script>
+
+                <!-- Envios -->
+                <script src="src/modules/envios/envios.mod.js" type="text/javascript"></script>
+                <script src="src/modules/envios/envios.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/envios/delete/envios.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/envios/new/envios.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/envios/update/envios.update.ctrl.js" type="text/javascript"></script>
+
+                <!-- Reembolso hecho por df.riveros11 -->
+                <script src="src/modules/reembolsos/reembolsos.mod.js" type="text/javascript"></script>
+                <script src="src/modules/reembolsos/reembolsos.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/reembolsos/new/reembolsos.new.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/reembolsos/delete/reembolsos.delete.ctrl.js" type="text/javascript"></script>
+                <script src="src/modules/reembolsos/update/reembolsos.update.ctrl.js" type="text/javascript"></script>
+
+                <script src="src/funciones.js" type="text/javascript"></script>
+                <script src="src/app.js" type="text/javascript"></script> 
+                <script src="src/http-interceptor.factory.js" type="text/javascript"></script>
         
-    <!--Header-->
-    <header class="header-site container-fluid">
-        <div class="container-fluid user">
-            <button type="button" class="btn btn-default glyphicon glyphicon-log-in" ui-sref="usuarioLogin"> Ingresar</button>
-            <button type="button" class="btn btn-default glyphicon glyphicon-pencil" ui-sref="usuarioRegister"> Registrarse</button>
-        </div>
-        <!--Logotipo-->
-        <div class="container-fluid logo">
-            <h1><img src="resources/images/NuestrasBoletasBanner.png" alt="logo"/> Nuestras Boletas 
-                <span id="registred" class="glyphicon glyphicon-registration-mark"></span>
-            </h1>
-        </div>
-    </header>
-    <!--/Header-->
-    
-    <!--Barra de navegacion-->
-    <nav class="navi" data-spy="affix" data-offset-top="180">
-        <div class="navi-int">
-            <ul>
-                <li><a class="principalLink" ui-sref="inicio">Inicio</a></li>
-                <li><a ui-sref="espectaculosList">Espectaculos</a></li>
-                <li><a ui-sref="funcionesList">Funciones</a></li>
-                <li><a ui-sref="artistasList">Artistas</a></li>
-                <li><a ui-sref="inicio">Sobre nosotros</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!--/Barra de navegacion-->
-    
-    <!--Dokumentin-->
-    <div class="doc container-fluid span12">
-        <div class="span12">
-            <div class="well" ui-view="mainView">
+	</head>
+	<body>
 
-            </div>
-        </div>
-    </div> 	
-    <!--/Dokumentin-->
-      
-    <div class="footerA navbar-fixed-bottom">
-        <div class="inFooter">
-            <p class="footerp"> By The Exception
-                <img src="http://images.clipartpanda.com/exception-clipart-men-exception-th.png" alt="logo" width="3%" /></a>
-            </p>
-        <div>
-    </div>
-    </body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="#">Nuestras Boletas</a></h1>
+						<nav class="links">
+							<ul>
+                                                                <li><a class="principalLink" ui-sref="">Inicio</a></li>
+								<li><a href="#">Espectaculos</a></li>
+								<li><a href="#">Funciones</a></li>
+								<li><a href="#">Artistas</a></li>
+								<li><a href="#">Sobre nosotros</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Magna sed adipiscing</a></h2>
+										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">November 1, 2015</time>
+										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+								<footer>
+									<ul class="actions">
+										<li><a href="#" class="button big">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon fa-heart">28</a></li>
+										<li><a href="#" class="icon fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Ultricies sed magna euismod enim vitae gravida</a></h2>
+										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-10-25">October 25, 2015</time>
+										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.</p>
+								<footer>
+									<ul class="actions">
+										<li><a href="#" class="button big">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon fa-heart">28</a></li>
+										<li><a href="#" class="icon fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Euismod et accumsan</a></h2>
+										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-10-22">October 22, 2015</time>
+										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Cras vehicula tellus eu ligula viverra, ac fringilla turpis suscipit. Quisque vestibulum rhoncus ligula.</p>
+								<footer>
+									<ul class="actions">
+										<li><a href="#" class="button big">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon fa-heart">28</a></li>
+										<li><a href="#" class="icon fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li><a href="" class="disabled button big previous">Previous Page</a></li>
+								<li><a href="#" class="button big next">Next Page</a></li>
+							</ul>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
+								<header>
+									<h2>Future Imperfect</h2>
+									<p>Another fine responsive site template in HTML5</a></p>
+								</header>
+							</section>
+
+						<!-- Mini Posts -->
+							<section>
+								<div class="mini-posts">
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Vitae sed condimentum</a></h3>
+												<time class="published" datetime="2015-10-20">October 20, 2015</time>
+												<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+										</article>
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Rutrum neque accumsan</a></h3>
+												<time class="published" datetime="2015-10-19">October 19, 2015</time>
+												<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+										</article>
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Odio congue mattis</a></h3>
+												<time class="published" datetime="2015-10-18">October 18, 2015</time>
+												<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+										</article>
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Enim nisl veroeros</a></h3>
+												<time class="published" datetime="2015-10-17">October 17, 2015</time>
+												<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+										</article>
+
+								</div>
+							</section>
+
+						<!-- Posts List -->
+							<section>
+								<ul class="posts">
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
+												<time class="published" datetime="2015-10-20">October 20, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
+												<time class="published" datetime="2015-10-15">October 15, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Euismod amet placerat vivamus porttitor</a></h3>
+												<time class="published" datetime="2015-10-10">October 10, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="images/pic10.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Magna enim accumsan tortor cursus ultricies</a></h3>
+												<time class="published" datetime="2015-10-08">October 8, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="images/pic11.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Congue ullam corper lorem ipsum dolor</a></h3>
+												<time class="published" datetime="2015-10-06">October 7, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="images/pic12.jpg" alt="" /></a>
+										</article>
+									</li>
+								</ul>
+							</section>
+
+						<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+								<ul class="actions">
+									<li><a href="#" class="button">Learn More</a></li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+									<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. Crafted: <a href="http://designscrazed.org/">HTML5</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+	</body>
 </html>
