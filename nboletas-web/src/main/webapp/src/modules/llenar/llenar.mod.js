@@ -4,21 +4,22 @@
  * and open the template in the editor.
  */
 (function (ng) {
-    var mod = angular.module("mainAppModule", ['ui.router']);
+    var mod = angular.module("rellenarModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-           $urlRouterProvider.otherwise("");
+           var basePath = 'src/modules/';
+           $urlRouterProvider.otherwise("/rellenar");
             $stateProvider
-                    .when('', {
+                    .state('rellenar', {
                         url: "",
                         views: {
                             'listView':{
-                                templateUrl: 'html/main.html'
+                                templateUrl: basePath + 'html/main.html'
                             },
                             'miniPostView':{
-                                templateUrl: 'html/miniPosts.html'
+                                templateUrl: basePath + 'html/miniPosts.html'
                             },
                             'postsListView':{
-                                templateUrl: 'html/postsList.html'
+                                templateUrl: basePath +'html/postsList.html'
                             }
                         }
                     });
