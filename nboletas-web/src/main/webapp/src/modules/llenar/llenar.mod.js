@@ -13,13 +13,16 @@
                         url: "",
                         views: {
                             'listView':{
-                                templateUrl: basePath + 'html/main.html'
+                                templateUrl: basePath + 'espectaculos/espectaculos.list.html',
+                                controller: 'espectaculoCtrl'
                             },
                             'miniPostView':{
-                                templateUrl: basePath + 'html/miniPosts.html'
+                                templateUrl: basePath + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
                             },
                             'postsListView':{
-                                templateUrl: basePath +'html/postsList.html'
+                                templateUrl: basePath +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     });
