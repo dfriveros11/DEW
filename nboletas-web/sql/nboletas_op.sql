@@ -35,9 +35,9 @@ insert into ComentarioEntity(id, comentario, fecha) values (2, 'ajá tu qué', '
 
 insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (0, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/predicciones-linux-300x200.jpg', 'Tu, NO OTRA VEZ');
 
-insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'CULO DE MONDADA');
+insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'Khè hace');
 insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (2, 'https://experienciadigital.es/wp-content/uploads/2017/08/linux-696x422.jpg', 'ECHEVERRY');
-insert into EspectaculoEntity(id, descripcion, nombre) values (0, 'aloja', 'que te importa');
+insert into EspectaculoEntity(id, descripcion, nombre) values (0, 'aloja', 'barrannquilla');
 insert into EspectaculoEntity(id, descripcion, nombre) values (1, 'erda', 'erdax2');
 
 insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values (0, 1);

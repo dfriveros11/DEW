@@ -1,33 +1,24 @@
-<div class="container-fluid">
-    <div class="panel-body">
-        
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="espectaculosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new espectaculo</a>
-                    </div>
+        <article class="post" ng-repeat="espectaculo in espectaculosRecords">
+            <header>
+                <div class="title">
+                    <h2><a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})">{{espectaculo.nombre}}</a></h2>
                 </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Nombre</th>  
-                    <th>Descripcion</th>  
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="espectaculo in espectaculosRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})">{{espectaculo.id}}</a></td>
-                    <td id="{{$index}}-nombre">{{espectaculo.nombre}}</td>   
-                    <td id="{{$index}}-descripcion">{{espectaculo.descripcion}}</td>
-                    <td id="{{$index}}-actions">
-                        <a class="btn btn-default btn-sm" ui-sref="espectaculoUpdate({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-edit"></span>Modificar</a>
-                        <a class="btn btn-danger btn-sm" ui-sref="espectaculosDelete({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                        <a class="btn btn-info" ui-sref="espectaculoOrganizador({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-plus-sign"></span> Add new organizador</a>
-                        <a class="btn btn-info" ui-sref="espectaculoArtista({espectaculoId: espectaculo.id})"><span class="glyphicon glyphicon-plus-sign"></span> Add new artista</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+            </header>
+            <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})" class="image featured"><img ng-src="https://www.elheraldo.co/sites/default/files/styles/width_860/public/articulo/2015/08/29/rey_momo_2016.jpg?itok=mc17RLcL" alt="" /></a>
+            <p>{{espectaculo.descripcion}}</p>
+            <footer>
+                <ul class="actions">
+                    <li><a href="#" class="button big">Continue Reading</a></li>
+                </ul>
+                <ul class="stats">
+                    <li><a href="#">General</a></li>
+                    <li><a href="#" class="icon fa-heart">28</a></li>
+                    <li><a href="#" class="icon fa-comment">128</a></li>
+                </ul>
+            </footer>
+	</article>
+	<!-- Pagination -->
+	<ul class="actions pagination">
+            <li><a href="" class="disabled button big previous">Previous Page</a></li>
+            <li><a href="#" class="button big next">Next Page</a></li>
+	</ul>
