@@ -1,30 +1,20 @@
-<div class="container-fluid">
-    <div class="panel-body">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="boletasCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new boleta</a>
-                    </div>
-                </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Precio</th>  
-                    <th>¿Esta vendida?</th>  
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="boleta in boletasRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</a></td>
-                    <td id="{{$index}}-precio">{{boleta.precio | currency}}</td>   
-                    <td id="{{$index}}-vendida">{{boleta.vendida }}</td> 
-                    <td id="{{$index}}-actions">
-                        <a class="btn btn-default btn-sm" ui-sref="boletaUpdate({boletaId: boleta.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-danger btn-sm" ui-sref="boletaDelete({boletaId: boleta.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<article class="post" ng-repeat="boleta in boletasRecords">
+    <header>
+        <div class="title">
+            <h2><a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</a></h2>
+        </div>
+    </header>
+    <a ui-sref="boletaDetail({boletaId: boleta.id}))" class="image featured"><img ng-src="{{boleta.imagen}}" alt="" /></a>
+    <p>Precio {{boleta.precio}}</p>
+    <p>¿Esta Vendida? {{boleta.vendida}}</p>
+    <footer>
+        <ul class="actions">
+            <li><a href="#" class="button big">Continue Reading</a></li>
+        </ul>
+    </footer>
+</article>
+<!-- Pagination -->
+<ul class="actions pagination">
+    <li><a href="" class="disabled button big previous">Previous Page</a></li>
+    <li><a href="#" class="button big next">Next Page</a></li>
+</ul>

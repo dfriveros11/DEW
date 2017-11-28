@@ -8,32 +8,19 @@
     var mod = angular.module("boletasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/boletas/';
-            $urlRouterProvider.otherwise("/boletas");
+            $urlRouterProvider.otherwise("/boletasList");
             $stateProvider
-                    .state('boletas', {
-                        url: "/boletas",
-                        abstract: true,
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'boletas.html',
-                                controller: 'boletaCtrl',
-                                controllerAs: 'ctrl'
-                            }
-                        }
-                        
-                    })
                     .state('boletasList', {
-                        url: '/list',
-                        parent: 'boletas',
+                        url: '/boletas/list',
                         views:{
                             'listView':{
-                                templateUrl: basePath + 'boletas.list.html'
+                                templateUrl: basePath + 'boletas.list.html',
+                                controller:'boletaCtrl'
                             }
                         }
                     })
                     .state('boletaDetail' ,{
-                        url: '/{boletaId:int}/detail',
-                        parent: 'boletas',
+                        url: '/boletas/{boletaId:int}/detail',
                         param: {
                             boletaId: null
                         },
@@ -46,8 +33,7 @@
                         }
                     })
                     .state('boletasCreate',{
-                        url: '/create',
-                        parent: 'boletas',
+                        url: '/boletas/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/boletas.new.html',
@@ -56,8 +42,7 @@
                         }        
                     })
                     .state('boletaUpdate', {
-                        url: '/update/{boletaId:int}',
-                        parent: 'boletas',
+                        url: '/boletas/update/{boletaId:int}',
                         param: {
                             boletaId: null
                         },
@@ -69,8 +54,7 @@
                         }
                     })
                     .state('boletaDelete',{
-                       url: '/delete/{boletaId:int}',
-                        parent: 'boletas',
+                       url: '/boletas/delete/{boletaId:int}',
                         param: {
                             boletaId: null
                         },

@@ -2,6 +2,7 @@
 
 (function (ng) {
     var mod = ng.module("funcionesModule");
+    mod.constant("funcionesContext", "api/funciones");
     mod.controller('funcionesCtrl', ['$scope', '$http', 'funcionesContext', '$state',
         function ($scope, $http, funcionesContext, $state) {
             $http.get(funcionesContext).then(function (response) {

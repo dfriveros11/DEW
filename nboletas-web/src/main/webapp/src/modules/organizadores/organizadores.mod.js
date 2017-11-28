@@ -9,20 +9,10 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/organizadores/';
-            $urlRouterProvider.otherwise("/boletas");
+            $urlRouterProvider.otherwise("/organizadoresList");
             $stateProvider
-                    .state('organizadores', {
-                        url: "/organizadores",
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'organizadores.html'
-                            }
-                        }
-                        
-                    })
                     .state('organizadoresList', {
-                        url: '/list',
-                        parent: 'organizadores',
+                        url: '/organizadores/list',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'organizadores.list.html',
@@ -32,8 +22,7 @@
                         }
                     })
                     .state('organizadorDetail',{
-                        url: '/{organizadorId:int}/detail',
-                        parent: 'organizadores',
+                        url: '/organizadores/{organizadorId:int}/detail',
                         param: {
                             organizadorId: null
                         },
@@ -51,8 +40,7 @@
                         }       
                     })
                     .state('organizadoresCreate',{
-                        url: '/create',
-                        parent: 'organizadores',
+                        url: '/organizadores/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/organizadores.new.html',
@@ -61,8 +49,7 @@
                         }        
                     })
                     .state('organizadorUpdate', {
-                        url: '/update/{organizadorId:int}',
-                        parent: 'organizadores',
+                        url: '/organizadores/update/{organizadorId:int}',
                         param: {
                             organizadorId: null
                         },
@@ -74,8 +61,7 @@
                         }
                     })
                     .state('organizadorUpdateEspectaculo', {
-                        url: '/createEspectaculo/{organizadorId:int}',
-                        parent: 'organizadores',
+                        url: '/organizadores/createEspectaculo/{organizadorId:int}',
                         param: {
                             organizadorId: null
                         },
@@ -87,8 +73,7 @@
                         }
                     })
                     .state('organizadorDelete',{
-                       url: '/delete/{organizadorId:int}',
-                        parent: 'organizadores',
+                       url: '/organizadores/delete/{organizadorId:int}',
                         param: {
                             organizadorId: null
                         },
