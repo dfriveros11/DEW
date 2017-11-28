@@ -8,18 +8,10 @@
     var mod = angular.module("espectaculosModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/espectaculos/';
-            $urlRouterProvider.otherwise("/espectaculos");
+            $urlRouterProvider.otherwise("/espectaculosList");
             $stateProvider
-                    .state('espectaculos', {
-                        url: "/espectaculos",
-                        abstract: true,
-                        views: {
-                                 
-                        }
-                        
-                    })
                     .state('espectaculosList', {
-                        url: '/list',
+                        url: '/espectaculo/list',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'espectaculos.list.html',
@@ -28,12 +20,10 @@
                         }
                     })
                     .state('espectaculoDetail' ,{
-                        url: '/{espectaculoId:int}/detail',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/{espectaculoId:int}/detail',
                         param: {
                             espectaculoId: null
                         },
-                        
                         views: {
                             'detailView': {
                                 templateUrl: basePath + 'espectaculos.detail.html',
@@ -43,8 +33,7 @@
                         }
                     })
                     .state('espectaculosCreate',{
-                        url: '/create',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/espectaculos.new.html',
@@ -53,8 +42,7 @@
                         }        
                     })
                     .state('espectaculoArtista',{
-                        url: '/{espectaculoId:int}/createArtista',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/{espectaculoId:int}/createArtista',
                         param: {
                             espectaculoId: null
                         },
@@ -66,8 +54,7 @@
                         }        
                     })
                     .state('espectaculoOrganizador',{
-                        url: '/{espectaculoId:int}/createOrganizador',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/{espectaculoId:int}/createOrganizador',
                         param: {
                             espectaculoId: null
                         },
@@ -79,8 +66,7 @@
                         }        
                     })
                     .state('espectaculoUpdate', {
-                        url: '/update/{espectaculoId:int}',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/update/{espectaculoId:int}',
                         param: {
                             espectaculoId: null
                         },
@@ -92,8 +78,7 @@
                         }
                     })
                     .state('espectaculosDelete',{
-                       url: '/delete/{espectaculoId:int}',
-                        parent: 'espectaculos',
+                       url: '/espectaculo/delete/{espectaculoId:int}',
                         param: {
                             espectaculoId: null
                         },

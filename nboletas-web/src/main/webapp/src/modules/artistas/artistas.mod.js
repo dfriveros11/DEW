@@ -8,31 +8,19 @@
     var mod = angular.module("artistasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/artistas/';
-            $urlRouterProvider.otherwise("/artistas");
+            $urlRouterProvider.otherwise("/artistasList");
             $stateProvider
-                    .state('artistas', {
-                        url: "/artistas",
-                        abstract: true,
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'artistas.html',
-                                controller: 'artistaCtrl',
-                                controllerAs: 'ctrl'
-                            }
-                        }
-                        
-                    })
                     .state('artistasList', {
-                        url: '/list',
+                        url: '/artistas/list',
                         views:{
                             'listView':{
-                                templateUrl: basePath + 'artistas.list.html'
+                                templateUrl: basePath + 'artistas.list.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('artistaDetail' ,{
-                        url: '/{artistaId:int}/detail',
-                        parent: 'artistas',
+                        url: '/artistas/{artistaId:int}/detail',
                         param: {
                             artistaId: null
                         },
@@ -45,8 +33,7 @@
                         }
                     })
                     .state('artistasCreate',{
-                        url: '/create',
-                        parent: 'artistas',
+                        url: '/artistas/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/artistas.new.html',
@@ -55,8 +42,7 @@
                         }        
                     })
                     .state('artistaUpdate', {
-                        url: '/update/{artistaId:int}',
-                        parent: 'artistas',
+                        url: '/artistas/update/{artistaId:int}',
                         param: {
                             artistaId: null
                         },
@@ -68,7 +54,7 @@
                         }
                     })
                     .state('artistasDelete',{
-                       url: '/delete/{artistaId:int}',
+                       url: '/artistas/delete/{artistaId:int}',
                         parent: 'artistas',
                         param: {
                             artistaId: null
