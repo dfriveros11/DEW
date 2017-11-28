@@ -57,6 +57,27 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
      */
     @NotNull
     private String ciudad;
+    
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
+    private boolean admon;
+
+    public boolean getAdmon() {
+        return admon;
+    }
+
+    public void setAdmon(boolean admon) {
+        this.admon = admon;
+    }
 
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")

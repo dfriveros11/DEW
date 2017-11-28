@@ -20,6 +20,24 @@ public class UsuarioDTO {
     private String email;
     private String pais;
     private String ciudad;
+    private boolean admon;
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public boolean isAdmon() {
+        return admon;
+    }
+
+    public void setAdmon(boolean admon) {
+        this.admon = admon;
+    }
 
     public UsuarioDTO() {
     }
