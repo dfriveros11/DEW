@@ -20,6 +20,8 @@ public class UsuarioDTO {
     private String email;
     private String pais;
     private String ciudad;
+    private boolean admon;
+    private String imagen;
 
     public UsuarioDTO() {
     }
@@ -33,6 +35,8 @@ public class UsuarioDTO {
             this.email = entity.getEmail();
             this.pais = entity.getPais();
             this.ciudad = entity.getCiudad();
+            this.admon = entity.getAdmon();
+            this.imagen = entity.getImagen();
         }
     }
 
@@ -45,6 +49,8 @@ public class UsuarioDTO {
         entity.setEmail(this.email);
         entity.setPais(this.pais);
         entity.setCiudad(this.ciudad);
+        entity.setAdmon(this.admon);
+        entity.setImagen(this.imagen);
         return entity;
     }
 
@@ -102,5 +108,21 @@ public class UsuarioDTO {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+    
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public boolean isAdmon() {
+        return admon;
+    }
+
+    public void setAdmon(boolean admon) {
+        this.admon = admon;
     }
 }

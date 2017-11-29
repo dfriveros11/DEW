@@ -60,6 +60,14 @@ public class UsuarioPersistence extends AbstractPersistence<UsuarioEntity> {
         query += ", EMAIL = \'" + entity.getEmail()+"\'";
         query += ", PAIS = \'" + entity.getPais()+"\'";
         query += ", CIUDAD = \'" + entity.getCiudad()+"\'";
+        if(entity.getAdmon()){
+            query += ", ADMON=1" ;
+        }else{
+            query += ", ADMON=0";
+        }
+        if(!entity.getImagen().isEmpty()){
+            query += ",IMAGEN=\'"+entity.getImagen()+"\'";
+        }
         query += " WHERE ID =" + entity.getId();
         em.createNativeQuery(query).executeUpdate();
         return entity;
