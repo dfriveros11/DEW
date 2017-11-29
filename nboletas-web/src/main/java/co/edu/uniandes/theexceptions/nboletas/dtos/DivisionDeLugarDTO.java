@@ -56,6 +56,7 @@ public class DivisionDeLugarDTO {
         DivisionDeLugarEntity division = new DivisionDeLugarEntity();
         division.setId(this.id);
         division.setNombre(this.name);
+        division.setImagen(this.imagen);
         return division;
     }
 }

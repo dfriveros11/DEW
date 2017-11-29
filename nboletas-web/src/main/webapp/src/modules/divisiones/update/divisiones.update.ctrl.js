@@ -12,7 +12,8 @@
    
                     $http.get(divisionesContext + '/' + idDivision).then(function (response) {
                         var division = response.data;
-                        $scope.division.nombre= division.name;
+                        $scope.division.name= division.name;
+                        $scope.division.imagen= division.imagen;
                     });
                 $scope.updateDivision= function () {
                     $http.put(divisionesContext + "/" + idDivision, $scope.division).then(function (response) {

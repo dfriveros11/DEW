@@ -9,14 +9,13 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/divisiones/';
             var basePathHtml = 'src/modules/';
-            $urlRouterProvider.otherwise("/divisiones");
+            $urlRouterProvider.otherwise("/divisionesList");
             $stateProvider
-                    .state('divisiones', {
-                        url: "/divisiones",
-                        abstract: true,
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'divisiones.html',
+                    .state('divisionesList', {
+                        url: '/divisiones/list',
+                        views:{
+                            'listView':{
+                                templateUrl: basePath + 'divisiones.list.html',
                                 controller: 'divisionesCtrl',
                                 controllerAs: 'ctrl'
                             },
@@ -29,20 +28,9 @@
                                 controller: 'artistaCtrl'
                             }
                         }
-                        
-                    })
-                    .state('divisionesList', {
-                        url: '/list',
-                        parent: 'divisiones',
-                        views:{
-                            'listView':{
-                                templateUrl: basePath + 'divisiones.list.html'
-                            }
-                        }
                     })
                     .state('divisionesDetail' ,{
-                        url: '/{divisionId:int}/detail',
-                        parent: 'divisiones',
+                        url: '/divisiones/{divisionId:int}/detail',
                         param: {
                             divisionId: null
                         },
@@ -64,8 +52,7 @@
                         }
                     })
                     .state('divisionesCreate',{
-                        url: '/create',
-                        parent: 'divisiones',
+                        url: '/divisiones/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/divisiones.new.html',
@@ -82,8 +69,7 @@
                         }        
                     })
                     .state('divisionesUpdate', {
-                        url: '/update/{divisionId:int}',
-                        parent: 'divisiones',
+                        url: '/divisiones/update/{divisionId:int}',
                         param: {
                             divisionId: null
                         },
@@ -103,8 +89,7 @@
                         }
                     })
                     .state('divisionesDelete',{
-                       url: '/delete/{divisionId:int}',
-                        parent: 'divisiones',
+                       url: '/divisiones/delete/{divisionId:int}',
                         param: {
                             divisionId: null
                         },

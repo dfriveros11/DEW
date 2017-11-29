@@ -11,7 +11,8 @@
             $rootScope.edit = false;
             $scope.createDivision = function () {
                 $http.post(divisionesContext, {
-                    name: $scope.divisionNombre
+                    name: $scope.divisionNombre,
+                    imagen: $scope.divisionImagen
                 }).then(function (response) {
                     $state.go('divisionesList', {divisionId: response.data.id}, {reload: true});
                 });
