@@ -30,6 +30,9 @@ public class SillaPersistence extends AbstractPersistence<SillaEntity> {
         if(entity.getDivision()!=null){
             query += "DIVISION_ID= " + entity.getDivision().getId() + ",";
         }
+        if(entity.getImagen()!=null){
+            query += "IMAGEN= '" + entity.getImagen() + "',";
+        }
         if(!query.equals("")){
             query = query.substring(0, query.length()-2);
         }
