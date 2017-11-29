@@ -3,6 +3,6 @@
         <header>
             <h3>{{artista.nombre}}</h3>
         </header>
-        <a href="#" class="image"><img src="{{artista.imagen}}" alt="" /></a>
+        <a ui-sref="artistaDetail({artistaId: artista.id})"class="image"><img src="{{artista.imagen}}" alt="" /></a>
     </article>
 </li>
