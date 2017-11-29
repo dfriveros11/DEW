@@ -8,6 +8,7 @@
     var mod = angular.module("boletasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/boletas/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/boletasList");
             $stateProvider
                     .state('boletasList', {
@@ -16,6 +17,14 @@
                             'listView':{
                                 templateUrl: basePath + 'boletas.list.html',
                                 controller:'boletaCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -29,6 +38,14 @@
                                 templateUrl: basePath + 'boletas.detail.html',
                                 controller: 'boletaCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -38,6 +55,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/boletas.new.html',
                                 controller: 'boletaNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -50,6 +75,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/boletas.update.html',
                                 controller: 'boletaUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -62,6 +95,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/boletas.delete.html',
                                 controller: 'boletaDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

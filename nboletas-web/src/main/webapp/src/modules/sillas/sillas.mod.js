@@ -8,6 +8,7 @@
     var mod = angular.module("sillasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/sillas/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/sillas");
             $stateProvider
                     .state('sillas', {
@@ -18,6 +19,14 @@
                                 templateUrl: basePath + 'sillas.html',
                                 controller: 'sillasCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                         
@@ -28,6 +37,14 @@
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'sillas.list.html'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -43,6 +60,14 @@
                                 templateUrl: basePath + 'sillas.detail.html',
                                 controller: 'sillasCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -53,6 +78,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/sillas.new.html',
                                 controller: 'sillasNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -66,6 +99,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/sillas.update.html',
                                 controller: 'sillasUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -79,6 +120,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/sillas.delete.html',
                                 controller: 'sillasDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

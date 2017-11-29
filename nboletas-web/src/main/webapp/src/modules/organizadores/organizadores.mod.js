@@ -9,6 +9,7 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/organizadores/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/organizadoresList");
             $stateProvider
                     .state('organizadoresList', {
@@ -18,6 +19,14 @@
                                 templateUrl: basePath + 'organizadores.list.html',
                                 controller: 'organizadorCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -36,6 +45,14 @@
                                 templateUrl: basePath + 'organizadores.detail.html',
                                 controller: 'organizadorCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }       
                     })
@@ -45,6 +62,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/organizadores.new.html',
                                 controller: 'organizadorNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -57,6 +82,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/organizadores.update.html',
                                 controller: 'organizadorUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -69,6 +102,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/organizadores.updateEspectaculo.html',
                                 controller: 'organizadorUpdateEspectaculoCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -81,6 +122,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/organizadores.delete.html',
                                 controller: 'organizadorDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

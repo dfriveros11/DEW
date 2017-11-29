@@ -8,6 +8,7 @@
     var mod = angular.module("divisionesModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/divisiones/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/divisiones");
             $stateProvider
                     .state('divisiones', {
@@ -18,6 +19,14 @@
                                 templateUrl: basePath + 'divisiones.html',
                                 controller: 'divisionesCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                         
@@ -43,6 +52,14 @@
                                 templateUrl: basePath + 'divisiones.detail.html',
                                 controller: 'divisionesCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -53,6 +70,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/divisiones.new.html',
                                 controller: 'divisionesNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -66,6 +91,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/divisiones.update.html',
                                 controller: 'divisionesUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -79,6 +112,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/divisiones.delete.html',
                                 controller: 'divisionesDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });
