@@ -12,7 +12,7 @@
             $urlRouterProvider.otherwise("/lugaresList");
 
             $stateProvider.state('lugaresList', {
-                url: '/list',
+                url: '/lugares/list',
                 views: {
                     'listView': {
                         templateUrl: basePath + 'lugares.list.html',
@@ -29,7 +29,7 @@
                     }
                 }
             }).state('lugaresUpdate', {
-                url: '/update/{lugarId:int}',
+                url: '/lugares/update/{lugarId:int}',
                 param: {
                     lugarId: null
                 },
@@ -40,7 +40,7 @@
                     }
                 }
             }).state('lugaresCreate', {
-                url: '/create',
+                url: '/lugares/create',
                 views: {
                     'detailView': {
                         templateUrl: basePath + '/new/lugares.new.html',
@@ -48,7 +48,7 @@
                     }
                 }
             }).state('lugaresDelete', {
-                url: '/delete/{lugarId:int}',
+                url: '/lugares/delete/{lugarId:int}',
 
                 param: {
                     funcionId: null
@@ -60,7 +60,7 @@
                     }
                 }
             }).state('lugaresDetail', {
-                url: '/{lugarId:int}/detail',
+                url: '/lugares/{lugarId:int}/detail',
 
                 param: {
                     funcionId: null
