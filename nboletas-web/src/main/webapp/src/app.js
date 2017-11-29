@@ -33,7 +33,6 @@
             $transitions.onSuccess({to: '*'}, function (trans) {
 
                 var $state = trans.router.stateService;
-                var requireLogin = $state.current.data.requireLogin;
 
                 $rootScope.isAuthenticated = function () {
                     if (sessionStorage.getItem("userName") !== "null" && 
@@ -55,14 +54,9 @@
                     if($rootScope.isAuthenticated()){
                         sessionStorage.setItem("userName",null);
                         sessionStorage.setItem("admon",null);
-                        $state.go('espectaculosList',{});
+                        $state.go('espectaculosList');
                     }
-                }
-
-                if (requireLogin && (sessionStorage.getItem("userName") === null)) {
-                    event.preventDefault();
-                    $state.go('usuarioLogin', $state.params);
-                }
+                };
 
             });
 

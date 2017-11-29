@@ -11,17 +11,8 @@
             var basePath = 'src/modules/reembolsos/';
             $urlRouterProvider.otherwise("/reembolsos");
             $stateProvider
-                    .state('reembolsos', {
-                        url: "/reembolsos",
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'reembolsos.html'
-                            }
-                        }
-                    })
                     .state('reembolsosList', {
                         url: '/list',
-                        parent: 'reembolsos',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'reembolsos.list.html',
@@ -32,7 +23,6 @@
                     })
                     .state('reembolsoDetail',{
                         url: '/{reembolsoId:int}/detail',
-                        parent: 'reembolsos',
                         param: {
                             reembolsoId: null
                         },
@@ -47,7 +37,6 @@
                     })
                     .state('reembolsosCreate',{
                         url: '/create',
-                        parent: 'reembolsos',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/reembolsos.new.html',
@@ -57,7 +46,6 @@
                     })
                     .state('reembolsoUpdate', {
                         url: '/update/{reembolsoId:int}',
-                        parent: 'reembolsos',
                         param: {
                             reembolsoId: null
                         },
@@ -70,7 +58,6 @@
                     })
                     .state('reembolsoDelete',{
                        url: '/delete/{reembolsoId:int}',
-                        parent: 'reembolsos',
                         param: {
                             reembolsoId: null
                         },

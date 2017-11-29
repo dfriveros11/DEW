@@ -1,6 +1,5 @@
 (function (ng) {
     var mod = angular.module('usuarioModule', ['ui.router']);
-
     mod.config(['$stateProvider', function ($stateProvider) {
             var basePath = 'src/modules/usuarios/';
             var htmlPath = 'src/modules/html/';
@@ -8,10 +7,6 @@
             $stateProvider
                     .state('usuarioList', {
                         url: '/usuarios/todos',
-                        data: {
-                            requireLogin: true,
-                            roles: [true]
-                        },
                         views: {
                             'listView': {
                                 templateUrl: basePath + '/list/usuarios.list.html',
@@ -30,14 +25,18 @@
                     })
                     .state('usuarioRegister', {
                         url: '/usuario/registro',
-                        data: {
-                            requireLogin: false,
-                            roles: []
-                        },
                         views: {
                             'masterView': {
                                 templateUrl: basePath + '/register/usuarios.register.html',
                                 controller: 'usuariosRegisterCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -46,37 +45,57 @@
                         param: {
                             usuarioId: null
                         },
-                        data: {
-                            requireLogin: true,
-                            roles: [false]
-                        },
                         'views': {
                             'masterView': {
                                 templateUrl: basePath + '/register/usuarios.register.success.html',
                                 controller: 'usuariosRegisterSuccessCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
+                        }
+                    })
+                    .state('usuarioLoginSuccess', {
+                        url: '/espectaculos/list',
+                        views:{
+                            'masterView': {
+                                templateUrl: basePath + '/login/usuarios.login.success.html'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('usuarioLogin', {
                         url: '/usuario/ingreso',
-                        data: {
-                            requireLogin: false,
-                            roles: []
-                        },
                         views: {
                             'masterView': {
                                 templateUrl: basePath + '/login/usuarios.login.html',
                                 controller: 'usuarioLoginCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('usuarioDetail', {
                         url: '/usuario/{usuarioId:int}/informacion',
-                        data: {
-                            requireLogin: false,
-                            roles: []
-                        },
                         param: {
                             usuarioId: null
                         },
@@ -134,12 +153,12 @@
                                 templateUrl: basePath + '/update/usuarios.update.html',
                                 controller: 'usuarioUpdateCtrl'
                             },
-                            'miniPostView':{
+                            'miniPostView': {
                                 templateUrl: basePathHtml + 'funciones/miniPosts.html',
                                 controller: 'funcionesCtrl'
                             },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }
