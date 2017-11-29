@@ -19,6 +19,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class EnvioEntity extends BaseEntity implements Serializable {
 
     private String direccion;
+    private String imagen;
 
     @PodamExclude
     @OneToOne(fetch = FetchType.LAZY)
@@ -52,4 +53,19 @@ public class EnvioEntity extends BaseEntity implements Serializable {
         this.boleta = boleta;
     }
 
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
 }

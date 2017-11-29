@@ -15,6 +15,7 @@ public class EnvioDTO {
 
     private Long id;
     private String direccion;
+    private String imagen;
 
     /**
      * Constructor por defecto
@@ -28,6 +29,7 @@ public class EnvioDTO {
         if (env != null) {
             this.id = env.getId();
             this.direccion = env.getDireccion();
+            this.imagen = env.getImagen();
         }
     }
 
@@ -68,7 +70,23 @@ public class EnvioDTO {
         EnvioEntity entity = new EnvioEntity();
         entity.setId(this.id);
         entity.setDireccion(this.direccion);
+        entity.setImagen(this.imagen);
         return entity;
     }
 
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
 }
