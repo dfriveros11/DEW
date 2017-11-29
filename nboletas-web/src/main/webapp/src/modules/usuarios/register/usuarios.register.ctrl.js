@@ -20,12 +20,8 @@
             };
             
             $http.post(usuariosContext,user).then(function (response) {
-                $scope.data = response.data;
-                $scope.usr = 1;
-                $http.get(usuariosContext + '/' + user.userName).then(function (responseG) {
-                    $scope.id = responseG.data.id;
-                    $state.go('usuarioRegisterSuccess',({usuarioId: $scope.id}));
-                });
+                var datas = response.data;
+                $state.go('usuarioRegisterSuccess',({userName: user.userName}));
             }),
             function(response) {
                 $scope.creationFailed = true;

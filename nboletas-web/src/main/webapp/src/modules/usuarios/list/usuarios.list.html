@@ -1,10 +1,10 @@
 <article class="post" ng-repeat="user in users">
     <header>
-        <div class="title">
-            <h2><a class="button" ui-sref="usuarioDetail({usuarioId: user.id})">{{user.userName}}</a></h2>
+        <div class="text-light bg-dark">
+            <h2><a ui-sref="usuarioDetail({usuarioId: user.id})">{{user.userName}}</a></h2>
         </div>
     </header>
-    <a ui-sref="usuarioDetail({usuarioId: user.id})" class="image featured"><img ng-src="{{user.imagen}}" alt="" /></a>
+    <a ui-sref="usuarioDetail({usuarioId: user.id})" ><img class="img-responsive smaller" ng-src="{{user.imagen}}" alt="UserImage" width="200px" height="200px"/></a>
             <p>{{user.userName}}</p>
             <p>{{user.nombreUsuario}}</p>
             <p>{{user.email}}</p>

@@ -9,6 +9,7 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/reembolsos/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/reembolsos");
             $stateProvider
                     .state('reembolsosList', {
@@ -18,6 +19,14 @@
                                 templateUrl: basePath + 'reembolsos.list.html',
                                 controller: 'reembolsoCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -32,6 +41,14 @@
                                 templateUrl: basePath + 'reembolsos.detail.html',
                                 controller: 'reembolsoCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }       
                     })
@@ -41,6 +58,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/reembolsos.new.html',
                                 controller: 'reembolsoNewCtrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -53,6 +78,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/reembolsos.update.html',
                                 controller: 'reembolsoUpdateCtrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -65,6 +98,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/reembolsos.delete.html',
                                 controller: 'reembolsoDeleteCtrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

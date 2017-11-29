@@ -43,7 +43,7 @@
                     .state('usuarioRegisterSuccess', {
                         url: '/usuario/registro/exitoso',
                         param: {
-                            usuarioId: null
+                            userName: null
                         },
                         'views': {
                             'masterView': {
