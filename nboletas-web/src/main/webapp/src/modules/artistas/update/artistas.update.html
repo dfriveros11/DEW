@@ -19,6 +19,9 @@
                     <div class="panel-body">
                         <div id="div2" ondrop="angular.element(document.getElementById('theArtistas')).scope().dropAdd(event)" ondragover="angular.element(document.getElementById('theArtistas')).scope().allowDrop(event)">
                             <label></label>
+                            <div ng-show="edit">
+                            <p draggable="false">Escoge algo</p>                                 
+                        </div>
                             <div ng-show="edit" ng-repeat="espectaculo in artista.espectaculos>
                                 <p draggable="true" ondragstart="angular.element(document.getElementById('theArtistas')).scope().drag(event)" id="{{espectaculo.id}}">{{espectaculo.nombre}}</p>                                 
                             </div>
@@ -30,6 +33,9 @@
                     <div class="panel-body">
                         <div id="div1" ondrop="angular.element(document.getElementById('theArtistas')).scope().dropDelete(event)" ondragover="angular.element(document.getElementById('theArtistas')).scope().allowDrop(event)">
                             <label></label>
+                            <div ng-show="edit">
+                            <p draggable="false">Escoge algo</p>                                 
+                        </div>
                             <div ng-repeat="espectaculo in allEspectaculosShow">
                                 <p draggable="true" ondragstart="angular.element(document.getElementById('theArtistas')).scope().drag(event)" id="{{espectaculo.id}}">{{espectaculo.nombre}}</p>                
                             </div>
