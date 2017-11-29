@@ -27,6 +27,7 @@ public class DivisionDeLugarDTO {
     public DivisionDeLugarDTO(DivisionDeLugarEntity division) {
         this.id = division.getId();
         this.name = division.getNombre();
+        this.imagen= division.getImagen();
     }
 
     public Long getId() {

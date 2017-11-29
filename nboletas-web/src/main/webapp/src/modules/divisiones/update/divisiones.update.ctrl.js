@@ -16,7 +16,10 @@
                         $scope.division.imagen= division.imagen;
                     });
                 $scope.updateDivision= function () {
-                    $http.put(divisionesContext + "/" + idDivision, $scope.division).then(function (response) {
+                    $http.put(divisionesContext + "/" + idDivision, {
+                        name:$scope.division.name,
+                        imagen:$scope.division.imagen
+                    }).then(function (response) {
                     $state.go('divisionesList', {divisionId: response.data.id}, {reload: true});
                 });
                 };
