@@ -30,17 +30,23 @@ insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos) values (3
 insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos) values (4,4);
 
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (1,'Coliseo El Campin', 'Bogota', 'COLISEO', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bogota_Coliseo_El_Camp%C3%ADn.JPG/1200px-Bogota_Coliseo_El_Camp%C3%ADn.JPG');
-insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (2,'Teatro Nacional La Casellana', 'Bogota', 'TEATRO', 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (2,'Teatro Nacional La Casellana', 'Bogota', 'TEATRO', 'https://res.cloudinary.com/civico/image/upload/c_fit,f_auto,fl_lossy,h_1200,q_auto:low,w_1200/v1457113325/entity/image/file/001/000/56d9c8ec820c65dcc6000001.jpg');
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (3,'Plaza de Bolivar', 'Bogota', 'PLAZA', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Panor%C3%A1mica_Plaza_de_Bol%C3%ADvar_Bogot%C3%A1.jpg');
 
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '10/10/2017', '10:00 pm', 1, 1, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '10:00 pm', 1, 1, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (2, '10/10/2017', '9:00 pm', 2, 3, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '9:00 pm', 2, 3, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (3, '10/10/2017', '8:45 pm', 3, 3, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '8:45 pm', 3, 3, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (4, '10/10/2017', '8:45 pm', 4, 2, '');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '8:45 pm', 4, 2, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '10/10/2017', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (2, '02/02/2018', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (3, '10/10/2017', '9:00 pm', 2, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (4, '02/02/2018', '9:00 pm', 2, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (5, '10/10/2017', '8:45 pm', 3, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (6, '02/02/2018', '8:45 pm', 3, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (7, '10/10/2017', '8:45 pm', 4, 2, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (8, '02/02/2018', '8:45 pm', 4, 2, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+
+
+
+
+
+
 
 
 
