@@ -36,19 +36,15 @@
                 var requireLogin = $state.current.data.requireLogin;
 
                 $rootScope.isAuthenticated = function () {
-                    console.log("Autenticando con "+sessionStorage.getItem("userName"));
                     if (sessionStorage.getItem("userName") !== "null" && 
                             sessionStorage.getItem("userName") !== undefined) {
-                        console.log("Listo");
                         return true;
                     } else {
-                        console.log("No accedio");
                         return false;
                     }
                 };
                 
                 $rootScope.hasPermissions = function () {
-                    console.log("Admon: "+sessionStorage.getItem("admon"));
                     if ($rootScope.isAuthenticated() && (sessionStorage.getItem("admon") === "true") ) {
                         return true;
                     }

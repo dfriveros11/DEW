@@ -22,7 +22,6 @@
                         sessionStorage.setItem("userName", $scope.user.userName);
                         sessionStorage.setItem("admon",$scope.user.admon);
                           $rootScope.currentLogedUser = $scope.user;
-                        console.log($rootScope.currentLogedUser);
                     }else{
                         $scope.loginFailed = true;
                         $scope.data = response.data || 'Request failed';
@@ -35,7 +34,6 @@
                     $scope.data = response.data || 'Request failed';
                     $scope.status = "Usuario no encontrado.";
                 });
-                console.log("Hola 1234");
                 if(!$scope.loginFailed){
                     $state.go('espectaculosList',{});
                 }

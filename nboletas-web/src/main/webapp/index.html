@@ -124,10 +124,11 @@
                         <li><a ui-sref="espectaculosList">Espectaculos</a></li>
                         <li><a ui-sref="funcionesList">Funciones</a></li>
                         <li><a ui-sref="artistasList">Artistas</a></li>
-                        <li ng-if="hasPermissions()"><a ui-sref="usuarioList">Usuarios</a></li>
-                        <li><a ui-sref="boletasList">Boletas</a></li>
-                        <li><a ui-sref="organizadoresList">Organizadores</a></li>
-                        <li><a ui-sref="lugaresList">Lugares</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="usuarioList">Usuarios</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="usuarioList">Usuarios</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="boletasList">Boletas</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="organizadoresList">Organizadores</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="lugaresList">Lugares</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="divisionesList">Divisiones</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="sillasList">Sillas</a></li>
                     </ul>
