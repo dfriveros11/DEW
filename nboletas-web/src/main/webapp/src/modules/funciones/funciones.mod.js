@@ -8,6 +8,7 @@
     mod.constant("funcionesContext", "api/funciones");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/funciones/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/funcionesList");
 
             $stateProvider.state('funcionesList', {
@@ -17,11 +18,18 @@
                         templateUrl: basePath + 'funciones.list.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
+                    },
+                    'miniPostView': {
+                        templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                        controller: 'funcionesCtrl'
+                    },
+                    'postsListView': {
+                        templateUrl: basePathHtml + 'artistas/postsList.html',
+                        controller: 'artistaCtrl'
                     }
                 }
             }).state('funcionesUpdate', {
                 url: '/funciones/update/{funcionId:int}',
-                parent: 'funciones',
                 param: {
                     funcionId: null
                 },
