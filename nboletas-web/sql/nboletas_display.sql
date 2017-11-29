@@ -20,9 +20,9 @@ insert into EspectaculoEntity (id, nombre, descripcion, imagen) values (3, 'Conc
 insert into EspectaculoEntity (id, nombre, descripcion, imagen) values (4, 'Gira Portugal The Man', 'Concierto', 'http://revistakuadro.com/wp-content/uploads/2015/03/b9185c948d.jpg');
 
 insert into ArtistaEntity (id, nombre, imagen) values (1, 'Juanes', 'http://d3iln1l77n73l7.cloudfront.net/couch_images/attachments/000/083/784/original/JUANES.jpg?2016');
-insert into ArtistaEntity (id, nombre, imagen) values (2, 'Shakira', 'https://www.google.com.co/search?q=shakira&rlz=1C5CHFA_enCO729CO729&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiDpMOopuLXAhXG5CYKHQ6tBzcQ_AUICygC&biw=1164&bih=618#imgrc=kIkRoZ4sqbm3vM:');
+insert into ArtistaEntity (id, nombre, imagen) values (2, 'Shakira', 'http://assets.tiempo.com.mx/uploads/imagen/imagen/134341/Esto_delatari_a_el_fin_de_la_relacio_n_de_Shakira_y_Pique_.jpg');
 insert into ArtistaEntity (id, nombre, imagen) values (3, 'Cirque du Soleil', 'https://www.cirquedusoleil.com/-/media/past-shows/assets/img/iris/slider/iris-act-kiriki.jpg');
-insert into ArtistaEntity (id, nombre, imagen) values (4, 'Portugal The Man', 'https://www.google.com.co/search?rlz=1C5CHFA_enCO729CO729&tbm=isch&q=portugal+the+man+concierto&spell=1&sa=X&ved=0ahUKEwiRoJWbpeLXAhUB4iYKHRPbBYcQvwUIISgA&biw=1164&bih=618&dpr=2.2#imgrc=GLE7Djxg9_3pIM:');
+insert into ArtistaEntity (id, nombre, imagen) values (4, 'Portugal The Man', 'http://cientounorevista.com/wp-content/uploads/2017/07/portugal_the_man_facebook.jpg');
 
 insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos_id) values (1,3);
 insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos_id) values (2,1);
