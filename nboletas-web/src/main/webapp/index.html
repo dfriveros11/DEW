@@ -125,7 +125,7 @@
                         <li><a ui-sref="artistasList">Artistas</a></li>
                         <li><a ui-sref="boletasList">Boletas</a></li>
                         <li><a ui-sref="organizadoresList">Organizadores</a></li>
-                        <li><a ui-sref="lugaresList">Lugares</a></li>
+                        <li><a ng-if="hasPermissions" ui-sref="lugaresList">Lugares</a></li>
                         <li><a ng-if="hasPermissions" ui-sref="divisionesList">Divisiones</a></li>
                         <li><a ng-if="hasPermissions" ui-sref="sillasList">Sillas</a></li>
                     </ul>
