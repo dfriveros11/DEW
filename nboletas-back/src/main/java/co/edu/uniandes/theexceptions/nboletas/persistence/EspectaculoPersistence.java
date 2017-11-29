@@ -38,7 +38,9 @@ public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntit
         if (!entity.getDescripcion().equals("") && !entity.getDescripcion().equals(" ")) {
             query += ", DESCRIPCION = '" + entity.getDescripcion() + "'";
         }
-        query += " WHERE ID = " + entity.getId();
+        if(!entity.getImagen().equals("") && !entity.getImagen().equals(" ")) {
+            query += ", IMAGEN = '" + entity.getImagen()+ "'";
+        }
         em.createNativeQuery(query).executeUpdate();
         return entity;
     }
@@ -61,12 +63,12 @@ public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntit
     }
     
     public void deleteComentarioEspectaculo(Long idEspectaculo) {
-        String query = "DELETE FROM APP.ESPECTACULOENTITY_COMENTARIOENTITY WHERE (ESPECTACULOENTITY_ID = " + idEspectaculo +" )";
+        String query = "DELETE FROM APP.COMENTARIOENTITY WHERE (ESPECTACULO_ID = " + idEspectaculo +" )";
         em.createNativeQuery(query).executeUpdate();
     }
     
     public void deleteFuncionEspectaculo(Long idEspectaculo) {
-        String query = "DELETE FROM APP.ESPECTACULOENTITY_FUNCIONENTITY WHERE (ESPECTACULOENTITY_ID = " + idEspectaculo +" )";
+        String query = "DELETE FROM APP.FUNCIONENTITY WHERE (ESPECTACULO_ID = " + idEspectaculo +" )";
         em.createNativeQuery(query).executeUpdate();
     }
     

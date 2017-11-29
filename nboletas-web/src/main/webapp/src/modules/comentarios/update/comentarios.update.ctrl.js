@@ -14,6 +14,7 @@
                         
                     $scope.comentario.comentario = comentario.comentario;
                     $scope.comentario.fecha = comentario.fecha;
+                    $scope.comentario.id = comentario.id;
                                        
                     });
                     

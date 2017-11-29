@@ -9,31 +9,29 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/envios/';
-            $urlRouterProvider.otherwise("/envios");
+            var basePathHtml = 'src/modules/';
+            $urlRouterProvider.otherwise("/enviosList");
             $stateProvider
-                    .state('envios', {
-                        url: "/envios",
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'envios.html'
-                            }
-                        }
-                        
-                    })
                     .state('enviosList', {
-                        url: '/list',
-                        parent: 'envios',
+                        url: '/envios/list',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'envios.list.html',
                                 controller: 'envioCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                               templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('envioDetail',{
-                        url: '/{envioId:int}/detail',
-                        parent: 'envios',
+                        url: '/envios/{envioId:int}/detail',
                         param: {
                             envioId: null
                         },
@@ -42,22 +40,36 @@
                                 templateUrl: basePath + 'envios.detail.html',
                                 controller: 'envioCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }       
                     })
                     .state('enviosCreate',{
-                        url: '/create',
-                        parent: 'envios',
+                        url: '/envios/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/envios.new.html',
                                 controller: 'enviosNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
                     .state('envioUpdate', {
-                        url: '/update/{envioId:int}',
-                        parent: 'envios',
+                        url: '/envios/update/{envioId:int}',
                         param: {
                             envioId: null
                         },
@@ -65,12 +77,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/envios.update.html',
                                 controller: 'envioUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('envioDelete',{
-                       url: '/delete/{envioId:int}',
-                        parent: 'envios',
+                       url: '/envios/delete/{envioId:int}',
                         param: {
                             envioId: null
                         },
@@ -78,6 +97,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/envios.delete.html',
                                 controller: 'envioDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

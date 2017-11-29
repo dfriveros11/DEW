@@ -1,29 +1,22 @@
-<div class="container-fluid">
-     <div class="panel-body">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="organizadoresCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new organizador</a>
-                    </div>
+        <article class="post" ng-repeat="organizador in organizadoresRecords">
+            <header>
+                <div class="title">
+                    <h2><a ui-sref="organizadorDetail({organizadorId: organizador.id})">{{organizador.nombreEmpresa}}</a></h2>
                 </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Nombre Empresa</th>   
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="organizador in organizadoresRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="organizadorDetail({organizadorId: organizador.id})">{{organizador.id}}</a></td>
-                    <td id="{{$index}}-precio">{{organizador.nombreEmpresa}}</td>   
-                    <td id="{{$index}}-actions">
-                        <a class="btn btn-default btn-sm" ui-sref="organizadorUpdate({organizadorId: organizador.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-danger btn-sm" ui-sref="organizadorDelete({organizadorId: organizador.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                        <a class="btn btn-info" ui-sref="organizadorUpdateEspectaculo({organizadorId: organizador.id})"><span class="glyphicon glyphicon-plus-sign"></span> Add Espectaculo</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+            </header>
+            <a ui-sref="organizadorDetail({organizadorId: organizador.id})" class="image featured"><img ng-src="{{organizador.imagen}}" alt="" /></a>
+           <footer>
+                <ul class="actions">
+                    <li><a ng-if="hasPermissions()" ui-sref="organizadorUpdate({organizadorId: organizador.id})" class="button big">Actualizar</a></li>
+                    <li><a ng-if="hasPermissions()" ui-sref="organizadorDelete({organizadorId: organizador.id})" class="button big">Borrar</a></li>
+                </ul>
+                <ul class="stats">
+                    <li><a href="#" class="icon fa-heart">28</a></li>
+                    <li><a href="#" class="icon fa-comment">128</a></li>
+                </ul>
+            </footer>
+	</article>
+	<!-- Pagination -->
+	<ul class="actions pagination" ng-if="hasPermissions()">
+            <li><a ui-sref="organizadoresCreate" class="button big next">Agregar</a>
+	</ul>

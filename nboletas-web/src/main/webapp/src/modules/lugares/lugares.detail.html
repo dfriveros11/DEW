@@ -1,63 +1,48 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3">
-                <dl> 
-                    <dt>Lugar Detail</dt>
-                    <hr>
-                    <dt>ID</dt>
-                    <dt>{{currentLugar.id}}</dt>
-
-                    <hr>
-                    <dt>Direccion</dt>
-                    <dd>{{currentLugar.direccion}}</dd>
-
-                    <hr>
-                    <dt>Tipo</dt>
-                    <dd>{{currentLugar.tipo}}</dd>
-
-                    <hr>
-                    <dt>Ubicacion</dt>
-                    <dd>{{currentLugar.ubicacion}}</dd>
-                </dl>
-            </div>
-            <button id="btswap" onclick="swap('dtd', 'ftd', 'btswap', 'Display funciones', 'Display divisiones')">Display funciones</button>
-            <div id="dtd" class="col-md-4">
-                <table class="table table-hover" style="display: block">
-                    <thead>
-                        <tr>
-                            <th>ID</th>    
-                            <th>Nombre</th>  
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="division in divisionesRecords">
-                            <td id="{{$index}}-id">   <a ui-sref="divisionesDetail({divisionId: division.id})">{{division.id}}</a></td>
-                            <td id="{{$index}}-nombre">{{division.name}}</td>   
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="ftd" class="col-md-4" style="display: none">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Hora</th>
-                            <th>Espectaculo</th>
-                            <th>Lugar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="funcion in funcionesLugar">
-                            <td id="{{$index}}-id">   <a ui-sref="funcionesDetail({funcionId:funcion.id})">{{funcion.id}}</a></td>
-                            <td id="{{$index}}-hora">{{funcion.hora}}</td> 
-                            <td id="{{$index}}-espectaculo"><a ui-sref="espectaculoDetail({espectaculoId: funcion.espectaculo.id})">{{funcion.espectaculo.nombre}}</a></td>   
-                            <td id="{{$index}}-lugar"><a ui-sref="lugaresDetail({lugarId: funcion.lugar.id})">{{funcion.lugar.direccion}}</a></td>   
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>{{currentLugar.direccion}}</h2>
         </div>
+    </header>
+    <a class="image featured"><img ng-src="{{currentLugar.imagen}}" alt="" /></a>
+    <div class="col-md-3">
+        <dl>
+            <hr>
+            <dt>Ubicacion</dt>
+            <dd>{{currentLugar.ubicacion}}</dd>
+
+            <hr>
+            <dt>Tipo</dt>
+            <dd>{{currentLugar.tipo}}</dd>
+            <hr>
+            <dt>Divisiones de Lugar</dt>
+            <dd>
+                <ul>
+                    <li ng-if="divisionesLugar.length===0">
+                        <p><i>No hay divisiones asociadas</i></p>
+                    </li>
+                    <li ng-repeat="x in divisionesLugar">
+                        <a href="#!/divisiones/{{x.id}}/detail">{{"Division #" + x.id}}</a>
+                    </li>
+                </ul>
+            </dd>
+            <hr>
+            <dt>Funciones</dt>
+            <dd>
+                <ul>
+                    <li ng-if="funcionesLugar.length===0">
+                        <p><i>No hay funciones asociadas</i></p>
+                    </li>
+                    <li ng-repeat="x in funcionesLugar">
+                        <a href="#!/funciones/{{x.id}}/detail">{{x.espectaculo.nombre + " - Funcion #" + x.id}}</a>
+                    </li>
+                </ul>
+            </dd>
     </div>
-</div>
+    <footer>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>

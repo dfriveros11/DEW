@@ -35,9 +35,9 @@ insert into ComentarioEntity(id, comentario, fecha) values (2, 'ajá tu qué', '
 
 insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (0, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/predicciones-linux-300x200.jpg', 'Tu, NO OTRA VEZ');
 
-insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'CULO DE MONDADA');
+insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'Khè hace');
 insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (2, 'https://experienciadigital.es/wp-content/uploads/2017/08/linux-696x422.jpg', 'ECHEVERRY');
-insert into EspectaculoEntity(id, descripcion, nombre) values (0, 'aloja', 'que te importa');
+insert into EspectaculoEntity(id, descripcion, nombre) values (0, 'aloja', 'barrannquilla');
 insert into EspectaculoEntity(id, descripcion, nombre) values (1, 'erda', 'erdax2');
 
 insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID) values (0, 1);
@@ -46,26 +46,26 @@ insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID
  /* Jeison (100-199)**/
 
 /*---------Usuarios---------**/
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (100, 'jm.contreras10', '123456789', 'Jeison Contreras', 'jm.contreras10@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (100, 'jm.contreras10', '123456789', 'Jeison Contreras', 'jm.contreras10@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (101, 'sbaldosa', '123456789', 'Santiago Baldosa', 'sbaldosa@unichile.edu.ch', 'Chile', 'Santiago');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (101, 'sbaldosa', '123456789', 'Santiago Baldosa', 'sbaldosa@unichile.edu.ch', 'Chile', 'Santiago',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (102, 'am.valero10', '123456789', 'Angelo Valero', 'am.valero@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (102, 'am.valero10', '123456789', 'Angelo Valero', 'am.valero@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (103, 'fc.alvarez10', '123456789', 'Fabian Alvarez', 'fc.alvarez@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (103, 'fc.alvarez10', '123456789', 'Fabian Alvarez', 'fc.alvarez@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (104, 'ja.gomez1', '123456789', 'Jorge Gomez', 'ja.gomez1@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (104, 'ja.gomez1', '123456789', 'Jorge Gomez', 'ja.gomez1@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (105, 'jf.ramos', '123456789', 'Felipe Ramos', 'jf.ramos@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (105, 'jf.ramos', '123456789', 'Felipe Ramos', 'jf.ramos@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (106, 'df.riveros11', '123456789', 'Diego', 'df.riveros11@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (106, 'df.riveros11', '123456789', 'Diego', 'df.riveros11@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
 /*-----Boletas(Compradas)**/
 insert into BoletaEntity (id, precio, vendida, usuario_id) values (100, 300.00, 1, 100);
@@ -141,26 +141,26 @@ insert into EspectaculoEntity(id, descripcion, nombre) values (401, 'invitación
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (400, '11/11/2017', '3:00 pm', 400, 400);
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (401, '12/11/2017', '4:00 pm', 401, 400);
 
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (400, 'sasha11', '12345', 'Sasha', 'Sasha11@domain.onion', 'Colombia', 'Bogota');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (401, 'fernanda11', '123', 'Fer', 'Fer11@domain.onion', 'Colombia', 'Bogota');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (402, 'miyu11', '12', 'miyu', 'miyu11@domain.onion', 'Colombia', 'Bogota');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (403, 'julian12', '1234', 'juliancho', 'juliancho12@domain.onion', 'Colombia', 'Bogota');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (400, 'sasha11', '12345', 'Sasha', 'Sasha11@domain.onion', 'Colombia', 'Bogota',0,'');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (401, 'fernanda11', '123', 'Fer', 'Fer11@domain.onion', 'Colombia', 'Bogota',0,'');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (402, 'miyu11', '12', 'miyu', 'miyu11@domain.onion', 'Colombia', 'Bogota',0,'');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (403, 'julian12', '1234', 'juliancho', 'juliancho12@domain.onion', 'Colombia', 'Bogota',0,'');
 
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (400, 98000, 1, 400,400,400);
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (401, 99000, 1, 401,401,401);
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (402, 65000, 1, 402,402,400);
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (403, 75000, 1, 403,403,401);
 
-insert into EnvioEntity (id, direccion, boleta_id) values (400,'Calle 43 #7-26 - Aprt:101',403);
-insert into EnvioEntity (id, direccion, boleta_id) values (401, 'Cra 68i #26.48 - Casa',402);
-insert into EnvioEntity (id, direccion, boleta_id) values (402,'Cl. 8 Sur #71d:20',401);
-insert into EnvioEntity (id, direccion, boleta_id) values (403, 'Carrera 43 # 70A-50 SUR',400);
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (400,'Calle 43 #7-26 - Aprt:101',403,'http://lorempixel.com/400/200/transport/1');
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (401, 'Cra 68i #26.48 - Casa',402,'http://lorempixel.com/400/200/transport/2');
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (402,'Cl. 8 Sur #71d:20',401,'http://lorempixel.com/400/200/transport/3');
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (403, 'Carrera 43 # 70A-50 SUR',400,'http://lorempixel.com/400/200/transport/4');
 
 insert into ReembolsoEntity(id, valor, boleta_id) values (400, 1000, 400);
 
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (400,'Muy buen espectaculo','10/10/2017',400,400);
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (401,'horror de evento','10/31/2017',401,401);
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (402,'me gusto mucho asistir','11/01/1989',400,402);
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (403,'me senti muy bien en el evento','06/20/2017',401,403);
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (400,'Muy buen espectaculo','10/10/2017',400,400,'http://lorempixel.com/400/200/nightlife/1');
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (401,'horror de evento','10/31/2017',401,401,'http://lorempixel.com/400/200/nightlife/2');
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (402,'me gusto mucho asistir','11/01/1989',400,402,'http://lorempixel.com/400/200/nightlife/3');
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (403,'me senti muy bien en el evento','06/20/2017',401,403,'http://lorempixel.com/400/200/nightlife/4');
 
 

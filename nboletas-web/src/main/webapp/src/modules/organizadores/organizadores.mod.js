@@ -9,31 +9,29 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/organizadores/';
-            $urlRouterProvider.otherwise("/boletas");
+            var basePathHtml = 'src/modules/';
+            $urlRouterProvider.otherwise("/organizadoresList");
             $stateProvider
-                    .state('organizadores', {
-                        url: "/organizadores",
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'organizadores.html'
-                            }
-                        }
-                        
-                    })
                     .state('organizadoresList', {
-                        url: '/list',
-                        parent: 'organizadores',
+                        url: '/organizadores/list',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'organizadores.list.html',
                                 controller: 'organizadorCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('organizadorDetail',{
-                        url: '/{organizadorId:int}/detail',
-                        parent: 'organizadores',
+                        url: '/organizadores/{organizadorId:int}/detail',
                         param: {
                             organizadorId: null
                         },
@@ -47,22 +45,36 @@
                                 templateUrl: basePath + 'organizadores.detail.html',
                                 controller: 'organizadorCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }       
                     })
                     .state('organizadoresCreate',{
-                        url: '/create',
-                        parent: 'organizadores',
+                        url: '/organizadores/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/organizadores.new.html',
                                 controller: 'organizadorNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
                     .state('organizadorUpdate', {
-                        url: '/update/{organizadorId:int}',
-                        parent: 'organizadores',
+                        url: '/organizadores/update/{organizadorId:int}',
                         param: {
                             organizadorId: null
                         },
@@ -70,12 +82,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/organizadores.update.html',
                                 controller: 'organizadorUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('organizadorUpdateEspectaculo', {
-                        url: '/createEspectaculo/{organizadorId:int}',
-                        parent: 'organizadores',
+                        url: '/organizadores/createEspectaculo/{organizadorId:int}',
                         param: {
                             organizadorId: null
                         },
@@ -83,12 +102,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/organizadores.updateEspectaculo.html',
                                 controller: 'organizadorUpdateEspectaculoCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('organizadorDelete',{
-                       url: '/delete/{organizadorId:int}',
-                        parent: 'organizadores',
+                       url: '/organizadores/delete/{organizadorId:int}',
                         param: {
                             organizadorId: null
                         },
@@ -96,6 +122,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/organizadores.delete.html',
                                 controller: 'organizadorDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

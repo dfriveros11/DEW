@@ -1,9 +1,7 @@
 delete from ReembolsoEntity;
 delete from EnvioEntity;
 delete from OrganizadorEntity;
-delete from EspectaculoEntity_ComentarioEntity;
 delete from ComentarioEntity;
-delete from EspectaculoEntity_FuncionEntity;
 delete from BoletaEntity;
 delete from FuncionEntity;
 delete from EspectaculoEntity_OrganizadorEntity;

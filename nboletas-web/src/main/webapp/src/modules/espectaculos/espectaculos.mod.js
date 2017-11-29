@@ -8,57 +8,67 @@
     var mod = angular.module("espectaculosModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/espectaculos/';
-            $urlRouterProvider.otherwise("/espectaculos");
+            var basePathHtml = 'src/modules/';
+            $urlRouterProvider.otherwise("/espectaculosList");
             $stateProvider
-                    .state('espectaculos', {
-                        url: "/espectaculos",
-                        abstract: true,
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'espectaculos.html',
-                                controller: 'espectaculoCtrl',
-                                controllerAs: 'ctrl'
-                            }
-                        }
-                        
-                    })
                     .state('espectaculosList', {
-                        url: '/list',
-                        parent: 'espectaculos',
+                        url: '/espectaculos/list',
                         views:{
                             'listView':{
-                                templateUrl: basePath + 'espectaculos.list.html'
+                                templateUrl: basePath + 'espectaculos.list.html',
+                                controller: 'espectaculoCtrl',
+                                controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('espectaculoDetail' ,{
-                        url: '/{espectaculoId:int}/detail',
-                        parent: 'espectaculos',
+                        url: '/espectaculos/{espectaculoId:int}/detail',
                         param: {
                             espectaculoId: null
                         },
-                        
                         views: {
                             'detailView': {
                                 templateUrl: basePath + 'espectaculos.detail.html',
                                 controller: 'espectaculoCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('espectaculosCreate',{
-                        url: '/create',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/espectaculos.new.html',
                                 controller: 'espectaculoNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
                     .state('espectaculoArtista',{
-                        url: '/{espectaculoId:int}/createArtista',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/{espectaculoId:int}/createArtista',
                         param: {
                             espectaculoId: null
                         },
@@ -66,12 +76,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/newArtista/espectaculos.newArtista.html',
                                 controller: 'espectaculoNewArtistaCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
                     .state('espectaculoOrganizador',{
-                        url: '/{espectaculoId:int}/createOrganizador',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/{espectaculoId:int}/createOrganizador',
                         param: {
                             espectaculoId: null
                         },
@@ -79,12 +96,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/newOrganizador/espectaculos.newOrganizador.html',
                                 controller: 'espectaculoNewOrganizadorCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
                     .state('espectaculoUpdate', {
-                        url: '/update/{espectaculoId:int}',
-                        parent: 'espectaculos',
+                        url: '/espectaculo/update/{espectaculoId:int}',
                         param: {
                             espectaculoId: null
                         },
@@ -92,12 +116,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/espectaculos.update.html',
                                 controller: 'espectaculoUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('espectaculosDelete',{
-                       url: '/delete/{espectaculoId:int}',
-                        parent: 'espectaculos',
+                       url: '/espectaculo/delete/{espectaculoId:int}',
                         param: {
                             espectaculoId: null
                         },
@@ -105,6 +136,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/espectaculos.delete.html',
                                 controller: 'espectaculoDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

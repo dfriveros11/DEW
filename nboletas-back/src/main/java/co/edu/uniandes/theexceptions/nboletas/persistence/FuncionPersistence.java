@@ -48,6 +48,7 @@ public class FuncionPersistence extends AbstractPersistence<FuncionEntity> {
         if(entity.getEspectaculo()!= null) setStatement += "ESPECTACULO_ID = " + entity.getEspectaculo().getId() + ", ";
         if(entity.getLugar()!= null) setStatement += "LUGAR_ID = " + entity.getLugar().getId() + ", ";
         if(entity.getHora()!= null) setStatement += "HORA = '" + entity.getHora() + "', ";
+        if(entity.getImagen() != null) setStatement += "IMAGEN = '" + entity.getImagen() + "', ";
         if(!setStatement.equals("")) setStatement = setStatement.substring(0, setStatement.length() - 2);
         
         Query q = em.createNativeQuery("UPDATE FUNCIONENTITY SET " + setStatement + " WHERE ID = " + entity.getId());

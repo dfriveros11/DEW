@@ -29,6 +29,10 @@ public class EnvioPersistence extends AbstractPersistence<EnvioEntity> {
         if (entity.getBoleta() != null) {
             query += ", BOLETA_ID = " + entity.getBoleta().getId();
         }
+        if(entity.getImagen() != null){
+            query += ", IMAGEN = '"+ entity.getImagen() + "'";
+        }
+        
         query += " WHERE ID = " + entity.getId();
         em.createNativeQuery(query).executeUpdate();
         return entity;

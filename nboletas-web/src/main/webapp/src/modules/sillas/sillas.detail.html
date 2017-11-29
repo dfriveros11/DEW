@@ -1,7 +1,10 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-    <div class="row">
-        <div class="col-md-3">
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>{{currentSilla.id}}</h2>
+        </div>
+    </header>
+   <div class="col-md-3">
             <dl> 
                 
                 <hr>
@@ -12,27 +15,25 @@
                 <dt>Costo</dt>
                 <dd>{{currentSilla.costo}}</dd>
           
-            <hr>
-            <dt>Boletas</dt>
-            <dd>
-                <button id="buttonTablaBoletas" onclick="toggle('tablaBoletas', 'buttonTablaBoletas', 'Show boletas', 'Close boletas')">Close boletas</button>
-                <div id="tablaBoletas" class="col-md-4" style="display : block">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Id</th>
-                        <th>Precio</th>
-                        <th>Vendida</th>
-                    </tr>
-                    <tr ng-repeat="boleta in currentSilla.boletas">
-                        <td id="{{$index}}-id"> <a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</td>
-                        <td id="{{$index}}-precio">{{boleta.precio}}</td>  
-                        <td id="{{$index}}-vendida"> {{boleta.vendida}}</td>
-                    </tr>
-                </table>
-                </div>    
+                <hr>
+                <dt>Boletas</dt>
+                <dd>
+                <ul>
+                    <li ng-repeat="x in currentSilla.boletas">
+                        <a href="#!/boletas/{{x.id}}/detail">{{x.id}}</a>
+                    </li>
+                </ul>
             </dd>
+            
+            
+            
             </dl>
         </div>
-    </div>
-        </div>
-</div>
+    <a class="image featured"><img ng-src="{{currentSilla.imagen}}" alt="" /></a>
+    <footer>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>

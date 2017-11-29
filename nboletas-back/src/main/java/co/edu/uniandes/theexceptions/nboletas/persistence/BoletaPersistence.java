@@ -58,6 +58,9 @@ public class BoletaPersistence extends AbstractPersistence<BoletaEntity> {
         if (entity.getUsuario() != null) {
             query += ", USUARIO_ID = " + entity.getUsuario().getId();
         }
+        if (entity.getImagen()!= null) {
+            query += ", IMAGEN = '" + entity.getImagen() + "'";
+        }
         query += " WHERE ID = " + entity.getId();
         em.createNativeQuery(query).executeUpdate();
         return entity;

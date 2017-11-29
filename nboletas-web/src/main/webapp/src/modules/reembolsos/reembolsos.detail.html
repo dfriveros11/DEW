@@ -1,31 +1,30 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-    <div class="row">
-         <div class="col-md-3">
-            <div class="thumb">
-                <img src="http://3.bp.blogspot.com/-ti-MI9Zl3nM/VWcvaDixo3I/AAAAAAAAAJQ/nI7svyjT5vg/s1600/usuario.png" alt="logo" /></a>
-            </div>
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>{{"Reembolso #" + currentReembolso.id}}</h2>
         </div>
-        
-        <div class="col-md-3">
-            <dl>                             
-                <hr>
-                <dt>ID</dt>
-                <dd>{{currentReembolso.id}}</dd>
-                
-                <hr>
-                <dt>Valor</dt>
-                <dd>{{currentReembolso.valor | currency}}</dd>
-                
-                <hr>
-                <dt>Nombre Del Usuario</dt>
-                <dd><a ui-sref="usuarioDetail({usuarioId: currentReembolso.usuario.id})">{{currentReembolso.usuario.userName}}</a></dd>
-               
-                <hr>
-                <dt>Boleta</dt>
-                <dd><a ui-sref="boletaDetail({boletaId: currentReembolso.boleta.id})">{{currentReembolso.boleta.id}}</a></dd>
-            </dl>
-        </div>
+    </header>
+    <a class="image featured"><img ng-src="{{currentReembolso.imagen}}" alt="" /></a>
+    <div class="col-md-3">
+        <dl>                             
+
+            <hr>
+            <dt>Valor</dt>
+            <dd>{{currentReembolso.valor| currency}}</dd>
+
+            <hr>
+            <dt>Nombre Del Usuario</dt>
+            <dd><a ui-sref="usuarioDetail({usuarioId: currentReembolso.usuario.id})">{{currentReembolso.usuario.userName}}</a></dd>
+
+            <hr>
+            <dt>Boleta</dt>
+            <dd><a ui-sref="boletaDetail({boletaId: currentReembolso.boleta.id})">{{currentReembolso.boleta.id}}</a></dd>
+        </dl>
     </div>
-        </div>
-</div>
+    <footer>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>

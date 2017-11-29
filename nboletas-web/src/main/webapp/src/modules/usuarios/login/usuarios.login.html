@@ -1,9 +1,9 @@
-<div class="container-fluid loginBox">
+<div>
     <div class="alert alert-warning" ng-show="loginFailed">
         <p>{{status}}</p>
     </div>
     <div class="wrapper">
-        <form ng-submit="signIn()" class="form-signin" name="sign">
+        <form ng-submit="autenticar()" class="form-signin" name="sign">
             <h2 class="form-signin-heading">Ingresar</h2>
                 <input type="text" class="form-control" placeholder="Usuario" required="" autofocus="" ng-model="username"/>
                 <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="password"/>  

@@ -32,6 +32,9 @@ public class ReembolsoPersistence extends AbstractPersistence<ReembolsoEntity> {
         if (entity.getBoleta()!= null) {
             query += ", BOLETA_ID = " + entity.getBoleta().getId();
         }
+        if (entity.getBoleta()!= null) {
+            query += ", IMAGEN = '" + entity.getBoleta().getId() + "'";
+        }
         query += " WHERE ID = " + entity.getId();
         em.createNativeQuery(query).executeUpdate();
         return entity;

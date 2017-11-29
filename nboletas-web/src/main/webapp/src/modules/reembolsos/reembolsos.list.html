@@ -1,28 +1,24 @@
-<div class="container-fluid">
-     <div class="panel-body">
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="reembolsosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new reemmbolso</a>
-                    </div>
-                </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Valor</th>   
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="reembolso in reembolsosRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="reembolsoDetail({reembolsoId: reembolso.id})">{{reembolso.id}}</a></td>
-                    <td id="{{$index}}-valor">{{reembolso.valor | currency}}</td>   
-                    <td id="{{$index}}-actions">
-                        <a class="btn btn-default btn-sm" ui-sref="reembolsoUpdate({reembolsoId: reembolso.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-danger btn-sm" ui-sref="reembolsoDelete({reembolsoId: reembolso.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<article class="post" ng-repeat="reembolso in reembolsosRecords">
+    <header>
+        <div class="title">
+            <h2><a ui-sref="reembolsoDetail({reembolsoId: reembolso.id})">{{"Reembolso #" + reembolso.id}}</a></h2>
+        </div>
+    </header>
+    <a ui-sref="reembolsoDetail({reembolsoId: reembolso.id})" class="image featured"><img ng-src="{{reembolso.imagen}}" alt="" /></a>
+    <p>Valor: {{reembolso.valor}}</p>
+    <footer>
+        <ul class="actions">
+            <li><a ng-if="hasPermissions()" ui-sref="reembolsoUpdate({reembolsoId: reembolso.id})" class="button big">Actualizar</a></li>
+            <li><a ng-if="hasPermissions()" ui-sref="reembolsoDelete({reembolsoId: reembolso.id})" class="button big">Borrar</a></li>
+        </ul>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>
+<!-- Pagination -->
+<ul class="actions pagination" ng-if="hasPermissions()">
+    <li><a ui-sref="reembolsosCreate" class="button big next">Agregar</a>
+</ul>
+

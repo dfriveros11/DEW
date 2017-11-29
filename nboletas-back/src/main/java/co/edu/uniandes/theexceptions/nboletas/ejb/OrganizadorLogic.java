@@ -92,16 +92,16 @@ public class OrganizadorLogic extends AbstractLogic<OrganizadorEntity> {
         if (null == persistenceEspectaculo.find(idEspectaculo)) {
             throw new BusinessLogicException("No existe el espectaculo con ese id: " + idEspectaculo);
         }
-        EspectaculoEntity espectaculo = null;
+        OrganizadorEntity organizadorActual = null;
         try {
-            espectaculo = persistenceEspectaculo.updateOrganizadorEspectaculo(espectaculoE, idOrganizador);
+            organizadorActual = persistenceOrganizador.updateOrganizadorEspectaculo(organizador, idEspectaculo);
         } catch (PersistenceException e) {
             throw new PersistenceException("No se pudo actualizar el especctaculo con el id: " + idEspectaculo + " relacionado con el organizador con el id: " + idOrganizador + " el error es: " + e.getMessage());
         }
         List<OrganizadorEntity> organizadores = new ArrayList<OrganizadorEntity>();
-        organizadores.add(organizador);
-        espectaculo.setOrganizador(organizadores);
-        return espectaculo;
+        organizadores.add(organizadorActual);
+        espectaculoE.setOrganizador(organizadores);
+        return espectaculoE;
     }
 
     public void deleteOrganizadorEspectaculo(Long idOrganizador, Long idEspectaculo) throws BusinessLogicException {

@@ -15,7 +15,8 @@ public class ReembolsoDTO {
 
     private Long id;
     private double valor;
-
+    private String imagen;
+    
     public ReembolsoDTO() {
 
     }
@@ -24,6 +25,7 @@ public class ReembolsoDTO {
         if (entity != null) {
             this.id = entity.getId();
             this.valor = entity.getValor();
+            this.imagen = entity.getImagen();
         }
     }
 
@@ -31,6 +33,7 @@ public class ReembolsoDTO {
         ReembolsoEntity entity = new ReembolsoEntity();
         entity.setId(this.id);
         entity.setValor(this.valor);
+        entity.setImagen(this.imagen);
         return entity;
     }
 
@@ -50,4 +53,19 @@ public class ReembolsoDTO {
         this.valor = valor;
     }
 
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
 }

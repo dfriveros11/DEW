@@ -9,24 +9,24 @@
     
     
     
-    <div class="form-group row">
+<!--    <div class="form-group row">
         <div class="form-group col-md-6">
             <label for="comentarioFecha" class="col-sm-2">fecha:</label>
             <input type="Date" id="comentarioFecha" required ng-model="comentario.fecha" class="col-sm-6"/>
         </div>
-    </div>
+    </div>-->
     
     <div class="form-group row">
         <div class="form-group col-sm-4" ng-if="!comentario.$valid">
             <div class="alert alert-warning">
-                <strong>Warning!</strong><p>All inputs are required*</p>
+                <strong>Advertencia!</strong><p>Es necesario llenar los campos*</p>
             </div> 
         </div> 
     </div> 
     <div class="form-group row">
         <div class="form-group col-sm-12">
-            <input ng-show="comentario.$valid" type="submit" value="Save" class="btn btn-success"/>
-            <a class="btn btn-info" ui-sref="comentariosList">Cancel</a>
+            <input ng-show="comentario.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+            <button class="btn btn-info" ui-sref="comentarioDetail({comentarioId: comentario.id})">Cancel</button>
         </div>
     </div>
 </form>

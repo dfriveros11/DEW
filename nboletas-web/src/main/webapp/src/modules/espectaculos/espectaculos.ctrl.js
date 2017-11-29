@@ -10,7 +10,6 @@
             });
             if (($state.params.espectaculoId !== undefined) && ($state.params.espectaculoId !== null)) {
                 $http.get(espectaculosContext + '/' + $state.params.espectaculoId).then(function (response) {
-                    console.log(response.data);
                     $scope.currentEspectaculo = response.data;
                 });
             }

@@ -8,31 +8,28 @@
     mod.constant("funcionesContext", "api/funciones");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/funciones/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/funcionesList");
 
             $stateProvider.state('funcionesList', {
-                url: '/list',
-                parent: 'funciones',
+                url: '/funciones/list',
                 views: {
                     'listView': {
                         templateUrl: basePath + 'funciones.list.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
-                    }
-                }
-            }).state('funciones', {
-                url: '/funciones',
-                abstract: 'true',
-                views: {
-                    'mainView': {
-                        templateUrl: basePath + 'funciones.html',
-                        controller: 'funcionesCtrl',
-                        controllerAs: 'ctrl'
+                    },
+                    'miniPostView': {
+                        templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                        controller: 'funcionesCtrl'
+                    },
+                    'postsListView': {
+                        templateUrl: basePathHtml + 'artistas/postsList.html',
+                        controller: 'artistaCtrl'
                     }
                 }
             }).state('funcionesUpdate', {
-                url: '/update/{funcionId:int}',
-                parent: 'funciones',
+                url: '/funciones/update/{funcionId:int}',
                 param: {
                     funcionId: null
                 },
@@ -40,21 +37,34 @@
                     'detailView': {
                         templateUrl: basePath + '/update/funciones.update.html',
                         controller: 'funcionesUpdateCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('funcionesCreate', {
-                url: '/create',
-                parent: 'funciones',
+                url: '/funciones/create',
                 views: {
                     'detailView': {
                         templateUrl: basePath + '/new/funciones.new.html',
                         controller: 'funcionesNewCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('funcionesDelete', {
-                url: '/delete/{funcionId:int}',
-                parent: 'funciones',
-                
+                url: '/funciones/delete/{funcionId:int}',
                 param: {
                     funcionId: null
                 },
@@ -62,12 +72,18 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/funciones.delete.html',
                         controller: 'funcionesDeleteCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('funcionesDetail', {
-                url: '/{funcionId:int}/detail',
-                parent: 'funciones',
-
+                url: '/funciones/{funcionId:int}/detail',
                 param: {
                     funcionId: null
                 },
@@ -76,7 +92,15 @@
                         templateUrl: basePath + 'funciones.detail.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             });
         }]);
