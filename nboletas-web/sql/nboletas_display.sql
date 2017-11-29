@@ -4,6 +4,8 @@ delete from ComentarioEntity;
 delete from BoletaEntity;
 delete from OrganizadorEntity;
 delete from FuncionEntity;
+delete from EspectaculoEntity_ArtistaEntity;
+delete from EspectaculoEntity_OrganizadorEntity;
 delete from EspectaculoEntity;
 delete from ArtistaEntity;
 delete from SillaEntity;
@@ -22,8 +24,23 @@ insert into ArtistaEntity (id, nombre, imagen) values (2, 'Shakira', 'https://ww
 insert into ArtistaEntity (id, nombre, imagen) values (3, 'Cirque du Soleil', 'https://www.cirquedusoleil.com/-/media/past-shows/assets/img/iris/slider/iris-act-kiriki.jpg');
 insert into ArtistaEntity (id, nombre, imagen) values (4, 'Portugal The Man', 'https://www.google.com.co/search?rlz=1C5CHFA_enCO729CO729&tbm=isch&q=portugal+the+man+concierto&spell=1&sa=X&ved=0ahUKEwiRoJWbpeLXAhUB4iYKHRPbBYcQvwUIISgA&biw=1164&bih=618&dpr=2.2#imgrc=GLE7Djxg9_3pIM:');
 
-insert into 
+insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos) values (1,3);
+insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos) values (2,1);
+insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos) values (3,2);
+insert into EspectaculoEntity_ArtistaEntity (artista_id, espectaculos) values (4,4);
 
+insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (1,'Coliseo El Campin', 'Bogota', 'COLISEO', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bogota_Coliseo_El_Camp%C3%ADn.JPG/1200px-Bogota_Coliseo_El_Camp%C3%ADn.JPG');
+insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (2,'Teatro Nacional La Casellana', 'Bogota', 'TEATRO', 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (3,'Plaza de Bolivar', 'Bogota', 'PLAZA', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Panor%C3%A1mica_Plaza_de_Bol%C3%ADvar_Bogot%C3%A1.jpg');
+
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '10/10/2017', '10:00 pm', 1, 1, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '10:00 pm', 1, 1, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (2, '10/10/2017', '9:00 pm', 2, 3, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '9:00 pm', 2, 3, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (3, '10/10/2017', '8:45 pm', 3, 3, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '8:45 pm', 3, 3, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (4, '10/10/2017', '8:45 pm', 4, 2, '');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '02/02/2018', '8:45 pm', 4, 2, '');
 
 
 
