@@ -8,14 +8,14 @@
     <div class="form-group row">
         <div class="form-group col-sm-4" ng-if="!envio.$valid">
             <div class="alert alert-warning">
-                <strong>Warning!</strong><p>All inputs are required*</p>
+                <strong>Advertencia!</strong><p>Es necesario llenar el campo*</p>
             </div> 
         </div> 
     </div> 
     <div class="form-group row">
         <div class="form-group col-sm-12">
-            <input ng-show="envio.$valid" type="submit" value="Save" class="btn btn-success"/>
-            <a class="btn btn-info" ui-sref="enviosList">Cancel</a>
+            <input ng-show="envio.$valid" type="submit" value="Guardar" class="btn btn-success"/>
+            <button id="cancel-update" ui-sref="enviosList" class="btn btn-danger">Cancelar</button>
         </div>
     </div>
 </form>
