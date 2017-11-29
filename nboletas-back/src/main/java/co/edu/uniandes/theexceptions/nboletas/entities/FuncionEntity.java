@@ -28,6 +28,8 @@ public class FuncionEntity extends BaseEntity implements Serializable {
     private Date fecha;
 
     private String hora;
+    
+    private String imagen;
 
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcion")
@@ -110,4 +112,20 @@ public class FuncionEntity extends BaseEntity implements Serializable {
     public void setHora(String hora) {
         this.hora = hora;
     }
+
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
 }
