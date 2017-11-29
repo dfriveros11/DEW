@@ -27,6 +27,9 @@
             <dt>Boletas</dt>
             <dd>
                 <ul>
+                    <li ng-if="currentFuncion.boletas.length===0">
+                        <p><i>No hay boletas asociadas</i></p>
+                    </li>
                     <li ng-repeat="x in currentFuncion.boletas">
                         <a href="#!/boletas/{{x.id}}/detail">{{"Boleta #" + x.id}}</a>
                     </li>

@@ -18,6 +18,9 @@
             <dt>Divisiones de Lugar</dt>
             <dd>
                 <ul>
+                    <li ng-if="divisionesLugar.length===0">
+                        <p><i>No hay divisiones asociadas</i></p>
+                    </li>
                     <li ng-repeat="x in divisionesLugar">
                         <a href="#!/divisiones/{{x.id}}/detail">{{"Division #" + x.id}}</a>
                     </li>
@@ -27,6 +30,9 @@
             <dt>Funciones</dt>
             <dd>
                 <ul>
+                    <li ng-if="funcionesLugar.length===0">
+                        <p><i>No hay funciones asociadas</i></p>
+                    </li>
                     <li ng-repeat="x in funcionesLugar">
                         <a href="#!/funciones/{{x.id}}/detail">{{x.espectaculo.nombre + " - Funcion #" + x.id}}</a>
                     </li>
