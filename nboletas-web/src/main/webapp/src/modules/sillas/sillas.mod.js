@@ -9,14 +9,14 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/sillas/';
             var basePathHtml = 'src/modules/';
-            $urlRouterProvider.otherwise("/sillas");
+            $urlRouterProvider.otherwise("/sillasList");
             $stateProvider
-                    .state('sillas', {
-                        url: "/sillas",
-                        abstract: true,
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'sillas.html',
+                    .state('sillasList', {
+                        url: '/sillas/list',
+                        parent: 'sillas',
+                        views:{
+                            'listView':{
+                                templateUrl: basePath + 'sillas.list.html',
                                 controller: 'sillasCtrl',
                                 controllerAs: 'ctrl'
                             },
@@ -29,28 +29,9 @@
                                 controller: 'artistaCtrl'
                             }
                         }
-                        
-                    })
-                    .state('sillasList', {
-                        url: '/list',
-                        parent: 'sillas',
-                        views:{
-                            'listView':{
-                                templateUrl: basePath + 'sillas.list.html'
-                            },
-                            'miniPostView':{
-                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
-                                controller: 'funcionesCtrl'
-                            },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
-                                controller: 'artistaCtrl'
-                            }
-                        }
                     })
                     .state('sillasDetail' ,{
-                        url: '/{sillaId:int}/detail',
-                        parent: 'sillas',
+                        url: '/sillas/{sillaId:int}/detail',
                         param: {
                             sillaId: null
                         },
@@ -72,8 +53,7 @@
                         }
                     })
                     .state('sillasCreate',{
-                        url: '/create',
-                        parent: 'sillas',
+                        url: '/sillas/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/sillas.new.html',
@@ -90,8 +70,7 @@
                         }        
                     })
                     .state('sillasUpdate', {
-                        url: '/update/{sillaId:int}',
-                        parent: 'sillas',
+                        url: '/sillas/update/{sillaId:int}',
                         param: {
                             sillaId: null
                         },
@@ -111,7 +90,7 @@
                         }
                     })
                     .state('sillasDelete',{
-                       url: '/delete/{sillaId:int}',
+                       url: '/sillas/delete/{sillaId:int}',
                         parent: 'sillas',
                         param: {
                             sillaId: null
