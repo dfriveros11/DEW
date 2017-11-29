@@ -164,6 +164,7 @@
                         <li><a ui-sref="usuarioRegister" class="button big fit">Registrate</a></li>
                     </ul>
                     <ul ng-if="isAuthenticated()" class="actions vertical">
+                        <li><img ng-src="{{currentLogedUser.imagen}}" height="30px" alt="User"></li>  
                         <li>Hola, {{currentLogedUser.nombreUsuario}}.{{currentLogedUser.id}}</li>
                         <li><a ui-sref="usuarioDetail({usuarioId: currentLogedUser.id})" class="button big fit">Mi Cuenta</a></li>
                         <li><a ng-click="cerrarSesion()" class="button big fit">Cierra Sesión</a></li>

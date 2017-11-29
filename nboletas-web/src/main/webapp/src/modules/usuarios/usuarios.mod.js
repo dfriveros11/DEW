@@ -8,10 +8,6 @@
             $stateProvider
             .state('usuarioList',{
                 url: '/usuarios/todos',
-                data: {
-                    requireLogin: true,
-                    roles: [true]
-                },
                 views:{
                     'listView':{
                         templateUrl: basePath + '/list/usuarios.list.html',
@@ -22,10 +18,6 @@
             })
             .state('usuarioRegister',{
                 url: '/usuario/registro',
-                data: {
-                    requireLogin: false,
-                    roles: []
-                },
                 views: {
                     'masterView': {
                         templateUrl: basePath + '/register/usuarios.register.html',
@@ -38,10 +30,6 @@
                 param: {
                     usuarioId: null
                 },
-                data: {
-                    requireLogin: true,
-                    roles: [false]
-                },
                 'views': {
                     'masterView':{
                         templateUrl: basePath + '/register/usuarios.register.success.html',
@@ -51,10 +39,6 @@
             })
             .state('usuarioLogin',{
                 url: '/usuario/ingreso',
-                data: {
-                    requireLogin: false,
-                    roles: []
-                },
                 views: {
                     'masterView':{
                         templateUrl: basePath + '/login/usuarios.login.html',
@@ -65,10 +49,6 @@
             })
             .state('usuarioDetail',{
                 url: '/usuario/{usuarioId:int}/informacion',
-                data: {
-                    requireLogin: false,
-                    roles: []
-                },
                 param: {
                     usuarioId: null
                 },
