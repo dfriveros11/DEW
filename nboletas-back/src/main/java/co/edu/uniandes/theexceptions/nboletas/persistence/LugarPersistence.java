@@ -27,6 +27,7 @@ public class LugarPersistence extends AbstractPersistence<LugarEntity> {
         if(entity.getDireccion()!= null) setStatement += "DIRECCION = '" + entity.getDireccion() + "', ";
         if(entity.getTipo()!= null) setStatement += "TIPO = '" + entity.getTipo() + "', ";
         if(entity.getUbicacion()!= null) setStatement += "UBICACION = '" + entity.getUbicacion() + "', ";
+        if(entity.getImagen()!= null) setStatement += "IMAGEN = '" + entity.getImagen()+ "', ";
         if(!setStatement.equals("")) setStatement = setStatement.substring(0, setStatement.length() - 2);
         
         Query q = em.createNativeQuery("UPDATE LUGARENTITY SET " + setStatement + " WHERE ID = " + entity.getId());
