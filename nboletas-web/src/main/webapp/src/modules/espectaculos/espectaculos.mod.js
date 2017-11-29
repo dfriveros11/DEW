@@ -14,7 +14,6 @@
                     .state('espectaculosList', {
                         url: '/espectaculos/list',
                         views:{
-                            
                             'listView':{
                                 templateUrl: basePath + 'espectaculos.list.html',
                                 controller: 'espectaculoCtrl',
