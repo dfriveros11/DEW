@@ -14,11 +14,12 @@ import java.util.Date;
  */
 public class ComentarioDTO {
 
+   
+
     private Long id;
     private String comentario;
     private Date fecha;
     private String imagen;
-
     /**
      * Constructor por defecto
      */
@@ -32,6 +33,7 @@ public class ComentarioDTO {
             this.id = coment.getId();
             this.comentario = coment.getComentario();
             this.fecha = coment.getFecha(); 
+            this.imagen = coment.getImagen();
         }
     }
 
@@ -78,21 +80,9 @@ public class ComentarioDTO {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    /**
-     * Convertir DTO a Entity
-     *
-     * @return Un Entity con los valores del DTO
-     */
-    public ComentarioEntity toEntity() {
-        ComentarioEntity entity = new ComentarioEntity();
-        entity.setId(this.id);
-        entity.setComentario(this.comentario);
-        entity.setFecha(this.fecha);
-        return entity;
-    }
-
-    /**
+    
+    
+     /**
      * @return the imagen
      */
     public String getImagen() {
@@ -105,7 +95,19 @@ public class ComentarioDTO {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-    
-    
+
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public ComentarioEntity toEntity() {
+        ComentarioEntity entity = new ComentarioEntity();
+        entity.setId(this.id);
+        entity.setComentario(this.comentario);
+        entity.setFecha(this.fecha);
+        entity.setImagen(this.imagen);
+        return entity;
+    }
 
 }

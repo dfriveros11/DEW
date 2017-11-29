@@ -3,6 +3,6 @@
     <header>
         <time class="published" >{{funcion.fecha | date}}</time>
     </header>
-    <a ui-sref="#" class="image"><img ng-src="{{funcion.imagen}}" alt="" /></a>
+    <a ui-sref="funcionesDetail({funcionId:funcion.id})" class="image"><img ng-src="{{funcion.imagen}}" alt="" /></a>
 </article>
 
