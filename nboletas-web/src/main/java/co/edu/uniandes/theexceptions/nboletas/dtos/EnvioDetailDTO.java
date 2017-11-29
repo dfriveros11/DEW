@@ -35,10 +35,14 @@ public class EnvioDetailDTO extends EnvioDTO {
     public EnvioDetailDTO(EnvioEntity entity) {
         super(entity);
 
+        if(entity != null){
+        
         if (entity.getBoleta() != null) {
             this.boleta = new BoletaDTO(entity.getBoleta());
         } else {
             entity.setBoleta(null);
+        }
+        
         }
 
     }
