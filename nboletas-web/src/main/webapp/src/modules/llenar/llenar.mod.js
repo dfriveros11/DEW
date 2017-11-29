@@ -7,9 +7,9 @@
     var mod = angular.module("rellenarModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
            var basePath = 'src/modules/';
-           $urlRouterProvider.otherwise("/rellenar");
+           $urlRouterProvider.otherwise("/display");
             $stateProvider
-                    .state('rellenar', {
+                    .state('display', {
                         url: "/display",
                         views: {
                             'listView':{
