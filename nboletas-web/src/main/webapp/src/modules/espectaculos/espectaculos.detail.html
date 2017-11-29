@@ -4,7 +4,7 @@
             <h2>{{currentEspectaculo.nombre}}</h2>
         </div>
     </header>
-    <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})" class="image featured"><img ng-src="{{currentEspectaculo.imagen}}" alt="" /></a>
+    <a class="image featured"><img ng-src="{{currentEspectaculo.imagen}}" alt="" /></a>
    <div class="col-md-3">
             <dl> 
                 
@@ -55,10 +55,6 @@
             </dl>
         </div>
     <footer>
-        <ul class="actions">
-            <li><a ui-sref="espectaculoUpdate({espectaculoId: espectaculo.id})" class="button big">Actualizar</a></li>
-            <li><a ui-sref="espectaculosDelete({espectaculoId: espectaculo.id})" class="button big">Borrar</a></li>
-        </ul>
         <ul class="stats">
             <li><a href="#" class="icon fa-heart">28</a></li>
             <li><a href="#" class="icon fa-comment">128</a></li>
