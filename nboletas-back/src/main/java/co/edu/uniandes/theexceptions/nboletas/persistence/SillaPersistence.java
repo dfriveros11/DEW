@@ -34,7 +34,7 @@ public class SillaPersistence extends AbstractPersistence<SillaEntity> {
             query += "IMAGEN= '" + entity.getImagen() + "',";
         }
         if(!query.equals("")){
-            query = query.substring(0, query.length()-2);
+            query = query.substring(0, query.length()-1);
         }
         Query q = em.createNativeQuery("UPDATE APP.SILLAENTITY SET " + query + " WHERE ID = " + entity.getId());
         q.executeUpdate();

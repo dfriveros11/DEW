@@ -8,6 +8,7 @@
     var mod = angular.module("artistasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/artistas/';
+            var basePathHtml = 'src/modules/'
             $urlRouterProvider.otherwise("/artistasList");
             $stateProvider
                     .state('artistasList', {
@@ -55,7 +56,6 @@
                     })
                     .state('artistasDelete',{
                        url: '/artistas/delete/{artistaId:int}',
-                        parent: 'artistas',
                         param: {
                             artistaId: null
                         },

@@ -1,13 +1,11 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-    <div class="row">
-         <div class="col-md-3">
-            <div class="thumb">
-                <img class="img-responsive" ng-src="{{currentArtista.imagen}}"/>
-            </div>
-
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>{{currentArtista.nombre}}</h2>
         </div>
-        <div class="col-md-3">
+    </header>
+    <a class="image featured"><img ng-src="{{currentArtista.imagen}}" alt="" /></a>
+   <div class="col-md-3">
             <dl> 
                 
                 <hr>
@@ -18,24 +16,26 @@
                 <dt>Nombre</dt>
                 <dd>{{currentArtista.nombre}}</dd>
           
-                
+                <hr>
+                <dt>Descripcion</dt>
+                <dd>{{currentArtista.descripcion}}</dd>
                 
                 <hr>
                 <dt>Espectaculos</dt>
                 <dd>
                 <ul>
-                    <li ng-if="currentArtista.espectaculos.length===0">
-                        <p><i>No hay espectaculos asociados</i></p>
-                    </li>
                     <li ng-repeat="x in currentArtista.espectaculos">
                         <a href="#!/espectaculos/{{x.id}}/detail">{{x.nombre}}</a>
                     </li>
                 </ul>
             </dd>
-            <hr>
-       
             </dl>
         </div>
-    </div>
-        </div>
-</div>
+    <footer>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>
+
