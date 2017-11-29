@@ -34,6 +34,9 @@ public class ComentarioPersistence extends AbstractPersistence<ComentarioEntity>
             
             setStatement += "FECHA = '" + newstring + "', ";
         }
+        if(entity.getImagen()!= null) {
+            setStatement += "IMAGEN = '" + entity.getImagen() + "', ";
+        }
         if(!setStatement.equals("")) setStatement = setStatement.substring(0, setStatement.length() - 2);
         
         Query q = em.createNativeQuery("UPDATE COMENTARIOENTITY SET " + setStatement + " WHERE ID = " + entity.getId());

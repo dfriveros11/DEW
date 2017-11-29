@@ -26,6 +26,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
     private String comentario;
+    private String imagen;
 
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -70,4 +71,19 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
         this.espectaculo = espectaculo;
     }
 
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
 }

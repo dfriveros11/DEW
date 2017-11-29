@@ -17,6 +17,7 @@ public class ComentarioDTO {
     private Long id;
     private String comentario;
     private Date fecha;
+    private String imagen;
 
     /**
      * Constructor por defecto
@@ -90,5 +91,21 @@ public class ComentarioDTO {
         entity.setFecha(this.fecha);
         return entity;
     }
+
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
 
 }
