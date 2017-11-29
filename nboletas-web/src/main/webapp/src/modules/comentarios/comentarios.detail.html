@@ -1,3 +1,4 @@
+ <article class="post" >
 <div class="panel panel-default"> 
     <div class="panel-body">
     <div class="row">       
@@ -25,6 +26,15 @@
                 <dt>Espectaculo</dt>
                 <dd><a ui-sref="espectaculoDetail({espectaculoId: currentcomentario.espectaculo.id})">{{currentcomentario.espectaculo.id}}</a></dd>
                    
+                <br>
+                <img src = {{currentcomentario.imagen}}>
+                
+                <ul class="actions">
+                <li><a ui-sref="comentarioUpdate({comentarioId: currentcomentario.id})" class="button big">Actualizar</a></li>
+                <li><a ui-sref="comentarioDelete({comentarioId: currentcomentario.id})" class="button big">Borrar</a></li>
+                </ul>
+                
+                
                 
             </dl>
         </div>

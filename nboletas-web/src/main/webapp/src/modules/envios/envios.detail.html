@@ -1,3 +1,5 @@
+ <article class="post" >
+
 <div class="panel panel-default"> 
     <div class="panel-body">
     <div class="row">       
@@ -15,7 +17,18 @@
                  <hr>
                 <dt>Boleta</dt>
                 <dd><a ui-sref="boletaDetail({boletaId: currentEnvio.boleta.id})">{{currentEnvio.boleta.id}}</a></dd>
-                            
+                        
+                <br>
+                <img src = {{currentEnvio.imagen}}>
+                
+                
+                <ul class="actions">
+                <li><a ui-sref="envioUpdate({envioId: currentEnvio.id})" class="button big">Actualizar</a></li>
+                <li><a ui-sref="envioDelete({envioId: currentEnvio.id})" class="button big">Borrar</a></li>
+                </ul>
+
+            
+                 
             </dl>
         </div>
     </div>
