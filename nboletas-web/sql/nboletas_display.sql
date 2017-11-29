@@ -47,25 +47,25 @@ insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, c
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (3, 'AlinoxThe3', '1234', 'Andres', 'alinoxthe3@domain.onion', 'Colombia', 'Bogota', 'https://2.bp.blogspot.com/-QnLlhx6McUU/VFqnbqWe2OI/AAAAAAAAnJ8/l5Vq0cfyYKc/s1600/frente%2Bgrande34.jpg');
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (4, 'Cubosx', '1234', 'Cubillos', 'cubosx@domain.onion', 'Colombia', 'Bogota', 'http://www.revistanos.cl/wp-content/uploads/2010/09/cubillos-IMG_0169.jpg');
 
-insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (1, 'Preferencial', 1, 'http://lastarjetasdecredito.com.co/wp-content/uploads/debito-maestro-preferencial-bancolombia1.jpg');
-insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (2, 'Preferencial', 2, 'http://lastarjetasdecredito.com.co/wp-content/uploads/debito-maestro-preferencial-bancolombia1.jpg');
-insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (3, 'Preferencial', 3, 'http://lastarjetasdecredito.com.co/wp-content/uploads/debito-maestro-preferencial-bancolombia1.jpg');
-insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (4, 'Regular', 1, 'http://www.speedperu.com/media/catalog/product/cache/6/image/650x/040ec09b1e35df139433887a97daa66f/g/e/general.jpg');
-insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (5, 'Regular', 2, 'http://www.speedperu.com/media/catalog/product/cache/6/image/650x/040ec09b1e35df139433887a97daa66f/g/e/general.jpg');
-insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (6, 'Regular', 3, 'http://www.speedperu.com/media/catalog/product/cache/6/image/650x/040ec09b1e35df139433887a97daa66f/g/e/general.jpg');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (1, 'Preferencial Norte', 1, 'http://backoffice.ticketbureau.org/static/imagenes/imagen/21365_orig.png');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (2, 'Preferencial Sur', 2, 'https://images.tickethoy.com/images/esquemas/138/big0000.jpg');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (3, 'Preferencial ', 3, 'https://1.bp.blogspot.com/-NKPX_On_BDM/WNgePl5x2yI/AAAAAAAAMw0/0-bJ-ZDTrPwHS2oMRh-av35XYrS2oukKQCLcB/s1600/mapa-estereo-picinic-2017.jpg');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (4, 'Regular', 1, 'http://www.tuzonaelite.com/wp-content/uploads/2013/03/2.jpg');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (5, 'Regular', 2, 'http://cde.peru21.pe/ima/0/0/4/6/4/464278.jpg');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (6, 'Regular', 3, 'https://i1.wp.com/adondeirhoy.com/wp-content/uploads/2014/08/PLANO-RODEO-3-Estadi630836.jpg?ssl=1');
 
-insert into SillaEntity (id, costo, division_id, imagen) values (1, 48000, 1, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (2, 49000, 1, 'https://thumbs.dreamstime.com/b/fondo-de-sillas-rojas-de-teatro-rojas-31761590.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (3, 20000, 2, 'https://1.bp.blogspot.com/-R1EzoZTEn1U/WKoQObxakJI/AAAAAAAAGIE/91zDefzPMl4ySO0WKvgmVL7L7Ic-7vAfACLcB/s1600/asientos%2Bteatro.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (4, 35000, 2, 'http://teatrosanchezaguilar.org/wp-content/uploads/2015/06/butacas1.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (5, 48000, 3, 'http://img.aws.ehowcdn.com/intl-620/ds-photo/65/53/fotolia_3876717_XS.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (6, 49000, 3, 'https://c1.staticflickr.com/4/3317/3316693590_f635a35a38_b.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (7, 20000, 4, 'http://www.teatromunicipal.gov.co/wp-content/uploads/2015/12/salaprin3.jpgs');
-insert into SillaEntity (id, costo, division_id, imagen) values (8, 35000, 4, 'https://thumbs.dreamstime.com/b/fondo-de-sillas-rojas-de-teatro-rojas-42931200.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (9, 48000, 5, 'http://revistadc.com/sites/default/files/2017-05/BOGOTA-Teatro-J.-E.-Gaitan-O.-FILARMONICA-CARLOS-LEMA-4.jpeg');
-insert into SillaEntity (id, costo, division_id, imagen) values (10, 49000, 5, 'http://www.jbr.com.ar/wp-content/uploads/2014/06/Teatro-Melos-9-2-960x3321.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (11, 20000, 6, 'http://sanjuanciudadpatria.com/wp-content/uploads/2014/01/arte-15-Teatro-Tapia-1-800x514.jpg');
-insert into SillaEntity (id, costo, division_id, imagen) values (12, 35000, 6, 'https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/02/06/13/WSO-Interior.JPG');
+insert into SillaEntity (id, costo, division_id, imagen) values (1, 48000, 1, 'https://image.made-in-china.com/44f3j00wYUabfuHJPcJ/Theater-VIP-Cinema-Lecture-Hall-Seat-Auditorium-Chair-HX-WH521-.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (2, 49000, 1, 'https://co.all.biz/img/co/catalog/11899.jpeg');
+insert into SillaEntity (id, costo, division_id, imagen) values (3, 20000, 2, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
+insert into SillaEntity (id, costo, division_id, imagen) values (4, 35000, 2, 'http://www.infodeportes.com/fotos/2011/9/103.4633.2.399.250.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (5, 48000, 3, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
+insert into SillaEntity (id, costo, division_id, imagen) values (6, 49000, 3, 'https://image.made-in-china.com/44f3j00wYUabfuHJPcJ/Theater-VIP-Cinema-Lecture-Hall-Seat-Auditorium-Chair-HX-WH521-.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (7, 20000, 4, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
+insert into SillaEntity (id, costo, division_id, imagen) values (8, 35000, 4, 'https://co.all.biz/img/co/catalog/11899.jpeg');
+insert into SillaEntity (id, costo, division_id, imagen) values (9, 48000, 5, 'https://image.made-in-china.com/44f3j00wYUabfuHJPcJ/Theater-VIP-Cinema-Lecture-Hall-Seat-Auditorium-Chair-HX-WH521-.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (10, 49000, 5, 'http://www.infodeportes.com/fotos/2011/9/103.4633.2.399.250.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (11, 20000, 6, 'https://co.all.biz/img/co/catalog/11899.jpeg');
+insert into SillaEntity (id, costo, division_id, imagen) values (12, 35000, 6, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
 
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, imagen) values (1, 98000, 0, 1,1,1, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, imagen) values (2, 99000, 0, 2,2,3, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
@@ -102,6 +102,8 @@ insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) va
 insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (20, 'https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/b/b1/Delete_Icon.png/revision/latest?cb=20141216101607', 'Delete Inc.');
 insert into BoletaEntity (id, precio, vendida, silla_id, usuario_id, funcion_id, imagen) values (20, 10000, 1, 1,1,1, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (10, 'Parque de la 93', 'Bogota', 'PARQUE', 'http://www.eltiempo.com/contenido///bogota/IMAGEN/IMAGEN-14026597-2.png');
+insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (20, 'Regular', 3, 'https://i1.wp.com/adondeirhoy.com/wp-content/uploads/2014/08/PLANO-RODEO-3-Estadi630836.jpg?ssl=1');
+insert into SillaEntity (id, costo, division_id, imagen) values (20, 48000, 1, 'https://image.made-in-china.com/44f3j00wYUabfuHJPcJ/Theater-VIP-Cinema-Lecture-Hall-Seat-Auditorium-Chair-HX-WH521-.jpg');
 
 
 
