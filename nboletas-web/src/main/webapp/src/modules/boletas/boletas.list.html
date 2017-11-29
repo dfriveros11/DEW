@@ -1,7 +1,7 @@
 <article class="post" ng-repeat="boleta in boletasRecords">
     <header>
         <div class="title">
-            <h2><a ui-sref="boletaDetail({boletaId: boleta.id})">{{boleta.id}}</a></h2>
+            <h2><a ui-sref="boletaDetail({boletaId: boleta.id})">{{"Boleta #" + boleta.id}}</a></h2>
         </div>
     </header>
     <a ui-sref="boletaDetail({boletaId: boleta.id})" class="image featured"><img ng-src="{{boleta.imagen}}" alt="" /></a>

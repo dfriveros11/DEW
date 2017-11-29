@@ -1,7 +1,7 @@
     <article class="post" ng-repeat="funcion in funcionesGetAll">
         <header>
             <div class="title">
-                <h2><a ui-sref="funcionesDetail({funcionId:funcion.id})">{{funcion.espectaculo.nombre}}</a></h2>
+                <h2><a ui-sref="funcionesDetail({funcionId:funcion.id})">{{funcion.espectaculo.nombre + " - Funcion #" + funcion.id}}</a></h2>
             </div>
         </header>
         <a ui-sref="funcionesDetail({funcionId:funcion.id})" class="image featured"><img ng-src="{{funcion.imagen}}" alt="" /></a>

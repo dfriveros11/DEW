@@ -1,42 +1,43 @@
 <article class="post">
     <header>
         <div class="title">
-            <h2>{{currentFuncion.espectaculo.nombre}}</h2>
+            <h2>{{currentFuncion.espectaculo.nombre + " - Funcion #" + currentFuncion.id}}</h2>
         </div>
     </header>
     <a class="image featured"><img ng-src="{{currentFuncion.imagen}}" alt="" /></a>
-   <div class="col-md-3">
-            <dl> 
-                
-                <hr>
-                    <dt>ID</dt>
-                    <dt>{{currentFuncion.id}}</dt>
+    <div class="col-md-3">
+        <dl> 
 
-                    <hr>
-                    <dt>Fecha</dt>
-                    <dd>{{currentFuncion.fecha| date:'yyyy-MM-dd'}}</dd>
+            <hr>
+            <dt>ID</dt>
+            <dt>{{currentFuncion.id}}</dt>
 
-                    <hr>
-                    <dt>Hora</dt>
-                    <dd>{{currentFuncion.hora}}</dd>
+            <hr>
+            <dt>Fecha</dt>
+            <dd>{{currentFuncion.fecha| date:'yyyy-MM-dd'}}</dd>
 
-                    <hr>
-                    <dt>Espectaculo</dt>
-                    <dd><a ui-sref="espectaculoDetail({espectaculoId: currentFuncion.espectaculo.id})">{{currentFuncion.espectaculo.nombre}}</a></dd>
+            <hr>
+            <dt>Hora</dt>
+            <dd>{{currentFuncion.hora}}</dd>
 
-                    <hr>
-                    <dt>Lugar</dt>
-                    <dd><a ui-sref="lugaresDetail({lugarId: currentFuncion.lugar.id})">{{currentFuncion.lugar.direccion}}</a></dd>
+            <hr>
+            <dt>Espectaculo</dt>
+            <dd><a ui-sref="espectaculoDetail({espectaculoId: currentFuncion.espectaculo.id})">{{currentFuncion.espectaculo.nombre}}</a></dd>
+
+            <hr>
+            <dt>Lugar</dt>
+            <dd><a ui-sref="lugaresDetail({lugarId: currentFuncion.lugar.id})">{{currentFuncion.lugar.direccion}}</a></dd>
             </dd>
+            <hr>
             <dt>Boletas</dt>
-                <dd>
+            <dd>
                 <ul>
                     <li ng-repeat="x in currentFuncion.boletas">
-                        <a href="#!/boletas/{{x.id}}/detail">{{x.id}}</a>
+                        <a href="#!/boletas/{{x.id}}/detail">{{"Boleta #" + x.id}}</a>
                     </li>
                 </ul>
             </dd>
-        </div>
+    </div>
     <footer>
         <ul class="stats">
             <li><a href="#" class="icon fa-heart">28</a></li>
