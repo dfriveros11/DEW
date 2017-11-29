@@ -46,26 +46,26 @@ insert into ESPECTACULOENTITY_ORGANIZADORENTITY (ESPECTACULOS_ID, ORGANIZADOR_ID
  /* Jeison (100-199)**/
 
 /*---------Usuarios---------**/
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (100, 'jm.contreras10', '123456789', 'Jeison Contreras', 'jm.contreras10@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (100, 'jm.contreras10', '123456789', 'Jeison Contreras', 'jm.contreras10@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (101, 'sbaldosa', '123456789', 'Santiago Baldosa', 'sbaldosa@unichile.edu.ch', 'Chile', 'Santiago');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (101, 'sbaldosa', '123456789', 'Santiago Baldosa', 'sbaldosa@unichile.edu.ch', 'Chile', 'Santiago',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (102, 'am.valero10', '123456789', 'Angelo Valero', 'am.valero@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (102, 'am.valero10', '123456789', 'Angelo Valero', 'am.valero@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (103, 'fc.alvarez10', '123456789', 'Fabian Alvarez', 'fc.alvarez@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (103, 'fc.alvarez10', '123456789', 'Fabian Alvarez', 'fc.alvarez@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (104, 'ja.gomez1', '123456789', 'Jorge Gomez', 'ja.gomez1@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (104, 'ja.gomez1', '123456789', 'Jorge Gomez', 'ja.gomez1@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (105, 'jf.ramos', '123456789', 'Felipe Ramos', 'jf.ramos@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (105, 'jf.ramos', '123456789', 'Felipe Ramos', 'jf.ramos@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
 
-insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad) 
-values (106, 'df.riveros11', '123456789', 'Diego', 'df.riveros11@uniandes.edu.co', 'Colombia', 'Bogotá');
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (106, 'df.riveros11', '123456789', 'Diego', 'df.riveros11@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
 /*-----Boletas(Compradas)**/
 insert into BoletaEntity (id, precio, vendida, usuario_id) values (100, 300.00, 1, 100);
@@ -141,10 +141,10 @@ insert into EspectaculoEntity(id, descripcion, nombre) values (401, 'invitación
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (400, '11/11/2017', '3:00 pm', 400, 400);
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id) values (401, '12/11/2017', '4:00 pm', 401, 400);
 
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (400, 'sasha11', '12345', 'Sasha', 'Sasha11@domain.onion', 'Colombia', 'Bogota');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (401, 'fernanda11', '123', 'Fer', 'Fer11@domain.onion', 'Colombia', 'Bogota');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (402, 'miyu11', '12', 'miyu', 'miyu11@domain.onion', 'Colombia', 'Bogota');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad) values (403, 'julian12', '1234', 'juliancho', 'juliancho12@domain.onion', 'Colombia', 'Bogota');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (400, 'sasha11', '12345', 'Sasha', 'Sasha11@domain.onion', 'Colombia', 'Bogota',0,'');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (401, 'fernanda11', '123', 'Fer', 'Fer11@domain.onion', 'Colombia', 'Bogota',0,'');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (402, 'miyu11', '12', 'miyu', 'miyu11@domain.onion', 'Colombia', 'Bogota',0,'');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (403, 'julian12', '1234', 'juliancho', 'juliancho12@domain.onion', 'Colombia', 'Bogota',0,'');
 
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (400, 98000, 1, 400,400,400);
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (401, 99000, 1, 401,401,401);

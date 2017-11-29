@@ -45,6 +45,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
      */
     @NotNull
     private String email;
+    
+    /**
+     * Imagen del usuario.
+     */
+    private String imagen;
 
     /**
      * Pais del usuario.
@@ -58,26 +63,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     @NotNull
     private String ciudad;
     
-    private String imagen;
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-    
-    
+    /*
+     * Indica si el usuario es administrador.
+     */
+    @NotNull
     private boolean admon;
-
-    public boolean getAdmon() {
-        return admon;
-    }
-
-    public void setAdmon(boolean admon) {
-        this.admon = admon;
-    }
 
     @PodamExclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
@@ -126,6 +116,14 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public String getPais() {
         return pais;
@@ -141,6 +139,14 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+    
+    public boolean getAdmon() {
+        return admon;
+    }
+
+    public void setAdmon(boolean admon) {
+        this.admon = admon;
     }
 
     public List<ReembolsoEntity> getReembolsos() {

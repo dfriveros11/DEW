@@ -1,24 +1,19 @@
 (function (ng) {
     var mod = angular.module('usuarioModule', ['ui.router']);
     
-    mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    mod.config(['$stateProvider', function ($stateProvider) {
             var basePath = 'src/modules/usuarios/';
-            $urlRouterProvider.otherwise("/usuarios");
+            var htmlPath = 'src/modules/html/';
+            
             $stateProvider
-                
-            .state('usuario', {
-                url: '/usuarios',
-                views: {
-                    'mainView': {
-                        templateUrl: basePath + 'usuarios.html'
-                    }
-                }
-            })
-            .state('usuarioList', {
-                url: '/list',
-                parent: 'usuario',
+            .state('usuarioList',{
+                url: '/usuarios/todos',
+                data: {
+                    requireLogin: true,
+                    roles: [true]
+                },
                 views:{
-                    'detailView':{
+                    'listView':{
                         templateUrl: basePath + '/list/usuarios.list.html',
                         controller: 'usuarioCtrl',
                         controllerAs: 'ctrl'
@@ -26,33 +21,42 @@
                 }
             })
             .state('usuarioRegister',{
-                url: '/register',
-                parent: 'usuario',
+                url: '/usuario/registro',
+                data: {
+                    requireLogin: false,
+                    roles: []
+                },
                 views: {
-                    'detailView': {
+                    'masterView': {
                         templateUrl: basePath + '/register/usuarios.register.html',
                         controller: 'usuariosRegisterCtrl'
                     }
                 }
             })
             .state('usuarioRegisterSuccess',{
-                url: '/successRegistration',
-                parent: 'usuario',
+                url: '/usuario/registro/exitoso',
                 param: {
                     usuarioId: null
                 },
+                data: {
+                    requireLogin: true,
+                    roles: [false]
+                },
                 'views': {
-                    'detailView':{
+                    'masterView':{
                         templateUrl: basePath + '/register/usuarios.register.success.html',
                         controller: 'usuariosRegisterSuccessCtrl'
                     }
                 }
             })
             .state('usuarioLogin',{
-                url: '/login',
-                parent: 'usuario',
+                url: '/usuario/ingreso',
+                data: {
+                    requireLogin: false,
+                    roles: []
+                },
                 views: {
-                    'detailView':{
+                    'masterView':{
                         templateUrl: basePath + '/login/usuarios.login.html',
                         controller: 'usuarioLoginCtrl',
                         controllerAs: 'ctrl'
@@ -60,12 +64,18 @@
                 }
             })
             .state('usuarioDetail',{
-                url: '/{usuarioId:int}/info',
-                parent: 'usuario',
+                url: '/usuario/{usuarioId:int}/informacion',
+                data: {
+                    requireLogin: false,
+                    roles: []
+                },
                 param: {
                     usuarioId: null
                 },
                 views: {
+                    'masterView':{
+                        templateUrl: htmlPath + 'cleanMaster.html'
+                    },
                     'listView': {
                         templateUrl: basePath + 'list/usuarios.list.html',
                         controller: 'usuarioCtrl',
