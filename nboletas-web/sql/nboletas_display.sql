@@ -34,13 +34,13 @@ insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (2,'Teat
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (3,'Plaza de Bolivar', 'Bogota', 'PLAZA', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Panor%C3%A1mica_Plaza_de_Bol%C3%ADvar_Bogot%C3%A1.jpg');
 
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (1, '10/10/2017', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (2, '02/02/2018', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (3, '10/10/2017', '9:00 pm', 2, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (4, '02/02/2018', '9:00 pm', 2, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (5, '10/10/2017', '8:45 pm', 3, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (6, '02/02/2018', '8:45 pm', 3, 3, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (7, '10/10/2017', '8:45 pm', 4, 2, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (8, '02/02/2018', '8:45 pm', 4, 2, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (2, '02/02/2018', '10:00 pm', 1, 1, 'https://www.shbarcelona.com/blog/en/wp-content/uploads/2015/03/Don%E2%80%99t-Miss-the-Opera-at-Gran-Teatre-del-Liceu-810x502.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (3, '10/10/2017', '9:00 pm', 2, 3, 'http://static.wixstatic.com/media/415ec6_942c1831cc5f489f844b16d3e81bbd61.jpg/v1/fill/w_924,h_522,al_c,q_85,usm_0.66_1.00_0.01/415ec6_942c1831cc5f489f844b16d3e81bbd61.webp');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (4, '02/02/2018', '9:00 pm', 2, 3, 'https://www.somosmalasana.com/wp-content/uploads/2013/07/IMG_7699.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (5, '10/10/2017', '8:45 pm', 3, 3, 'https://scontent-sea1-1.cdninstagram.com/t51.2885-15/e35/16584831_1531369250209874_1119400938423975936_n.jpg?ig_cache_key=MTQ0ODcyMjk5MDY0NzkzMDM2MQ%3D%3D.2');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (6, '02/02/2018', '8:45 pm', 3, 3, 'http://www.wonderlandgroup.es/wp-content/uploads/2013/04/teatro-caser-calderon1.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (7, '10/10/2017', '8:45 pm', 4, 2, 'http://sanjuanciudadpatria.com/wp-content/uploads/2014/01/arte-15-Teatro-Tapia-1-800x514.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (8, '02/02/2018', '8:45 pm', 4, 2, 'https://c1.staticflickr.com/4/3317/3316693590_f635a35a38_b.jpg');
 
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (1, 'Fercho2715', '1234', 'Fernando', 'fercho2715@domain.onion', 'Colombia', 'Bogota', 'https://tmssl.akamaized.net//images/portrait/originals/3455-1450105043.jpg');
 insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (2, 'Lula11', '1234', 'Luisa', 'lula11@domain.onion', 'Colombia', 'Bogota', 'http://ru.fishki.net/picsw/102012/17/post/zombi/zombi-0003.jpg');
@@ -104,6 +104,11 @@ insert into BoletaEntity (id, precio, vendida, silla_id, usuario_id, funcion_id,
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (10, 'Parque de la 93', 'Bogota', 'PARQUE', 'http://www.eltiempo.com/contenido///bogota/IMAGEN/IMAGEN-14026597-2.png');
 insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (20, 'Regular', 3, 'https://i1.wp.com/adondeirhoy.com/wp-content/uploads/2014/08/PLANO-RODEO-3-Estadi630836.jpg?ssl=1');
 insert into SillaEntity (id, costo, division_id, imagen) values (20, 48000, 1, 'https://image.made-in-china.com/44f3j00wYUabfuHJPcJ/Theater-VIP-Cinema-Lecture-Hall-Seat-Auditorium-Chair-HX-WH521-.jpg');
+
+
+
+
+
 
 
 
