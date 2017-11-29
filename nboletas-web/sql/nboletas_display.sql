@@ -97,7 +97,8 @@ insert into EnvioEntity (id, direccion, boleta_id, imagen) values (2, 'Cra 68i #
 insert into EnvioEntity (id, direccion, boleta_id, imagen) values (3,'Cl. 8 Sur #71d:20',3, 'https://4.bp.blogspot.com/-Lg-PQp7eKpQ/UON9lZXShjI/AAAAAAAAAsA/wptqs7RwPjI/s1600/urna2.jpg');
 insert into EnvioEntity (id, direccion, boleta_id, imagen) values (4, 'Carrera 43 # 70A-50 SUR',4, 'https://4.bp.blogspot.com/-Lg-PQp7eKpQ/UON9lZXShjI/AAAAAAAAAsA/wptqs7RwPjI/s1600/urna2.jpg');
 
-
-
+/* Recursos para borrar! **/
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (20, '10/10/2017', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (5, 'https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/b/b1/Delete_Icon.png/revision/latest?cb=20141216101607', 'Delete Inc.');
 
 
