@@ -55,17 +55,17 @@ insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (5, 'Reg
 insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (6, 'Regular', 3, 'http://www.speedperu.com/media/catalog/product/cache/6/image/650x/040ec09b1e35df139433887a97daa66f/g/e/general.jpg');
 
 insert into SillaEntity (id, costo, division_id, imagen) values (1, 48000, 1, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (2, 49000, 1, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (3, 20000, 2, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (4, 35000, 2, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (5, 48000, 3, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (6, 49000, 3, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (7, 20000, 4, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (8, 35000, 4, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (9, 48000, 5, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (10, 49000, 5, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (11, 20000, 6, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
-insert into SillaEntity (id, costo, division_id, imagen) values (12, 35000, 6, 'https://intermueblespacios.com/wp-content/uploads/2017/05/Butaca-Roma-estadios.png');
+insert into SillaEntity (id, costo, division_id, imagen) values (2, 49000, 1, 'https://thumbs.dreamstime.com/b/fondo-de-sillas-rojas-de-teatro-rojas-31761590.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (3, 20000, 2, 'https://1.bp.blogspot.com/-R1EzoZTEn1U/WKoQObxakJI/AAAAAAAAGIE/91zDefzPMl4ySO0WKvgmVL7L7Ic-7vAfACLcB/s1600/asientos%2Bteatro.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (4, 35000, 2, 'http://teatrosanchezaguilar.org/wp-content/uploads/2015/06/butacas1.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (5, 48000, 3, 'http://img.aws.ehowcdn.com/intl-620/ds-photo/65/53/fotolia_3876717_XS.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (6, 49000, 3, 'https://c1.staticflickr.com/4/3317/3316693590_f635a35a38_b.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (7, 20000, 4, 'http://www.teatromunicipal.gov.co/wp-content/uploads/2015/12/salaprin3.jpgs');
+insert into SillaEntity (id, costo, division_id, imagen) values (8, 35000, 4, 'https://thumbs.dreamstime.com/b/fondo-de-sillas-rojas-de-teatro-rojas-42931200.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (9, 48000, 5, 'http://revistadc.com/sites/default/files/2017-05/BOGOTA-Teatro-J.-E.-Gaitan-O.-FILARMONICA-CARLOS-LEMA-4.jpeg');
+insert into SillaEntity (id, costo, division_id, imagen) values (10, 49000, 5, 'http://www.jbr.com.ar/wp-content/uploads/2014/06/Teatro-Melos-9-2-960x3321.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (11, 20000, 6, 'http://sanjuanciudadpatria.com/wp-content/uploads/2014/01/arte-15-Teatro-Tapia-1-800x514.jpg');
+insert into SillaEntity (id, costo, division_id, imagen) values (12, 35000, 6, 'https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2015/02/06/13/WSO-Interior.JPG');
 
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, imagen) values (1, 98000, 0, 1,1,1, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, imagen) values (2, 99000, 0, 2,2,3, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
@@ -98,7 +98,7 @@ insert into EnvioEntity (id, direccion, boleta_id, imagen) values (3,'Cl. 8 Sur 
 insert into EnvioEntity (id, direccion, boleta_id, imagen) values (4, 'Carrera 43 # 70A-50 SUR',4, 'https://4.bp.blogspot.com/-Lg-PQp7eKpQ/UON9lZXShjI/AAAAAAAAAsA/wptqs7RwPjI/s1600/urna2.jpg');
 
 /* Recursos para borrar! **/
-insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (20, '10/10/2017', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
+insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (20, '10/10/2017', '10:00 pm', 1, 1, 'https://upload.wikimedia.org/wikipedia/commons/0/05/Palco_TeatroReal.jpg');
 insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (20, 'https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/b/b1/Delete_Icon.png/revision/latest?cb=20141216101607', 'Delete Inc.');
 insert into BoletaEntity (id, precio, vendida, silla_id, usuario_id, funcion_id, imagen) values (20, 10000, 1, 1,1,1, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (10, 'Parque de la 93', 'Bogota', 'PARQUE', 'http://www.eltiempo.com/contenido///bogota/IMAGEN/IMAGEN-14026597-2.png');
