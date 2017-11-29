@@ -8,19 +8,30 @@
     var mod = angular.module("espectaculosModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/espectaculos/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/espectaculosList");
             $stateProvider
                     .state('espectaculosList', {
-                        url: '/espectaculo/list',
+                        url: '/espectaculos/list',
                         views:{
+                            
                             'listView':{
                                 templateUrl: basePath + 'espectaculos.list.html',
-                                controller: 'espectaculoCtrl'
+                                controller: 'espectaculoCtrl',
+                                controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('espectaculoDetail' ,{
-                        url: '/espectaculo/{espectaculoId:int}/detail',
+                        url: '/espectaculos/{espectaculoId:int}/detail',
                         param: {
                             espectaculoId: null
                         },
