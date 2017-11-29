@@ -16,6 +16,10 @@ public class DivisionDeLugarDTO {
     private Long id;
 
     private String name;
+    
+    private String imagen;
+
+    
 
     public DivisionDeLugarDTO() {
     }
@@ -41,6 +45,13 @@ public class DivisionDeLugarDTO {
         this.name = name;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     public DivisionDeLugarEntity toEntity() {
         DivisionDeLugarEntity division = new DivisionDeLugarEntity();
         division.setId(this.id);

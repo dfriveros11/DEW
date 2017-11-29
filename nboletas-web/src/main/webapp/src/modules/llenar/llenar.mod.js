@@ -10,7 +10,7 @@
            $urlRouterProvider.otherwise("/rellenar");
             $stateProvider
                     .state('rellenar', {
-                        url: "",
+                        url: "/display",
                         views: {
                             'listView':{
                                 templateUrl: basePath + 'espectaculos/espectaculos.list.html',
