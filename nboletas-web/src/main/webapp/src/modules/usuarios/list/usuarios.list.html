@@ -1,9 +1,9 @@
 <article class="post" ng-repeat="user in users">
-            <header>
-                <div class="title">
-                    <h2><a ui-sref="usuarioDetail({usuarioId: user.id})">{{user.id}}</a></h2>
-                </div>
-            </header>
+    <header>
+        <div class="title">
+            <h2><a class="button" ui-sref="usuarioDetail({usuarioId: user.id})">{{user.userName}}</a></h2>
+        </div>
+    </header>
     <a ui-sref="usuarioDetail({usuarioId: user.id})" class="image featured"><img ng-src="{{user.imagen}}" alt="" /></a>
             <p>{{user.userName}}</p>
             <p>{{user.nombreUsuario}}</p>
@@ -20,8 +20,8 @@
                     <li><a href="#" class="icon fa-comment">128</a></li>
                 </ul>
             </footer>
-	</article>
-	<!-- Pagination -->
-	<ul class="actions pagination">
-            <li><a ng-if="hasPermissions()" ui-sref="usuarioCreate" class="button big next">Agregar</a>
-	</ul>
+</article>
+<!-- Pagination -->
+<ul class="actions pagination">
+    <li><a ng-if="hasPermissions()" ui-sref="usuarioCreate" class="button big next">Agregar</a>
+</ul>

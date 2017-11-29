@@ -123,6 +123,27 @@
                             }
                         }
                     })
+                    .state('myAccount', {
+                        url: '/{usuarioId:int}/account',
+                        param: {
+                            usuarioId: null
+                        },
+                        views: {
+                            'detailView': {
+                                templateUrl: basePath + 'usuario.info.html',
+                                controller: 'usuarioCtrl',
+                                controllerAs: 'ctrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
+                        }
+                    })
                     .state('usuarioDelete', {
                         url: '/usuarios/delete/{usuarioId:int}',
                         param: {

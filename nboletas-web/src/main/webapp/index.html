@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="resources/css/main.css" />
+        <link rel="stylesheet" href="resources/css/Login.css" />
 
         <!-- Bower -->
         <script src="bower_components/angular/angular.js"></script>
@@ -63,6 +64,8 @@
         <script src="src/modules/usuarios/register/usuarios.register.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/login/usuarios.login.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/usuarios/register/usuarios.register.success.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/usuarios/update/usuarios.update.ctrl.js" type="text/javascript"></script>
+        <script src="src/modules/usuarios/delete/usuarios.delete.ctrl.js" type="text/javascript"></script>
 
         <!-- Divisiones -->
         <script src="src/modules/divisiones/divisiones.mod.js" type="text/javascript"></script>
@@ -163,9 +166,14 @@
                         <li><a ui-sref="usuarioRegister" class="button big fit">Registrate</a></li>
                     </ul>
                     <ul ng-if="isAuthenticated()" class="actions vertical">
-                        <li><img ng-src="{{currentLogedUser.imagen}}" height="30px" alt="User"></li>  
+                        <!--Imagen de usuario-->
+                        <li>
+                            <div class="center-block text-center">
+                                <img ng-src="{{currentLogedUser.imagen}}" height="70px" alt="User">
+                            </div>
+                        </li> 
                         <li>Hola, {{currentLogedUser.nombreUsuario}}</li>
-                        <li><a ui-sref="usuarioDetail({usuarioId: currentLogedUser.id})" class="button big fit">Mi Cuenta</a></li>
+                        <li><a ui-sref="myAccount({usuarioId: currentLogedUser.id})" class="button big fit">Mi Cuenta</a></li>
                         <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="boletasList">Boletas</a></li>
                         <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="enviosList">Envios</a></li>
                         <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="reembolsosList">Reembolsos</a></li>
