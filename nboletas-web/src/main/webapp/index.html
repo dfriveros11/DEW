@@ -125,12 +125,11 @@
                         <li><a ui-sref="funcionesList">Funciones</a></li>
                         <li><a ui-sref="artistasList">Artistas</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="usuarioList">Usuarios</a></li>
-                        <li><a ng-if="hasPermissions()" ui-sref="usuarioList">Usuarios</a></li>
-                        <li><a ng-if="hasPermissions()" ui-sref="boletasList">Boletas</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="organizadoresList">Organizadores</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="lugaresList">Lugares</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="divisionesList">Divisiones</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="sillasList">Sillas</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="comentariosList">Comentarios</a></li>
                     </ul>
                 </nav>
                 <nav class="main">
@@ -165,8 +164,11 @@
                     </ul>
                     <ul ng-if="isAuthenticated()" class="actions vertical">
                         <li><img ng-src="{{currentLogedUser.imagen}}" height="30px" alt="User"></li>  
-                        <li>Hola, {{currentLogedUser.nombreUsuario}}.{{currentLogedUser.id}}</li>
+                        <li>Hola, {{currentLogedUser.nombreUsuario}}</li>
                         <li><a ui-sref="usuarioDetail({usuarioId: currentLogedUser.id})" class="button big fit">Mi Cuenta</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="boletasList">Boletas</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="enviosList">Envios</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="reembolsosList">Reembolsos</a></li>
                         <li><a ng-click="cerrarSesion()" class="button big fit">Cierra Sesión</a></li>
                     </ul>
                 </section>
