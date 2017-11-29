@@ -8,25 +8,28 @@
     mod.constant("funcionesContext", "api/funciones");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/funciones/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/funcionesList");
 
             $stateProvider.state('funcionesList', {
-                url: '/list',
+                url: '/funciones/list',
                 views: {
                     'listView': {
                         templateUrl: basePath + 'funciones.list.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
+                    },
+                    'miniPostView': {
+                        templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                        controller: 'funcionesCtrl'
+                    },
+                    'postsListView': {
+                        templateUrl: basePathHtml + 'artistas/postsList.html',
+                        controller: 'artistaCtrl'
                     }
                 }
-            }).state('funciones', {
-                url: '/funciones',
-                abstract: 'true',
-                views: {
-                }
             }).state('funcionesUpdate', {
-                url: '/update/{funcionId:int}',
-                parent: 'funciones',
+                url: '/funciones/update/{funcionId:int}',
                 param: {
                     funcionId: null
                 },
@@ -37,8 +40,7 @@
                     }
                 }
             }).state('funcionesCreate', {
-                url: '/create',
-                parent: 'funciones',
+                url: '/funciones/create',
                 views: {
                     'detailView': {
                         templateUrl: basePath + '/new/funciones.new.html',
@@ -46,9 +48,7 @@
                     }
                 }
             }).state('funcionesDelete', {
-                url: '/delete/{funcionId:int}',
-                parent: 'funciones',
-                
+                url: '/funciones/delete/{funcionId:int}',
                 param: {
                     funcionId: null
                 },
@@ -59,9 +59,7 @@
                     }
                 }
             }).state('funcionesDetail', {
-                url: '/{funcionId:int}/detail',
-                parent: 'funciones',
-
+                url: '/funciones/{funcionId:int}/detail',
                 param: {
                     funcionId: null
                 },

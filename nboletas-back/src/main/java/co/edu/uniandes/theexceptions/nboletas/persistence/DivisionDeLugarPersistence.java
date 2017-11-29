@@ -22,18 +22,15 @@ public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLu
         super(DivisionDeLugarEntity.class);
     }
    
+    @Override
     public DivisionDeLugarEntity update(DivisionDeLugarEntity entity) throws PersistenceException{
-        String query ="";
-        if(entity.getNombre()!=null){
-            query += "NOMBRE= '" + entity.getNombre() + "',";
-        }
+        String query = "UPDATE APP.DIVISIONDELUGARENTITY SET NOMBRE = '";
+        query += entity.getNombre()+"'";
+        query += ", IMAGEN = '"+entity.getImagen()+"'";
         if(entity.getLugar()!=null){
-            query += "LUGAR_ID= " + entity.getLugar().getId() + ",";
+            query += ", LUGAR_ID= " + entity.getLugar().getId();
         }
-        if(!query.equals("")){
-            query = query.substring(0, query.length()-1);
-        }
-        Query q = em.createNativeQuery("UPDATE APP.DIVISIONDELUGARENTITY SET " + query + " WHERE ID = " + entity.getId());
+        Query q = em.createNativeQuery(query + " WHERE ID = " + entity.getId());
         q.executeUpdate();
         return entity;
     }

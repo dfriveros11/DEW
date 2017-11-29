@@ -38,7 +38,9 @@ public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntit
         if (!entity.getDescripcion().equals("") && !entity.getDescripcion().equals(" ")) {
             query += ", DESCRIPCION = '" + entity.getDescripcion() + "'";
         }
-        query += " WHERE ID = " + entity.getId();
+        if(!entity.getImagen().equals("") && !entity.getImagen().equals(" ")) {
+            query += ", IMAGEN = '" + entity.getImagen()+ "'";
+        }
         em.createNativeQuery(query).executeUpdate();
         return entity;
     }

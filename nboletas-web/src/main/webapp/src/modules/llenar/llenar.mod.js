@@ -7,19 +7,22 @@
     var mod = angular.module("rellenarModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
            var basePath = 'src/modules/';
-           $urlRouterProvider.otherwise("/rellenar");
+           $urlRouterProvider.otherwise("/display");
             $stateProvider
-                    .state('rellenar', {
-                        url: "",
+                    .state('display', {
+                        url: "/display",
                         views: {
                             'listView':{
-                                templateUrl: basePath + 'html/main.html'
+                                templateUrl: basePath + 'espectaculos/espectaculos.list.html',
+                                controller: 'espectaculoCtrl'
                             },
                             'miniPostView':{
-                                templateUrl: basePath + 'html/miniPosts.html'
+                                templateUrl: basePath + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
                             },
                             'postsListView':{
-                                templateUrl: basePath +'html/postsList.html'
+                                templateUrl: basePath +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     });

@@ -13,6 +13,7 @@ import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.ComentarioPersistence;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.PersistenceException;
 
 /**
  *
@@ -39,7 +40,11 @@ public class ComentarioLogic extends AbstractLogic<ComentarioEntity> {
         throw new BusinessLogicException("No existe comentario con el id " + idComentario);
         }
         boleta.setComentario(c);
-        boleta = boletaPersistence.create(boleta);
+        try{
+            boleta = boletaPersistence.create(boleta);
+        } catch (PersistenceException e) {
+            throw new PersistenceException("Un error al crear el comentario relacionado a la boleta con id:  " + boleta.getId() + " el error es: " + e.getMessage());
+        }
         return boleta;            
     }
     
@@ -56,7 +61,11 @@ public class ComentarioLogic extends AbstractLogic<ComentarioEntity> {
         }
         
         b.setComentario(c);
+        try{
         b = boletaPersistence.update(b);
+        } catch (PersistenceException e) {
+            throw new PersistenceException("No se pudo actualizar el comentario con el id: " + idComentario + " relacionado a la boleta con el id: " + idBoleta + " el error es: " + e.getMessage());
+        }
         return b;      
     }
     
@@ -71,8 +80,12 @@ public class ComentarioLogic extends AbstractLogic<ComentarioEntity> {
             throw new BusinessLogicException("No existe una boleta con el id " + idBoleta);
         }
         
-        b.setComentario(c);
+        b.setComentario(null);
+        try{
         b = boletaPersistence.update(b);
+        }catch (PersistenceException e) {
+            throw new PersistenceException("No se puede eliminar el comentario con el id: " + idComentario + " relacionado a la boleta con el id: " + idBoleta + " El error es: " + e.getMessage());
+        }
     }
     
 

@@ -4,14 +4,14 @@
                     <h2><a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})">{{espectaculo.nombre}}</a></h2>
                 </div>
             </header>
-            <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})" class="image featured"><img ng-src="https://www.elheraldo.co/sites/default/files/styles/width_860/public/articulo/2015/08/29/rey_momo_2016.jpg?itok=mc17RLcL" alt="" /></a>
+            <a ui-sref="espectaculoDetail({espectaculoId: espectaculo.id})" class="image featured"><img ng-src="{{espectaculo.imagen}}" alt="" /></a>
             <p>{{espectaculo.descripcion}}</p>
             <footer>
                 <ul class="actions">
-                    <li><a href="#" class="button big">Continue Reading</a></li>
+                    <li><a ui-sref="espectaculoUpdate({espectaculoId: espectaculo.id})" class="button big">Actualizar</a></li>
+                    <li><a ui-sref="espectaculosDelete({espectaculoId: espectaculo.id})" class="button big">Borrar</a></li>
                 </ul>
                 <ul class="stats">
-                    <li><a href="#">General</a></li>
                     <li><a href="#" class="icon fa-heart">28</a></li>
                     <li><a href="#" class="icon fa-comment">128</a></li>
                 </ul>
@@ -19,6 +19,7 @@
 	</article>
 	<!-- Pagination -->
 	<ul class="actions pagination">
-            <li><a href="" class="disabled button big previous">Previous Page</a></li>
-            <li><a href="#" class="button big next">Next Page</a></li>
+            <li><a href="#" class="disabled button big previous">Pagina Anterior</a></li>
+            <li><a ui-sref="espectaculosCreate" class="button big next">Agregar</a>
+            <li><a href="#" class="button big next">Siguiente pagina</a></li>
 	</ul>

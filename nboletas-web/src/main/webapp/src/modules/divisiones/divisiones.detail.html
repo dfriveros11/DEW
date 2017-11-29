@@ -1,7 +1,11 @@
-<div class="panel panel-default"> 
-    <div class="panel-body">
-    <div class="row">
-        <div class="col-md-3">
+<article class="post">
+    <header>
+        <div class="title">
+            <h2>{{currentDivision.name}}</h2>
+        </div>
+    </header>
+    
+   <div class="col-md-3">
             <dl> 
                 
                 <hr>
@@ -11,27 +15,25 @@
                 <hr>
                 <dt>Nombre</dt>
                 <dd>{{currentDivision.name}}</dd>
+   
                 
                 <hr>
                 <dt>Sillas</dt>
                 <dd>
-                <button id="buttonTablaSillas" onclick="toggle('tablaSillas', 'buttonTablaSillas', 'Show sillas', 'Close sillas')">Close sillas</button>
-                <div id="tablaSillas" class="col-md-4" style="display : block">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>ID</th>
-                        <th>Costo</th>
-                    </tr>
-                    <tr ng-repeat="silla in currentDivision.sillas">
-                        <td id="{{$index}}-id"> <a href="#!/sillas/{{silla.id}}/detail">{{silla.id}}</td>
-                        <td id="{{$index}}-costo"> {{silla.costo}}</td>   
-                    </tr>
-                </table>
-                </div>
+                <ul>
+                    <li ng-repeat="x in currentDivision.sillas">
+                        <a href="#!/sillas/{{x.id}}/detail">{{x.id}}</a>
+                    </li>
+                </ul>
                 </dd>
-            
+         
             </dl>
         </div>
-    </div>
-        </div>
-</div>
+    <a ui-sref="divisionesDetail({divisionId: division.id})" class="image featured"><img ng-src="{{currentDivision.imagen}}" alt="" /></a>
+    <footer>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>

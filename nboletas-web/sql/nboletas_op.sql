@@ -151,16 +151,16 @@ insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) v
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (402, 65000, 1, 402,402,400);
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id) values (403, 75000, 1, 403,403,401);
 
-insert into EnvioEntity (id, direccion, boleta_id) values (400,'Calle 43 #7-26 - Aprt:101',403);
-insert into EnvioEntity (id, direccion, boleta_id) values (401, 'Cra 68i #26.48 - Casa',402);
-insert into EnvioEntity (id, direccion, boleta_id) values (402,'Cl. 8 Sur #71d:20',401);
-insert into EnvioEntity (id, direccion, boleta_id) values (403, 'Carrera 43 # 70A-50 SUR',400);
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (400,'Calle 43 #7-26 - Aprt:101',403,'http://lorempixel.com/400/200/transport/1');
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (401, 'Cra 68i #26.48 - Casa',402,'http://lorempixel.com/400/200/transport/2');
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (402,'Cl. 8 Sur #71d:20',401,'http://lorempixel.com/400/200/transport/3');
+insert into EnvioEntity (id, direccion, boleta_id, imagen) values (403, 'Carrera 43 # 70A-50 SUR',400,'http://lorempixel.com/400/200/transport/4');
 
 insert into ReembolsoEntity(id, valor, boleta_id) values (400, 1000, 400);
 
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (400,'Muy buen espectaculo','10/10/2017',400,400);
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (401,'horror de evento','10/31/2017',401,401);
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (402,'me gusto mucho asistir','11/01/1989',400,402);
-insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id) values (403,'me senti muy bien en el evento','06/20/2017',401,403);
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (400,'Muy buen espectaculo','10/10/2017',400,400,'http://lorempixel.com/400/200/nightlife/1');
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (401,'horror de evento','10/31/2017',401,401,'http://lorempixel.com/400/200/nightlife/2');
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (402,'me gusto mucho asistir','11/01/1989',400,402,'http://lorempixel.com/400/200/nightlife/3');
+insert into ComentarioEntity (id,comentario,fecha, espectaculo_id, boleta_id, imagen) values (403,'me senti muy bien en el evento','06/20/2017',401,403,'http://lorempixel.com/400/200/nightlife/4');
 
 

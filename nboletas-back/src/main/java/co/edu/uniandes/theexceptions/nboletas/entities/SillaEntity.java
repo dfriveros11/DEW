@@ -21,6 +21,8 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class SillaEntity extends BaseEntity implements Serializable {
 
+    private String imagen;
+    
     @PodamExclude
     @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE,fetch = FetchType.LAZY, mappedBy = "silla")
     private List<BoletaEntity> boletas;
@@ -55,4 +57,19 @@ public class SillaEntity extends BaseEntity implements Serializable {
         return costo;
     }
 
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    
 }

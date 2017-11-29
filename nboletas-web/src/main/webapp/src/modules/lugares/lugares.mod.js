@@ -8,31 +8,28 @@
     mod.constant("lugaresContext", "api/lugares");
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/lugares/';
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/lugaresList");
 
             $stateProvider.state('lugaresList', {
-                url: '/list',
-                parent: 'lugares',
+                url: '/lugares/list',
                 views: {
                     'listView': {
                         templateUrl: basePath + 'lugares.list.html',
                         controller: 'lugaresCtrl',
                         controllerAs: 'ctrl'
-                    }
-                }
-            }).state('lugares', {
-                url: '/lugares',
-                abstract: 'true',
-                views: {
-                    'mainView': {
-                        templateUrl: basePath + 'lugares.html',
-                        controller: 'lugaresCtrl',
-                        controllerAs: 'ctrl'
+                    },
+                    'miniPostView': {
+                        templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                        controller: 'funcionesCtrl'
+                    },
+                    'postsListView': {
+                        templateUrl: basePathHtml + 'artistas/postsList.html',
+                        controller: 'artistaCtrl'
                     }
                 }
             }).state('lugaresUpdate', {
-                url: '/update/{lugarId:int}',
-                parent: 'lugares',
+                url: '/lugares/update/{lugarId:int}',
                 param: {
                     lugarId: null
                 },
@@ -43,8 +40,7 @@
                     }
                 }
             }).state('lugaresCreate', {
-                url: '/create',
-                parent: 'lugares',
+                url: '/lugares/create',
                 views: {
                     'detailView': {
                         templateUrl: basePath + '/new/lugares.new.html',
@@ -52,9 +48,8 @@
                     }
                 }
             }).state('lugaresDelete', {
-                url: '/delete/{lugarId:int}',
-                parent: 'lugares',
-                
+                url: '/lugares/delete/{lugarId:int}',
+
                 param: {
                     funcionId: null
                 },
@@ -65,8 +60,7 @@
                     }
                 }
             }).state('lugaresDetail', {
-                url: '/{lugarId:int}/detail',
-                parent: 'lugares',
+                url: '/lugares/{lugarId:int}/detail',
 
                 param: {
                     funcionId: null

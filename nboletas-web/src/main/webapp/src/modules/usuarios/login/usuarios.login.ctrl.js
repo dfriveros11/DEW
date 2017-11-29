@@ -21,7 +21,7 @@
                     if($scope.user.userName === $scope.username && $scope.user.password === $scope.password){
                         sessionStorage.setItem("userName", $scope.user.userName);
                         sessionStorage.setItem("admon",$scope.user.admon);
-                        $rootScope.currentLogedUser = $scope.user;
+                          $rootScope.currentLogedUser = $scope.user;
                         console.log($rootScope.currentLogedUser);
                     }else{
                         $scope.loginFailed = true;

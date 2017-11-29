@@ -63,7 +63,7 @@ public class UsuarioEntity extends BaseEntity implements Serializable {
     @NotNull
     private String ciudad;
     
-    /**
+    /*
      * Indica si el usuario es administrador.
      */
     @NotNull

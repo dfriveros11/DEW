@@ -8,32 +8,28 @@
     var mod = angular.module("boletasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/boletas/';
-            $urlRouterProvider.otherwise("/boletas");
+            var basePathHtml = 'src/modules/';
+            $urlRouterProvider.otherwise("/boletasList");
             $stateProvider
-                    .state('boletas', {
-                        url: "/boletas",
-                        abstract: true,
-                        views: {
-                            'mainView':{
-                                templateUrl: basePath + 'boletas.html',
-                                controller: 'boletaCtrl',
-                                controllerAs: 'ctrl'
-                            }
-                        }
-                        
-                    })
                     .state('boletasList', {
-                        url: '/list',
-                        parent: 'boletas',
+                        url: '/boletas/list',
                         views:{
                             'listView':{
-                                templateUrl: basePath + 'boletas.list.html'
+                                templateUrl: basePath + 'boletas.list.html',
+                                controller:'boletaCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('boletaDetail' ,{
-                        url: '/{boletaId:int}/detail',
-                        parent: 'boletas',
+                        url: '/boletas/{boletaId:int}/detail',
                         param: {
                             boletaId: null
                         },
@@ -42,22 +38,36 @@
                                 templateUrl: basePath + 'boletas.detail.html',
                                 controller: 'boletaCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('boletasCreate',{
-                        url: '/create',
-                        parent: 'boletas',
+                        url: '/boletas/create',
                         views: {
                             'detailView': {
                                 templateUrl: basePath + '/new/boletas.new.html',
                                 controller: 'boletaNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
                     .state('boletaUpdate', {
-                        url: '/update/{boletaId:int}',
-                        parent: 'boletas',
+                        url: '/boletas/update/{boletaId:int}',
                         param: {
                             boletaId: null
                         },
@@ -65,12 +75,19 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/boletas.update.html',
                                 controller: 'boletaUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
                     .state('boletaDelete',{
-                       url: '/delete/{boletaId:int}',
-                        parent: 'boletas',
+                       url: '/boletas/delete/{boletaId:int}',
                         param: {
                             boletaId: null
                         },
@@ -78,6 +95,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/boletas.delete.html',
                                 controller: 'boletaDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });
