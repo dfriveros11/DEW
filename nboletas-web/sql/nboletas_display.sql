@@ -72,10 +72,10 @@ insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, i
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, imagen) values (3, 65000, 0, 3,3,5, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
 insert into BoletaEntity (id, precio, vendida, silla_id,usuario_id,funcion_id, imagen) values (4, 75000, 0, 4,4,7, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
 
-insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/predicciones-linux-300x200.jpg', 'INC');
-insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (2, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'BBC');
-insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (3, 'https://experienciadigital.es/wp-content/uploads/2017/08/linux-696x422.jpg', 'Network All');
-insert into OrganizadorEntity(id, imagen, nombreEmpresa) values (4, 'https://www.giftcardsonsale.com.au/wp-content/uploads/2010/03/thegoodguys.jpg', 'The Good Guys');
+insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (1, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/predicciones-linux-300x200.jpg', 'INC');
+insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (2, 'http://www.linuxpreview.org/wp-content/uploads/2016/12/linux-kernel-4-9-300x162.jpg', 'BBC');
+insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (3, 'https://experienciadigital.es/wp-content/uploads/2017/08/linux-696x422.jpg', 'Network All');
+insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (4, 'https://www.giftcardsonsale.com.au/wp-content/uploads/2010/03/thegoodguys.jpg', 'The Good Guys');
 
 insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id, organizador_id) values (1,1);
 insert into EspectaculoEntity_OrganizadorEntity (espectaculos_id, organizador_id) values (2,2);
@@ -99,6 +99,9 @@ insert into EnvioEntity (id, direccion, boleta_id, imagen) values (4, 'Carrera 4
 
 /* Recursos para borrar! **/
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (20, '10/10/2017', '10:00 pm', 1, 1, 'https://www.bogotaesteatro.com/wp-content/uploads/2016/11/TEATRO-NACIONAL-LA-CASTELLANA.jpg');
-insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (5, 'https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/b/b1/Delete_Icon.png/revision/latest?cb=20141216101607', 'Delete Inc.');
+insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (20, 'https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/b/b1/Delete_Icon.png/revision/latest?cb=20141216101607', 'Delete Inc.');
+insert into BoletaEntity (id, precio, vendida, silla_id, usuario_id, funcion_id, imagen) values (20, 10000, 1, 1,1,1, 'https://marketingland.com/wp-content/ml-loads/2016/04/sp-tickets-600x393.png');
+insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (10, 'Parque de la 93', 'Bogota', 'PARQUE', 'http://www.eltiempo.com/contenido///bogota/IMAGEN/IMAGEN-14026597-2.png');
+
 
 
