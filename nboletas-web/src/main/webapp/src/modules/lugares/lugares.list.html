@@ -8,8 +8,8 @@
         <p>{{lugar.ubicacion}}</p>
         <footer>
             <ul class="actions">
-                <li><a ng-if="hasPermissions" ui-sref="lugaresUpdate({lugarId: lugar.id})" class="button big">Actualizar</a></li>
-                <li><a ng-if="hasPermissions" ui-sref="lugaresDelete({lugarId: lugar.id})" class="button big">Borrar</a></li>
+                <li><a ng-if="hasPermissions()" ui-sref="lugaresUpdate({lugarId: lugar.id})" class="button big">Actualizar</a></li>
+                <li><a ng-if="hasPermissions()" ui-sref="lugaresDelete({lugarId: lugar.id})" class="button big">Borrar</a></li>
             </ul>
             <ul class="stats">
                 <li><a href="#" class="icon fa-heart">28</a></li>
@@ -18,6 +18,6 @@
         </footer>
     </article>
     <!-- Pagination -->
-    <ul class="actions pagination">
-        <li><a ng-if="hasPermissions" ui-sref="lugaresCreate" class="button big next">Agregar</a>
+    <ul class="actions pagination" ng-if="hasPermissions()">
+        <li><a ui-sref="lugaresCreate" class="button big next">Agregar</a>
     </ul>

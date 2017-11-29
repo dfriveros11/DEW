@@ -13,6 +13,7 @@
                         var envio = response.data;
                         
                      $scope.envio.direccion = envio.direccion;
+                     $scope.envio.id = envio.id;
 
                     });
                     

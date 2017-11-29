@@ -1,32 +1,27 @@
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}} </alert>
-<div class="container-fluid">
-    <div class="col-md-4">
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>id</th>    
-                    <th>User</th>  
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Pais</th>
-                    <th>Ciudad</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="user in users">
-                    <td id="{{$index}}-id">{{user.id}}</td>
-                    <td id="{{$index}}-userName">{{user.userName}}</td>
-                    <td id="{{$index}}-nombreUsuario">{{user.nombreUsuario}}</td>
-                    <td id="{{$index}}-email">{{user.email}}</td>
-                    <td id="{{$index}}-pais">{{user.pais}}</td>
-                    <td id="{{$index}}-ciudad">{{user.ciudad}}</td>
-                    <td>
-                        <button id="{{$index}}-edit-btn" class="btn btn-info" ui-sref="usuarioDetail({usuarioId: user.id})" > Info</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<article class="post" ng-repeat="user in users">
+            <header>
+                <div class="title">
+                    <h2><a ui-sref="usuarioDetail({usuarioId: user.id})">{{user.id}}</a></h2>
+                </div>
+            </header>
+    <a ui-sref="usuarioDetail({usuarioId: user.id})" class="image featured"><img ng-src="{{user.imagen}}" alt="" /></a>
+            <p>{{user.userName}}</p>
+            <p>{{user.nombreUsuario}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.pais}}</p>
+            <p>{{user.ciudad}}</p>
+            <footer>
+                <ul class="actions">
+                    <li><a ng-if="hasPermissions()" ui-sref="usuarioUpdate({usuarioId: user.id})" class="button big">Actualizar</a></li>
+                    <li><a ng-if="hasPermissions()" ui-sref="usuarioDelete({usuarioId: user.id})" class="button big">Borrar</a></li>
+                </ul>
+                <ul class="stats">
+                    <li><a href="#" class="icon fa-heart">28</a></li>
+                    <li><a href="#" class="icon fa-comment">128</a></li>
+                </ul>
+            </footer>
+	</article>
+	<!-- Pagination -->
+	<ul class="actions pagination">
+            <li><a ng-if="hasPermissions()" ui-sref="usuarioCreate" class="button big next">Agregar</a>
+	</ul>

@@ -7,11 +7,11 @@
         
         $http.get(usuariosContext).then(function (response) {
             $scope.users = response.data;
-        }),
+        },
         function(response) {
             $scope.data = response.data || 'Request failed';
             $scope.status = response.status;
-        };
+        });
              
         if (($state.params.usuarioId!== undefined) && ($state.params.usuarioId !== null)) {
             $http.get(usuariosContext + '/' + $state.params.usuarioId).then(function (response) {
@@ -21,6 +21,8 @@
                 });
             });
         }
+        
+
         
     }
     

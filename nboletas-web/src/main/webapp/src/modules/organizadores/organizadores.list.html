@@ -17,6 +17,6 @@
             </footer>
 	</article>
 	<!-- Pagination -->
-	<ul class="actions pagination">
-            <li><a ng-if="hasPermissions()" ui-sref="organizadoresCreate" class="button big next">Agregar</a>
+	<ul class="actions pagination" ng-if="hasPermissions()">
+            <li><a ui-sref="organizadoresCreate" class="button big next">Agregar</a>
 	</ul>

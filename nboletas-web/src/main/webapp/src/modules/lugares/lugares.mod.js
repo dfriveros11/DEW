@@ -37,7 +37,15 @@
                     'detailView': {
                         templateUrl: basePath + '/update/lugares.update.html',
                         controller: 'lugaresUpdateCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('lugaresCreate', {
                 url: '/lugares/create',
@@ -45,7 +53,15 @@
                     'detailView': {
                         templateUrl: basePath + '/new/lugares.new.html',
                         controller: 'lugaresNewCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('lugaresDelete', {
                 url: '/lugares/delete/{lugarId:int}',
@@ -57,7 +73,15 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/lugares.delete.html',
                         controller: 'lugaresDeleteCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('lugaresDetail', {
                 url: '/lugares/{lugarId:int}/detail',
@@ -70,7 +94,15 @@
                         templateUrl: basePath + 'lugares.detail.html',
                         controller: 'lugaresCtrl',
                         controllerAs: 'ctrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             });
         }]);

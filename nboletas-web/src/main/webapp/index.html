@@ -10,6 +10,7 @@
         <!-- Bower -->
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
         <!-- Boletas -->
@@ -123,8 +124,8 @@
                         <li><a ui-sref="espectaculosList">Espectaculos</a></li>
                         <li><a ui-sref="funcionesList">Funciones</a></li>
                         <li><a ui-sref="artistasList">Artistas</a></li>
-                        <li><a ng-if="hasPermissions()" ui-sref="boletasList">Boletas</a></li>
-                        <li><a ng-if="hasPermissions()" ui-sref="organizadoresList">Organizadores</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="usuarioList">Usuarios</a></li>
+                        <li><a  ng-if="hasPermissions()"ui-sref="organizadoresList">Organizadores</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="lugaresList">Lugares</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="divisionesList">Divisiones</a></li>
                         <li><a ng-if="hasPermissions()" ui-sref="sillasList">Sillas</a></li>
@@ -142,38 +143,40 @@
             <!-- Menu Aca es el menu desplegable-->
             <section id="menu">
 
-                <!-- Links -->
-                <section>
-                    <ul class="links">
-                        <li>
-                            <a href="#">
-                                <h3>Ejemplo</h3>
-                                <p>Feugiat tempus veroeros dolor</p>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-
                 <!-- Actions -->
                 <section>
-                    <ul class="actions vertical">
-                        <li><a ui-sref="#" class="button big fit">Inicia Sesión</a></li>
+                    <ul ng-if="!isAuthenticated()" class="actions vertical">
+                        <li><a ui-sref="usuarioLogin" class="button big fit">Inicia Sesión</a></li>
+                        <li><a ui-sref="usuarioRegister" class="button big fit">Registrate</a></li>
                     </ul>
-                    <ul class="actions vertical">
-                        <li><a href="#" class="button big fit">Registrate</a></li>
+                    <ul ng-if="isAuthenticated()" class="actions vertical">
+                        <li><img ng-src="{{currentLogedUser.imagen}}" height="30px" alt="User"></li>  
+                        <li>Hola, {{currentLogedUser.nombreUsuario}}</li>
+                        <li><a ui-sref="usuarioDetail({usuarioId: currentLogedUser.id})" class="button big fit">Mi Cuenta</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="comentariosList">Comentarios</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="boletasList">Boletas</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="enviosList">Envios</a></li>
+                        <li><a class="button big fit" ng-if="hasPermissions()" ui-sref="reembolsosList">Reembolsos</a></li>
+                        <li><a ng-click="cerrarSesion()" class="button big fit">Cierra Sesión</a></li>
                     </ul>
                 </section>
 
             </section>
 
             <!-- Main -->
-            
             <div id="main">
+                <!-- MasterView==================================================-->
+                <div ui-view="masterView">
+
+                </div>
+                <!-- DetailView==================================================-->
                 <div ui-view="detailView">
 
                 </div>
-                <div  ui-view="listView">
 
+                <!-- List View ==================================================-->
+                <div ui-view="listView">
+                    
                 </div>
             </div>
 

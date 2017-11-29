@@ -37,7 +37,15 @@
                     'detailView': {
                         templateUrl: basePath + '/update/funciones.update.html',
                         controller: 'funcionesUpdateCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('funcionesCreate', {
                 url: '/funciones/create',
@@ -45,7 +53,15 @@
                     'detailView': {
                         templateUrl: basePath + '/new/funciones.new.html',
                         controller: 'funcionesNewCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('funcionesDelete', {
                 url: '/funciones/delete/{funcionId:int}',
@@ -56,7 +72,15 @@
                     'detailView': {
                         templateUrl: basePath + '/delete/funciones.delete.html',
                         controller: 'funcionesDeleteCtrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             }).state('funcionesDetail', {
                 url: '/funciones/{funcionId:int}/detail',
@@ -68,7 +92,15 @@
                         templateUrl: basePath + 'funciones.detail.html',
                         controller: 'funcionesCtrl',
                         controllerAs: 'ctrl'
-                    }
+                    },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
                 }
             });
         }]);

@@ -42,10 +42,10 @@ insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) va
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (7, '10/10/2017', '8:45 pm', 4, 2, 'http://sanjuanciudadpatria.com/wp-content/uploads/2014/01/arte-15-Teatro-Tapia-1-800x514.jpg');
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (8, '02/02/2018', '8:45 pm', 4, 2, 'https://c1.staticflickr.com/4/3317/3316693590_f635a35a38_b.jpg');
 
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (1, 'Fercho2715', '1234', 'Fernando', 'fercho2715@domain.onion', 'Colombia', 'Bogota', 'https://tmssl.akamaized.net//images/portrait/originals/3455-1450105043.jpg');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (2, 'Lula11', '1234', 'Luisa', 'lula11@domain.onion', 'Colombia', 'Bogota', 'http://ru.fishki.net/picsw/102012/17/post/zombi/zombi-0003.jpg');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (3, 'AlinoxThe3', '1234', 'Andres', 'alinoxthe3@domain.onion', 'Colombia', 'Bogota', 'https://2.bp.blogspot.com/-QnLlhx6McUU/VFqnbqWe2OI/AAAAAAAAnJ8/l5Vq0cfyYKc/s1600/frente%2Bgrande34.jpg');
-insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen) values (4, 'Cubosx', '1234', 'Cubillos', 'cubosx@domain.onion', 'Colombia', 'Bogota', 'http://www.revistanos.cl/wp-content/uploads/2010/09/cubillos-IMG_0169.jpg');
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen,admon) values (1, 'Fercho2715', '1234', 'Fernando', 'fercho2715@domain.onion', 'Colombia', 'Bogota', 'https://tmssl.akamaized.net//images/portrait/originals/3455-1450105043.jpg',0);
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen,admon) values (2, 'Lula11', '1234', 'Luisa', 'lula11@domain.onion', 'Colombia', 'Bogota', 'http://ru.fishki.net/picsw/102012/17/post/zombi/zombi-0003.jpg',0);
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen,admon) values (3, 'AlinoxThe3', '1234', 'Andres', 'alinoxthe3@domain.onion', 'Colombia', 'Bogota', 'https://2.bp.blogspot.com/-QnLlhx6McUU/VFqnbqWe2OI/AAAAAAAAnJ8/l5Vq0cfyYKc/s1600/frente%2Bgrande34.jpg',0);
+insert into UsuarioEntity (id, userName, password, nombreUsuario, email, pais, ciudad, imagen,admon) values (4, 'Cubosx', '1234', 'Cubillos', 'cubosx@domain.onion', 'Colombia', 'Bogota', 'http://www.revistanos.cl/wp-content/uploads/2010/09/cubillos-IMG_0169.jpg',0);
 
 insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (1, 'Preferencial Norte', 1, 'http://backoffice.ticketbureau.org/static/imagenes/imagen/21365_orig.png');
 insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (2, 'Preferencial Sur', 2, 'https://images.tickethoy.com/images/esquemas/138/big0000.jpg');
@@ -97,6 +97,44 @@ insert into EnvioEntity (id, direccion, boleta_id, imagen) values (2, 'Cra 68i #
 insert into EnvioEntity (id, direccion, boleta_id, imagen) values (3,'Cl. 8 Sur #71d:20',3, 'https://4.bp.blogspot.com/-Lg-PQp7eKpQ/UON9lZXShjI/AAAAAAAAAsA/wptqs7RwPjI/s1600/urna2.jpg');
 insert into EnvioEntity (id, direccion, boleta_id, imagen) values (4, 'Carrera 43 # 70A-50 SUR',4, 'https://4.bp.blogspot.com/-Lg-PQp7eKpQ/UON9lZXShjI/AAAAAAAAAsA/wptqs7RwPjI/s1600/urna2.jpg');
 
+
+/*---------Usuarios---------**/
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (100, 'jm.contreras10', '123456789', 'Jeison Contreras', 'jm.contreras10@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (101, 'sbaldosa', '123456789', 'Santiago Baldosa', 'sbaldosa@unichile.edu.ch', 'Chile', 'Santiago',0,'');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (102, 'am.valero10', '123456789', 'Angelo Valero', 'am.valero@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (103, 'fc.alvarez10', '123456789', 'Fabian Alvarez', 'fc.alvarez@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (104, 'ja.gomez1', '123456789', 'Jorge Gomez', 'ja.gomez1@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
+
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) 
+values (105, 'jf.ramos', '123456789', 'Felipe Ramos', 'jf.ramos@uniandes.edu.co', 'Colombia', 'Bogotá',0,'');
+
+
+
+/*-----Boletas(Compradas)**/
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (100, 300.00, 1, 100);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (101, 200.00, 1, 101);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (102, 300.00, 1,102);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (103, 400.00, 1, 102);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (104, 500.00, 1, 103);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (105, 600.00, 1, 105);
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (106, 100.00, 1, 104);
+/*-----Boletas(Reembolsadas)-----**/
+insert into BoletaEntity (id, precio, vendida, usuario_id) values (107, 200.00, 1, 104);
+/*-----Boletas(Sin comprar)**/
+insert into BoletaEntity (id, precio, vendida) values (109, 300.00, 1);
+insert into BoletaEntity (id, precio, vendida) values (110, 300.00, 1);
+/*------Reembolsos**/
+insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (100, 300.00, 107, 104);
+
 /* Recursos para borrar! **/
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (20, '10/10/2017', '10:00 pm', 1, 1, 'https://upload.wikimedia.org/wikipedia/commons/0/05/Palco_TeatroReal.jpg');
 insert into OrganizadorEntity (id, imagen, nombreEmpresa) values (20, 'https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/b/b1/Delete_Icon.png/revision/latest?cb=20141216101607', 'Delete Inc.');
@@ -104,7 +142,7 @@ insert into BoletaEntity (id, precio, vendida, silla_id, usuario_id, funcion_id,
 insert into LugarEntity (id, direccion, ubicacion, tipo, imagen) values (10, 'Parque de la 93', 'Bogota', 'PARQUE', 'http://www.eltiempo.com/contenido///bogota/IMAGEN/IMAGEN-14026597-2.png');
 insert into DivisionDeLugarEntity (id, nombre, lugar_id, imagen) values (20, 'Regular', 3, 'https://i1.wp.com/adondeirhoy.com/wp-content/uploads/2014/08/PLANO-RODEO-3-Estadi630836.jpg?ssl=1');
 insert into SillaEntity (id, costo, division_id, imagen) values (20, 48000, 1, 'https://image.made-in-china.com/44f3j00wYUabfuHJPcJ/Theater-VIP-Cinema-Lecture-Hall-Seat-Auditorium-Chair-HX-WH521-.jpg');
-
+insert into USUARIOENTITY (id, userName, password, nombreUsuario, email, pais, ciudad,admon,imagen) values (106, 'df.riveros11', '123456789', 'Diego', 'df.riveros11@uniandes.edu.co', 'Colombia', 'Bogotá',1,'');
 
 
 

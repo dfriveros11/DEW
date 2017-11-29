@@ -26,7 +26,7 @@
     <div class="form-group row">
         <div class="form-group col-sm-12">
             <input ng-show="comentario.$valid" type="submit" value="Guardar" class="btn btn-success"/>
-            <button class="btn btn-info" ui-sref="comentariosList">Cancel</button>
+            <button class="btn btn-info" ui-sref="comentarioDetail({comentarioId: comentario.id})">Cancel</button>
         </div>
     </div>
 </form>

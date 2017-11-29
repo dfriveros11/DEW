@@ -34,7 +34,6 @@
                         param: {
                             sillaId: null
                         },
-                        
                         views: {
                             'detailView': {
                                 templateUrl: basePath + 'sillas.detail.html',
