@@ -30,9 +30,6 @@ public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLu
         if(entity.getLugar()!=null){
             query += ", LUGAR_ID= " + entity.getLugar().getId();
         }
-        if(!query.equals("")){
-            query = query.substring(0, query.length()-1);
-        }
         Query q = em.createNativeQuery(query + " WHERE ID = " + entity.getId());
         q.executeUpdate();
         return entity;

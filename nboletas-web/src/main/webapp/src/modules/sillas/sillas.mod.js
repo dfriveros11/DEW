@@ -13,7 +13,6 @@
             $stateProvider
                     .state('sillasList', {
                         url: '/sillas/list',
-                        parent: 'sillas',
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'sillas.list.html',
@@ -91,7 +90,6 @@
                     })
                     .state('sillasDelete',{
                        url: '/sillas/delete/{sillaId:int}',
-                        parent: 'sillas',
                         param: {
                             sillaId: null
                         },

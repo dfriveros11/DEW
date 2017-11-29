@@ -1,29 +1,25 @@
-<div class="container-fluid">
-    <div class="panel-body">
-        
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="sillasCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new silla</a>
-                    </div>
+<article class="post" ng-repeat="silla in sillasRecords">
+            <header>
+                <div class="title">
+                    <h2><a ui-sref="sillasDetail({sillaId: silla.id})">{{silla.id}}</a></h2>
                 </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Costo</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="silla in sillasRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="sillasDetail({sillaId: silla.id})">{{silla.id}}</a></td>
-                    <td id="{{$index}}-costo">{{silla.costo}}</td>  
-                    <td id="{{$index}}-actions">
-                        <a class="btn btn-default btn-sm" ui-sref="sillasUpdate({sillaId: silla.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-danger btn-sm" ui-sref="sillasDelete({sillaId: silla.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+            </header>
+            <a ui-sref="sillasDetail({sillaId: silla.id})" class="image featured"><img ng-src="{{silla.imagen}}" alt="" /></a>
+            <p>{{silla.costo}}</p>
+            <footer>
+                <ul class="actions">
+                    <li><a ui-sref="sillasUpdate({sillaId: silla.id})" class="button big">Actualizar</a></li>
+                    <li><a ui-sref="sillasDelete({sillaId: silla.id})" class="button big">Borrar</a></li>
+                </ul>
+                <ul class="stats">
+                    <li><a href="#" class="icon fa-heart">28</a></li>
+                    <li><a href="#" class="icon fa-comment">128</a></li>
+                </ul>
+            </footer>
+	</article>
+	<!-- Pagination -->
+	<ul class="actions pagination">
+            <li><a href="#" class="disabled button big previous">Pagina Anterior</a></li>
+            <li><a ui-sref="sillasCreate" class="button big next">Agregar</a>
+            <li><a href="#" class="button big next">Siguiente pagina</a></li>
+	</ul>
