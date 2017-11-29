@@ -13,6 +13,7 @@ import co.edu.uniandes.theexceptions.nboletas.persistence.BoletaPersistence;
 import co.edu.uniandes.theexceptions.nboletas.persistence.EnvioPersistence;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.PersistenceException;
 
 /**
  *
@@ -34,13 +35,17 @@ public class EnvioLogic extends AbstractLogic<EnvioEntity> {
     
     
     
-    public BoletaEntity createBoletaEnvio(Long idEnvio, BoletaEntity boleta) throws BusinessLogicException {
+    public BoletaEntity createBoletaEnvio(Long idEnvio, BoletaEntity boleta) throws BusinessLogicException, PersistenceException {
         EnvioEntity e = envioPersistence.find(idEnvio);
         if (e == null) {
             throw new BusinessLogicException("No existe el envio con el id " + idEnvio);
         }
         boleta.setEnvio(e);
+        try{
         boleta = boletaPersistence.create(boleta);
+        } catch (PersistenceException ep) {
+            throw new PersistenceException("Un error al crear el envio relacionado a la boleta con id:  " + boleta.getId() + " el error es: " + ep.getMessage());
+        }
         return boleta;
     }
     
@@ -57,12 +62,16 @@ public class EnvioLogic extends AbstractLogic<EnvioEntity> {
         }
 
         b.setEnvio(e);
+        
+        try{
         b = boletaPersistence.update(b);
+        }catch (PersistenceException ep) {
+            throw new PersistenceException("No se pudo actualizar el envio con el id: " + idEnvio + " relacionado a la boleta con el id: " + idBoleta + " el error es: " + ep.getMessage());
+        }
         return b;
     }
 
     
-    //revision
     public void deleteBoletaEnvio(Long idEnvio, Long idBoleta) throws BusinessLogicException {
         EnvioEntity e = envioPersistence.find(idEnvio);
         if (e == null) {
@@ -75,7 +84,11 @@ public class EnvioLogic extends AbstractLogic<EnvioEntity> {
         }
 
         b.setEnvio(null);
+        try{
         b = boletaPersistence.update(b);
+        }catch (PersistenceException ep) {
+            throw new PersistenceException("No se puede eliminar el envio con el id: " + idEnvio + " relacionado a la boleta con el id: " + idBoleta + " El error es: " + ep.getMessage());
+        }  
     }
     
 

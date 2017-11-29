@@ -13,6 +13,8 @@ import co.edu.uniandes.theexceptions.nboletas.entities.EnvioEntity;
  */
 public class EnvioDTO {
 
+   
+
     private Long id;
     private String direccion;
     private String imagen;
@@ -60,7 +62,23 @@ public class EnvioDTO {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
+    
+    
+     /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
+    
     /**
      * Convertir DTO a Entity
      *
@@ -74,19 +92,4 @@ public class EnvioDTO {
         return entity;
     }
 
-    /**
-     * @return the imagen
-     */
-    public String getImagen() {
-        return imagen;
-    }
-
-    /**
-     * @param imagen the imagen to set
-     */
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    
 }
