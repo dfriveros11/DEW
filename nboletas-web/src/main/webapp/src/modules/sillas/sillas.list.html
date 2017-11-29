@@ -4,8 +4,8 @@
                     <h2><a ui-sref="sillasDetail({sillaId: silla.id})">{{silla.id}}</a></h2>
                 </div>
             </header>
-            <a ui-sref="sillasDetail({sillaId: silla.id})" class="image featured"><img ng-src="{{silla.imagen}}" alt="" /></a>
-            <p>{{silla.costo}}</p>
+            
+            <p>Costo: {{silla.costo}}</p>
             <footer>
                 <ul class="actions">
                     <li><a ng-if="hasPermissions" ui-sref="sillasUpdate({sillaId: silla.id})" class="button big">Actualizar</a></li>
