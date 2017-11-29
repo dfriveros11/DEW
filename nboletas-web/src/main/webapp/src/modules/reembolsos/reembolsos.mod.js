@@ -10,7 +10,7 @@
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/reembolsos/';
             var basePathHtml = 'src/modules/';
-            $urlRouterProvider.otherwise("/reembolsosListS");
+            $urlRouterProvider.otherwise("/reembolsos");
             $stateProvider
                     .state('reembolsosList', {
                         url: '/list',
@@ -20,12 +20,12 @@
                                 controller: 'reembolsoCtrl',
                                 controllerAs: 'ctrl'
                             },
-                            'miniPostView':{
+                            'miniPostView': {
                                 templateUrl: basePathHtml + 'funciones/miniPosts.html',
                                 controller: 'funcionesCtrl'
                             },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }
@@ -42,12 +42,12 @@
                                 controller: 'reembolsoCtrl',
                                 controllerAs: 'ctrl'
                             },
-                            'miniPostView':{
+                            'miniPostView': {
                                 templateUrl: basePathHtml + 'funciones/miniPosts.html',
                                 controller: 'funcionesCtrl'
                             },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }       
@@ -59,12 +59,12 @@
                                 templateUrl: basePath + '/new/reembolsos.new.html',
                                 controller: 'reembolsoNewCtrl'
                             },
-                            'miniPostView':{
+                            'miniPostView': {
                                 templateUrl: basePathHtml + 'funciones/miniPosts.html',
                                 controller: 'funcionesCtrl'
                             },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }        
@@ -79,12 +79,12 @@
                                 templateUrl: basePath + '/update/reembolsos.update.html',
                                 controller: 'reembolsoUpdateCtrl'
                             },
-                            'miniPostView':{
+                            'miniPostView': {
                                 templateUrl: basePathHtml + 'funciones/miniPosts.html',
                                 controller: 'funcionesCtrl'
                             },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }
@@ -99,16 +99,15 @@
                                 templateUrl: basePath + '/delete/reembolsos.delete.html',
                                 controller: 'reembolsoDeleteCtrl'
                             },
-                            'miniPostView':{
+                            'miniPostView': {
                                 templateUrl: basePathHtml + 'funciones/miniPosts.html',
                                 controller: 'funcionesCtrl'
                             },
-                            'postsListView':{
-                                templateUrl: basePathHtml +'artistas/postsList.html',
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }         
                     });
         }]);
 })(window.angular);
-

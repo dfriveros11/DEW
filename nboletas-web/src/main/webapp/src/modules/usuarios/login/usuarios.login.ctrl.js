@@ -7,9 +7,9 @@
         
         $scope.user = {};
         $scope.data = {};
-        $scope.loginFailed=false;
 
         $scope.autenticar = function () {
+            $scope.loginFailed=false;
             if (($scope.username !== undefined) && ($scope.username !== null) && 
                     ($scope.password !== undefined) && ($scope.password !== null)) {
                 
@@ -22,10 +22,7 @@
                         sessionStorage.setItem("userName", $scope.user.userName);
                         sessionStorage.setItem("admon",$scope.user.admon);
                         $rootScope.currentLogedUser = $scope.user;
-                        console.log("Actual:-----------------------");
-                        console.log($scope.user);
-                        console.log($rootScope.currentLogedUser);
-                        console.log("Actual:-----------------------");
+                        $state.go('usuarioLoginSuccess',{});
                     }else{
                         $scope.loginFailed = true;
                         $scope.data = response.data || 'Request failed';
@@ -38,16 +35,6 @@
                     $scope.data = response.data || 'Request failed';
                     $scope.status = "Usuario no encontrado.";
                 });
-
-            }
-            
-            if(!$scope.loginFailed){
-
-                console.log("Logueado.");
-                $rootScope.currentLogedUser = $scope.user;
-                console.log("Con el usuario: ");
-                console.log($rootScope.currentLogedUser);
-                $state.go('usuarioLoginSuccess',{});
 
             }
                 

@@ -41,7 +41,6 @@ public class ArtistaLogic extends AbstractLogic<ArtistaEntity> {
             for(Long id1:lista){
                 persistence2.deleteArtistaEspectaculo(id1);
                 persistence2.deleteComentarioEspectaculo(id1);
-                persistence2.deleteFuncionEspectaculo(id1);
                 persistence2.deleteOrganizadorEspectaculo(id1);
                 persistence2.delete(persistence2.find(id1));
             }

@@ -42,7 +42,6 @@ public class EspectaculoLogic extends AbstractLogic<EspectaculoEntity> {
             Long id=entity.getId();
             persistence.deleteArtistaEspectaculo(id);
             persistence.deleteComentarioEspectaculo(id);
-            persistence.deleteFuncionEspectaculo(id);
             persistence.deleteOrganizadorEspectaculo(id);
             persistence.delete(entity);
         } catch (IllegalArgumentException e) {

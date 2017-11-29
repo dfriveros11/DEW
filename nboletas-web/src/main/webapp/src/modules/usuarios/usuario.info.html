@@ -33,6 +33,12 @@
                         <dd><b>Precio: </b>{{boleta.precio}}</dd>
                         <button type="button" class="btn btn-info" ui-sref="boletaDetail({boletaId: boleta.id})" >Información</button>
                     </ul>
+                    <hr>
+                    <dt>Opciones: </dt>
+                    <ul class="actions">
+                        <li><a ng-if="hasPermissions()" ui-sref="usuarioUpdate({usuarioId: currentUser  .id})" class="button big">Actualizar datos personales</a></li>
+                        <li><a ng-if="hasPermissions()" ui-sref="usuarioDelete({usuarioId: currentUser.id})" class="button big btn-info">Borrar cuenta</a></li>
+                    </ul>
 
                 </dl>
             </div>

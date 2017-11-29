@@ -67,10 +67,6 @@ public class EspectaculoPersistence extends AbstractPersistence<EspectaculoEntit
         em.createNativeQuery(query).executeUpdate();
     }
     
-    public void deleteFuncionEspectaculo(Long idEspectaculo) {
-        String query = "DELETE FROM APP.FUNCIONENTITY WHERE (ESPECTACULO_ID = " + idEspectaculo +" )";
-        em.createNativeQuery(query).executeUpdate();
-    }
     
     public void deleteArtistaEspectaculo(Long idEspectaculo) {
         String query = "DELETE FROM APP.ESPECTACULOENTITY_ARTISTAENTITY WHERE (ESPECTACULOS_ID = " + idEspectaculo +" )";

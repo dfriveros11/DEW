@@ -43,7 +43,7 @@
                     .state('usuarioRegisterSuccess', {
                         url: '/usuario/registro/exitoso',
                         param: {
-                            usuarioId: null
+                            userName: null
                         },
                         'views': {
                             'masterView': {
@@ -108,6 +108,27 @@
                                 controller: 'usuarioCtrl',
                                 controllerAs: 'ctrl'
                             },
+                            'detailView': {
+                                templateUrl: basePath + 'usuario.info.html',
+                                controller: 'usuarioCtrl',
+                                controllerAs: 'ctrl'
+                            },
+                            'miniPostView': {
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView': {
+                                templateUrl: basePathHtml + 'artistas/postsList.html',
+                                controller: 'artistaCtrl'
+                            }
+                        }
+                    })
+                    .state('myAccount', {
+                        url: '/{usuarioId:int}/account',
+                        param: {
+                            usuarioId: null
+                        },
+                        views: {
                             'detailView': {
                                 templateUrl: basePath + 'usuario.info.html',
                                 controller: 'usuarioCtrl',
