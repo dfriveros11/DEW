@@ -8,7 +8,7 @@
     var mod = angular.module("artistasModule", ['ui.router']);
     mod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             var basePath = 'src/modules/artistas/';
-            var basePathHtml = 'src/modules/'
+            var basePathHtml = 'src/modules/';
             $urlRouterProvider.otherwise("/artistasList");
             $stateProvider
                     .state('artistasList', {
@@ -16,6 +16,14 @@
                         views:{
                             'listView':{
                                 templateUrl: basePath + 'artistas.list.html',
+                                controller: 'artistaCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
                                 controller: 'artistaCtrl'
                             }
                         }
@@ -30,6 +38,14 @@
                                 templateUrl: basePath + 'artistas.detail.html',
                                 controller: 'artistaCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -39,6 +55,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/artistas.new.html',
                                 controller: 'artistaNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -51,6 +75,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/artistas.update.html',
                                 controller: 'artistaUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -63,6 +95,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/artistas.delete.html',
                                 controller: 'artistaDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

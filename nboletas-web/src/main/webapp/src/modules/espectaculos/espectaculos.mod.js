@@ -39,6 +39,14 @@
                                 templateUrl: basePath + 'espectaculos.detail.html',
                                 controller: 'espectaculoCtrl',
                                 controllerAs: 'ctrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -48,6 +56,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/espectaculos.new.html',
                                 controller: 'espectaculoNewCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -60,6 +76,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/newArtista/espectaculos.newArtista.html',
                                 controller: 'espectaculoNewArtistaCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -72,6 +96,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/new/newOrganizador/espectaculos.newOrganizador.html',
                                 controller: 'espectaculoNewOrganizadorCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }        
                     })
@@ -84,6 +116,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/update/espectaculos.update.html',
                                 controller: 'espectaculoUpdateCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }
                     })
@@ -96,6 +136,14 @@
                             'detailView': {
                                 templateUrl: basePath + '/delete/espectaculos.delete.html',
                                 controller: 'espectaculoDeleteCtrl'
+                            },
+                            'miniPostView':{
+                                templateUrl: basePathHtml + 'funciones/miniPosts.html',
+                                controller: 'funcionesCtrl'
+                            },
+                            'postsListView':{
+                                templateUrl: basePathHtml +'artistas/postsList.html',
+                                controller: 'artistaCtrl'
                             }
                         }         
                     });

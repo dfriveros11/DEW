@@ -18,8 +18,6 @@
             </footer>
 	</article>
 	<!-- Pagination -->
-	<ul class="actions pagination">
-            <li><a href="#" class="disabled button big previous">Pagina Anterior</a></li>
+	<ul class="actions pagination" ng-if="hasPermissions()">
             <li><a ng-if="hasPermissions()" ui-sref="sillasCreate" class="button big next">Agregar</a>
-            <li><a href="#" class="button big next">Siguiente pagina</a></li>
 	</ul>
