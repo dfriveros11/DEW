@@ -23,8 +23,9 @@ public class ReembolsoEntity extends BaseEntity implements Serializable {
     /**
      * Valor del reembolso.
      */
-    @NotNull
     private double valor;
+    
+    private String imagen;
     
     @NotNull
     @PodamExclude
@@ -60,4 +61,17 @@ public class ReembolsoEntity extends BaseEntity implements Serializable {
         this.usuario = usuario;
     }
 
+    /**
+     * @return the imagen
+     */
+    public String getImagen() {
+        return imagen;
+    }
+
+    /**
+     * @param imagen the imagen to set
+     */
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }
