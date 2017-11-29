@@ -15,7 +15,7 @@
     <div class="form-group row">
         <div class="form-group col-sm-12">
             <input ng-show="envio.$valid" type="submit" value="Guardar" class="btn btn-success"/>
-            <button id="cancel-update" ui-sref="enviosList" class="btn btn-danger">Cancelar</button>
+            <button id="cancel-update" ui-sref="envioDetail({envioId: envio.id})" class="btn btn-danger">Cancelar</button>
         </div>
     </div>
 </form>
