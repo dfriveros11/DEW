@@ -26,7 +26,7 @@ public class DivisionDeLugarPersistence extends AbstractPersistence<DivisionDeLu
     public DivisionDeLugarEntity update(DivisionDeLugarEntity entity) throws PersistenceException{
         String query = "UPDATE APP.DIVISIONDELUGARENTITY SET NOMBRE = '";
         query += entity.getNombre()+"'";
-        query += ", IMAGEN = '"+entity.getImagen()+"'";
+        query += ", IMAGEN = '"+entity.getImagen()+"'";     
         if(entity.getLugar()!=null){
             query += ", LUGAR_ID= " + entity.getLugar().getId();
         }

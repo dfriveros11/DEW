@@ -10,9 +10,7 @@
         function ($scope, $http, sillasContext, $state, $rootScope) {
             $rootScope.edit = false;
             $scope.createSilla = function () {
-                $http.post(sillasContext, {
-                    costo: $scope.sillaCosto
-                }).then(function (response) {
+                $http.post(sillasContext, {costo:$scope.sillaCosto,imagen:$scope.sillaImagen}).then(function (response) {
                     $state.go('sillasList', {sillaId: response.data.id}, {reload: true});
                 });
             };
