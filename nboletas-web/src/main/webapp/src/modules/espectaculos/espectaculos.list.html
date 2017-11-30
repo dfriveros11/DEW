@@ -19,5 +19,5 @@
 	</article>
 	<!-- Pagination -->
 	<ul>
-            <li><a ui-sref="espectaculosCreate" class="button big next">Agregar</a>
+            <li><a ng-if="hasPermissions()" ui-sref="espectaculosCreate" class="button big next">Agregar</a>
 	</ul>

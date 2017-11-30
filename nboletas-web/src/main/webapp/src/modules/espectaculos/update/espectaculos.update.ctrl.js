@@ -4,7 +4,7 @@
             var mod = ng.module("espectaculosModule");
             /** llame los context que necesite para el update**/
             mod.constant("espectaculosContext", "api/espectaculos");
-            mod.constant("organizadoresContexts", "api/organizadores");
+            mod.constant("artistasContexts","api/artistas");
             mod.controller('espectaculoUpdateCtrl', ['$scope', '$http', 'espectaculosContext', 'organizadoresContexts',  '$state', '$rootScope', '$filter',
                 function ($scope, $http, espectaculosContext, organizadoresContexts, $state, $rootScope, $filter) {
                     $rootScope.edit = true;

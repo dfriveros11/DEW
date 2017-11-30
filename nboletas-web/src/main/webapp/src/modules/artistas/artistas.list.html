@@ -19,5 +19,5 @@
 	</article>
 	<!-- Pagination -->
 	<ul>
-            <li><a ui-sref="artistasCreate" class="button big next">Agregar</a>
+            <li><a ng-if="hasPermissions()" ui-sref="artistasCreate" class="button big next">Agregar</a>
 	</ul>
