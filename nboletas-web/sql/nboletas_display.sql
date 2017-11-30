@@ -129,13 +129,11 @@ insert into BoletaEntity (id, precio, vendida, usuario_id) values (105, 600.00, 
 insert into BoletaEntity (id, precio, vendida, usuario_id) values (106, 100.00, 1, 104);
 /*-----Boletas(Reembolsadas)-----**/
 insert into BoletaEntity (id, precio, vendida, usuario_id) values (107, 200.00, 1, 104);
-insert into BoletaEntity (id, precio, vendida, usuario_id) values (108, 300.00, 1,106);
 /*-----Boletas(Sin comprar)**/
 insert into BoletaEntity (id, precio, vendida) values (109, 300.00, 1);
 insert into BoletaEntity (id, precio, vendida) values (110, 300.00, 1);
 /*------Reembolsos**/
 insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (100, 300.00, 107, 104);
-insert into ReembolsoEntity(id, valor, boleta_id, usuario_id) values (101, 10.00, 108, 106);
 
 /* Recursos para borrar! **/
 insert into FuncionEntity (id, fecha, hora, espectaculo_id, lugar_id, imagen) values (20, '10/10/2017', '10:00 pm', 1, 1, 'https://upload.wikimedia.org/wikipedia/commons/0/05/Palco_TeatroReal.jpg');

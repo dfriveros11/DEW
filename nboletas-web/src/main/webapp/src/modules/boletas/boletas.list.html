@@ -9,8 +9,8 @@
     <p>¿Esta Vendida?: {{boleta.vendida}}</p>
     <footer>
         <ul class="actions">
-            <li><a ng-if="hasPermissions" ui-sref="boletaUpdate({boletaId: boleta.id})" class="button big">Actualizar</a></li>
-            <li><a ng-if="hasPermissions" ui-sref="boletaDelete({boletaId: boleta.id})" class="button big">Borrar</a></li>
+            <li><a ng-if="hasPermissions()" ui-sref="boletaUpdate({boletaId: boleta.id})" class="button big">Actualizar</a></li>
+            <li><a ng-if="hasPermissions()" ui-sref="boletaDelete({boletaId: boleta.id})" class="button big">Borrar</a></li>
         </ul>
         <ul class="stats">
             <li><a href="#" class="icon fa-heart">28</a></li>
@@ -20,5 +20,5 @@
 </article>
 <!-- Pagination -->
 <ul class="actions pagination">
-    <li><a ng-if="hasPermissions" ui-sref="boletasCreate" class="button big next">Agregar</a>
+    <li><a ng-if="hasPermissions()" ui-sref="boletasCreate" class="button big next">Agregar</a>
 </ul>
