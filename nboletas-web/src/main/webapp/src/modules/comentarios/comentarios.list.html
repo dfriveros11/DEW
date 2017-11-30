@@ -1,31 +1,24 @@
-<div class="container-fluid">
-    <div class="panel-body">
-        
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="comentariosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new comentario</a>
-                    </div>
-                </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Comentario</th>  
-                    <th>fecha</th> 
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="comentario in comentariosRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="comentarioDetail({comentarioId: comentario.id})">{{comentario.id}}</a></td>
-                    <td id="{{$index}}-comentario">{{comentario.comentario}}</td>
-                    <td id="{{$index}}-fecha">{{comentario.fecha | date : yyyy-MM-dd}}</td>   
-                    <td id="{{$index}}-actions">
-                      <a class="btn btn-default btn-sm" ui-sref="comentarioUpdate({comentarioId: comentario.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                       <a class="btn btn-danger btn-sm" ui-sref="comentarioDelete({comentarioId: comentario.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<article class="post" ng-repeat="comentario in comentariosRecords">
+    <header>
+        <div class="title">
+            <h2><a ui-sref="comentarioDetail({comentarioId: comentario.id})">{{"Comentario #" + comentario.id}}</a></h2>
+        </div>
+    </header>
+    <a ui-sref="comentarioDetail({comentarioId: comentario.id})" class="image featured"><img ng-src="{{comentario.imagen}}" alt="" /></a>
+    <p>Comentario {{comentario.comentario}}</p>
+    <p>Fecha: {{comentario.fecha | date : yyyy-MM-dd}}</p>
+     <footer>
+        <ul class="actions">
+            <li><a ng-if="hasPermissions()" ui-sref="comentarioUpdate({comentarioId: comentario.id})" class="button big">Actualizar</a></li>
+            <li><a ng-if="hasPermissions()" ui-sref="comentarioDelete({comentarioId: comentario.id})" class="button big">Borrar</a></li>
+        </ul>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>
+<!-- Pagination -->
+<ul class="actions pagination" ng-if="hasPermissions()">
+    <li><a ui-sref="comentariosCreate" class="button big next">Agregar</a>
+</ul>

@@ -1,30 +1,23 @@
-
-<div class="container-fluid">
-    <div class="panel-body">
-        
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a class="btn btn-info" ui-sref="enviosCreate"><span class="glyphicon glyphicon-plus-sign"></span> Add new envio</a>
-                    </div>
-                </div>
-    <div class="col-md-4">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>    
-                    <th>Direccion</th>  
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="envio in enviosRecords">
-                    <td id="{{$index}}-id">   <a ui-sref="envioDetail({envioId: envio.id})">{{envio.id}}</a></td>
-                    <td id="{{$index}}-direccion">{{envio.direccion}}</td>   
-                    <td id="{{$index}}-actions">
-                      <a class="btn btn-default btn-sm" ui-sref="envioUpdate({envioId: envio.id})"><span class="glyphicon glyphicon-edit"></span></a>
-                       <a class="btn btn-danger btn-sm" ui-sref="envioDelete({envioId: envio.id})"><span class="glyphicon glyphicon-trash"></span></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<article class="post" ng-repeat="envio in enviosRecords">
+    <header>
+        <div class="title">
+            <h2><a ui-sref="envioDetail({envioId: envio.id})">{{"Envio #" + envio.id}}</a></h2>
+        </div>
+    </header>
+    <a ui-sref="envioDetail({envioId: envio.id})" class="image featured"><img ng-src="{{envio.imagen}}" alt="" /></a>
+    <p>Dirreccion: {{envio.direccion}}</p>
+    <footer>
+        <ul class="actions">
+            <li><a ng-if="hasPermissions()" ui-sref="envioUpdate({envioId: envio.id})" class="button big">Actualizar</a></li>
+            <li><a ng-if="hasPermissions()" ui-sref="envioDelete({envioId: envio.id})" class="button big">Borrar</a></li>
+        </ul>
+        <ul class="stats">
+            <li><a href="#" class="icon fa-heart">28</a></li>
+            <li><a href="#" class="icon fa-comment">128</a></li>
+        </ul>
+    </footer>
+</article>
+<!-- Pagination -->
+<ul class="actions pagination" ng-if="hasPermissions()">
+    <li><a ui-sref="enviosCreate" class="button big next">Agregar</a>
+</ul>
